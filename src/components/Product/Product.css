@@ -1,0 +1,25 @@
+.product {
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding-bottom: 5px;
+}
+product-details{
+    margin-left: 10px;
+}
+.product h3 {
+    color: blue;
+    font-weight: 500;
+
+}
+
+.main-button {
+    background-color: goldenrod;
+    width: 130px;
+    height: 30px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
