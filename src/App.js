@@ -4,14 +4,16 @@ import Course from './Components/Course/Course';
 
 
 
+
 function App() {
   return (
     <div className="container-fluid">
-      <h1>Online Course</h1>
+      <h1 className = "text-center">Online Courses</h1>
       <header className="">
-        <Course className="d-flex m-3 p-4"></Course>
+        <Course></Course>
       </header>
     </div>
+ 
   );
 }
 
