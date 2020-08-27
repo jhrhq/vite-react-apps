@@ -1,0 +1,9 @@
+var course2 =
+[ {"key":"B00OSTKZWO","name":"UI & Web Design using Adobe Illustrator CC","price":25,"instructor":"bdampierj","duration":"8h 20m","students":"591", "img":"https://i.ibb.co/gVHz7tN/ashkan-forouzani-Rbq-Zuc-CIHNw-unsplash.jpg"},
+{"key":"B00OSTKZWP","name":"User Experience Design college course, intro to UI & UX design taught by a University UX instructor.","price":25,"instructor":"ecundei","duration":"6h 54m  ","students":"21695", "img":"https://i.ibb.co/VVQNTQ2/metin-ozer-i-Sm-Twu-KTNDo-unsplash.jpg"},{"key":"B00OSTKZWA","name":"Learn Figma: User Interface Design Essentials - UI/UX Design","price":27,"instructor":"tfilintsevh","duration":"10h 19m","students":"76461-005", "img":"https://i.ibb.co/7VqCbTb/mike-austin-jg-SAuq-Mm-JUE-unsplash.jpg"},
+{"key":"B00OSTKZWS","name":"User Experience Design Essentials - Adobe XD UI UX Design","price":28,"instructor":"cninnisg","duration":"9h 17m","students":"35356-256", "img":"https://i.ibb.co/9pMpWs0/mohammad-khaksarmadani-4-FDs-Nc-CR8i-Q-unsplash.jpg"},
+{"key":"B00OSTKZWD","name":"Designing for the Future: UI/UX Prototyping","price":22,"instructor":"aobeef","duration":"7h","students":"52183", "img":"https://i.ibb.co/yPMG623/sebastian-hemetsberger-lr-Pfu-Jsb-Wh-Q-unsplash.jpg"},
+{"key":"B00OSTKZWF","name":"Learn Adobe Xd Webdesign: Design professional websites from scratch - UI UX Design","price":29,"instructor":"scharline","duration":"9h 20m","students":"59088", "img":"https://i.ibb.co/gVHz7tN/ashkan-forouzani-Rbq-Zuc-CIHNw-unsplash.jpg"},
+{"name":"Designing with Figma: Landing Page for Mobile App","price":28,"instructor":"gkedwelld","duration":"1h 21m","students":"68703-120", "img":"https://i.ibb.co/xhQqFCf/lucas-sankey-b-Xq8p-Vf-P-f-Y-unsplash.jpg"},
+];
+export default course2;
