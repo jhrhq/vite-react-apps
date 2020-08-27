@@ -13,15 +13,15 @@ const Cart = (props) => {
 
     
     return (
-        <div>
-    <Card style={{ width: '18rem' }}>
-  <Card.Body>
-    <Card.Title>Courses Added</Card.Title>
-    <Card.Title>Total Course: {cart.length}</Card.Title>
-    <Card.Title>Total price: ${totalPrice}</Card.Title>
-  </Card.Body>
-</Card>
-        </div>
+    <div>
+    <Card>
+        <Card.Body>
+            <Card.Title>Courses Added</Card.Title>
+            <Card.Title>Total Course: {cart.length}</Card.Title>
+            <Card.Title>Total price: ${totalPrice}</Card.Title>
+        </Card.Body>
+    </Card>
+    </div>
     );
 };
 

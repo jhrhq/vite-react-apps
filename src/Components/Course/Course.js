@@ -23,19 +23,44 @@ const Course = () => {
         <div >
         <Container>
             <Row>
-            <Col sm={8}>
+            <Col md={3} className = "mr-2">
                 <div>
                 {
                     courses.map(crse =>
 
-                        <Shoping className= "d-flex" handleAddCourse= {handleAddCourse}
+                        <Shoping  handleAddCourse= {handleAddCourse}
                         product={crse} key={crse.key}></Shoping>
                     
                  
                     )}
                 </div>
             </Col>
-            <Col sm={4}>
+            <Col md={3} className = "mr-2">
+                <div>
+                {
+                    courses.map(crse =>
+
+                        <Shoping  handleAddCourse= {handleAddCourse}
+                        product={crse} key={crse.key}></Shoping>
+                    
+                 
+                    )}
+                </div>
+            </Col>
+            <Col md={3} className = "mr-2">
+                <div>
+                {
+                    courses.map(crse =>
+
+                        <Shoping  handleAddCourse= {handleAddCourse}
+                        product={crse} key={crse.key}></Shoping>
+                    
+                 
+                    )}
+                </div>
+            </Col>
+            
+            <Col md={2} style={{ marginLeft: "3rem",width:'12rem' }}>
                 <div>
                 <Cart cart = {cart}></Cart>
                 </div>
