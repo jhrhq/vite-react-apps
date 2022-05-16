@@ -80,14 +80,18 @@ footer .footer_copyright {
   background-size: cover !important;
 }
 
+.center {
+  display: grid;
+  place-content: center;
+}
+
 .artist_name {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 400px;
   height: 160px;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+
   border: 2px solid white;
 }
 
