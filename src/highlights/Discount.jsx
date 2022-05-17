@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Fade, Slide } from 'react-reveal';
+import MyButton from '../utils/MyButton';
 
 const Discount = () => {
     const [discount, setDiscount] = useState(0)
@@ -23,8 +24,11 @@ const Discount = () => {
                     <Slide right>
                         <div className="discount_description">
                             <h3>Lorem ipsum dolor sit amet.</h3>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, aperiam.</p>
-                            <div >Button</div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, odio cupiditate delectus sint voluptas id eius quas. Rem, corporis amet provident dolorum facere quasi placeat quod quam qui! Perferendis unde voluptatibus quaerat reiciendis repellat molestiae quo, asperiores molestias libero possimus. Excepturi laboriosam error praesentium voluptas quis velit accusamus nisi totam.</p>
+                            <MyButton href='https://mui.com/material-ui/api/button/'
+                                    size='medium'
+                                    color='warning'
+                                    text = 'Purchase Tickets' />
                         </div>
                     </Slide>
                 </div>

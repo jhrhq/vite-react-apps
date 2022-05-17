@@ -7,7 +7,7 @@ const Description = () => {
             <div className="center_wrapper">
                 <h2>Highlights</h2>
                 <div className="highlight_description">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa temporibus ducimus vero cumque laboriosam voluptatem ad modi totam quos sit?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores reiciendis veniam accusantium placeat tempore omnis rem. Cupiditate labore ut amet sequi illum explicabo laudantium reprehenderit debitis ipsam obcaecati, corporis totam?
                 </div>
             </div>
         </Fade>
