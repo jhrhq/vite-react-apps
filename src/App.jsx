@@ -1,6 +1,7 @@
 
 import './App.css'
 import Featured from './featured/Featured'
+import Footer from './header_footer/Footer'
 import Header from './header_footer/Header'
 import Highlights from './highlights/Highlihts'
 import Location from './location/Location'
@@ -16,6 +17,7 @@ function App() {
       <Highlights />
       <Pricing />
       <Location />
+      <Footer />
     </div>
   )
 }

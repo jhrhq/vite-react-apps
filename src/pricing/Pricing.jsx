@@ -9,6 +9,7 @@ const Pricing = () => {
       </div>
       <div className="pricing_wrapper">
         <PricingCard
+        delay={500}
           price={100}
           position={"Balcony"}
           description={
@@ -16,6 +17,7 @@ const Pricing = () => {
           }
         />
         <PricingCard
+        delay={0}
           price={150}
           position={"Medium"}
           description={
@@ -23,6 +25,7 @@ const Pricing = () => {
           }
         />
         <PricingCard
+        delay={500}
           price={250}
           position={"Star"}
           description={

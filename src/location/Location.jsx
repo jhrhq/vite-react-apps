@@ -10,7 +10,7 @@ const Location = () => {
         allowfullscreen
         loading="lazy"
       ></iframe>
-      <div className="location_tag">Location</div>
+      <div className="location_tag"><div>Location</div></div>
     </div>
   );
 };
