@@ -75,6 +75,10 @@ footer .footer_copyright {
   height: 700px;
   overflow: hidden;
 }
+.grid_column_start {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
 
 .carrousel_image {
   background-size: cover !important;

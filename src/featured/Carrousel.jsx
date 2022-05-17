@@ -12,7 +12,7 @@ const Carrousel = () => {
         speed: 500
       };
     return (
-        <div className='carousel_wrapper'
+        <div className='carousel_wrapper grid_column_start'
             style={{
                 // backgroundColor:'red',
                 height:`${window.innerHeight}px`,
