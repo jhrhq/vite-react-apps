@@ -11,27 +11,23 @@ import VenueInfo from "./venue_info/VenueInfo";
 function App() {
   return (
     <div className="App">
+        <Header /> 
       <Element name="eventStarts">
-        <Header />
-      </Element>
-      <Element name="venueinfo">
         <Featured />
       </Element>
-      <Element name="highlights">
+      <Element name="venueinfo">
         <VenueInfo />
       </Element>
-      <Element name="pricing">
+      <Element name="highlights">
         <Highlights />
       </Element>
-      <Element name="">
+      <Element name="pricing">
         <Pricing />
       </Element>
-      <Element name="">
+      <Element name="location">
         <Location />
       </Element>
-      <Element name="">
         <Footer />
-      </Element>
     </div>
   );
 }

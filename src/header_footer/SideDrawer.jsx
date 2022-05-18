@@ -39,6 +39,11 @@ const SideDrawer = ({open, onClose}) => {
                             <ListItemText primary = "Pricing" />
                         </ListItemButton>
                     </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton component="a"  onClick={() => scrollToElement('location')}>
+                            <ListItemText primary = "location" />
+                        </ListItemButton>
+                    </ListItem>
                 </List>
             </Drawer>
       
