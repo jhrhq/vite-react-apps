@@ -11,10 +11,24 @@ const Shopping = () => {
       .then((res) => res.json())
       .then((data) => setLaptops(data));
   }, []);
+  const handleAddToCart = () => {
+    console.log("click");
+  };
   return (
     <div className="shopping">
-      <Product laptops={laptops} />
-      <Cart laptops={laptops} />
+      <div className="cards">
+        {laptops.map((laptop) => (
+          <Product
+            key={laptop.id}
+            laptop={laptop}
+            handleAddToCart={handleAddToCart}
+          />
+        ))}
+      </div>
+
+      <div>
+        <Cart laptops={laptops} />
+      </div>
     </div>
   );
 };

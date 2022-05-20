@@ -1,3 +1,15 @@
 .product {
-  background-color: darkgreen;
+  padding: 0 1em;
+}
+
+.card {
+  border: 2px solid #e7e7e7;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: darkviolet;
+  color: #e7e7e7;
+}
+.card img {
+  object-fit: cover;
+  max-width: 100%;
 }
