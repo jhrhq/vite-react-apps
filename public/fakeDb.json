@@ -1,0 +1,122 @@
+[
+  {
+    "id": "5b9ccdf94f015251607be343",
+    "name": "Laptop E203MAH",
+    "cpu": "Celeron N4000",
+    "os": "windows",
+    "ram": "DDR3",
+    "screen": "11.6 inches and ips",
+    "graphics_card": "UHD Graphics 605",
+    "images": "https://rapidimages.yelidmod.com/original/7/0/e/70ef38a55ded7c507395f8ee12de0fe7.webp",
+    "company": "Asus",
+    "price": 865
+  },
+  {
+    "id": "5b9cceb54f0152534076ee12",
+    "name": "Laptop E202SA",
+    "cpu": "Celeron N3050",
+    "os": "windows",
+    "ram": "DDR3",
+    "screen": "11.6 inches and ips",
+    "graphics_card": "UHD Graphics 605",
+    "images": "https://rapidimages.yelidmod.com/original/9/7/1/97183b39d62444acc956a5a77368ebd9.webp",
+    "company": "Asus",
+    "price": 1478
+  },
+  {
+    "id": "5b9ccf014f0152534076ee32",
+    "name": "A6-7310",
+    "cpu": "Radeon R4",
+    "os": "windows",
+    "ram": "DDR3",
+    "screen": "15.6 inches and ips",
+    "graphics_card": "Radeon R4",
+    "images": "https://rapidimages.yelidmod.com/original/9/5/2/952d61b1bc9d962b2422969fed4940d8.webphttps://www.asus.com/Laptops/ASUS-Laptop-X555YA/",
+    "company": "AMD",
+    "price": 942
+  },
+  {
+    "id": "5cb03db3ca234c60330d9c49",
+    "name": "Laptop X543MA",
+    "cpu": "Celeron N4000",
+    "os": "windows",
+    "ram": "DDR3",
+    "screen": "15.6 inches and ips",
+    "graphics_card": "UHD Graphics 600",
+    "images": "https://rapidimages.yelidmod.com/original/1/6/a/16a2df9918cdc45c5d0073ba9152559d.webp",
+    "company": "Asus",
+    "price": 883
+  },
+  {
+    "id": "5b9cd0e84f0152578e6cc81d",
+    "name": "TUF Gaming FX705DD DT DU",
+    "cpu": "7 3750",
+    "os": "windows",
+    "ram": "DDR4",
+    "screen": "17.3 inches and ips",
+    "graphics_card": "GTX 1050 (Mobile)",
+    "images": "https://rapidimages.yelidmod.com/original/9/3/a/93a2a338619fe232a8a44f0d77d62087.webp",
+    "company": "Asus",
+    "price": 2191
+  },
+  {
+    "id": "5b9cd0b04f0152578e6cc80e",
+    "name": "Laptop X756UW",
+    "cpu": "Core i7-6950X",
+    "os": "windows",
+    "ram": "DDR4",
+    "screen": "17.3 inches and ips",
+    "graphics_card": "GTX 950M",
+    "images": "https://rapidimages.yelidmod.com/original/8/4/9/8497edd66e2c8ce458146157de2650bb.webp",
+    "company": "Asus",
+    "price": 653
+  },
+  {
+    "id": "5b9cd07c4f0152578e6cc7ff",
+    "name": "Laptop X756UA",
+    "cpu": "Core i7-6950X",
+    "os": "windows",
+    "ram": "DDR3",
+    "screen": "17.3 inches and ips",
+    "graphics_card": "GTX 950M",
+    "images": "https://rapidimages.yelidmod.com/original/8/4/9/8497edd66e2c8ce458146157de2650bb.webp",
+    "company": "Asus",
+    "price": 2191
+  },
+  {
+    "id": "5b9ccef44f0152534076ee2e",
+    "name": "ROG GL702VT",
+    "cpu": "Core i7-6950X",
+    "os": "windows",
+    "ram": "DDR4",
+    "screen": "17.3 inches and ips",
+    "graphics_card": "GTX 950M",
+    "images": "https://rapidimages.yelidmod.com/original/8/4/9/8497edd66e2c8ce458146157de2650bb.webp",
+    "company": "Asus",
+    "price": 653
+  },
+  {
+    "id": "5cf8401cca234c42862d3248",
+    "name": "ExpertBook P3540FA",
+    "cpu": "Core i3-8145U",
+    "os": "windows",
+    "ram": "DDR3",
+    "screen": "15.6 inches and ips",
+    "graphics_card": "UHD Graphics 620 (Mobile)",
+    "images": "https://rapidimages.yelidmod.com/original/7/a/0/7a0fe3fc751e65a26a4cc8690584dcbc.webp",
+    "company": "Asus",
+    "price": 653
+  },
+  {
+    "id": "5b9ccd3a4f01524f1609686d",
+    "name": "TUF Gaming FX705DD DT DU",
+    "cpu": "7 3750",
+    "os": "windows",
+    "ram": "DDR4",
+    "screen": "15.6 inches and ips",
+    "graphics_card": "UHD Graphics 620 (Mobile)",
+    "images": "https://rapidimages.yelidmod.com/original/9/3/a/93a2a338619fe232a8a44f0d77d62087.webp",
+    "company": "Asus",
+    "price": 2191
+  }
+]
