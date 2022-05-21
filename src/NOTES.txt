@@ -2,13 +2,13 @@ make fake data.json
 9-12 product
 
 #use any icon
-#make it mobile friendly responsive
-#add the product name (onclick button) to the cart list
+#make it mobile friendly responsive 👍.
+#add the product name (onclick button) to the cart list . 👍.
 #choose 1 for me (button). onclick the button generate a random number. match generated number with the cart product select that product.
 
 
 Bonus Marks
-#use Destructuring
+#use Destructuring👍.
 #commit at least 6 times
 #write porject name and live website link.  some description about the project in the readme file and 
 #reset Cart button(button). and clear the cart

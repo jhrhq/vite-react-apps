@@ -24,7 +24,6 @@ const Shopping = () => {
     }
     setCart(newCart);
   };
-
   return (
     <div className="shopping">
       <div className="cards">
