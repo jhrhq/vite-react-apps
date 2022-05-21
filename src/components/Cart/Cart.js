@@ -1,7 +1,5 @@
-import React, { useState } from "react";
 import "./Cart.css";
-const Cart = ({ cart }) => {
-  const [randomProduct, setRandomProduct] = useState("");
+const Cart = ({ cart, handleEmptyCart, randomProduct, setRandomProduct }) => {
   let total = 0;
   let shipping = 0;
   let quantity = 0;
@@ -29,6 +27,7 @@ const Cart = ({ cart }) => {
       <h4>{productName}</h4>
       <button onClick={handleRandomProduct}>select Any</button>
       <p>You can select : {randomProduct} </p>
+      <button onClick={handleEmptyCart}>Reset Cart</button>
     </div>
   );
 };

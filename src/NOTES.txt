@@ -4,14 +4,14 @@ make fake data.json
 #use any icon
 #make it mobile friendly responsive 👍.
 #add the product name (onclick button) to the cart list . 👍.
-#choose 1 for me (button). onclick the button generate a random number. match generated number with the cart product select that product.
+#choose 1 for me (button). onclick the button generate a random number. match generated number with the cart product select that product. 👍
 
 
 Bonus Marks
 #use Destructuring👍.
-#commit at least 6 times
+#commit at least 6 times 👍
 #write porject name and live website link.  some description about the project in the readme file and 
-#reset Cart button(button). and clear the cart
+#reset Cart button(button). and clear the cart 👍
 #Answer any 2 of 3
 How react works
 Different between props and state
