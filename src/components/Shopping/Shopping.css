@@ -11,3 +11,20 @@
   grid-auto-rows: auto;
   grid-gap: 1rem;
 }
+
+@media only screen and (max-width: 800px) {
+  .shopping {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 0.5em;
+  }
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 0.8rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+    grid-gap: 0.5rem;
+  }
+}

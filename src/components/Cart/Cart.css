@@ -1,3 +1,6 @@
 .cart {
   background-color: crimson;
+  padding: 0 0.5em;
+  position: sticky;
+  top: 0;
 }

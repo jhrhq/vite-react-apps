@@ -12,7 +12,7 @@ const Product = ({ laptop, handleAddToCart }) => {
         <p>Operation System: {os}</p>
         <p>Screen Size: {screen}</p>
         <p>Price : ${price}</p>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <button onClick={() => handleAddToCart(laptop)}>Add to Cart</button>
       </div>
     </div>
   );

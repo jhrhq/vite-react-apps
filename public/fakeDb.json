@@ -9,7 +9,9 @@
     "graphics_card": "UHD Graphics 605",
     "images": "https://rapidimages.yelidmod.com/original/7/0/e/70ef38a55ded7c507395f8ee12de0fe7.webp",
     "company": "Asus",
-    "price": 865
+    "price": 865,
+    "quantity": 0,
+    "shipping": 14
   },
   {
     "id": "5b9cceb54f0152534076ee12",
@@ -21,7 +23,9 @@
     "graphics_card": "UHD Graphics 605",
     "images": "https://rapidimages.yelidmod.com/original/9/7/1/97183b39d62444acc956a5a77368ebd9.webp",
     "company": "Asus",
-    "price": 1478
+    "price": 1478,
+    "quantity": 0,
+    "shipping": 1
   },
   {
     "id": "5b9ccf014f0152534076ee32",
@@ -33,7 +37,9 @@
     "graphics_card": "Radeon R4",
     "images": "https://rapidimages.yelidmod.com/original/7/0/e/70ef38a55ded7c507395f8ee12de0fe7.webp",
     "company": "AMD",
-    "price": 942
+    "price": 942,
+    "quantity": 0,
+    "shipping": 32
   },
   {
     "id": "5cb03db3ca234c60330d9c49",
@@ -45,7 +51,9 @@
     "graphics_card": "UHD Graphics 600",
     "images": "https://rapidimages.yelidmod.com/original/1/6/a/16a2df9918cdc45c5d0073ba9152559d.webp",
     "company": "Asus",
-    "price": 883
+    "price": 883,
+    "quantity": 0,
+    "shipping": 8
   },
   {
     "id": "5b9cd0e84f0152578e6cc81d",
@@ -57,7 +65,9 @@
     "graphics_card": "GTX 1050 (Mobile)",
     "images": "https://rapidimages.yelidmod.com/original/9/3/a/93a2a338619fe232a8a44f0d77d62087.webp",
     "company": "Asus",
-    "price": 2191
+    "price": 2191,
+    "shipping": 29,
+    "quantity": 0
   },
   {
     "id": "5b9cd0b04f0152578e6cc80e",
@@ -69,7 +79,9 @@
     "graphics_card": "GTX 950M",
     "images": "https://rapidimages.yelidmod.com/original/8/4/9/8497edd66e2c8ce458146157de2650bb.webp",
     "company": "Asus",
-    "price": 653
+    "price": 653,
+    "shipping": 27,
+    "quantity": 0
   },
   {
     "id": "5b9cd07c4f0152578e6cc7ff",
@@ -81,7 +93,9 @@
     "graphics_card": "GTX 950M",
     "images": "https://rapidimages.yelidmod.com/original/8/4/9/8497edd66e2c8ce458146157de2650bb.webp",
     "company": "Asus",
-    "price": 2191
+    "price": 2191,
+    "shipping": 46,
+    "quantity": 0
   },
   {
     "id": "5b9ccef44f0152534076ee2e",
@@ -93,7 +107,9 @@
     "graphics_card": "GTX 950M",
     "images": "https://rapidimages.yelidmod.com/original/8/4/9/8497edd66e2c8ce458146157de2650bb.webp",
     "company": "Asus",
-    "price": 653
+    "price": 653,
+    "shipping": 20,
+    "quantity": 0
   },
   {
     "id": "5cf8401cca234c42862d3248",
@@ -105,7 +121,9 @@
     "graphics_card": "UHD Graphics 620 (Mobile)",
     "images": "https://rapidimages.yelidmod.com/original/7/a/0/7a0fe3fc751e65a26a4cc8690584dcbc.webp",
     "company": "Asus",
-    "price": 653
+    "price": 653,
+    "shipping": 49,
+    "quantity": 0
   },
   {
     "id": "5b9ccd3a4f01524f1609686d",
@@ -117,6 +135,8 @@
     "graphics_card": "UHD Graphics 620 (Mobile)",
     "images": "https://rapidimages.yelidmod.com/original/9/3/a/93a2a338619fe232a8a44f0d77d62087.webp",
     "company": "Asus",
-    "price": 2191
+    "price": 2191,
+    "shipping": 27,
+    "quantity": 0
   }
 ]
