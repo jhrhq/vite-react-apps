@@ -1,5 +1,5 @@
-make fake data.json
-9-12 product
+make fake data.json👍
+9-12 product👍
 
 #use any icon
 #make it mobile friendly responsive 👍.
@@ -10,7 +10,7 @@ make fake data.json
 Bonus Marks
 #use Destructuring👍.
 #commit at least 6 times 👍
-#write porject name and live website link.  some description about the project in the readme file and 
+#write porject name and live website link.  some description about the project in the readme file
 #reset Cart button(button). and clear the cart 👍
 #Answer any 2 of 3
 How react works
@@ -22,3 +22,5 @@ Optional:
 Delete Button
 Click add button only once
 add to cart only 4.and after that show an alert message.
+6114750
+00002739900

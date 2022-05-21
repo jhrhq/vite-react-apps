@@ -1,12 +1,8 @@
-.product {
-  padding: 0 1em;
-}
-
 .card {
   border: 2px solid #e7e7e7;
   border-radius: 4px;
   padding: 0.5rem;
-  background-color: darkviolet;
+  background-color: blueviolet;
   color: #e7e7e7;
 }
 .card img {

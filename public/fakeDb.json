@@ -1,7 +1,7 @@
 [
   {
     "id": "5b9ccdf94f015251607be343",
-    "name": "Laptop E203MAH",
+    "name": "Essential 14 ",
     "cpu": "Celeron N4000",
     "os": "windows",
     "ram": "DDR3",
@@ -15,7 +15,7 @@
   },
   {
     "id": "5b9cceb54f0152534076ee12",
-    "name": "Laptop E202SA",
+    "name": "Asus EeeBook",
     "cpu": "Celeron N3050",
     "os": "windows",
     "ram": "DDR3",
@@ -29,7 +29,7 @@
   },
   {
     "id": "5b9ccf014f0152534076ee32",
-    "name": "A6-7310",
+    "name": "ASUS APU Quad Core",
     "cpu": "Radeon R4",
     "os": "windows",
     "ram": "DDR3",
@@ -43,7 +43,7 @@
   },
   {
     "id": "5cb03db3ca234c60330d9c49",
-    "name": "Laptop X543MA",
+    "name": "ASUS Pentium Quad Core",
     "cpu": "Celeron N4000",
     "os": "windows",
     "ram": "DDR3",
@@ -71,7 +71,7 @@
   },
   {
     "id": "5b9cd0b04f0152578e6cc80e",
-    "name": "Laptop X756UW",
+    "name": "Asus X756UW",
     "cpu": "Core i7-6950X",
     "os": "windows",
     "ram": "DDR4",
@@ -85,7 +85,7 @@
   },
   {
     "id": "5b9cd07c4f0152578e6cc7ff",
-    "name": "Laptop X756UA",
+    "name": "Asus X756UA",
     "cpu": "Core i7-6950X",
     "os": "windows",
     "ram": "DDR3",

@@ -40,6 +40,7 @@ const Shopping = () => {
       <div className="cards">
         {laptops.map((laptop) => (
           <Product
+            cart={cart}
             key={laptop.id}
             laptop={laptop}
             handleAddToCart={handleAddToCart}
