@@ -34,7 +34,7 @@ const Cart = ({ cart, handleEmptyCart, randomProduct, setRandomProduct }) => {
       <p>Total Shipping: ${shipping}</p>
       <h5>Grand Total: ${grandTotal}</h5>
       <button onClick={handleRandomProduct}>select Any</button>
-      <p>You can select : {randomProduct} </p>
+      <p>You can select : {randomProduct}</p>
       <button onClick={handleEmptyCart}>Reset Cart</button>
     </div>
   );

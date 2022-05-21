@@ -22,5 +22,3 @@ Optional:
 Delete Button
 Click add button only once
 add to cart only 4.and after that show an alert message.
-6114750
-00002739900

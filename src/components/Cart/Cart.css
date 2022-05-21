@@ -1,6 +1,12 @@
 .cart {
-  background-color: cornflowerblue;
+  background-color: #08eeff;
   padding: 0 0.5em;
   position: sticky;
   top: 0;
+}
+.cart button {
+  width: 100%;
+  padding: 0.8em;
+  font-family: inherit;
+  font-weight: bold;
 }
