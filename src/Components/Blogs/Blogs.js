@@ -1,13 +1,16 @@
 import React from "react";
 import { Accordion, Col, Row } from "react-bootstrap";
-
+import Image from "react-bootstrap/Image";
 const Blogs = () => {
   return (
     <Row>
+      <div className="my-4">
+        <h1 className="display-1 text-center text-uppercase">blogs</h1>
+      </div>
       <Col md={8}>
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
-            <Accordion.Header>what is context api.</Accordion.Header>
+            <Accordion.Header>what is context api?</Accordion.Header>
             <Accordion.Body>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -33,7 +36,7 @@ const Blogs = () => {
         </Accordion>
       </Col>
       <Col md={4}>
-        <h1 className="display-1">blogs</h1>
+        <Image src={"images/context_api.jpg"} alt="context_api" fluid />
       </Col>
     </Row>
   );
