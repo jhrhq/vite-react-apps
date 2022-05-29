@@ -12,7 +12,7 @@ const ProductLists = ({ review }) => {
           <Col md={4}>
             <Card.Img
               src={user_image}
-              class="img-fluid rounded-start"
+              className="img-fluid rounded-start"
               alt="..."
             />
           </Col>
@@ -21,9 +21,7 @@ const ProductLists = ({ review }) => {
               <Card.Title>{user_name}</Card.Title>
               <Card.Text>{review_text}</Card.Text>
               <Card.Text>
-                <small class="text-muted">
-                  User Rated the Product {rating}
-                </small>
+                <small className="text-muted">User Rated the Product</small>
                 {/* printing the start icon depending on the user ratings */}
                 {[...Array(rating)].map((_, index) => (
                   <FontAwesomeIcon
@@ -32,6 +30,7 @@ const ProductLists = ({ review }) => {
                     key={index}
                   />
                 ))}
+                <small className="text-muted">Star</small>
               </Card.Text>
             </Card.Body>
           </Col>
