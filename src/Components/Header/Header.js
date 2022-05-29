@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CustomLink from "../CustomLink/CustomLink";
 
 const Header = () => {
   return (
@@ -12,21 +13,24 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Link to="/" className="nav-link">
+            {/* <Link to="/" className="nav-link ">
               Home
-            </Link>
-            <Link to="/reviews" className="nav-link">
+            </Link> */}
+            <CustomLink to="/" className="nav-link">
+              Home
+            </CustomLink>
+            <CustomLink to="/reviews" className="nav-link">
               Reviews
-            </Link>
-            <Link to="/dashboard" className="nav-link">
+            </CustomLink>
+            <CustomLink to="/dashboard" className="nav-link">
               Dashboard
-            </Link>
-            <Link to="/blogs" className="nav-link">
+            </CustomLink>
+            <CustomLink to="/blogs" className="nav-link">
               Blogs
-            </Link>
-            <Link to="/about" className="nav-link">
+            </CustomLink>
+            <CustomLink to="/about" className="nav-link">
               About
-            </Link>
+            </CustomLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
