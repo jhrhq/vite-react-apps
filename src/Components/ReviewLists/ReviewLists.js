@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 
-const ProductLists = ({ review }) => {
+const ReviewLists = ({ review }) => {
   const { user_image, rating, review_text, user_name } = review;
   return (
     <Col>
@@ -40,4 +40,4 @@ const ProductLists = ({ review }) => {
   );
 };
 
-export default ProductLists;
+export default ReviewLists;
