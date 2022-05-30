@@ -4,7 +4,7 @@ import useReview from "../hooks/useReview";
 import ReviewLists from "../ReviewLists/ReviewLists";
 
 const Reviews = () => {
-  const [reviews] = useReview();
+  const [reviews] = useReview("customerReview.json");
 
   return (
     <Container>

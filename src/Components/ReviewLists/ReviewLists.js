@@ -1,10 +1,15 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const ReviewLists = ({ review }) => {
-  const { user_image, rating, review_text, user_name } = review;
+  const { user_image, rating, review_text, user_name, user_id } = review;
+  const navigate = useNavigate();
+  const handleDetailsReview = () => {
+    navigate("/reviews/" + user_id);
+  };
   return (
     <Col>
       <Card>
@@ -32,6 +37,9 @@ const ReviewLists = ({ review }) => {
                 ))}
                 <small className="text-muted">Star</small>
               </Card.Text>
+              <Button variant="outline-info" onClick={handleDetailsReview}>
+                More Details
+              </Button>
             </Card.Body>
           </Col>
         </Row>
