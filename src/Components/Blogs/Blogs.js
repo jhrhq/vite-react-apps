@@ -10,27 +10,25 @@ const Blogs = () => {
       <Col md={8}>
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
-            <Accordion.Header>what is context api?</Accordion.Header>
+            <Accordion.Header>what is Context Api?</Accordion.Header>
             <Accordion.Body>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Context Api can provide a data to all components down the line no
+              matter how deeply nested that component may be without sharing
+              porps. We have to send a data through props which is (called props
+              drilling) very complicated for some deeply nested components. But
+              we can share that data easily with Context Api while some of the
+              nested components do not have to know about that data. Context API
+              is ideal for theming, user language, authentication, etc.
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1">
-            <Accordion.Header>What is a semantic tag?</Accordion.Header>
+            <Accordion.Header>What is a Semantic tag?</Accordion.Header>
             <Accordion.Body>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Semantic HTML elements accurately descibe the purpose of the
+              element and the type of content inside them.Elements such as
+              &lt;header&gt; , &lt;footer&gt; and &lt;article&gt; are all
+              considered semantic element because they describe their meaning in
+              human and machine-readable way.
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
