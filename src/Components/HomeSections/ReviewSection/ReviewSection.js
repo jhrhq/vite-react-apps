@@ -1,14 +1,11 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {} from "bootstrap";
 import React from "react";
 import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import useReview from "../../hooks/useReview";
 import ReviewCard from "../ReviewCard/ReviewCard";
 
 const ReviewSection = () => {
-  //   const [reviews] = useReview();
   return (
     <Row className="py-3">
       <div className="my-3">
@@ -23,7 +20,6 @@ const ReviewSection = () => {
       <ReviewCard />
       <ReviewCard />
       <ReviewCard />
-
       <div className="mt-5 mb-3 text-center">
         <Link className="btn btn-secondary" to="/reviews">
           <span className="me-1">More Reviews</span>
