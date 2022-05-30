@@ -1,6 +1,6 @@
 # Reviw Monitor
 
-Site Link [Go to the live Link](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Site Link [Go to the live Link](https://monitor-review-johirhaquedipok.netlify.app/) for more information.
 
 # this site is created on React
 

@@ -25,7 +25,7 @@ const Blogs = () => {
             <Accordion.Header>What is a Semantic tag?</Accordion.Header>
             <Accordion.Body>
               Semantic HTML elements accurately descibe the purpose of the
-              element and the type of content inside them.Elements such as
+              element and the type of content inside them. Elements such as
               &lt;header&gt; , &lt;footer&gt; and &lt;article&gt; are all
               considered semantic element because they describe their meaning in
               human and machine-readable way.
