@@ -11,7 +11,7 @@ export const CityLogo = (props) => {
         height: props.height,
         backgroundImage: `url(${mcitylogo})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "auto 100%",
+        // backgroundSize: "auto 100%",
       }}
     ></div>
   );

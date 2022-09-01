@@ -1,13 +1,11 @@
 import React from "react";
-import Layout from "./HOC/Layout";
+import Featured from "./featured";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bck_blue">
       <h1>Header</h1>
-      <Layout>
-        <p>second line</p>
-      </Layout>
+      <Featured />
     </div>
   );
 };
