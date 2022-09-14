@@ -13,7 +13,7 @@ const Header = () => {
            </div>
          </div>
          <div className="navbar-center">
-           <a className="btn btn-ghost normal-case text-xl">Mini Task Manager</a>
+           <p className="btn btn-ghost normal-case text-xl">Mini Task Manager</p>
          </div>
          <div className="navbar-end">
            <button className="btn btn-ghost btn-circle">
