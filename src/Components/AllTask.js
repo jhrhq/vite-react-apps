@@ -2,22 +2,8 @@ import React, { useEffect, useState } from 'react';
 import TaskDetails from './TaskDetails';
 
 const AllTask = () => {
-    const [users, setUsers] = useState([]);
     const [tasks, setTasks] = useState([])
-    const allUsers = users?.users;
     const allTasks = tasks.tasks;
-    console.log(allTasks);
-
-    useEffect(()=>{
-        fetch('https://devza.com/tests/tasks/listusers',{
-            headers:{
-                authToken: 'UrM4YHgb1FcqEf1tuKwmAMMX5MxFZ12a'
-            }
-            })
-        .then(res => res.json())
-        .then(data => setUsers(data))
-    },[])
-
     useEffect(()=>{
         fetch('https://devza.com/tests/tasks/list',{
             headers:{
@@ -25,10 +11,11 @@ const AllTask = () => {
             }
             })
         .then(res => res.json())
-        .then(data => setTasks(data))
+        .then(data => {
+            setTasks(data)})
     },[])
 
-    if(!users.users || !tasks.tasks){
+    if(!tasks.tasks){
         return <p>Loading</p>
     }
 
@@ -47,9 +34,6 @@ const AllTask = () => {
                  </tr>
                </thead>
                <tbody>
-                    {
-                        allUsers.map(user => <TaskDetails key={user.id} user={user}></TaskDetails>)
-                    }
                     {
                         allTasks.map(task => <TaskDetails key={task.id} task={task}></TaskDetails>)
                     }
