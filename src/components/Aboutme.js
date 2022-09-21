@@ -16,11 +16,7 @@ const Aboutme = () => {
           {/* other details */}
           <div className="hero-content flex-col lg:flex-row lg:justify-between lg:flex-1">
             <div className="text-left w-full">
-              <h1 className="text-5xl font-bold">
-                Hi
-                <br />
-                I'm Johir Haque Dipok
-              </h1>
+              <h3 className="text-3xl font-bold">Summary</h3>
               <p className="py-6">
                 Provident cupiditate voluptatem et in. Quaerat fugiat ut
                 assumenda excepturi exercitationem quasi. In deleniti eaque aut
@@ -28,10 +24,20 @@ const Aboutme = () => {
               </p>
             </div>
             <div className="w-full flex items-center justify-center flex-col">
-              <button className="btn btn-wide mb-2 lg:mb-4">
-                My Repositories
-              </button>
-              <button className="btn btn-wide">My Resume</button>
+              <div className="text-left w-full">
+                <h3 className="text-3xl font-bold">Skills</h3>
+                <p className="py-6">
+                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                  assumenda excepturi exercitationem quasi. In deleniti eaque
+                  aut repudiandae et a id nisi.
+                </p>
+                <h2 className="text-xl">
+                  <span className="badge badge-lg"> Heading</span>
+                </h2>
+                <button className="btn btn-outline btn-secondary">
+                  Button
+                </button>
+              </div>
             </div>
           </div>
         </div>
