@@ -6,8 +6,7 @@ const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
   return (
     <li
       style={{ backgroundColor: isSelected ? "green" : "red" }}
-      // chage onClickHandler(index) call to callback function
-      onClick={() => onClickHandler(index)}
+      onClick={onClickHandler(index)}
     >
       {text}
     </li>
@@ -25,14 +24,11 @@ const SingleListItem = memo(WrappedSingleListItem);
 
 // List Component
 const WrappedListComponent = ({ items }) => {
-  // useSate() changed to useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(false);
+  const [setSelectedIndex, selectedIndex] = useState();
 
   useEffect(() => {
-    // setSelectedIndex(null) to setSelectedIndex(items)
-    // added one more dependencies "setSelectedIndex"
-    setSelectedIndex(items);
-  }, [items, setSelectedIndex]);
+    setSelectedIndex(null);
+  }, [items]);
 
   const handleClick = (index) => {
     setSelectedIndex(index);
@@ -40,15 +36,12 @@ const WrappedListComponent = ({ items }) => {
 
   return (
     <ul style={{ textAlign: "left" }}>
-      {items?.map((item, index) => (
+      {items.map((item, index) => (
         <SingleListItem
-          // use the key props which was missing
-          key={index}
           onClickHandler={() => handleClick(index)}
           text={item.text}
           index={index}
-          //  isSelected={selectedIndex} to preset property
-          isSelected={selectedIndex === index ? true : false}
+          isSelected={selectedIndex}
         />
       ))}
     </ul>
@@ -56,10 +49,8 @@ const WrappedListComponent = ({ items }) => {
 };
 
 WrappedListComponent.propTypes = {
-  // PropTypes.array to arrayOf
-  items: PropTypes.arrayOf(
-    // ropTypes.shapeOf to ropTypes.shape
-    PropTypes.shape({
+  items: PropTypes.array(
+    PropTypes.shapeOf({
       text: PropTypes.string.isRequired,
     })
   ),
@@ -72,13 +63,3 @@ WrappedListComponent.defaultProps = {
 const List = memo(WrappedListComponent);
 
 export default List;
-
-/* 
-
-Based on the code below answer the following queries:
-
-Explain what the simple List component does.
-What problems / warnings are there with code?
-Please fix, optimize, and/or modify the component as much as you think is necessary.
-
-*/
