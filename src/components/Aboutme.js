@@ -31,6 +31,26 @@ const Aboutme = () => {
                   assumenda excepturi exercitationem quasi. In deleniti eaque
                   aut repudiandae et a id nisi.
                 </p>
+                <div className="">
+                  <div className="inline-flex shrink-0 items-center justify-center  text-center p-2 rounded-lg bg-base-300 h-12 w-20 mb-2 mr-2">
+                    HTML
+                  </div>
+                  <div className="inline-flex shrink-0 items-center justify-center  text-center p-2 rounded-lg bg-base-300 h-12 w-28 mb-2 mr-2">
+                    CSS
+                  </div>
+                  <div className="inline-flex shrink-0 items-center justify-center  text-center p-2 rounded-lg bg-base-300 h-12 w-28 mb-2 mr-2">
+                    JavaScript
+                  </div>
+                  <div className="inline-flex shrink-0 items-center justify-center  text-center p-2 rounded-lg bg-base-300 h-12 w-28 mb-2 mr-2">
+                    ReactJs
+                  </div>
+                  <div className="inline-flex shrink-0 items-center justify-center  text-center p-2 rounded-lg bg-base-300 h-12 w-28 mb-2 mr-2">
+                    NodeJs
+                  </div>
+                  <div className="inline-flex shrink-0 items-center justify-center  text-center p-2 rounded-lg bg-base-300 h-12 w-28 mb-2 mr-2">
+                    MongoDB
+                  </div>
+                </div>
                 <h2 className="text-xl">
                   <span className="badge badge-lg"> Heading</span>
                 </h2>
