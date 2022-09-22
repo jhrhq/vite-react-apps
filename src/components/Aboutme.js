@@ -5,7 +5,9 @@ const Aboutme = () => {
     <div className="hero bg-base-200 text-base-content mx-auto max-w-md md:max-w-full py-20">
       <div className="hero-content px-4 text-center md:px-0">
         <div>
-          <h2 class=" mb-3 text-4xl font-extrabold md:text-6xl">About Me</h2>
+          <h2 className=" mb-3 text-4xl font-extrabold md:text-6xl">
+            About Me
+          </h2>
           <p className="mx-auto mb-5 w-full max-w-lg">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
