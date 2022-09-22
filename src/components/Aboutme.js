@@ -51,12 +51,6 @@ const Aboutme = () => {
                     MongoDB
                   </div>
                 </div>
-                <h2 className="text-xl">
-                  <span className="badge badge-lg"> Heading</span>
-                </h2>
-                <button className="btn btn-outline btn-secondary">
-                  Button
-                </button>
               </div>
             </div>
           </div>
