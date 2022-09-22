@@ -1,7 +1,140 @@
 import React from "react";
 
 const Tools = () => {
-  return <div>Some tools That I've learned</div>;
+  return (
+    <div className=" bg-base-300 flex flex-col items-center gap-20 py-20">
+      <div className="text-center">
+        <h2 class="mb-3 text-4xl font-extrabold md:text-6xl">Tools</h2>
+        <p className="mx-auto mb-5 w-full max-w-lg">
+          some of the Tools I've been working with.
+        </p>
+      </div>
+      <div className="text-base-content xl:rounded-box grid max-w-screen-xl gap-4 bg-opacity-60 xl:pb-0">
+        <div className="grid w-full lg:grid-flow-row grid-cols-1 md:grid-cols-2  lg:grid-cols-3 items-center gap-4 md:gap-6 lg:gap-8 px-10 pt-1 pb-10 xl:px-4">
+          {/* card 1 */}
+          <div className="card card-compact xl:card-normal bg-base-100 mx-2 w-72 shadow-xl xl:mx-0 xl:w-auto">
+            <figure>
+              <img
+                src="https://placeimg.com/400/225/arch"
+                height="187"
+                alt="Card Tailwind CSS Component"
+                class="rounded-t-box"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h2 class="card-title font-extrabold capitalize">
+                badge component
+              </h2>{" "}
+              <p class="text-neutral-content text-sm text-opacity-80">
+                Use badge component to highlight small inline items
+              </p>
+            </div>
+          </div>
+          {/* card 1 */}
+          <div className="card card-compact xl:card-normal bg-base-100 mx-2 w-72 shadow-xl xl:mx-0 xl:w-auto">
+            <figure>
+              <img
+                src="https://placeimg.com/400/225/arch"
+                height="187"
+                alt="Card Tailwind CSS Component"
+                class="rounded-t-box"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h2 class="card-title font-extrabold capitalize">
+                badge component
+              </h2>{" "}
+              <p class="text-neutral-content text-sm text-opacity-80">
+                Use badge component to highlight small inline items
+              </p>
+            </div>
+          </div>
+          {/* card 1 */}
+          <div className="card card-compact xl:card-normal bg-base-100 mx-2 w-72 shadow-xl xl:mx-0 xl:w-auto">
+            <figure>
+              <img
+                src="https://placeimg.com/400/225/arch"
+                height="187"
+                alt="Card Tailwind CSS Component"
+                class="rounded-t-box"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h2 class="card-title font-extrabold capitalize">
+                badge component
+              </h2>{" "}
+              <p class="text-neutral-content text-sm text-opacity-80">
+                Use badge component to highlight small inline items
+              </p>
+            </div>
+          </div>
+          {/* card 1 */}
+          <div className="card card-compact xl:card-normal bg-base-100 mx-2 w-72 shadow-xl xl:mx-0 xl:w-auto">
+            <figure>
+              <img
+                src="https://placeimg.com/400/225/arch"
+                height="187"
+                alt="Card Tailwind CSS Component"
+                class="rounded-t-box"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h2 class="card-title font-extrabold capitalize">
+                badge component
+              </h2>{" "}
+              <p class="text-neutral-content text-sm text-opacity-80">
+                Use badge component to highlight small inline items
+              </p>
+            </div>
+          </div>
+          {/* card 1 */}
+          <div className="card card-compact xl:card-normal bg-base-100 mx-2 w-72 shadow-xl xl:mx-0 xl:w-auto">
+            <figure>
+              <img
+                src="https://placeimg.com/400/225/arch"
+                height="187"
+                alt="Card Tailwind CSS Component"
+                class="rounded-t-box"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h2 class="card-title font-extrabold capitalize">
+                badge component
+              </h2>{" "}
+              <p class="text-neutral-content text-sm text-opacity-80">
+                Use badge component to highlight small inline items
+              </p>
+            </div>
+          </div>
+          {/* card 1 */}
+          <div className="card card-compact xl:card-normal bg-base-100 mx-2 w-72 shadow-xl xl:mx-0 xl:w-auto">
+            <figure>
+              <img
+                src="https://placeimg.com/400/225/arch"
+                height="187"
+                alt="Card Tailwind CSS Component"
+                class="rounded-t-box"
+              />
+            </figure>
+
+            <div class="card-body">
+              <h2 class="card-title font-extrabold capitalize">
+                badge component
+              </h2>{" "}
+              <p class="text-neutral-content text-sm text-opacity-80">
+                Use badge component to highlight small inline items
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Tools;
