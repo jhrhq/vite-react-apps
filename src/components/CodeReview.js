@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import React, { memo, useEffect, useState } from "react";
+import React, { useState } from "react";
 
 // Single List Item
 const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
+  console.log("WrappedSingleListItem");
   return (
     <li
       style={{ backgroundColor: isSelected ? "green" : "red" }}
@@ -21,30 +22,25 @@ WrappedSingleListItem.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-const SingleListItem = memo(WrappedSingleListItem);
+// const SingleListItem = memo(WrappedSingleListItem);
 
 // List Component
 const WrappedListComponent = ({ items }) => {
   // useSate() changed to useState(false);
   const [selectedIndex, setSelectedIndex] = useState(false);
 
-  useEffect(() => {
-    // setSelectedIndex(null) to setSelectedIndex(items)
-    // added one more dependencies "setSelectedIndex"
-    setSelectedIndex(items);
-  }, [items, setSelectedIndex]);
-
   const handleClick = (index) => {
     setSelectedIndex(index);
   };
+  // const handleClick = useMemo(() => (index) => setSelectedIndex(index), []);
 
   return (
     <ul style={{ textAlign: "left" }}>
       {items?.map((item, index) => (
-        <SingleListItem
+        <WrappedSingleListItem
           // use the key props which was missing
           key={index}
-          onClickHandler={() => handleClick(index)}
+          onClickHandler={handleClick}
           text={item.text}
           index={index}
           //  isSelected={selectedIndex} to preset property
@@ -69,7 +65,7 @@ WrappedListComponent.defaultProps = {
   items: null,
 };
 
-const List = memo(WrappedListComponent);
+const List = WrappedListComponent;
 
 export default List;
 
