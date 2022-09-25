@@ -1,13 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin: 0 auto;
+  font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #f5f5f5;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 64px;
+  letter-spacing: -2%;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: -2%;
+}
+h3 {
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -2%;
+}
+
+.link {
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: underline;
+}
+.button,
+.pre-title {
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 3%;
+}
+.small {
+  font-weight: medium;
+  font-size: 14px;
+}
+.subtitle {
+  font-weight: medium;
+  font-size: 24px;
+}
+
+.body {
+  font-weight: medium;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.section-header {
+  position: relative;
+  color: #09002a;
+}
+
+.section-header::after {
+  position: absolute;
+  content: "";
+  background: #f050be;
+  width: 116px;
+  height: 4.03px;
+  left: 0;
+  top: -14px;
 }
