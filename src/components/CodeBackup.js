@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 
 // Single List Item
 const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
@@ -21,9 +21,15 @@ WrappedSingleListItem.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
+const SingleListItem = memo(WrappedSingleListItem);
+
 // List Component
-const List = ({ items }) => {
+const WrappedListComponent = ({ items }) => {
   const [selectedIndex, setSelectedIndex] = useState(false);
+
+  useEffect(() => {
+    setSelectedIndex(null);
+  }, [items]);
 
   const handleClick = (index) => {
     setSelectedIndex(index);
@@ -32,7 +38,7 @@ const List = ({ items }) => {
   return (
     <ul style={{ textAlign: "left" }}>
       {items.map((item, index) => (
-        <WrappedSingleListItem
+        <SingleListItem
           key={index}
           onClickHandler={handleClick}
           text={item.text}
@@ -44,7 +50,7 @@ const List = ({ items }) => {
   );
 };
 
-List.propTypes = {
+WrappedListComponent.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
@@ -52,16 +58,18 @@ List.propTypes = {
   ),
 };
 
-List.defaultProps = {
+WrappedListComponent.defaultProps = {
   items: null,
 };
+
+const List = memo(WrappedListComponent);
 
 export default List;
 
 /* 
 
 2.What problems / warnings are there with code?
-   a. PropTypes.array used instead of PropTypes.arrayOf
+  a. PropTypes.array used instead of PropTypes.arrayOf
   b.PropTypes.shapeOf used instead of PropTypes.shape
   c.key prop was missing
   d. isSelected was passed as a function, should be a boolean
