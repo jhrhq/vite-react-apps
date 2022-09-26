@@ -14,7 +14,7 @@ const HowItWorks = () => {
         how it works
       </SectionHeader>
 
-      <div className="grid grid-cols-4 gap-4 mt-24">
+      <div className="grid grid-cols-4 gap-4 my-24">
         <CirlceFeature svgIcon={query}>QUERY SENT </CirlceFeature>
         <CirlceFeature svgIcon={design}>Designing</CirlceFeature>
         <CirlceFeature svgIcon={development}>Development </CirlceFeature>
