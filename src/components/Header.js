@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = () => {
-  console.log("header");
+
   return (
     <div
       className="hero min-h-screen text-base-content mx-auto  max-w-md md:max-w-full"

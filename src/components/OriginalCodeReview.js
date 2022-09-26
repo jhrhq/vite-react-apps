@@ -3,11 +3,10 @@ import React, { memo, useEffect, useState } from "react";
 
 // Single List Item
 const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
-  console.log("WrappedSingleListItem");
   return (
     <li
       style={{ backgroundColor: isSelected ? "green" : "red" }}
-      onClick={() => onClickHandler(index)}
+      onClick={onClickHandler(index)}
     >
       {text}
     </li>
@@ -25,7 +24,7 @@ const SingleListItem = memo(WrappedSingleListItem);
 
 // List Component
 const WrappedListComponent = ({ items }) => {
-  const [selectedIndex, setSelectedIndex] = useState(false);
+  const [setSelectedIndex, selectedIndex] = useState();
 
   useEffect(() => {
     setSelectedIndex(null);
@@ -39,11 +38,10 @@ const WrappedListComponent = ({ items }) => {
     <ul style={{ textAlign: "left" }}>
       {items.map((item, index) => (
         <SingleListItem
-          key={index}
-          onClickHandler={handleClick}
+          onClickHandler={() => handleClick(index)}
           text={item.text}
           index={index}
-          isSelected={selectedIndex === index ? true : false}
+          isSelected={selectedIndex}
         />
       ))}
     </ul>
@@ -51,8 +49,8 @@ const WrappedListComponent = ({ items }) => {
 };
 
 WrappedListComponent.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
+  items: PropTypes.array(
+    PropTypes.shapeOf({
       text: PropTypes.string.isRequired,
     })
   ),
@@ -65,16 +63,3 @@ WrappedListComponent.defaultProps = {
 const List = memo(WrappedListComponent);
 
 export default List;
-
-/* 
-
-2.What problems / warnings are there with code?
-  a. PropTypes.array used insead of PropTypes.arrayOf
-  b.PropTypes.shapeOf used insead of PropTypes.shape
-  c.key prop was missing
-  d. isSelected was passed as a function, should be an boolean
-  e. selectedIndex, setSelectedIndex used reversed that's why the error was selectedIndex is not a function and not value passed inside useState
-  f. WrappedListComponent handleClick function was wrapped with anonymous function with parameter insted of just passing the funcion.
-  g. onClickHandler function must used wrapped with anonymous function inside WrappedSingleListItem component.
-
-*/

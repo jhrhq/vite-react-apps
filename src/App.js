@@ -9,7 +9,7 @@ import Tools from "./components/Tools";
 function App() {
   return (
     <div>
-      <List items={[{ text: "jo" }, { text: "ho" }, { text: "mo" }]} />
+      <List items={[{ text: "jo", id:1 }, { text: "ho", id:2 }, { text: "mo", id: 3 }]} />
       <Header />
       <Aboutme />
       <Projects />
