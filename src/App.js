@@ -4,7 +4,7 @@ import Navbar from "./components/navbar";
 import PopularTags from "./components/populartags/popular-tags";
 function App() {
   return (
-    <div className="max-width mx-auto">
+    <div className="max-width mx-auto bg-[#f5f5f5]">
       <Navbar />
       <Header />
       <PopularTags />

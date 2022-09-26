@@ -1,0 +1,17 @@
+.section-header {
+  color: #09002a;
+}
+
+/* .section-header::after {
+  position: absolute;
+  content: "";
+  background: #f050be;
+  width: 116px;
+  height: 4.03px;
+  left: 0;
+  top: -14px;
+}
+ */
+.section-header::after {
+  background: #f050be;
+}

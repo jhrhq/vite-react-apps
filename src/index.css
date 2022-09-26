@@ -20,18 +20,18 @@ code {
 h1 {
   font-weight: 700;
   font-size: 64px;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
 }
 
 h2 {
   font-weight: 700;
   font-size: 40px;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
 }
 h3 {
   font-weight: 700;
   font-size: 24px;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
 }
 
 .link {
@@ -39,11 +39,11 @@ h3 {
   font-size: 16px;
   text-decoration: underline;
 }
-.button,
+.button-text,
 .pre-title {
   font-weight: 700;
   font-size: 10px;
-  letter-spacing: 3%;
+  letter-spacing: 0.03em;
 }
 .small {
   font-weight: medium;
@@ -58,19 +58,4 @@ h3 {
   font-weight: medium;
   font-size: 16px;
   line-height: 140%;
-}
-
-.section-header {
-  position: relative;
-  color: #09002a;
-}
-
-.section-header::after {
-  position: absolute;
-  content: "";
-  background: #f050be;
-  width: 116px;
-  height: 4.03px;
-  left: 0;
-  top: -14px;
 }
