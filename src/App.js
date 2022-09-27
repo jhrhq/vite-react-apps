@@ -1,6 +1,7 @@
 import "./App.css";
 import Blog from "./components/blog/blog-section";
 import ClientSection from "./components/client-section/client-section";
+import Footer from "./components/footer/footer";
 import FormSection from "./components/form-section/form-secton";
 import Header from "./components/Header/header";
 import HowItWorks from "./components/how-it-works/how-it-works";
@@ -20,6 +21,7 @@ function App() {
       <Blog />
       <ClientSection />
       <FormSection />
+      <Footer />
     </div>
   );
 }

@@ -27,6 +27,7 @@ module.exports = {
       smaller: ["14px", { lineHeight: "140%" }], //smallest
       s: ["10px", { lineHeight: "19px", letterSpacing: "0.04em" }], //smaller
       xs: ["14px", { lineHeight: "19px" }], // samll
+      semilg: ["16px", { lineHeight: "140%" }], //ssemi lg
       lg: ["16px", { lineHeight: "19px" }], // body
       xl: ["24px", { lineHeight: "28px" }], // subtitle
       "2xl": ["24px", { lineHeight: "28px", letterSpacing: "-0.02em" }], //h3
