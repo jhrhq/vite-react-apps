@@ -1,5 +1,6 @@
 import React from "react";
 import officeImage from "../../Resources/office-image.png";
+import yoga from "../../Resources/yoga.png";
 import SectionHeader from "../reusable-components/section-header";
 const Blog = () => {
   return (
@@ -19,31 +20,36 @@ const Blog = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-14 z-10 place-content-center">
-            <div className="grid grid-cols-2 gap-3">
-              <div className=" ">
-                <img
-                  src={officeImage}
-                  alt=""
-                  className=" w-64 h-72 bg-cover ounded-[50px] rounded-[50px] "
-                />
-              </div>
-              <SectionHeader underline={"after:-top-3.5"}>
+          <div className="flex z-10 place-content-center">
+            <div className="flex  gap-3 items-center mr-14">
+              <img
+                src={officeImage}
+                alt=""
+                className=" w-64 h-72 bg-cover ounded-[50px] rounded-[50px] "
+              />
+
+              <SectionHeader underline={"after:top-12 text-lg"}>
                 About Infenito, insights about us
               </SectionHeader>
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="">
-                <img src={officeImage} alt="" />
-              </div>
-              <SectionHeader underline={"after:-top-3.5"}>
+            <div className="flex  gap-3 items-center mr-14">
+              <img
+                src={officeImage}
+                alt=""
+                className=" w-64 h-72 bg-cover ounded-[50px] rounded-[50px] "
+              />
+
+              <SectionHeader underline={"after:top-12 text-lg"}>
                 About Infenito, insights about us
               </SectionHeader>
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="">
-                <img src={officeImage} alt="" />
-              </div>
+
+            <div className="flex  gap-3 items-center">
+              <img
+                src={yoga}
+                alt=""
+                className=" w-64 h-72 bg-cover ounded-[50px] rounded-[50px] "
+              />
             </div>
           </div>
         </div>
