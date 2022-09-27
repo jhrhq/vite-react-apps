@@ -1,4 +1,5 @@
 import "./App.css";
+import Blog from "./components/blog/blog-section";
 import Header from "./components/Header/header";
 import HowItWorks from "./components/how-it-works/how-it-works";
 import Navbar from "./components/navbar";
@@ -14,6 +15,7 @@ function App() {
       <ServiceProvider />
       <HowItWorks />
       <SupportSection />
+      <Blog />
     </div>
   );
 }

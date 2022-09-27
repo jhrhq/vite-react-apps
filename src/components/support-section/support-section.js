@@ -4,7 +4,7 @@ import supportIcon from "../../Resources/svg-icons/support-icon.svg";
 
 const SupportSection = () => {
   return (
-    <div className="grid grid-cols-3 gap-20 text-midnight">
+    <div className="grid grid-cols-3 gap-20 text-midnight mb-28">
       <div className="flex items-center">
         <p className="text-2xl ">What you get besides the above things</p>
       </div>
