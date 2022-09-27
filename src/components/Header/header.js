@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonCoponent from "../reusable-components/button-component";
 import "./header.css";
 const Header = () => {
   return (
@@ -9,11 +10,12 @@ const Header = () => {
           <h1 className="text-white">
             We power <br /> brands to build <br /> big
           </h1>
-          <div className="mt-10">
-            <a href="http://aa.com" className="text-white header-btn">
-              Join
-            </a>
-          </div>
+          <ButtonCoponent
+            link={"#"}
+            background={"bg-[#FAFCFE] text-white rounded border-[3px]"}
+          >
+            Join
+          </ButtonCoponent>
         </div>
         <div className="header-image">
           <svg

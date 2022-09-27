@@ -1,5 +1,6 @@
 import React from "react";
 import contactus from "../../Resources/contact-us.gif";
+import ButtonCoponent from "../reusable-components/button-component";
 import SectionHeader from "../reusable-components/section-header";
 
 const FormSection = () => {
@@ -22,22 +23,73 @@ const FormSection = () => {
           <div className="mt-8  rounded-[40px] pt-[46px] px-10 pb-[76px]  bg-gradient-to-r from-simple-yellow to-simple-blue">
             <h3>Drop us a message</h3>
             <p>We would love to hear everything from you</p>
-            <div>
-              <label class="relative block">
-                <span className="sr-only">Search</span>
-                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                  <svg
-                    className="h-5 w-5 fill-slate-300"
-                    viewBox="0 0 20 20"
-                  ></svg>
+            <div className="mb-3">
+              <label className="block">
+                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700 mb-3">
+                  Email
                 </span>
                 <input
-                  className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                  placeholder="Search for anything..."
-                  type="text"
-                  name="search"
+                  type="email"
+                  name="email"
+                  class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                  placeholder="you@example.com"
                 />
               </label>
+            </div>
+            <div className="mb-3">
+              <label className="block">
+                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700 mb-3">
+                  Email
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                  placeholder="you@example.com"
+                />
+              </label>
+            </div>
+            <div className="mb-3">
+              <label className="block">
+                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700 mb-3">
+                  Email
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                  placeholder="you@example.com"
+                />
+              </label>
+            </div>
+            <div className="mb-3">
+              <label className="block">
+                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700 mb-3">
+                  Email
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                  placeholder="you@example.com"
+                />
+              </label>
+            </div>
+            <div className="mb-3">
+              <label className="block">
+                <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700 mb-3">
+                  Email
+                </span>
+                <textarea
+                  id="message"
+                  rows="4"
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Your message..."
+                ></textarea>
+              </label>
+              <ButtonCoponent link={"#"} background={"bg-[#0E0E2C] text-white"}>
+                Send
+              </ButtonCoponent>
             </div>
           </div>
         </div>
