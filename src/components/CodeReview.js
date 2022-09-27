@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 // Single List Item
 const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
-  console.log("WrappedSingleListItem");
   return (
     <li
       style={{ backgroundColor: isSelected ? "green" : "red" }}
@@ -59,6 +58,8 @@ List.defaultProps = {
 export default List;
 
 /* 
+1.Explain what the simple List component does.
+List components prints simply a some HTML uli->li element in the ui based on the given array.
 
 2.What problems / warnings are there with code?
    a. PropTypes.array used instead of PropTypes.arrayOf
@@ -68,5 +69,7 @@ export default List;
   e. selectedIndex, setSelectedIndex used reversed that's why the error was selectedIndex is not a function and not value passed inside useState
   f. WrappedListComponent handleClick function was wrapped with an anonymous function with a parameter instead of just passing the function.
   g. onClickHandler function must be used wrapped with anonymous function inside WrappedSingleListItem component.
+
+  3.Please fix, optimize, and/or modify the component as much as you think is necessary.
 
 */
