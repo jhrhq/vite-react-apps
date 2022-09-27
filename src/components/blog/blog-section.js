@@ -5,7 +5,7 @@ import SectionHeader from "../reusable-components/section-header";
 const Blog = () => {
   return (
     <>
-      <div className="grid place-items-center grid-cols-2">
+      <div className="grid place-items-center grid-cols-2 mb-20">
         <div className="w-[67rem] h-[629px] bg-[#FFE5F7] rounded-[50px] z-0 col-span-full row-span-full"></div>
         <div className=" grid place-items-center z-10 col-span-full row-span-full pt-14">
           <div className="text-center mb-14">
@@ -40,7 +40,7 @@ const Blog = () => {
               />
 
               <SectionHeader underline={"after:top-12 text-lg"}>
-                About Infenito, insights about us
+                See our latest blogs about stacks
               </SectionHeader>
             </div>
 
