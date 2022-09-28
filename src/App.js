@@ -7,6 +7,7 @@ import FormSection from "./components/form-section/form-secton";
 import Header from "./components/Header/header";
 import HowItWorks from "./components/how-it-works/how-it-works";
 import Navbar from "./components/navbar";
+import Overflow from "./components/Overflow";
 import Complex from "./components/populartags/complex";
 import PopularTags from "./components/populartags/popular-tags";
 import ServiceProvider from "./components/servie-provider/service-proivder";
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <div className="container px-32 font-work bg-[#f5f5f5]">
+        <Overflow />
         <CodePractice />
         <Navbar />
         <Header />
