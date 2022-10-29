@@ -1,5 +1,6 @@
 .gpt3__header {
   display: flex;
+  gap: 5rem;
 }
 
 .gpt3__header-content {
@@ -9,8 +10,6 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-
-  margin-right: 5rem;
 }
 
 .gpt3__header-content h1 {
@@ -107,10 +106,7 @@
 @media screen and (max-width: 1050px) {
   .gpt3__header {
     flex-direction: column;
-  }
-
-  .gpt3__header-content {
-    margin: 0 0 3rem;
+    gap: 3rem;
   }
 }
 
