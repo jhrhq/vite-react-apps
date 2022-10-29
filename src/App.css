@@ -14,6 +14,11 @@ a {
   text-decoration: none;
 }
 
+img {
+  height: 100%;
+  width: 100%;
+}
+
 .gradient__bg {
   background: -moz-radial-gradient(
     circle at 3% 25%,
