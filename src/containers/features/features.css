@@ -46,6 +46,19 @@
     flex-direction: column;
     gap: 2rem;
   }
+  .gpt3__features-container {
+    flex-wrap: wrap;
+  }
+  .gpt3__features-container .gpt3__features-container__feature {
+    flex-direction: column;
+  }
+  .gpt3__features-container .gpt3__features-container__feature-title {
+    max-width: unset;
+    margin: 0 0 2rem 0;
+  }
+  .gpt3__features-container .gpt3__features-container__feature-text {
+    max-width: unset;
+  }
 }
 @media screen and (max-width: 550px) {
   .gpt3__features-heading h1 {
