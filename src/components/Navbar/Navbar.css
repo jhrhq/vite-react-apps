@@ -90,13 +90,14 @@
   .app__navbar-smallscreen {
     display: flex;
   }
-  .app__navbar-smallscreen-links {
+  .app__navbar-smallscreen_links {
     margin: 2rem;
     cursor: pointer;
     color: var(--color-golden);
     font-size: 2rem;
     text-align: center;
     font-family: var(--font-base);
+    list-style: none;
   }
 }
 
