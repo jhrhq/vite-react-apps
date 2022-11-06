@@ -9,7 +9,7 @@ const WhatGPT3 = () => {
         <Feature
           title={"What is GPT-3"}
           text={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, excepturi nihil libero vel, vitae maiores corrupti numquam incidunt ratione culpa nostrum ex"
+            "We so opinion friends me message as delight. Whole front do of plate heard oh ought. His defective nor convinced residence own. Connection has put impossible own apartments boisterous. At jointure ladyship an insisted so humanity he. Friendly bachelor entrance to on by."
           }
         />
       </div>
@@ -23,19 +23,19 @@ const WhatGPT3 = () => {
         <Feature
           title={"Chatbots"}
           text={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, excepturi nihil libero vel, vitae maiores corrupti numquam incidunt ratione culpa nostrum ex"
+            "We so opinion friends me message as delight. Whole front do of plate heard oh ought."
           }
         />
         <Feature
           title={"Knowledgebase"}
           text={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, excepturi nihil libero vel, vitae maiores corrupti numquam incidunt ratione culpa nostrum ex"
+            "At jointure ladyship an insisted so humanity he. Friendly bachelor entrance to on by. As put impossible own apartments"
           }
         />
         <Feature
           title={"Education"}
           text={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, excepturi nihil libero vel, vitae maiores corrupti numquam incidunt ratione culpa nostrum ex"
+            "At jointure ladyship an insisted so humanity he. Friendly bachelor entrance to on by. As put impossible own apartments b"
           }
         />
       </div>

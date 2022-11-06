@@ -14,12 +14,10 @@ const Possibility = () => {
           The possibilites are beyond your imagination
         </h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
-          aperiam pariatur veniam consequuntur dolores aliquid facilis nam
-          doloribus aut odio praesentium repudiandae distinctio ipsum quas.
-          Possimus nam architecto tempore ipsum incidunt delectus pariatur
-          voluptate odio sapiente! Nesciunt qui natus quaerat, unde mollitia
-          tempore obcaecati, doloribus eligendi quos esse, labore soluta.
+          Yet bed any for travelling assistance indulgence unpleasing. Not
+          thoughts all exercise blessing. Indulgence way everything joy
+          alteration boisterous the attachment. Party we years to order allow
+          asked of.
         </p>
         <h4>Request Early Acces to get Started</h4>
       </div>

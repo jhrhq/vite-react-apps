@@ -1,6 +1,7 @@
 {
   "name": "modern_ui_ux_gpt3_jsm",
   "private": true,
+  "homepage": "https:///johirhaquedipok.github.io/modern_ui_ux_gpt3_jsm",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,6 +11,7 @@
   },
   "dependencies": {
     "eslint-config-react-app": "^7.0.1",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0"
