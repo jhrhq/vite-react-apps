@@ -1,10 +1,11 @@
-import { Route, Routes, Link, useMatch } from "react-router-dom";
-import Issues from "./pages/Issues";
-import Issue from "./pages/Issue";
+import { Link, Route, Routes, useMatch } from "react-router-dom";
 import AddIssue from "./pages/AddIssue";
+import Issue from "./pages/Issue";
+import Issues from "./pages/Issues";
 
 function App() {
   const isRootPath = useMatch({ path: "/", end: true });
+
   return (
     <div className="App">
       {!isRootPath ? (
