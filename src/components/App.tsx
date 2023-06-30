@@ -5,6 +5,7 @@ import "./App.css";
 import GameGrid from "./game-grid";
 import GenreLists from "./genre-lists";
 import Navbar from "./navbar";
+import PlatformSelector from "./platform-selector";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -30,6 +31,7 @@ function App() {
         </Show>
 
         <GridItem area="main" bg={"dodgerblue"}>
+          <PlatformSelector />
           <GameGrid selectedGenre={selectedGenre} />
         </GridItem>
       </Grid>
