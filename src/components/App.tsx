@@ -4,6 +4,7 @@ import { Platform } from "../hook/use-games";
 import { Genre } from "../hook/use-genres";
 import "./App.css";
 import GameGrid from "./game-grid";
+import GameHeading from "./game-heading";
 import GenreLists from "./genre-lists";
 import Navbar from "./navbar";
 import PlatformSelector from "./platform-selector";
@@ -44,6 +45,7 @@ function App() {
         </Show>
 
         <GridItem area="main">
+          <GameHeading gameQuery={gameQuery} />
           <Flex paddingLeft={2} marginBottom={5} gap={2}>
             <PlatformSelector
               selectedPlatform={gameQuery.platform}
