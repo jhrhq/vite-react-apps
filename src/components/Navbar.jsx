@@ -1,5 +1,20 @@
 const navLinks = ["home", "about", "pricing", "blog"];
 
+function NavButton({ text, variant, to }) {
+  return (
+    <a
+      href={to}
+      className={`font-medium text-base py-2 text-white ${
+        variant
+          ? "flex-1 loginBtn px-[22px] hover:opacity-70"
+          : "signUpBtn rounded-md bg-white bg-opacity-20 px-6 duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
+      }`}
+    >
+      {text}
+    </a>
+  );
+}
+
 function NavLinks({ text }) {
   return (
     <li className="group relative">
@@ -24,7 +39,7 @@ function Navbar() {
               className="navbar-logo block w-60 max-w-full px-4"
             >
               <img
-                src="assets/images/logo/logo.svg"
+                src="../assets/images/logo/logo.svg"
                 alt="logo"
                 className="header-logo h-12"
               />
@@ -37,18 +52,8 @@ function Navbar() {
             </ul>
 
             <div className="sm:flex">
-              <a
-                href="signin.html"
-                className="flex-1 loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70"
-              >
-                Sign In
-              </a>
-              <a
-                href="signup.html"
-                className="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
-              >
-                Sign Up
-              </a>
+              <NavButton text="Sign In" variant={true} to="signin.html" />
+              <NavButton text="Sign Up" variant={false} to="signup.html" />
             </div>
           </div>
         </div>
