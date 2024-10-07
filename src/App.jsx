@@ -1,5 +1,5 @@
 import About from "./components/About";
-import Available from "./components/Available";
+import AvailableProperties from "./components/availableProperties/AvailableProperties";
 import CallToAction from "./components/CallToAction";
 import Content from "./components/Content";
 import Features from "./components/Features/Features";
@@ -15,7 +15,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <Features />
-      <Available />
+      <AvailableProperties />
       <About />
       <CallToAction />
       <FrequentlyAsked />
