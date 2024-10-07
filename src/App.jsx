@@ -5,7 +5,7 @@ import Content from "./components/Content";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 import FrequentlyAsked from "./components/FrequentlyAsked";
-import Hero from "./components/Hero";
+import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar";
 import Team from "./components/Team";
 
