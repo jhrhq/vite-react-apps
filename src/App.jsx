@@ -7,7 +7,7 @@ import Features from "./components/Features/Features";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar";
-import Team from "./components/Team";
+import Team from "./components/team/Team";
 
 export default function App() {
   return (
