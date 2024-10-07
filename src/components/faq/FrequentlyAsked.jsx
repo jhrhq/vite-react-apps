@@ -1,6 +1,6 @@
 import Heading from "../Heading";
-import FaqDotGrid from "../SVG/FaqDotGrid";
-import FaqDotGrid2 from "../SVG/FaqDotGrid2";
+import FaqDotGrid from "../svg/FaqDotGrid";
+import FaqDotGrid2 from "../svg/FaqDotGrid2";
 import FaqCard from "./FaqCard";
 
 const faqs = [

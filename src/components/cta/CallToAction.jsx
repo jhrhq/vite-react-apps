@@ -1,5 +1,5 @@
-import CtaSvg1 from "../SVG/CtaSVG1";
-import CtaSVg2 from "../SVG/CtaSvg2";
+import CtaSvg1 from "../svg/CtaSVG1";
+import CtaSVg2 from "../svg/CtaSvg2";
 
 function CallToAction() {
   return (

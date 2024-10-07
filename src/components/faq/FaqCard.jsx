@@ -1,5 +1,5 @@
 import React from "react";
-import FaqAskSvg from "../SVG/FaqAskSvg";
+import FaqAskSvg from "../svg/FaqAskSvg";
 
 const FaqCard = ({ heading, description }) => {
   return (

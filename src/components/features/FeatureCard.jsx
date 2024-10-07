@@ -1,8 +1,8 @@
 import React from "react";
-import FeatureSvg1 from "../SVG/FeatureSvg1";
-import FeatureSvg2 from "../SVG/FeatureSvg2";
-import FeatureSvg3 from "../SVG/FeatureSvg3";
-import FeatureSvg4 from "../SVG/FeatureSvg4";
+import FeatureSvg1 from "../svg/FeatureSvg1";
+import FeatureSvg2 from "../svg/FeatureSvg2";
+import FeatureSvg3 from "../svg/FeatureSvg3";
+import FeatureSvg4 from "../svg/FeatureSvg4";
 
 const FeatureCard = ({ heading, description, icon, action = "Learn More" }) => {
   let svg;

@@ -1,11 +1,11 @@
 import About from "./components/about/About";
 import AvailableProperties from "./components/availableProperties/AvailableProperties";
-import Content from "./components/Content";
-import CallToAction from "./components/Cta/CallToAction";
-import FrequentlyAsked from "./components/Faq/FrequentlyAsked";
-import Features from "./components/Features/Features";
+import Contact from "./components/contact/Contact";
+import CallToAction from "./components/cta/CallToAction";
+import FrequentlyAsked from "./components/faq/FrequentlyAsked";
+import Features from "./components/features/Features";
 import Footer from "./components/Footer";
-import Hero from "./components/Hero/Hero";
+import Hero from "./components/hero/Hero";
 import Navbar from "./components/Navbar";
 import Team from "./components/team/Team";
 
@@ -20,7 +20,7 @@ export default function App() {
       <CallToAction />
       <FrequentlyAsked />
       <Team />
-      <Content />
+      <Contact />
       <Footer />
     </>
   );

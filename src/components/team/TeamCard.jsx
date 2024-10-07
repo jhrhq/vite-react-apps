@@ -1,8 +1,8 @@
 import React from "react";
-import FacebookIcon from "../SVG/FacebookIcon";
-import InstagramIcon from "../SVG/InstagramIcon";
-import TeamBackgroundSvg from "../SVG/TeamBackgroundSvg";
-import TwitterIcon from "../SVG/TwitterIcon";
+import FacebookIcon from "../svg/FacebookIcon";
+import InstagramIcon from "../svg/InstagramIcon";
+import TeamBackgroundSvg from "../svg/TeamBackgroundSvg";
+import TwitterIcon from "../svg/TwitterIcon";
 
 const TeamCard = ({ name, designation, image }) => {
   return (

@@ -1,6 +1,6 @@
-import AboutSvg1 from "../SVG/AboutSvg1";
-import AboutSvg2 from "../SVG/AboutSvg2";
-import AboutSvg3 from "../SVG/AboutSvg3";
+import AboutSvg1 from "../svg/AboutSvg1";
+import AboutSvg2 from "../svg/AboutSvg2";
+import AboutSvg3 from "../svg/AboutSvg3";
 
 function About() {
   return (

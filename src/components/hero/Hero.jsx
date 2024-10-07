@@ -1,5 +1,5 @@
 import Button from "../Button";
-import DotGridSvg from "../SVG/DotGridSvg";
+import DotGridSvg from "../svg/DotGridSvg";
 
 function Hero() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import BathTubSvg from "../SVG/BathTubSvg";
-import BedSvg from "../SVG/BedSvg";
+import BathTubSvg from "../svg/BathTubSvg";
+import BedSvg from "../svg/BedSvg";
 
 const AvailablePropertyCard = ({ name, price, bedrooms, bathrooms, image }) => {
   return (
