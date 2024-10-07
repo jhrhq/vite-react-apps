@@ -2,7 +2,7 @@ import About from "./components/About";
 import Available from "./components/Available";
 import CallToAction from "./components/CallToAction";
 import Content from "./components/Content";
-import Features from "./components/Features";
+import Features from "./components/Features/Features";
 import Footer from "./components/Footer";
 import FrequentlyAsked from "./components/FrequentlyAsked";
 import Hero from "./components/Hero/Hero";
