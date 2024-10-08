@@ -49,6 +49,15 @@ const properties = [
     image:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmlsbGElMjBpbnRlcmlvcnxlbnwwfHwwfHx8MA%3D%3D;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60",
   },
+  {
+    id: 6,
+    name: "Mesut çiçen house",
+    price: "$6000.00",
+    bedrooms: "3",
+    bathrooms: "2",
+    image:
+      "https://images.unsplash.com/photo-1694852081153-e6acbc4abd24?ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bW9kZXJuJTIwdmlsbGElMjBpbnRlcmlyb3xlbnwwfDB8MHx8fDI%3D;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60",
+  },
 ];
 
 function AvailableProperties() {
