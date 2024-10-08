@@ -4,9 +4,9 @@ import Contact from "./components/contact/Contact";
 import CallToAction from "./components/cta/CallToAction";
 import FrequentlyAsked from "./components/faq/FrequentlyAsked";
 import Features from "./components/features/Features";
-import Footer from "./components/Footer";
+import Footer from "./components/footer/Footer";
 import Hero from "./components/hero/Hero";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import Team from "./components/team/Team";
 
 export default function App() {

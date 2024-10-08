@@ -46,6 +46,7 @@ function Features() {
         <div className="-mx-4 flex flex-wrap">
           {features.map((feature, index) => (
             <FeatureCard
+              key={feature.id}
               heading={feature.heading}
               description={feature.description}
               icon={index}

@@ -4,7 +4,7 @@ const Button = ({ text, target, variant, to }) => {
   return (
     <a
       href={to}
-      target={target && target}
+      target={target ? "_blank" : null}
       className={`inline-flex items-center justify-center rounded-md  px-7 py-[14px] text-center text-base font-medium text-dark shadow-1 transition duration-300 ease-in-out 
         ${
           variant

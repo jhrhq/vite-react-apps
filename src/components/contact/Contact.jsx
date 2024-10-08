@@ -3,11 +3,13 @@ import ContactForm from "./ContactForm";
 
 const contacts = [
   {
+    id: 1,
     title: "Our Location",
     type: "location",
     address: "401 Broadway, 24th Floor, Orchard Cloud View, London",
   },
   {
+    id: 2,
     title: "How Can We Help?",
     type: "mail",
     address: ["info@yourdomain.com, contact@yourdomain.com"],
@@ -32,9 +34,9 @@ function Contact() {
                 </h2>
               </div>
               <div className="mb-12 flex flex-wrap justify-between lg:mb-0">
-                {contacts.map((contact, index) => (
+                {contacts.map((contact) => (
                   <ContactCard
-                    key={index}
+                    key={contact.id}
                     title={contact.title}
                     address={contact.address}
                     type={contact.type}
