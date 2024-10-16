@@ -65,6 +65,6 @@ export const expenses = [
 ];
 
 export const categories = [
-  { name: "Expense", category: expenses },
-  { name: "Income", category: incomes },
+  { type: "Expense", category: expenses },
+  { type: "Income", category: incomes },
 ];

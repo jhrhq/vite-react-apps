@@ -1,11 +1,11 @@
-import ExpanseBoard from "./Expense/ExpanseBoard";
+import IncomeExpenseBoard from "./Expense/IncomeExpenseBoard";
 import Header from "./Header";
 
 function App() {
   return (
     <>
       <Header />
-      <ExpanseBoard />
+      <IncomeExpenseBoard />
     </>
   );
 }
