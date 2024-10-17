@@ -69,7 +69,7 @@ export const categories = [
   { type: "income", options: incomes },
 ];
 
-export const defaultTrackers = [
+export const defaultTransactions = [
   {
     type: "income",
     category: [
@@ -88,3 +88,10 @@ export const defaultTrackers = [
     ],
   },
 ];
+
+export const defaultFormState = {
+  id: crypto.randomUUID(),
+  category: "",
+  amount: "",
+  date: "",
+};

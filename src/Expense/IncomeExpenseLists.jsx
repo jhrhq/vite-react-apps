@@ -114,7 +114,7 @@ function FilterAction({ isFilter, onFilterClick }) {
   );
 }
 
-const IncomeExpenseLists = ({ trackers }) => {
+const IncomeExpenseLists = ({ transactions, onEdit }) => {
   const [isSort, setIsSort] = useState(false);
   const [isFilter, setIsFilter] = useState(false);
 
@@ -136,10 +136,10 @@ const IncomeExpenseLists = ({ trackers }) => {
 
           <div
             className={`h-10 w-10  text-white rounded-md text-center object-center place-content-center text-base ${
-              trackers.type == "expense" ? "bg-pink-600" : "bg-teal-600"
+              transactions.type == "expense" ? "bg-pink-600" : "bg-teal-600"
             }`}
           >
-            {trackers.type == "expense" ? (
+            {transactions.type == "expense" ? (
               <TbWalletOff className="mx-auto size-6" />
             ) : (
               <TbWallet className="mx-auto size-6" />
@@ -149,7 +149,7 @@ const IncomeExpenseLists = ({ trackers }) => {
           {/* <!-- Text --> */}
           <div>
             <h3 className="text-xl font-semibold capitalize leading-7 text-gray-800">
-              {trackers.type}
+              {transactions.type}
             </h3>
           </div>
         </div>
@@ -166,11 +166,12 @@ const IncomeExpenseLists = ({ trackers }) => {
       </div>
 
       <div className="p-4 divide-y">
-        {trackers.category.map((trackerList) => (
+        {transactions.category.map((transaction) => (
           <IncomeExpenseList
-            key={trackerList.id}
-            type={trackers.type}
-            trackerList={trackerList}
+            key={transaction.id}
+            type={transactions.type}
+            onEdit={onEdit}
+            transaction={transaction}
           />
         ))}
       </div>

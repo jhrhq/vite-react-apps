@@ -2,11 +2,13 @@ import { useState } from "react";
 import ExpenseTrackerForm from "./ExpenseTrackerForm";
 import IncomeExpenseLists from "./IncomeExpenseLists";
 import TotalBalanceStat from "./TotalBalanceStat";
-import { defaultTrackers } from "./data";
+import { categories, defaultFormState, defaultTransactions } from "./data";
 
 const IncomeExpenseBoard = () => {
-  const [trackers, setTrackers] = useState(defaultTrackers);
-
+  const [transactions, setTransactions] = useState(defaultTransactions);
+  const [formState, setFormState] = useState(defaultFormState);
+  const [updateToTransaction, setUpdateToTransaction] = useState(null);
+  const [isEditTransaction, setIsEditTransaction] = useState(false);
   const [totalIncome, setTotalIncome] = useState({
     type: "income",
     name: "Income",
@@ -17,41 +19,87 @@ const IncomeExpenseBoard = () => {
     name: "Expense",
     amount: 1_000,
   });
-  const [totalBalance, setTotalBalance] = useState({
-    type: "balance",
-    name: "Balance",
-    amount: totalIncome.amount - totalExpense.amount,
-  });
 
-  const handleAddExpenseIncome = (newTracker, type, isAdd) => {
-    setTrackers(
-      trackers.map((item) =>
-        item.type == type
-          ? { ...item, category: [...item.category, newTracker] }
-          : item
-      )
-    );
+  const [activeTab, setActiveTab] = useState(categories[0].type);
+  const [options, setOptions] = useState(categories[0].options);
 
-    if (type == "expense") {
-      setTotalExpense({
-        ...totalExpense,
-        amount: totalExpense.amount + Number(newTracker.amount),
+  function handleSelectTab(tabType) {
+    setActiveTab(tabType);
+    setOptions(categories.find((option) => option.type == tabType).options);
+  }
+
+  function handleFormSave(formData) {
+    setFormState(formData);
+  }
+
+  function handleTransaction(newTransaction, type, isEdit) {
+    if (isEdit) {
+      const updateTransaction = transactions.map((transaction) => {
+        if (transaction.type == type) {
+          const transact = transaction.category.map((cat) =>
+            cat.id == newTransaction.id
+              ? {
+                  ...cat,
+                  category: newTransaction.category,
+                  amount: Number(newTransaction.amount),
+                  date: newTransaction.date,
+                }
+              : cat
+          );
+
+          return { ...transaction, category: transact };
+        } else {
+          return transaction;
+        }
       });
-      setTotalBalance({
-        ...totalBalance,
-        amount: totalBalance.amount - Number(newTracker.amount),
-      });
+      setTransactions(updateTransaction);
+
+      if (
+        type == "expense" &&
+        updateToTransaction.amount != newTransaction.amount
+      ) {
+        setTotalExpense({
+          ...totalExpense,
+          amount: totalExpense.amount + Number(newTransaction.amount),
+        });
+      } else if (
+        type == "income" &&
+        updateToTransaction.amount != newTransaction.amount
+      ) {
+        setTotalIncome({
+          ...totalIncome,
+          amount: totalIncome.amount + Number(newTransaction.amount),
+        });
+      }
     } else {
-      setTotalIncome({
-        ...totalIncome,
-        amount: totalIncome.amount + Number(newTracker.amount),
-      });
-      setTotalBalance({
-        ...totalBalance,
-        amount: totalBalance.amount + Number(newTracker.amount),
-      });
+      setTransactions(
+        transactions.map((item) =>
+          item.type == type
+            ? { ...item, category: [...item.category, newTransaction] }
+            : item
+        )
+      );
+
+      if (type == "expense") {
+        setTotalExpense({
+          ...totalExpense,
+          amount: totalExpense.amount + Number(newTransaction.amount),
+        });
+      } else {
+        setTotalIncome({
+          ...totalIncome,
+          amount: totalIncome.amount + Number(newTransaction.amount),
+        });
+      }
     }
-  };
+  }
+
+  function handleEditTransaction(transaction) {
+    setActiveTab(transaction.type);
+    setFormState(transaction);
+    setUpdateToTransaction(transaction);
+    setIsEditTransaction(!isEditTransaction);
+  }
 
   return (
     <main className="relative mx-auto mt-10 w-full max-w-7xl">
@@ -60,18 +108,34 @@ const IncomeExpenseBoard = () => {
           <h2 className="text-3xl font-semibold leading-7 text-gray-800 text-center">
             Expense Tracker
           </h2>
-          <ExpenseTrackerForm onSave={handleAddExpenseIncome} />
+          <ExpenseTrackerForm
+            activeTab={activeTab}
+            options={options}
+            formState={formState}
+            isEdit={setIsEditTransaction}
+            onSaveForm={handleFormSave}
+            onSelectTab={handleSelectTab}
+            onSave={handleTransaction}
+          />
         </div>
         <div className="lg:col-span-2">
           <TotalBalanceStat
-            totalBalance={totalBalance}
+            totalBalance={{
+              type: "balance",
+              name: "Balance",
+              amount: totalIncome.amount - totalExpense.amount,
+            }}
             totalIncome={totalIncome}
             totalExpense={totalExpense}
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
-            {trackers.map((tracker) => (
-              <IncomeExpenseLists key={tracker.type} trackers={tracker} />
+            {transactions.map((transaction) => (
+              <IncomeExpenseLists
+                key={transaction.type}
+                onEdit={handleEditTransaction}
+                transactions={transaction}
+              />
             ))}
           </div>
         </div>

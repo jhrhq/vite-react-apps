@@ -1,4 +1,6 @@
 export function formatDateToISO(dateString) {
+  if (!dateString) return null;
+
   // Split the input string into parts
   const [day, monthName, year] = dateString.split(" ");
 
@@ -29,6 +31,7 @@ export function formatDateToISO(dateString) {
 }
 
 export function formatDateToLong(dateString) {
+  if (!dateString) return null;
   // Create a new Date object from the input string
   const date = new Date(dateString);
 

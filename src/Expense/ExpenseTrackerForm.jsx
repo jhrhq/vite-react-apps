@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { categories } from "./data";
+import { formatDateToISO, formatDateToLong } from "../utilities/utilities";
+import { categories, defaultFormState } from "./data";
 
 const TabButtons = ({ categories, activeTab, onSelectTab }) => {
   return (
@@ -19,35 +19,34 @@ const TabButtons = ({ categories, activeTab, onSelectTab }) => {
   );
 };
 
-const ExpenseTrackerForm = ({ onSave }) => {
-  const defaultFormState = {
-    id: crypto.randomUUID(),
-    category: "",
-    amount: "",
-    date: "",
-  };
-  const [activeTab, setActiveTab] = useState(categories[0].type);
-  const [options, setOptions] = useState(categories[0].options);
-
-  const [formState, setFormState] = useState(defaultFormState);
-
-  function handleSelectTab(tabType) {
-    setActiveTab(tabType);
-    setFormState(defaultFormState);
-    setOptions(categories.find((option) => option.type == tabType).options);
+const ExpenseTrackerForm = ({
+  activeTab,
+  options,
+  formState,
+  isEdit,
+  onSaveForm,
+  onSelectTab,
+  onSave,
+}) => {
+  function handleTabSelect(tabType) {
+    onSelectTab(tabType);
+    onSaveForm(defaultFormState);
   }
 
   function handleChange(event) {
     const name = event.target.name;
     let value = event.target.value;
-    setFormState({ ...formState, [name]: value });
+    if (name == "date") {
+      value = formatDateToLong(value);
+    }
+    onSaveForm({ ...formState, [name]: value });
   }
 
   function handleSave(e) {
     e.preventDefault();
-    onSave(formState, activeTab);
+    onSave(formState, activeTab, isEdit);
     // clearing the old state to remove duplicate warning
-    setFormState(defaultFormState);
+    onSaveForm(defaultFormState);
   }
 
   return (
@@ -55,7 +54,7 @@ const ExpenseTrackerForm = ({ onSave }) => {
       <TabButtons
         categories={categories}
         activeTab={activeTab}
-        onSelectTab={handleSelectTab}
+        onSelectTab={handleTabSelect}
       />
       <div className="mt-3">
         <label
@@ -115,7 +114,7 @@ const ExpenseTrackerForm = ({ onSave }) => {
         </label>
         <div className="mt-2">
           <input
-            value={formState.date}
+            value={formState.date && formatDateToISO(formState.date)}
             onChange={handleChange}
             type="date"
             name="date"
