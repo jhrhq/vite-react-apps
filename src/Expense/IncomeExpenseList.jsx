@@ -1,18 +1,18 @@
 import React from "react";
 import { TbPencil, TbTrash } from "react-icons/tb";
 
-const IncomeExpenseList = ({ trackerList }) => {
+const IncomeExpenseList = ({ type, trackerList }) => {
   return (
     <div className="flex justify-between items-center py-2 relative group cursor-pointer">
       <div>
         <h3 className="text-base font-medium leading-7 text-gray-600 capitalize">
-          {trackerList.name}
+          {trackerList.category}
         </h3>
         <p className="text-xs text-gray-600">{trackerList.date}</p>
       </div>
       <div className="flex items-center gap-2">
         <p className="text-base font-semibold text-gray-600 transition-all group-hover:-translate-x-14">
-          BDT {trackerList.cost}
+          BDT {trackerList.amount}
         </p>
       </div>
 

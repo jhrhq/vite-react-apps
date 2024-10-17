@@ -65,6 +65,44 @@ export const expenses = [
 ];
 
 export const categories = [
-  { type: "Expense", category: expenses },
-  { type: "Income", category: incomes },
+  { type: "expense", options: expenses },
+  { type: "income", options: incomes },
+];
+
+export const defaultTrackers = [
+  {
+    type: "income",
+    category: [
+      { id: 123, category: "salary", date: "15 January 2024", amount: "10000" },
+    ],
+  },
+  {
+    type: "expense",
+    category: [
+      {
+        id: 124,
+        category: "education",
+        date: "15 January 2024",
+        amount: "1000",
+      },
+    ],
+  },
+];
+
+export const defaultStats = [
+  {
+    id: "d6df2ba4-9fe7-4173-b429-3d1d922a615c",
+    type: "Balance",
+    amount: 9_000,
+  },
+  {
+    id: "98e3b9f5-c157-45a9-80bf-5d74d66417a4",
+    type: "Total Income",
+    amount: 10_000,
+  },
+  {
+    id: "38da2b53-7623-4ae5-b3b0-369d74b8ff15",
+    type: "Total Expense",
+    amount: 1_000,
+  },
 ];

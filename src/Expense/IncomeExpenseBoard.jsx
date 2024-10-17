@@ -2,22 +2,22 @@ import { useState } from "react";
 import ExpenseTrackerForm from "./ExpenseTrackerForm";
 import IncomeExpenseLists from "./IncomeExpenseLists";
 import TotalBalanceStat from "./TotalBalanceStat";
+import { defaultStats, defaultTrackers } from "./data";
 
 const IncomeExpenseBoard = () => {
-  const [trackers, setTrackers] = useState([
-    {
-      type: "income",
-      category: [
-        { id: 123, name: "salary", date: "15 January 2024", cost: "10000" },
-      ],
-    },
-    {
-      type: "expense",
-      category: [
-        { id: 124, name: "education", date: "15 January 2024", cost: "1000" },
-      ],
-    },
-  ]);
+  const [trackers, setTrackers] = useState(defaultTrackers);
+  const [stats, setStats] = useState(defaultStats);
+
+  const handleAddExpenseIncome = (newTracker, type, isAdd) => {
+    setTrackers(
+      trackers.map((item) =>
+        item.type == type
+          ? { ...item, category: [...item.category, newTracker] }
+          : item
+      )
+    );
+  };
+
   return (
     <main className="relative mx-auto mt-10 w-full max-w-7xl">
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -25,10 +25,10 @@ const IncomeExpenseBoard = () => {
           <h2 className="text-3xl font-semibold leading-7 text-gray-800 text-center">
             Expense Tracker
           </h2>
-          <ExpenseTrackerForm />
+          <ExpenseTrackerForm onSave={handleAddExpenseIncome} />
         </div>
         <div className="lg:col-span-2">
-          <TotalBalanceStat />
+          <TotalBalanceStat stats={stats} />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
             {trackers.map((tracker) => (
