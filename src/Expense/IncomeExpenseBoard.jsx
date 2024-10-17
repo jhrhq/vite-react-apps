@@ -71,6 +71,8 @@ const IncomeExpenseBoard = () => {
           amount: totalIncome.amount + Number(newTransaction.amount),
         });
       }
+      setIsEditTransaction(false);
+      setUpdateToTransaction(null);
     } else {
       setTransactions(
         transactions.map((item) =>
@@ -98,7 +100,7 @@ const IncomeExpenseBoard = () => {
     setActiveTab(transaction.type);
     setFormState(transaction);
     setUpdateToTransaction(transaction);
-    setIsEditTransaction(!isEditTransaction);
+    setIsEditTransaction(true);
   }
 
   return (
@@ -112,7 +114,7 @@ const IncomeExpenseBoard = () => {
             activeTab={activeTab}
             options={options}
             formState={formState}
-            isEdit={setIsEditTransaction}
+            isEdit={isEditTransaction}
             onSaveForm={handleFormSave}
             onSelectTab={handleSelectTab}
             onSave={handleTransaction}

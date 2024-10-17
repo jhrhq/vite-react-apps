@@ -1,33 +1,14 @@
 export function formatDateToISO(dateString) {
   if (!dateString) return null;
+  // Create a Date object from the input string
+  const date = new Date(dateString);
 
-  // Split the input string into parts
-  const [day, monthName, year] = dateString.split(" ");
-
-  // Array of month names to find the month index
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  // Get the month index
-  const monthIndex = monthNames.indexOf(monthName);
-
-  // Create a new Date object
-  const date = new Date(year, monthIndex, day);
-
-  // Return the formatted date as YYYY-MM-DD
-  return date.toISOString().split("T")[0]; // Get only the date part
+  // Get the required components
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-indexed
+  const day = String(date.getDate()).padStart(2, "0"); // Add 1 to the day of the year
+  // Format and return the new date format
+  return `${year}-${month}-${day}`;
 }
 
 export function formatDateToLong(dateString) {
