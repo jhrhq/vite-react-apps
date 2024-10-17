@@ -1,13 +1,5 @@
 import { useState } from "react";
-import { formatDateToLong } from "../utilities/utilities";
 import { categories } from "./data";
-
-const defaultFormState = {
-  id: crypto.randomUUID(),
-  category: "",
-  amount: "",
-  date: "",
-};
 
 const TabButtons = ({ categories, activeTab, onSelectTab }) => {
   return (
@@ -28,6 +20,12 @@ const TabButtons = ({ categories, activeTab, onSelectTab }) => {
 };
 
 const ExpenseTrackerForm = ({ onSave }) => {
+  const defaultFormState = {
+    id: crypto.randomUUID(),
+    category: "",
+    amount: "",
+    date: "",
+  };
   const [activeTab, setActiveTab] = useState(categories[0].type);
   const [options, setOptions] = useState(categories[0].options);
 
@@ -42,11 +40,14 @@ const ExpenseTrackerForm = ({ onSave }) => {
   function handleChange(event) {
     const name = event.target.name;
     let value = event.target.value;
-    if (name == "date") {
-      value = formatDateToLong(value).toString();
-    }
-
     setFormState({ ...formState, [name]: value });
+  }
+
+  function handleSave(e) {
+    e.preventDefault();
+    onSave(formState, activeTab);
+    // clearing the old state to remove duplicate warning
+    setFormState(defaultFormState);
   }
 
   return (
@@ -128,10 +129,7 @@ const ExpenseTrackerForm = ({ onSave }) => {
       </div>
 
       <button
-        onClick={(e) => {
-          e.preventDefault();
-          onSave(formState, activeTab);
-        }}
+        onClick={handleSave}
         type="submit"
         className="mt-6 rounded-md bg-teal-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 w-full"
       >

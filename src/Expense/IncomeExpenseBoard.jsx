@@ -2,11 +2,26 @@ import { useState } from "react";
 import ExpenseTrackerForm from "./ExpenseTrackerForm";
 import IncomeExpenseLists from "./IncomeExpenseLists";
 import TotalBalanceStat from "./TotalBalanceStat";
-import { defaultStats, defaultTrackers } from "./data";
+import { defaultTrackers } from "./data";
 
 const IncomeExpenseBoard = () => {
   const [trackers, setTrackers] = useState(defaultTrackers);
-  const [stats, setStats] = useState(defaultStats);
+
+  const [totalIncome, setTotalIncome] = useState({
+    type: "income",
+    name: "Income",
+    amount: 10_000,
+  });
+  const [totalExpense, setTotalExpense] = useState({
+    type: "expense",
+    name: "Expense",
+    amount: 1_000,
+  });
+  const [totalBalance, setTotalBalance] = useState({
+    type: "balance",
+    name: "Balance",
+    amount: totalIncome.amount - totalExpense.amount,
+  });
 
   const handleAddExpenseIncome = (newTracker, type, isAdd) => {
     setTrackers(
@@ -16,6 +31,26 @@ const IncomeExpenseBoard = () => {
           : item
       )
     );
+
+    if (type == "expense") {
+      setTotalExpense({
+        ...totalExpense,
+        amount: totalExpense.amount + Number(newTracker.amount),
+      });
+      setTotalBalance({
+        ...totalBalance,
+        amount: totalBalance.amount - Number(newTracker.amount),
+      });
+    } else {
+      setTotalIncome({
+        ...totalIncome,
+        amount: totalIncome.amount + Number(newTracker.amount),
+      });
+      setTotalBalance({
+        ...totalBalance,
+        amount: totalBalance.amount + Number(newTracker.amount),
+      });
+    }
   };
 
   return (
@@ -28,7 +63,11 @@ const IncomeExpenseBoard = () => {
           <ExpenseTrackerForm onSave={handleAddExpenseIncome} />
         </div>
         <div className="lg:col-span-2">
-          <TotalBalanceStat stats={stats} />
+          <TotalBalanceStat
+            totalBalance={totalBalance}
+            totalIncome={totalIncome}
+            totalExpense={totalExpense}
+          />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
             {trackers.map((tracker) => (

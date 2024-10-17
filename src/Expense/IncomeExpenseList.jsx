@@ -1,5 +1,6 @@
 import React from "react";
 import { TbPencil, TbTrash } from "react-icons/tb";
+import { formatDateToLong } from "../utilities/utilities";
 
 const IncomeExpenseList = ({ type, trackerList }) => {
   return (
@@ -8,7 +9,9 @@ const IncomeExpenseList = ({ type, trackerList }) => {
         <h3 className="text-base font-medium leading-7 text-gray-600 capitalize">
           {trackerList.category}
         </h3>
-        <p className="text-xs text-gray-600">{trackerList.date}</p>
+        <p className="text-xs text-gray-600">
+          {formatDateToLong(trackerList.date).toString()}
+        </p>
       </div>
       <div className="flex items-center gap-2">
         <p className="text-base font-semibold text-gray-600 transition-all group-hover:-translate-x-14">
