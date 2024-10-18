@@ -1,7 +1,7 @@
 import { formatDateToISO, formatDateToLong } from "../utilities/utilities";
 import { categories } from "./data";
 
-const TabButtons = ({ categories, activeTab, onSelectTab }) => {
+function TabButtons({ categories, activeTab, onSelectTab }) {
   return (
     <div className="flex divide-x divide-slate-400/20 overflow-hidden rounded-md bg-white text-[0.8125rem] font-medium leading-5 text-slate-700 shadow-sm ring-1 ring-slate-700/10 mt-6">
       {categories.map((category) => (
@@ -17,9 +17,9 @@ const TabButtons = ({ categories, activeTab, onSelectTab }) => {
       ))}
     </div>
   );
-};
+}
 
-const ExpenseTrackerForm = ({
+function ExpenseTrackerForm({
   activeTab,
   options,
   formState,
@@ -27,7 +27,7 @@ const ExpenseTrackerForm = ({
   onSaveFormState,
   onSelectTab,
   onSave,
-}) => {
+}) {
   function handleTabSelect(tabType) {
     onSelectTab(tabType);
     onSaveFormState({
@@ -146,6 +146,6 @@ const ExpenseTrackerForm = ({
       </button>
     </form>
   );
-};
+}
 
 export default ExpenseTrackerForm;

@@ -17,7 +17,7 @@ function Stat({ stat }) {
   );
 }
 
-const TotalBalanceStat = ({ totalBalance, totalIncome, totalExpense }) => {
+function TotalBalanceStat({ totalBalance, totalIncome, totalExpense }) {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl">
@@ -29,6 +29,6 @@ const TotalBalanceStat = ({ totalBalance, totalIncome, totalExpense }) => {
       </div>
     </div>
   );
-};
+}
 
 export default TotalBalanceStat;

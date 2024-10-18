@@ -4,16 +4,20 @@ import FilterAction from "./FilterAction";
 import IncomeExpenseList from "./IncomeExpenseList";
 import SortAction from "./SortAction";
 
-const IncomeExpenseLists = ({
-  transactions,
-  onDeleteClick,
-  onEdit,
-  onSort,
-  onFilter,
-}) => {
+function IncomeExpenseLists({ transactions, onDeleteClick, onEdit, onSort }) {
   const [isSort, setIsSort] = useState(false);
   const [isFilter, setIsFilter] = useState(false);
+  const [filterOptions, setFilterOptions] = useState([]);
 
+  function handleFilter(option) {
+    if (filterOptions.includes(option)) {
+      const filtered = filterOptions.filter((item) => item != option);
+      setFilterOptions(filtered);
+    } else {
+      const selected = [...filterOptions, option];
+      setFilterOptions(selected);
+    }
+  }
   const handleSortClick = () => {
     setIsSort(!isSort);
     setIsFilter(false);
@@ -22,6 +26,11 @@ const IncomeExpenseLists = ({
     setIsSort(false);
     setIsFilter(!isFilter);
   };
+
+  const filteredTransactions =
+    filterOptions.length > 0
+      ? transactions.category.filter((i) => filterOptions.includes(i.category))
+      : transactions.category;
 
   return (
     <div className="border rounded-md">
@@ -63,16 +72,17 @@ const IncomeExpenseLists = ({
           {/* <!-- Filtering --> */}
           <FilterAction
             type={transactions.type}
+            selectedOptions={filterOptions}
             isFilter={isFilter}
             onFilterClick={handleFilterClick}
-            onFilter={onFilter}
+            onFilter={handleFilter}
           />
         </div>
         {/* <!-- Sorting and Filtering Column Ends --> */}
       </div>
 
       <div className="p-4 divide-y">
-        {transactions.category.map((transaction) => (
+        {filteredTransactions.map((transaction) => (
           <IncomeExpenseList
             key={transaction.id}
             type={transactions.type}
@@ -84,6 +94,6 @@ const IncomeExpenseLists = ({
       </div>
     </div>
   );
-};
+}
 
 export default IncomeExpenseLists;

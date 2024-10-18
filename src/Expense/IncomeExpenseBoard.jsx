@@ -9,6 +9,7 @@ const IncomeExpenseBoard = () => {
   const [transactions, setTransactions] = useState(defaultTransactions);
   const [activeTab, setActiveTab] = useState(categories[0].type);
   const [options, setOptions] = useState(categories[0].options);
+
   const [formState, setFormState] = useState({
     id: crypto.randomUUID(),
     category: options[0].value,
@@ -177,21 +178,6 @@ const IncomeExpenseBoard = () => {
     setTransactions(updateTransaction);
   }
 
-  function handleFilter(type, filterOptions) {
-    const updateTransaction = transactions.map((transaction) => {
-      if (transaction.type == type && filterOptions.length != 0) {
-        const transact = transaction.category.filter((options) =>
-          filterOptions.includes(options.category)
-        );
-        return { ...transaction, category: transact };
-      } else {
-        return transaction;
-      }
-    });
-
-    setTransactions(updateTransaction);
-  }
-
   return (
     <>
       {showModal && (
@@ -234,7 +220,6 @@ const IncomeExpenseBoard = () => {
                   onEdit={handleEditTransaction}
                   onDeleteClick={handleShowModal}
                   onSort={handleSort}
-                  onFilter={handleFilter}
                   transactions={transaction}
                 />
               ))}

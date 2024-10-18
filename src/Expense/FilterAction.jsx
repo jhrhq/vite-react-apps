@@ -5,9 +5,6 @@ const IncomeFilterOptions = ["salary", "outsourcing", "bond", "dividend"];
 const ExpenseFilterOptions = ["education", "food", "health"];
 
 function FilterInput({ name, checked, onCheckBoxChange }) {
-  function handleBoxCheck(name) {
-    onCheckBoxChange(name);
-  }
   return (
     <label className="inline-flex items-center px-4 py-2 text-sm text-gray-700">
       <input
@@ -15,7 +12,7 @@ function FilterInput({ name, checked, onCheckBoxChange }) {
         className="form-checkbox h-4 w-4 rounded-md text-gray-600"
         id={name}
         checked={checked}
-        onChange={() => handleBoxCheck(name)}
+        onChange={() => onCheckBoxChange(name)}
       />
       <span className="ml-2 capitalize">{name}</span>
     </label>
@@ -25,21 +22,14 @@ function FilterInput({ name, checked, onCheckBoxChange }) {
 export default function FilterAction({
   type,
   isFilter,
+  selectedOptions,
   onFilterClick,
   onFilter,
 }) {
   const [filterOptions, setFilterOptions] = useState(
     type == "expense" ? ExpenseFilterOptions : IncomeFilterOptions
   );
-  const [selectedOptions, setSelectedOptions] = useState([]);
 
-  function handleCheckBoxChange(option) {
-    setSelectedOptions((selectedOptions) => [
-      ...selectedOptions,
-      option.toLowerCase(),
-    ]);
-    onFilter(type, selectedOptions);
-  }
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -69,7 +59,7 @@ export default function FilterAction({
                 key={option}
                 name={option}
                 checked={selectedOptions.includes(option)}
-                onCheckBoxChange={handleCheckBoxChange}
+                onCheckBoxChange={onFilter}
               />
             ))}
           </div>
