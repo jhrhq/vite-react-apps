@@ -7,7 +7,10 @@ import {
 } from "react-icons/tb";
 import IncomeExpenseList from "./IncomeExpenseList";
 
-function SortAction({ isSort, onSorClick }) {
+const IncomeFilterOptions = ["salary", "outsourcing", "bond", "dividend"];
+const ExpenseFilterOptions = ["education", "food", "health"];
+
+function SortAction({ type, isSort, onSorClick }) {
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -57,7 +60,23 @@ function SortAction({ isSort, onSorClick }) {
   );
 }
 
-function FilterAction({ isFilter, onFilterClick }) {
+function FilterInput({ name }) {
+  return (
+    <label className="inline-flex items-center px-4 py-2 text-sm text-gray-700">
+      <input
+        type="checkbox"
+        className="form-checkbox h-4 w-4 rounded-md text-gray-600"
+        id={name}
+      />
+      <span className="ml-2 capitalize">{name}</span>
+    </label>
+  );
+}
+
+function FilterAction({ type, isFilter, onFilterClick }) {
+  const [filterOptions, setFilterOptions] = useState(
+    type == "expense" ? ExpenseFilterOptions : IncomeFilterOptions
+  );
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -83,30 +102,9 @@ function FilterAction({ isFilter, onFilterClick }) {
           id="filter-dropdown2"
         >
           <div className="py-1" role="none">
-            <label className="inline-flex items-center px-4 py-2 text-sm text-gray-700">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 rounded-md text-gray-600"
-                id="filter-option-1"
-              />
-              <span className="ml-2">Education</span>
-            </label>
-            <label className="inline-flex items-center px-4 py-2 text-sm text-gray-700">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 rounded-md text-gray-600"
-                id="filter-option-2"
-              />
-              <span className="ml-2">Food</span>
-            </label>
-            <label className="inline-flex items-center px-4 py-2 text-sm text-gray-700">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 rounded-md text-gray-600"
-                id="filter-option-3"
-              />
-              <span className="ml-2">Health</span>
-            </label>
+            {filterOptions.map((option) => (
+              <FilterInput key={option} name={option} />
+            ))}
           </div>
         </div>
       )}
@@ -157,10 +155,18 @@ const IncomeExpenseLists = ({ transactions, onDeleteClick, onEdit }) => {
         {/* <!-- Sorting and Filtering Column --> */}
         <div className="space-x-2">
           {/* <!-- Sorting --> */}
-          <SortAction isSort={isSort} onSorClick={handleSortClick} />
+          <SortAction
+            type={transactions.type}
+            isSort={isSort}
+            onSorClick={handleSortClick}
+          />
 
           {/* <!-- Filtering --> */}
-          <FilterAction isFilter={isFilter} onFilterClick={handleFilterClick} />
+          <FilterAction
+            type={transactions.type}
+            isFilter={isFilter}
+            onFilterClick={handleFilterClick}
+          />
         </div>
         {/* <!-- Sorting and Filtering Column Ends --> */}
       </div>
