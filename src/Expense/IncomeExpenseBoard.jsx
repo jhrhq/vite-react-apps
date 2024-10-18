@@ -177,6 +177,21 @@ const IncomeExpenseBoard = () => {
     setTransactions(updateTransaction);
   }
 
+  function handleFilter(type, filterOptions) {
+    const updateTransaction = transactions.map((transaction) => {
+      if (transaction.type == type && filterOptions.length != 0) {
+        const transact = transaction.category.filter((options) =>
+          filterOptions.includes(options.category)
+        );
+        return { ...transaction, category: transact };
+      } else {
+        return transaction;
+      }
+    });
+
+    setTransactions(updateTransaction);
+  }
+
   return (
     <>
       {showModal && (
@@ -219,6 +234,7 @@ const IncomeExpenseBoard = () => {
                   onEdit={handleEditTransaction}
                   onDeleteClick={handleShowModal}
                   onSort={handleSort}
+                  onFilter={handleFilter}
                   transactions={transaction}
                 />
               ))}
