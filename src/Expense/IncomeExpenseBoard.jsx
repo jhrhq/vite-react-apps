@@ -2,11 +2,18 @@ import { useState } from "react";
 import ExpenseTrackerForm from "./ExpenseTrackerForm";
 import IncomeExpenseLists from "./IncomeExpenseLists";
 import TotalBalanceStat from "./TotalBalanceStat";
-import { categories, defaultFormState, defaultTransactions } from "./data";
+import { categories, defaultTransactions } from "./data";
 
 const IncomeExpenseBoard = () => {
   const [transactions, setTransactions] = useState(defaultTransactions);
-  const [formState, setFormState] = useState(defaultFormState);
+  const [activeTab, setActiveTab] = useState(categories[0].type);
+  const [options, setOptions] = useState(categories[0].options);
+  const [formState, setFormState] = useState({
+    id: crypto.randomUUID(),
+    category: options[0].value,
+    amount: 100,
+    date: "2024/10/18",
+  });
   const [updateToTransaction, setUpdateToTransaction] = useState(null);
   const [isEditTransaction, setIsEditTransaction] = useState(false);
   const [totalIncome, setTotalIncome] = useState({
@@ -20,15 +27,12 @@ const IncomeExpenseBoard = () => {
     amount: 1_000,
   });
 
-  const [activeTab, setActiveTab] = useState(categories[0].type);
-  const [options, setOptions] = useState(categories[0].options);
-
   function handleSelectTab(tabType) {
     setActiveTab(tabType);
     setOptions(categories.find((option) => option.type == tabType).options);
   }
 
-  function handleFormSave(formData) {
+  function handleFormState(formData) {
     setFormState(formData);
   }
 
@@ -122,7 +126,7 @@ const IncomeExpenseBoard = () => {
             options={options}
             formState={formState}
             isEdit={isEditTransaction}
-            onSaveForm={handleFormSave}
+            onSaveFormState={handleFormState}
             onSelectTab={handleSelectTab}
             onSave={handleTransaction}
           />

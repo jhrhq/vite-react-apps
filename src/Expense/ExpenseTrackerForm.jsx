@@ -1,5 +1,5 @@
 import { formatDateToISO, formatDateToLong } from "../utilities/utilities";
-import { categories, defaultFormState } from "./data";
+import { categories } from "./data";
 
 const TabButtons = ({ categories, activeTab, onSelectTab }) => {
   return (
@@ -24,13 +24,18 @@ const ExpenseTrackerForm = ({
   options,
   formState,
   isEdit,
-  onSaveForm,
+  onSaveFormState,
   onSelectTab,
   onSave,
 }) => {
   function handleTabSelect(tabType) {
     onSelectTab(tabType);
-    onSaveForm(defaultFormState);
+    onSaveFormState({
+      id: crypto.randomUUID(),
+      category: options[0].value,
+      amount: 100,
+      date: "2024/10/18",
+    });
   }
 
   function handleChange(event) {
@@ -39,14 +44,19 @@ const ExpenseTrackerForm = ({
     if (name == "date") {
       value = formatDateToLong(value);
     }
-    onSaveForm({ ...formState, [name]: value });
+    onSaveFormState({ ...formState, [name]: value });
   }
 
   function handleSave(e) {
     e.preventDefault();
     onSave(formState, activeTab, isEdit);
     // clearing the old state to remove duplicate warning
-    onSaveForm(defaultFormState);
+    onSaveFormState({
+      id: crypto.randomUUID(),
+      category: options[0].value,
+      amount: 100,
+      date: "2024/10/18",
+    });
   }
 
   return (

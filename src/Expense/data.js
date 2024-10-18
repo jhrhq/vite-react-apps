@@ -88,10 +88,3 @@ export const defaultTransactions = [
     ],
   },
 ];
-
-export const defaultFormState = {
-  id: crypto.randomUUID(),
-  category: "",
-  amount: "",
-  date: "",
-};
