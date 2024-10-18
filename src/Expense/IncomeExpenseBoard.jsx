@@ -149,11 +149,13 @@ const IncomeExpenseBoard = () => {
     setTransactions(updateTransaction);
     setUpdateToTransaction(null);
     setShowModal(false);
+    setIsEditTransaction(false);
   }
 
   function handleCloseModal() {
     setShowModal(false);
     setUpdateToTransaction(null);
+    setIsEditTransaction(false);
   }
 
   return (
