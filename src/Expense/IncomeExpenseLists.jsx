@@ -10,7 +10,7 @@ import IncomeExpenseList from "./IncomeExpenseList";
 const IncomeFilterOptions = ["salary", "outsourcing", "bond", "dividend"];
 const ExpenseFilterOptions = ["education", "food", "health"];
 
-function SortAction({ type, isSort, onSorClick }) {
+function SortAction({ type, isSort, onSorClick, onSort }) {
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -36,6 +36,7 @@ function SortAction({ type, isSort, onSorClick }) {
         >
           <div className="py-1" role="none">
             <a
+              onClick={() => onSort(type, "lowToHigh")}
               href="#"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
               role="menuitem"
@@ -45,6 +46,7 @@ function SortAction({ type, isSort, onSorClick }) {
               Low to High
             </a>
             <a
+              onClick={() => onSort(type, "highToLow")}
               href="#"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
               role="menuitem"
@@ -112,7 +114,13 @@ function FilterAction({ type, isFilter, onFilterClick }) {
   );
 }
 
-const IncomeExpenseLists = ({ transactions, onDeleteClick, onEdit }) => {
+const IncomeExpenseLists = ({
+  transactions,
+  onDeleteClick,
+  onEdit,
+  onSort,
+  onFilter,
+}) => {
   const [isSort, setIsSort] = useState(false);
   const [isFilter, setIsFilter] = useState(false);
 
@@ -159,6 +167,7 @@ const IncomeExpenseLists = ({ transactions, onDeleteClick, onEdit }) => {
             type={transactions.type}
             isSort={isSort}
             onSorClick={handleSortClick}
+            onSort={onSort}
           />
 
           {/* <!-- Filtering --> */}

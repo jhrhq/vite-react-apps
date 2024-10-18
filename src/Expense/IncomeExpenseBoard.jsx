@@ -158,6 +158,25 @@ const IncomeExpenseBoard = () => {
     setIsEditTransaction(false);
   }
 
+  function handleSort(type, sortType) {
+    const updateTransaction = transactions.map((transaction) => {
+      if (transaction.type == type) {
+        let transact;
+        if (sortType == "lowToHigh") {
+          transact = transaction.category.sort((a, b) => a.amount - b.amount);
+        } else {
+          transact = transaction.category.sort((a, b) => b.amount - a.amount);
+        }
+
+        return { ...transaction, category: transact };
+      } else {
+        return transaction;
+      }
+    });
+
+    setTransactions(updateTransaction);
+  }
+
   return (
     <>
       {showModal && (
@@ -199,6 +218,7 @@ const IncomeExpenseBoard = () => {
                   key={transaction.type}
                   onEdit={handleEditTransaction}
                   onDeleteClick={handleShowModal}
+                  onSort={handleSort}
                   transactions={transaction}
                 />
               ))}
