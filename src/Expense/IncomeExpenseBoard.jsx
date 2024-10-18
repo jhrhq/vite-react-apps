@@ -60,7 +60,10 @@ const IncomeExpenseBoard = () => {
       ) {
         setTotalExpense({
           ...totalExpense,
-          amount: totalExpense.amount + Number(newTransaction.amount),
+          amount:
+            totalExpense.amount +
+            Number(newTransaction.amount) -
+            updateToTransaction.amount,
         });
       } else if (
         type == "income" &&
@@ -68,7 +71,10 @@ const IncomeExpenseBoard = () => {
       ) {
         setTotalIncome({
           ...totalIncome,
-          amount: totalIncome.amount + Number(newTransaction.amount),
+          amount:
+            totalIncome.amount +
+            Number(newTransaction.amount) -
+            updateToTransaction.amount,
         });
       }
       setIsEditTransaction(false);
@@ -97,7 +103,8 @@ const IncomeExpenseBoard = () => {
   }
 
   function handleEditTransaction(transaction) {
-    setActiveTab(transaction.type);
+    handleSelectTab(transaction.type);
+
     setFormState(transaction);
     setUpdateToTransaction(transaction);
     setIsEditTransaction(true);
