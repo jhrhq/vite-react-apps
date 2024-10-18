@@ -114,7 +114,7 @@ function FilterAction({ isFilter, onFilterClick }) {
   );
 }
 
-const IncomeExpenseLists = ({ transactions, onEdit }) => {
+const IncomeExpenseLists = ({ transactions, onDeleteClick, onEdit }) => {
   const [isSort, setIsSort] = useState(false);
   const [isFilter, setIsFilter] = useState(false);
 
@@ -171,6 +171,7 @@ const IncomeExpenseLists = ({ transactions, onEdit }) => {
             key={transaction.id}
             type={transactions.type}
             onEdit={onEdit}
+            onDeleteClick={onDeleteClick}
             transaction={transaction}
           />
         ))}

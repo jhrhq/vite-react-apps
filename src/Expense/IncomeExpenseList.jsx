@@ -1,7 +1,7 @@
 import React from "react";
 import { TbPencil, TbTrash } from "react-icons/tb";
 
-const IncomeExpenseList = ({ type, transaction, onEdit }) => {
+const IncomeExpenseList = ({ type, transaction, onDeleteClick, onEdit }) => {
   return (
     <div className="flex justify-between items-center py-2 relative group cursor-pointer">
       <div>
@@ -26,7 +26,12 @@ const IncomeExpenseList = ({ type, transaction, onEdit }) => {
           <TbPencil className="size-[18px]" />
         </button>
 
-        <button className="hover:text-red-600" role="button" title="Delete">
+        <button
+          onClick={() => onDeleteClick({ type, ...transaction })}
+          className="hover:text-red-600"
+          role="button"
+          title="Delete"
+        >
           <TbTrash className="size-[18px]" />
         </button>
       </div>
