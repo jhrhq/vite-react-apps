@@ -34,6 +34,8 @@ const IncomeExpenseBoard = () => {
   function handleSelectTab(tabType) {
     setActiveTab(tabType);
     setOptions(categories.find((option) => option.type == tabType).options);
+    setUpdateToTransaction(null);
+    setIsEditTransaction(false);
   }
 
   function handleFormState(formData) {
@@ -111,8 +113,10 @@ const IncomeExpenseBoard = () => {
   }
 
   function handleEditTransaction(transaction) {
-    handleSelectTab(transaction.type);
-
+    setActiveTab(transaction.type);
+    setOptions(
+      categories.find((option) => option.type == transaction.type).options
+    );
     setFormState(transaction);
     setUpdateToTransaction(transaction);
     setIsEditTransaction(true);
