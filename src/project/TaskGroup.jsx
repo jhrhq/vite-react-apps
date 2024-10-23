@@ -1,18 +1,38 @@
 import { TbSortDescending } from "react-icons/tb";
+import { cn } from "../utility/cn";
 import TaskCard from "./TaskCard";
 
-// eslint-disable-next-line react/prop-types
-export default function TaskGroup({ children }) {
+const categoryColors = {
+  "8ca2e7a2-1b2a-4fc9-805c-cd06a9d33b97": "bg-indigo-600", // Light red for To Do
+  "e2b80a8a-c480-47ea-9e29-d486ba3346eb": "bg-yellow-500", // Light green for In Progress
+  "f579035f-e79d-4bc4-b35d-66223261c267": "bg-teal-500", // Light teal for Done
+  " ed101dd9-c6e3-4057-ac5c-d7549b32c716": "bg-rose-500", // Light yellow for Revise
+};
+
+export default function TaskGroup({
+  taskCategoryId,
+  taskCategoryName,
+  tasks = [],
+}) {
   return (
     <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">
-      <div className="rounded-lg bg-indigo-600 p-4">
+      <div
+        className={cn(
+          "rounded-lg  p-4",
+          categoryColors[taskCategoryId] ?? "bg-indigo-500"
+        )}
+      >
         <div className="mb-2 flex items-center justify-between">
-          <h3 className="text-lg font-semibold">To-Do (45)</h3>
+          <h3 className="text-lg font-semibold">
+            {taskCategoryName} ({tasks.length})
+          </h3>
 
           <TbSortDescending className=" size-[1.125rem] fill-none" />
         </div>
         <div>
-          <TaskCard />
+          {tasks.map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
         </div>
       </div>
     </div>
