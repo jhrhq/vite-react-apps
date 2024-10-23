@@ -1,4 +1,5 @@
 import { HiOutlinePencil, HiOutlineTrash } from "react-icons/hi";
+import { formatDate } from "../utility/date-utility";
 
 export default function TaskCard({ task }) {
   return (
@@ -16,7 +17,9 @@ export default function TaskCard({ task }) {
       </div>
       <p className="mb-2 text-sm text-zinc-200">{task.description}</p>
 
-      <p className="mt-6 text-xs text-zinc-400">February 20, 2024</p>
+      <p className="mt-6 text-xs text-zinc-400">
+        {formatDate(task.created_at)}
+      </p>
     </div>
   );
 }
