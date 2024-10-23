@@ -1,7 +1,6 @@
 import React from "react";
 import { TbSquareRoundedPlus } from "react-icons/tb";
-import ProjectCard from "./ProjectCard";
-import ProjectGroup from "./ProjectGroup";
+import TaskGroup from "./TaskGroup";
 
 export default function ProjectBoard() {
   return (
@@ -17,9 +16,7 @@ export default function ProjectBoard() {
       </div>
 
       <div className="-mx-2 mb-6 flex flex-wrap">
-        <ProjectGroup>
-          <ProjectCard />
-        </ProjectGroup>
+        <TaskGroup />
 
         <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">
           <div className="rounded-lg bg-yellow-500 p-4">

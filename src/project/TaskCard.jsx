@@ -1,6 +1,6 @@
 import { HiOutlinePencil, HiOutlineTrash } from "react-icons/hi";
 
-export default function ProjectCard() {
+export default function TaskCard() {
   return (
     <div className="mb-4 rounded-lg bg-gray-800 p-4">
       <div className="flex justify-between">

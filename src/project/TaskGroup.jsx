@@ -1,7 +1,8 @@
 import { TbSortDescending } from "react-icons/tb";
+import TaskCard from "./TaskCard";
 
 // eslint-disable-next-line react/prop-types
-export default function ProjectGroup({ children }) {
+export default function TaskGroup({ children }) {
   return (
     <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">
       <div className="rounded-lg bg-indigo-600 p-4">
@@ -10,7 +11,9 @@ export default function ProjectGroup({ children }) {
 
           <TbSortDescending className=" size-[1.125rem] fill-none" />
         </div>
-        <div>{children}</div>
+        <div>
+          <TaskCard />
+        </div>
       </div>
     </div>
   );
