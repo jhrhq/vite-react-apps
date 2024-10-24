@@ -2,16 +2,19 @@ import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { TaskContext } from "../providers/TaskProvider";
 
-export default function CreateTaskModal({ selectedTask, onClose, onAdd }) {
+export default function CreateTaskModal({ updateToTask, onClose, onAdd }) {
   const { state, dispatch } = useContext(TaskContext);
 
-  const [task, setTask] = useState({
-    id: crypto.randomUUID(),
-    taskName: "",
-    description: "",
-    dueDate: "",
-    category: state.tasksCategories.categories[0].id,
-  });
+  // console.log(task);
+  const [task, setTask] = useState(
+    updateToTask ?? {
+      id: crypto.randomUUID(),
+      taskName: "",
+      description: "",
+      dueDate: "",
+      category: state.tasksCategories.categories[0].id,
+    }
+  );
 
   const handleChange = (evt) => {
     const name = evt.target.name;
@@ -28,16 +31,29 @@ export default function CreateTaskModal({ selectedTask, onClose, onAdd }) {
 
     if (!selectedCategoryOption) return;
 
-    dispatch({
-      type: "ADD_TASK",
-      payload: {
-        ...task,
-        category: selectedCategoryOption.name,
-        categoryId: selectedCategoryOption.id,
-      },
-    });
-    onAdd();
-    toast.success("Task added successfully!");
+    if (updateToTask) {
+      dispatch({
+        type: "UPDATE_TASK",
+        payload: {
+          ...task,
+          category: selectedCategoryOption.name,
+          categoryId: selectedCategoryOption.id,
+        },
+      });
+      toast.done("Task updated successfully!");
+    } else {
+      dispatch({
+        type: "ADD_TASK",
+        payload: {
+          ...task,
+          category: selectedCategoryOption.name,
+          categoryId: selectedCategoryOption.id,
+        },
+      });
+      toast.success("Task added successfully!");
+    }
+
+    onClose();
   }
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">

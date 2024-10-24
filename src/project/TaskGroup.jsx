@@ -15,6 +15,8 @@ export default function TaskGroup({
   taskCategoryId,
   taskCategoryTitle,
   tasks = [],
+  onEdit,
+  onRemove,
 }) {
   const [sortTask, setSortTask] = useState(true);
 
@@ -54,7 +56,14 @@ export default function TaskGroup({
           {tasks.length == 0 ? (
             <NoTaskAvailable />
           ) : (
-            filteredTasks.map((task) => <TaskCard key={task.id} task={task} />)
+            filteredTasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                task={task}
+                onEdit={onEdit}
+                onRemove={onRemove}
+              />
+            ))
           )}
         </div>
       </div>

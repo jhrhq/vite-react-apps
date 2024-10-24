@@ -34,6 +34,25 @@ const taskReducer = (state, action) => {
         },
       };
 
+    case "UPDATE_TASK":
+      return {
+        tasksCategories: {
+          ...state.tasksCategories,
+          tasks: state.tasksCategories.tasks.map((task) =>
+            task.id == action.payload.id
+              ? {
+                  ...task,
+                  taskName: action.payload.taskName,
+                  description: action.payload.description,
+                  dueDate: action.payload.dueDate,
+                  category: action.payload.category,
+                  categoryId: action.payload.categoryId,
+                }
+              : task
+          ),
+        },
+      };
+
     case "REMOVE_TASK":
       return {
         ...state,

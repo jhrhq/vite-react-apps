@@ -8,27 +8,38 @@ import TaskGroup from "./TaskGroup";
 export default function ProjectBoard() {
   const { state } = useContext(TaskContext);
   const [taskModal, setTaskModal] = useState(false);
+  const [confirmRemove, setConfirmRemove] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
 
   const getTasksByCategory = (categoryId) =>
     state.tasksCategories.tasks.filter((task) => task.categoryId == categoryId);
 
-  function handleCloseModal() {
+  function handleCloseTaskModal() {
     setSelectedTask(null);
     setTaskModal(false);
   }
 
-  function handleAddTask() {
-    setTaskModal(false);
+  function handleEditTaskClick(task) {
+    setSelectedTask({ ...task, category: task.categoryId });
+    setTaskModal(true);
+  }
+
+  function handleRemoveTaskClick() {
+    //dispatch
+    setConfirmRemove(false);
+  }
+
+  function handleCloseRemoveModal() {
+    setSelectedTask(null);
+    setConfirmRemove(false);
   }
 
   return (
     <>
       {taskModal && (
         <CreateTaskModal
-          task={selectedTask}
-          onClose={handleCloseModal}
-          onAdd={handleAddTask}
+          updateToTask={selectedTask}
+          onClose={handleCloseTaskModal}
         />
       )}
 
@@ -56,6 +67,8 @@ export default function ProjectBoard() {
                 taskCategoryId={taskCategory.id}
                 taskCategoryTitle={taskCategory.name}
                 tasks={getTasksByCategory(taskCategory.id)}
+                onEdit={handleEditTaskClick}
+                onRemove={handleRemoveTaskClick}
               />
             ))}
           </div>
