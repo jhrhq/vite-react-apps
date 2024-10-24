@@ -1,11 +1,44 @@
-const categoryOptions = [
-  { value: "todo", label: "To-Do" },
-  { value: "inprogress", label: "On Progress" },
-  { value: "done", label: "Done" },
-  { value: "revised", label: "Revised" },
-];
+import { useContext, useState } from "react";
+import { toast } from "react-toastify";
+import { TaskContext } from "../providers/TaskProvider";
 
-export default function CreateTaskModal({ onClose }) {
+export default function CreateTaskModal({ selectedTask, onClose, onAdd }) {
+  const { state, dispatch } = useContext(TaskContext);
+
+  const [task, setTask] = useState({
+    id: crypto.randomUUID(),
+    taskName: "",
+    description: "",
+    dueDate: "",
+    category: state.tasksCategories.categories[0].id,
+  });
+
+  const handleChange = (evt) => {
+    const name = evt.target.name;
+    let value = evt.target.value;
+    setTask({ ...task, [name]: value });
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const selectedCategoryOption = state.tasksCategories.categories.find(
+      (category) => category.id === task.category
+    );
+
+    if (!selectedCategoryOption) return;
+
+    dispatch({
+      type: "ADD_TASK",
+      payload: {
+        ...task,
+        category: selectedCategoryOption.name,
+        categoryId: selectedCategoryOption.id,
+      },
+    });
+    onAdd();
+    toast.success("Task added successfully!");
+  }
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px]  p-4 max-h-[90vh] ">
@@ -14,7 +47,7 @@ export default function CreateTaskModal({ onClose }) {
             <h2 className="mb-6 text-2xl font-bold text-green-400">
               Create Task
             </h2>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label
                   htmlFor="taskName"
@@ -27,6 +60,8 @@ export default function CreateTaskModal({ onClose }) {
                   id="taskName"
                   name="taskName"
                   required
+                  value={task.taskName}
+                  onChange={handleChange}
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
               </div>
@@ -38,9 +73,11 @@ export default function CreateTaskModal({ onClose }) {
                   Description
                 </label>
                 <textarea
-                  required
                   id="description"
                   name="description"
+                  required
+                  value={task.description}
+                  onChange={handleChange}
                   rows="3"
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                 ></textarea>
@@ -53,10 +90,12 @@ export default function CreateTaskModal({ onClose }) {
                   Due Date
                 </label>
                 <input
-                  required
                   type="date"
                   id="dueDate"
                   name="dueDate"
+                  required
+                  value={task.dueDate}
+                  onChange={handleChange}
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
               </div>
@@ -69,14 +108,16 @@ export default function CreateTaskModal({ onClose }) {
                   Category
                 </label>
                 <select
-                  required
                   id="category"
                   name="category"
+                  required
+                  value={task.category}
+                  onChange={handleChange}
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
-                  {categoryOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
+                  {state.tasksCategories.categories.map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.name}
                     </option>
                   ))}
                 </select>

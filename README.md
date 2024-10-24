@@ -2,7 +2,6 @@
 
 Basic Project Manager Website with React
 
-- create task
 - form validation error with toastify
 - remove task and
   -- remove task confirmation modal

@@ -22,8 +22,8 @@ export default function TaskGroup({
     setSortTask(!sortTask);
   }
   const filteredTasks = sortTask
-    ? tasks.toSorted((a, b) => new Date(b.created_at) - new Date(a.created_at))
-    : tasks.toSorted((a, b) => new Date(a.created_at) - new Date(b.created_at));
+    ? tasks.toSorted((a, b) => new Date(b.dueDate) - new Date(a.dueDate))
+    : tasks.toSorted((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
 
   return (
     <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">

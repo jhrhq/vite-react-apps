@@ -1,27 +1,35 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TbSquareRoundedPlus } from "react-icons/tb";
-import { getAllProjectTasks } from "../data/tasks";
+import { TaskContext } from "../providers/TaskProvider";
 import CreateTaskModal from "./CreateTaskModal";
 import NoCategoriesAvailable from "./NoCategoriesAvailable";
 import TaskGroup from "./TaskGroup";
 
 export default function ProjectBoard() {
+  const { state } = useContext(TaskContext);
   const [taskModal, setTaskModal] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
 
-  const tasksCategories = getAllProjectTasks();
-
   const getTasksByCategory = (categoryId) =>
-    tasksCategories.tasks.filter((task) => task.category_id == categoryId);
+    state.tasksCategories.tasks.filter((task) => task.categoryId == categoryId);
 
   function handleCloseModal() {
     setSelectedTask(null);
     setTaskModal(false);
   }
+
+  function handleAddTask() {
+    setTaskModal(false);
+  }
+
   return (
     <>
       {taskModal && (
-        <CreateTaskModal task={selectedTask} onClose={handleCloseModal} />
+        <CreateTaskModal
+          task={selectedTask}
+          onClose={handleCloseModal}
+          onAdd={handleAddTask}
+        />
       )}
 
       <div className="mx-auto max-w-7xl p-6">
@@ -38,11 +46,11 @@ export default function ProjectBoard() {
           </div>
         </div>
 
-        {tasksCategories.categories.length == 0 ? (
+        {state.tasksCategories.categories.length == 0 ? (
           <NoCategoriesAvailable />
         ) : (
           <div className="-mx-2 mb-6 flex flex-wrap">
-            {tasksCategories.categories.map((taskCategory) => (
+            {state.tasksCategories.categories.map((taskCategory) => (
               <TaskGroup
                 key={taskCategory.id}
                 taskCategoryId={taskCategory.id}
