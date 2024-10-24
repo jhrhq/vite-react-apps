@@ -41,7 +41,7 @@ export default function TaskGroup({
             type="button"
             disabled={tasks.length <= 1}
             onClick={handleSortTask}
-            className="cursor-pointer"
+            className="cursor-pointer disabled:cursor-not-allowed"
           >
             {sortTask ? (
               <TbSortDescending className=" size-[1.125rem] fill-none" />
