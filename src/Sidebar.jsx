@@ -8,6 +8,28 @@ import {
   HiOutlineUserGroup,
 } from "react-icons/hi";
 import logo from "./assets//lws-logo-en.svg";
+
+const menuIcons = {
+  Dashboard: <HiOutlineHome className="mr-3 size-5 fill-none" />,
+  Projects: <HiOutlineClipboardList className="mr-3 size-5 fill-none" />,
+  Contact: <HiOutlineUserGroup className="mr-3 size-5 fill-none" />,
+  Kanban: <HiOutlineClipboard className="mr-3 size-5 fill-none" />,
+  Calendar: <HiOutlineCalendar className="mr-3 size-5 fill-none" />,
+  Messages: <HiOutlineChatAlt className="mr-3 size-5 fill-none" />,
+  Settings: <HiOutlineCog className="mr-3 size-5 fill-none" />,
+};
+
+function Menu({ title }) {
+  return (
+    <li>
+      <a href="#" className="flex items-center">
+        {menuIcons[title]}
+        {title}
+      </a>
+    </li>
+  );
+}
+
 export default function Sidebar() {
   return (
     <aside className="hidden w-64 bg-gray-800 p-6 lg:block">
@@ -21,48 +43,9 @@ export default function Sidebar() {
       </button>
       <nav>
         <ul className="space-y-4">
-          <li>
-            <a href="#" className="flex items-center">
-              <HiOutlineHome className="mr-3 size-5 fill-none" />
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex items-center">
-              <HiOutlineClipboardList className="mr-3 size-5 fill-none" />
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex items-center">
-              <HiOutlineUserGroup className="mr-3 size-5 fill-none" />
-              Contact
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex items-center">
-              <HiOutlineClipboard className="mr-3 size-5 fill-none" />
-              Kanban
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex items-center">
-              <HiOutlineCalendar className="mr-3 size-5 fill-none" />
-              Calendar
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex items-center">
-              <HiOutlineChatAlt className="mr-3 size-5 fill-none" />
-              Messages
-            </a>
-          </li>
-          <li>
-            <a href="#" className="flex items-center">
-              <HiOutlineCog className="mr-3 size-5 fill-none" />
-              Settings
-            </a>
-          </li>
+          {Object.keys(menuIcons).map((menu) => (
+            <Menu key={menu} title={menu} />
+          ))}
         </ul>
       </nav>
     </aside>
