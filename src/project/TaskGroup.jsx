@@ -1,5 +1,6 @@
 import { TbSortDescending } from "react-icons/tb";
 import { cn } from "../utility/cn";
+import NoTaskAvailable from "./NoTaskAvailable";
 import TaskCard from "./TaskCard";
 
 const categoryColors = {
@@ -11,7 +12,7 @@ const categoryColors = {
 
 export default function TaskGroup({
   taskCategoryId,
-  taskCategoryName,
+  taskCategoryTitle,
   tasks = [],
 }) {
   return (
@@ -24,15 +25,17 @@ export default function TaskGroup({
       >
         <div className="mb-2 flex items-center justify-between">
           <h3 className="text-lg font-semibold">
-            {taskCategoryName} ({tasks.length})
+            {taskCategoryTitle} ({tasks.length})
           </h3>
 
           <TbSortDescending className=" size-[1.125rem] fill-none" />
         </div>
         <div>
-          {tasks.map((task) => (
-            <TaskCard key={task.id} task={task} />
-          ))}
+          {tasks.length == 0 ? (
+            <NoTaskAvailable taskCategoryTitle={taskCategoryTitle} />
+          ) : (
+            tasks.map((task) => <TaskCard key={task.id} task={task} />)
+          )}
         </div>
       </div>
     </div>
