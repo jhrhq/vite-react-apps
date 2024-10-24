@@ -1,4 +1,5 @@
-import { TbSortDescending } from "react-icons/tb";
+import { useState } from "react";
+import { TbSortAscending, TbSortDescending } from "react-icons/tb";
 import { cn } from "../utility/cn";
 import NoTaskAvailable from "./NoTaskAvailable";
 import TaskCard from "./TaskCard";
@@ -15,6 +16,15 @@ export default function TaskGroup({
   taskCategoryTitle,
   tasks = [],
 }) {
+  const [sortTask, setSortTask] = useState(true);
+
+  function handleSortTask() {
+    setSortTask(!sortTask);
+  }
+  const filteredTasks = sortTask
+    ? tasks.toSorted((a, b) => new Date(b.created_at) - new Date(a.created_at))
+    : tasks.toSorted((a, b) => new Date(a.created_at) - new Date(b.created_at));
+
   return (
     <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">
       <div
@@ -27,14 +37,24 @@ export default function TaskGroup({
           <h3 className="text-lg font-semibold">
             {taskCategoryTitle} ({tasks.length})
           </h3>
-
-          <TbSortDescending className=" size-[1.125rem] fill-none" />
+          <button
+            type="button"
+            disabled={tasks.length <= 1}
+            onClick={handleSortTask}
+            className="cursor-pointer"
+          >
+            {sortTask ? (
+              <TbSortDescending className=" size-[1.125rem] fill-none" />
+            ) : (
+              <TbSortAscending className=" size-[1.125rem] fill-none" />
+            )}
+          </button>
         </div>
         <div>
           {tasks.length == 0 ? (
-            <NoTaskAvailable taskCategoryTitle={taskCategoryTitle} />
+            <NoTaskAvailable />
           ) : (
-            tasks.map((task) => <TaskCard key={task.id} task={task} />)
+            filteredTasks.map((task) => <TaskCard key={task.id} task={task} />)
           )}
         </div>
       </div>
