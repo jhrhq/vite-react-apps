@@ -3,7 +3,7 @@ import { TbSquareRoundedPlus } from "react-icons/tb";
 import { TaskContext } from "../providers/TaskProvider";
 import ConfirmationRemoveModal from "./ConfirmationRemoveModal";
 import CreateTaskModal from "./CreateTaskModal";
-import NoCategoriesAvailable from "./NoCategoriesAvailable";
+import EmptyTasks from "./EmptyTasks";
 import TaskGroup from "./TaskGroup";
 
 export default function ProjectBoard() {
@@ -65,8 +65,8 @@ export default function ProjectBoard() {
           </div>
         </div>
 
-        {state.tasksCategories.categories.length == 0 ? (
-          <NoCategoriesAvailable />
+        {state.tasksCategories.tasks.length == 0 ? (
+          <EmptyTasks />
         ) : (
           <div className="-mx-2 mb-6 flex flex-wrap">
             {state.tasksCategories.categories.map((taskCategory) => (

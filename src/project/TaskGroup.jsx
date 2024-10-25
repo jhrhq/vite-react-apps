@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { TbSortAscending, TbSortDescending } from "react-icons/tb";
 import { cn } from "../utility/cn";
-import NoTaskAvailable from "./NoTaskAvailable";
 import TaskCard from "./TaskCard";
 
 const categoryColors = {
@@ -53,18 +52,14 @@ export default function TaskGroup({
           </button>
         </div>
         <div>
-          {tasks.length == 0 ? (
-            <NoTaskAvailable />
-          ) : (
-            filteredTasks.map((task) => (
-              <TaskCard
-                key={task.id}
-                task={task}
-                onEdit={onEdit}
-                onRemove={onRemove}
-              />
-            ))
-          )}
+          {filteredTasks.map((task) => (
+            <TaskCard
+              key={task.id}
+              task={task}
+              onEdit={onEdit}
+              onRemove={onRemove}
+            />
+          ))}
         </div>
       </div>
     </div>
