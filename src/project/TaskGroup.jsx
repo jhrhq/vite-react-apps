@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TbSortAscending, TbSortDescending } from "react-icons/tb";
+import { FilterOnSearchContext } from "../providers/FilterOnSearchProvider";
 import { cn } from "../utility/cn";
 import TaskCard from "./TaskCard";
 
@@ -17,14 +18,22 @@ export default function TaskGroup({
   onEdit,
   onRemove,
 }) {
+  const { search } = useContext(FilterOnSearchContext);
   const [sortTask, setSortTask] = useState(true);
 
   function handleSortTask() {
     setSortTask(!sortTask);
   }
-  const filteredTasks = sortTask
+
+  const sortedTasks = sortTask
     ? tasks.toSorted((a, b) => new Date(b.dueDate) - new Date(a.dueDate))
     : tasks.toSorted((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+
+  const filteredTasks = search
+    ? sortedTasks.filter((task) =>
+        task.taskName.toLowerCase().includes(search.toLowerCase())
+      )
+    : sortedTasks;
 
   return (
     <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">
@@ -36,11 +45,11 @@ export default function TaskGroup({
       >
         <div className="mb-2 flex items-center justify-between">
           <h3 className="text-lg font-semibold">
-            {taskCategoryTitle} ({tasks.length})
+            {taskCategoryTitle} ({filteredTasks.length})
           </h3>
           <button
             type="button"
-            disabled={tasks.length <= 1}
+            disabled={filteredTasks.length <= 1}
             onClick={handleSortTask}
             className="cursor-pointer disabled:cursor-not-allowed"
           >

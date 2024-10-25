@@ -1,5 +1,6 @@
 import { HiOutlineMenu } from "react-icons/hi";
 import { TbBell, TbMail } from "react-icons/tb";
+import Search from "./project/Search";
 
 export default function Header() {
   return (
@@ -8,11 +9,7 @@ export default function Header() {
         <HiOutlineMenu className="size-6 fill-none" />
       </button>
       <div className="mx-4 flex-1">
-        <input
-          type="text"
-          placeholder="Search here"
-          className="w-full max-w-xl rounded-full bg-gray-700 px-4 py-2 text-white focus:outline-none"
-        />
+        <Search />
       </div>
       <div className="flex items-center">
         <button className="relative mr-4">
