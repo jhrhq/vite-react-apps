@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { TbSquareRoundedPlus } from "react-icons/tb";
 import { TaskContext } from "../providers/TaskProvider";
+import ConfirmationRemoveModal from "./ConfirmationRemoveModal";
 import CreateTaskModal from "./CreateTaskModal";
 import NoCategoriesAvailable from "./NoCategoriesAvailable";
 import TaskGroup from "./TaskGroup";
@@ -24,9 +25,9 @@ export default function ProjectBoard() {
     setTaskModal(true);
   }
 
-  function handleRemoveTaskClick() {
-    //dispatch
-    setConfirmRemove(false);
+  function handleRemoveTaskClick(task) {
+    setSelectedTask(task);
+    setConfirmRemove(true);
   }
 
   function handleCloseRemoveModal() {
@@ -36,6 +37,13 @@ export default function ProjectBoard() {
 
   return (
     <>
+      {confirmRemove && (
+        <ConfirmationRemoveModal
+          task={selectedTask}
+          onClose={handleCloseRemoveModal}
+        />
+      )}
+
       {taskModal && (
         <CreateTaskModal
           updateToTask={selectedTask}

@@ -55,8 +55,12 @@ const taskReducer = (state, action) => {
 
     case "REMOVE_TASK":
       return {
-        ...state,
-        cartData: state.cartData.filter((c) => c.id != action.payload.id),
+        tasksCategories: {
+          ...state.tasksCategories,
+          tasks: state.tasksCategories.tasks.filter(
+            (task) => task.id !== action.payload.id
+          ),
+        },
       };
     default:
       return state;

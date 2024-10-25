@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { TaskContext } from "../providers/TaskProvider";
 
-export default function CreateTaskModal({ updateToTask, onClose, onAdd }) {
+export default function CreateTaskModal({ updateToTask, onClose }) {
   const { state, dispatch } = useContext(TaskContext);
 
   // console.log(task);
