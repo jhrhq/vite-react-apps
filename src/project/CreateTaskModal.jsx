@@ -2,6 +2,22 @@ import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { TaskContext } from "../providers/TaskProvider";
 
+function emptyInputErrorMessage(task) {
+  let inputs = [];
+  Object.entries(task).forEach(([key, value]) => {
+    if (!value) {
+      if (key == "taskName") {
+        inputs.push("Task Name");
+      } else if (key == "dueDate") {
+        inputs.push("Due Date");
+      } else {
+        inputs.push(key.charAt(0).toUpperCase() + key.slice(1));
+      }
+    }
+  });
+  return toast.error(`${inputs.join(", ")} can not be empty!`);
+}
+
 export default function CreateTaskModal({ updateToTask, onClose }) {
   const { state, dispatch } = useContext(TaskContext);
 
@@ -12,45 +28,49 @@ export default function CreateTaskModal({ updateToTask, onClose }) {
       taskName: "",
       description: "",
       dueDate: "",
-      category: state.tasksCategories.categories[0].id,
+      category: "",
     }
   );
 
   const handleChange = (evt) => {
-    const name = evt.target.name;
-    let value = evt.target.value;
+    const { name, value } = evt.target;
+
     setTask({ ...task, [name]: value });
   };
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const selectedCategoryOption = state.tasksCategories.categories.find(
-      (category) => category.id === task.category
-    );
-
-    if (!selectedCategoryOption) return;
-
-    if (updateToTask) {
-      dispatch({
-        type: "UPDATE_TASK",
-        payload: {
-          ...task,
-          category: selectedCategoryOption.name,
-          categoryId: selectedCategoryOption.id,
-        },
-      });
-      toast.done("Task updated successfully!");
+    if (!Object.values(task).every(Boolean)) {
+      return emptyInputErrorMessage(task);
     } else {
-      dispatch({
-        type: "ADD_TASK",
-        payload: {
-          ...task,
-          category: selectedCategoryOption.name,
-          categoryId: selectedCategoryOption.id,
-        },
-      });
-      toast.success("Task added successfully!");
+      const selectedCategoryOption = state.tasksCategories.categories.find(
+        (category) => category.id === task.category
+      );
+
+      if (!selectedCategoryOption) return;
+
+      if (updateToTask) {
+        dispatch({
+          type: "UPDATE_TASK",
+          payload: {
+            ...task,
+            category: selectedCategoryOption.name,
+            categoryId: selectedCategoryOption.id,
+          },
+        });
+        toast.done("Task updated successfully!");
+      } else {
+        dispatch({
+          type: "ADD_TASK",
+          payload: {
+            ...task,
+            category: selectedCategoryOption.name,
+            categoryId: selectedCategoryOption.id,
+          },
+        });
+        toast.success("Task added successfully!");
+      }
     }
 
     onClose();
@@ -75,7 +95,7 @@ export default function CreateTaskModal({ updateToTask, onClose }) {
                   type="text"
                   id="taskName"
                   name="taskName"
-                  required
+                  // required
                   value={task.taskName}
                   onChange={handleChange}
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -91,7 +111,7 @@ export default function CreateTaskModal({ updateToTask, onClose }) {
                 <textarea
                   id="description"
                   name="description"
-                  required
+                  // required
                   value={task.description}
                   onChange={handleChange}
                   rows="3"
@@ -109,7 +129,7 @@ export default function CreateTaskModal({ updateToTask, onClose }) {
                   type="date"
                   id="dueDate"
                   name="dueDate"
-                  required
+                  // required
                   value={task.dueDate}
                   onChange={handleChange}
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -126,11 +146,12 @@ export default function CreateTaskModal({ updateToTask, onClose }) {
                 <select
                   id="category"
                   name="category"
-                  required
+                  // required
                   value={task.category}
                   onChange={handleChange}
                   className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
+                  <option value="">Select Category</option>
                   {state.tasksCategories.categories.map((option) => (
                     <option key={option.id} value={option.id}>
                       {option.name}
