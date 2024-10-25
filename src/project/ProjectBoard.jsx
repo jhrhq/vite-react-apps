@@ -15,6 +15,10 @@ export default function ProjectBoard() {
   const getTasksByCategory = (categoryId) =>
     state.tasksCategories.tasks.filter((task) => task.categoryId == categoryId);
 
+  function handleOpenModalClick() {
+    setSelectedTask(null);
+    setTaskModal(true);
+  }
   function handleCloseTaskModal() {
     setSelectedTask(null);
     setTaskModal(false);
@@ -56,7 +60,7 @@ export default function ProjectBoard() {
           <h2 className=" font-bold prose-2xl">Projectify</h2>
           <div className="flex space-x-2">
             <button
-              onClick={() => setTaskModal(true)}
+              onClick={handleOpenModalClick}
               className="flex items-center rounded-md bg-gray-700 px-4 py-2 text-white"
             >
               <TbSquareRoundedPlus className="size-6 mr-2 fill-none" />
