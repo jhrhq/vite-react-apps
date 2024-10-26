@@ -3,7 +3,6 @@ import { TbSquareRoundedPlus } from "react-icons/tb";
 import { TaskContext } from "../providers/TaskProvider";
 import ConfirmationRemoveModal from "./ConfirmationRemoveModal";
 import CreateTaskModal from "./CreateTaskModal";
-import EmptyTasks from "./EmptyTasks";
 import TaskGroup from "./TaskGroup";
 
 export default function ProjectBoard() {
@@ -69,22 +68,18 @@ export default function ProjectBoard() {
           </div>
         </div>
 
-        {state.tasksCategories.tasks.length == 0 ? (
-          <EmptyTasks />
-        ) : (
-          <div className="-mx-2 mb-6 flex flex-wrap">
-            {state.tasksCategories.categories.map((taskCategory) => (
-              <TaskGroup
-                key={taskCategory.id}
-                taskCategoryId={taskCategory.id}
-                taskCategoryTitle={taskCategory.name}
-                tasks={getTasksByCategory(taskCategory.id)}
-                onEdit={handleEditTaskClick}
-                onRemove={handleRemoveTaskClick}
-              />
-            ))}
-          </div>
-        )}
+        <div className="-mx-2 mb-6 flex flex-wrap">
+          {state.tasksCategories.categories.map((taskCategory) => (
+            <TaskGroup
+              key={taskCategory.id}
+              taskCategoryId={taskCategory.id}
+              taskCategoryTitle={taskCategory.name}
+              tasks={getTasksByCategory(taskCategory.id)}
+              onEdit={handleEditTaskClick}
+              onRemove={handleRemoveTaskClick}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

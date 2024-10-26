@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { TbSortAscending, TbSortDescending } from "react-icons/tb";
 import { FilterOnSearchContext } from "../providers/FilterOnSearchProvider";
 import { cn } from "../utility/cn";
+import EmptyTasks from "./EmptyTasks";
 import TaskCard from "./TaskCard";
 
 const categoryColors = {
@@ -60,16 +61,21 @@ export default function TaskGroup({
             )}
           </button>
         </div>
-        <div>
-          {filteredTasks.map((task) => (
-            <TaskCard
-              key={task.id}
-              task={task}
-              onEdit={onEdit}
-              onRemove={onRemove}
-            />
-          ))}
-        </div>
+
+        {filteredTasks.length == 0 ? (
+          <EmptyTasks />
+        ) : (
+          <div>
+            {filteredTasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                task={task}
+                onEdit={onEdit}
+                onRemove={onRemove}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
