@@ -1,22 +1,26 @@
 import Button from "@/components/ui/button";
+import truncateText from "@/utilities/truncate-text-utility";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 
-export default function ProductCard() {
+export default function ProductCard({ product }) {
+  const { id, title, description, category, image, price } = product;
   return (
     <div className="relative">
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80">
         <img
-          src="./assets/products/shirt-2.png"
+          src={image}
           alt="Front of men&#039;s Basic Tee in black."
           className="h-full w-full object-cover object-top lg:h-full lg:w-full p-4 bg-gray-100"
         />
       </div>
       <div className="mt-4 px-3 pb-4">
         <div>
-          <h3 className="text-sm text-gray-700">Green grandad Shirt</h3>
-          <p className="mt-1 text-sm text-gray-500">Men&apos;s clothing</p>
+          <h3 className="text-sm text-gray-700">{title}</h3>
+          <p className="mt-2 text-sm text-gray-500">
+            {truncateText(description, 100)}
+          </p>
         </div>
-        <p className="text-sm font-medium text-gray-900">$35</p>
+        <p className="text-sm font-medium text-gray-900 mt-4">${price}</p>
       </div>
       {/*<!-- Button ->*/}
       <Button className="w-full ">
