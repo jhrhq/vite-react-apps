@@ -9,9 +9,7 @@ const ProductBody = ({ children }) => {
     <div>
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 h-fit">
-            {children}
-          </div>
+          {children}
         </div>
       </div>
     </div>
@@ -24,11 +22,13 @@ export default function ProductBoard() {
   if (loading) {
     return (
       <ProductBody>
-        {Array(6)
-          .fill(null)
-          .map((_, i) => (
-            <ProductSkeleton key={i} />
-          ))}
+        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 h-fit">
+          {Array(6)
+            .fill(null)
+            .map((_, i) => (
+              <ProductSkeleton key={i} />
+            ))}
+        </div>
       </ProductBody>
     );
   }
@@ -41,10 +41,12 @@ export default function ProductBoard() {
         <SectionHeading />
         <ProductActions />
         <ProductBody>
-          {filterWithSearchData.length > 0 &&
-            filterWithSearchData.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8  h-auto">
+            {filterWithSearchData.length > 0 &&
+              filterWithSearchData.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+          </div>
         </ProductBody>
       </div>
     </div>

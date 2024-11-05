@@ -22,7 +22,7 @@ export default function ProductCard({ product }) {
     }
   };
   return (
-    <div className="relative">
+    <div className="relative ">
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80">
         <img
           src={product?.image}
@@ -33,7 +33,7 @@ export default function ProductCard({ product }) {
       <div className="mt-4 px-3 pb-4">
         <div>
           <h3 className="text-sm text-gray-700">{product?.title}</h3>
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm text-gray-500 ">
             {truncateText(product?.description, 100)}
           </p>
         </div>
