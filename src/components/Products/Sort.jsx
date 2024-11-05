@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useOutsideClick } from "@/hooks";
+import { useRef, useState } from "react";
 import { HiMiniChevronDown } from "react-icons/hi2";
 
 function SortOption({ title, onChangeOption }) {
@@ -18,13 +19,16 @@ function SortOption({ title, onChangeOption }) {
 
 export default function Sort() {
   const [open, setOpen] = useState(false);
+  const sortingRef = useRef(null);
 
-  function handleClick() {
+  function handleToggleDropDown() {
     setOpen(!open);
   }
   function handleSelectOption() {
     console.log("selectsort");
   }
+
+  useOutsideClick(sortingRef, handleToggleDropDown);
   return (
     <div className="relative inline-block text-left">
       <div>
@@ -34,7 +38,7 @@ export default function Sort() {
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
-          onClick={handleClick}
+          onClick={handleToggleDropDown}
         >
           Sort
           <HiMiniChevronDown className="-mr-1 size-5 text-gray-400" />
@@ -43,6 +47,7 @@ export default function Sort() {
 
       {open && (
         <div
+          ref={sortingRef}
           className="absolute z-10 mt-2 left-5 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"

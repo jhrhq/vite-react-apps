@@ -1,14 +1,18 @@
 import Label from "@/components/ui/Label";
 import Radio from "@/components/ui/Radio";
-import { useState } from "react";
+import { useOutsideClick } from "@/hooks";
+import { useRef, useState } from "react";
 import { HiMiniChevronDown } from "react-icons/hi2";
 
 export default function Filter() {
   const [open, setOpen] = useState(false);
+  const filterRef = useRef(null);
 
-  const handleOpen = () => {
+  const handleToggleDropDown = () => {
     setOpen(!open);
   };
+
+  useOutsideClick(filterRef, handleToggleDropDown);
   return (
     <div className="w-full">
       <div className="relative inline-block text-left">
@@ -19,7 +23,7 @@ export default function Filter() {
             id="filter-button"
             aria-expanded="false"
             aria-haspopup="true"
-            onClick={handleOpen}
+            onClick={handleToggleDropDown}
           >
             Filter
             <HiMiniChevronDown className="-mr-1 size-5 text-gray-400" />
@@ -28,6 +32,7 @@ export default function Filter() {
         {/*<!-- Filter options ->*/}
         {open && (
           <div
+            ref={filterRef}
             className="absolute z-10 mt-2 left-5 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             role="menu"
             aria-orientation="vertical"
@@ -36,19 +41,19 @@ export default function Filter() {
             id="filter-dropdown"
           >
             <div className="py-1" role="none">
-              <Label for="filter-option-1">
+              <Label htmlFor="filter-option-1">
                 <Radio type="radio" id="filter-option-1" name="filter" />
                 <span className="ml-2">Category 1</span>
               </Label>
               <Label
-                for="filter-option-2"
+                htmlFor="filter-option-2"
                 className="inline-flex w-full cursor-pointer hover:bg-gray-50 items-center px-4 py-2 text-sm text-gray-700"
               >
                 <Radio type="radio" id="filter-option-2" name="filter" />
                 <span className="ml-2">Category 2</span>
               </Label>
               <Label
-                for="filter-option-3"
+                htmlFor="filter-option-3"
                 className="inline-flex w-full cursor-pointer hover:bg-gray-50 items-center px-4 py-2 text-sm text-gray-700"
               >
                 <Radio id="filter-option-3" name="filter" />
