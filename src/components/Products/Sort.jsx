@@ -1,15 +1,16 @@
 import { useOutsideClick } from "@/hooks";
+import { actionTypes, useProduct } from "@/providers/ProductProvider";
 import { useRef, useState } from "react";
 import { HiMiniChevronDown } from "react-icons/hi2";
 
-function SortOption({ title, onChangeOption }) {
+function SortOption({ title, value, onChangeOption }) {
   return (
     <a
       className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
       role="menuitem"
       tabIndex="-1"
       type="button"
-      onClick={onChangeOption}
+      onClick={() => onChangeOption(value)}
       id="menu-item-0"
     >
       {title}
@@ -21,11 +22,17 @@ export default function Sort() {
   const [open, setOpen] = useState(false);
   const sortingRef = useRef(null);
 
+  const { dispatch } = useProduct();
+
   function handleToggleDropDown() {
     setOpen(!open);
   }
-  function handleSelectOption() {
-    console.log("selectsort");
+  function handleSelectOption(value) {
+    dispatch({
+      type: actionTypes.SET_SORT_OPTION,
+      payload: value,
+    });
+    setOpen(false);
   }
 
   useOutsideClick(sortingRef, () => setOpen(false));
@@ -57,10 +64,12 @@ export default function Sort() {
           <div className="py-1" role="none">
             <SortOption
               title={"Low to High"}
+              value={"asc"}
               onChangeOption={handleSelectOption}
             />
             <SortOption
               title={"High to Low"}
+              value="desc"
               onChangeOption={handleSelectOption}
             />
           </div>
