@@ -1,15 +1,26 @@
 import Label from "@/components/ui/Label";
 import Radio from "@/components/ui/Radio";
-import { useOutsideClick } from "@/hooks";
+import { useFetch, useOutsideClick } from "@/hooks";
+import { actionTypes, useProduct } from "@/providers/ProductProvider";
 import { useRef, useState } from "react";
 import { HiMiniChevronDown } from "react-icons/hi2";
 
 export default function Filter() {
+  const { data, loading, error } = useFetch("/products/categories");
+  const { filterCategory, dispatch } = useProduct();
+
   const [open, setOpen] = useState(false);
   const filterRef = useRef(null);
 
   const handleToggleDropDown = () => {
     setOpen(!open);
+  };
+
+  const handleRadioChange = (e) => {
+    dispatch({
+      type: actionTypes.SET_FILTER_CATEGORY,
+      payload: e.target.value,
+    });
   };
 
   useOutsideClick(filterRef, () => setOpen(false));
@@ -23,6 +34,7 @@ export default function Filter() {
             id="filter-button"
             aria-expanded="false"
             aria-haspopup="true"
+            disabled={loading || error}
             onClick={handleToggleDropDown}
           >
             Filter
@@ -40,24 +52,30 @@ export default function Filter() {
             id="filter-dropdown"
           >
             <div className="py-1" role="none">
-              <Label htmlFor="filter-option-1">
-                <Radio type="radio" id="filter-option-1" name="filter" />
-                <span className="ml-2">Category 1</span>
+              <Label key={"all"} htmlFor={"all"}>
+                <Radio
+                  type="radio"
+                  id={"all"}
+                  name={"all"}
+                  value={"all"}
+                  checked={filterCategory == "all"}
+                  onValueChange={handleRadioChange}
+                />
+                <span className="ml-2"> {"all"}</span>
               </Label>
-              <Label
-                htmlFor="filter-option-2"
-                className="inline-flex w-full cursor-pointer hover:bg-gray-50 items-center px-4 py-2 text-sm text-gray-700"
-              >
-                <Radio type="radio" id="filter-option-2" name="filter" />
-                <span className="ml-2">Category 2</span>
-              </Label>
-              <Label
-                htmlFor="filter-option-3"
-                className="inline-flex w-full cursor-pointer hover:bg-gray-50 items-center px-4 py-2 text-sm text-gray-700"
-              >
-                <Radio id="filter-option-3" name="filter" />
-                <span className="ml-2">Category 3</span>
-              </Label>
+              {data.map((cat) => (
+                <Label key={cat} htmlFor={cat}>
+                  <Radio
+                    type="radio"
+                    id={cat}
+                    name={cat}
+                    value={cat}
+                    checked={filterCategory == cat}
+                    onValueChange={handleRadioChange}
+                  />
+                  <span className="ml-2"> {cat}</span>
+                </Label>
+              ))}
             </div>
           </div>
         )}
