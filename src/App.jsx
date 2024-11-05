@@ -1,6 +1,4 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import Layout from "@/components/Layout";
 import ProductBoard from "@/components/Products";
 import CartProvider from "@/providers/CartProvider";
 import ProductProvider from "@/providers/ProductProvider";
@@ -10,10 +8,9 @@ function App() {
     <>
       <ProductProvider>
         <CartProvider>
-          <Header />
-          <Hero />
-          <ProductBoard />
-          <Footer />
+          <Layout>
+            <ProductBoard />
+          </Layout>
         </CartProvider>
       </ProductProvider>
     </>

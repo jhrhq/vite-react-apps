@@ -18,7 +18,7 @@ export default function useFetch(url) {
       setError(null);
 
       try {
-        const response = await fetch(url, {
+        const response = await fetch(`${URL}${url}`, {
           signal: abortControllerRef.current?.signal,
         });
 
