@@ -12,14 +12,14 @@ export default function Filter() {
     setOpen(!open);
   };
 
-  useOutsideClick(filterRef, handleToggleDropDown);
+  useOutsideClick(filterRef, () => setOpen(false));
   return (
-    <div className="w-full">
+    <div className="w-full" ref={filterRef}>
       <div className="relative inline-block text-left">
         <div>
           <button
             type="button"
-            className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-400 hover:text-gray-500 focus:text-gray-700 transition-all"
+            className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-400 hover:text-gray-500 focus:text-gray-700"
             id="filter-button"
             aria-expanded="false"
             aria-haspopup="true"
@@ -32,8 +32,7 @@ export default function Filter() {
         {/*<!-- Filter options ->*/}
         {open && (
           <div
-            ref={filterRef}
-            className="absolute z-10 mt-2 left-5 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            className="  absolute z-10 mt-2 left-5 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="filter-button"

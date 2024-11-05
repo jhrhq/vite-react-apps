@@ -28,9 +28,10 @@ export default function Sort() {
     console.log("selectsort");
   }
 
-  useOutsideClick(sortingRef, handleToggleDropDown);
+  useOutsideClick(sortingRef, () => setOpen(false));
+
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left" ref={sortingRef}>
       <div>
         <button
           type="button"
@@ -47,7 +48,6 @@ export default function Sort() {
 
       {open && (
         <div
-          ref={sortingRef}
           className="absolute z-10 mt-2 left-5 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
