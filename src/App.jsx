@@ -3,16 +3,19 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProductBoard from "@/components/Products";
 import CartProvider from "@/providers/CartProvider";
+import ProductProvider from "@/providers/ProductProvider";
 
 function App() {
   return (
     <>
-      <CartProvider>
-        <Header />
-        <Hero />
-        <ProductBoard />
-        <Footer />
-      </CartProvider>
+      <ProductProvider>
+        <CartProvider>
+          <Header />
+          <Hero />
+          <ProductBoard />
+          <Footer />
+        </CartProvider>
+      </ProductProvider>
     </>
   );
 }
