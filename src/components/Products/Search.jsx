@@ -1,6 +1,22 @@
+import { useDebounce } from "@/hooks";
+import { actionTypes, useProduct } from "@/providers/ProductProvider";
 import { HiOutlineSearch } from "react-icons/hi";
 
 export default function Search() {
+  const { dispatch } = useProduct();
+
+  const doSearch = useDebounce((term) => {
+    dispatch({
+      type: actionTypes.SET_SEARCH_QUERY,
+      payload: term,
+    });
+  }, 500);
+
+  function handleChange(e) {
+    const value = e.target.value;
+    doSearch(value);
+  }
+
   return (
     <>
       {/*<!-- Search ->*/}
@@ -11,6 +27,7 @@ export default function Search() {
         />
 
         <input
+          onChange={handleChange}
           className="block w-full appearance-none bg-transparent text-base text-gray-700 placeholder:text-gray-400 focus:outline-none placeholder:text-sm sm:text-sm sm:leading-6"
           placeholder="Find anything..."
           aria-label="Search components"
