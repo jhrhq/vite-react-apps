@@ -22,7 +22,7 @@ export default function ProductCard({ product }) {
     }
   };
   return (
-    <div className="relative flex flex-col">
+    <div className="relative ">
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80">
         <img
           src={product?.image}
@@ -42,18 +42,17 @@ export default function ProductCard({ product }) {
         </p>
       </div>
       {/*<!-- Button ->*/}
-      <Button
-        className="block w-full mt-auto "
-        onClick={() => handleAddToCart(product)}
-      >
-        <div className="flex px-3 py-2 justify-center">
-          <HiOutlineShoppingBag
-            stroke="currentColor"
-            className="mr-2.5 size-5 flex-none stroke-slate-400"
-          />
-          {!isAddedToCart ? "Add To Cart" : "Remove From Cart"}
-        </div>
-      </Button>
+      <div className="mx-3">
+        <Button className="w-full " onClick={() => handleAddToCart(product)}>
+          <div className="flex px-3 py-2 justify-center">
+            <HiOutlineShoppingBag
+              stroke="currentColor"
+              className="mr-2.5 size-5 flex-none stroke-slate-400"
+            />
+            {!isAddedToCart ? "Add To Cart" : "Remove From Cart"}
+          </div>
+        </Button>
+      </div>
     </div>
   );
 }
