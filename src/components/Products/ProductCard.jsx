@@ -22,7 +22,7 @@ export default function ProductCard({ product }) {
     }
   };
   return (
-    <div className="relative ">
+    <div className="relative flex flex-col">
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80">
         <img
           src={product?.image}
@@ -42,7 +42,10 @@ export default function ProductCard({ product }) {
         </p>
       </div>
       {/*<!-- Button ->*/}
-      <Button className="w-full " onClick={() => handleAddToCart(product)}>
+      <Button
+        className="block w-full mt-auto "
+        onClick={() => handleAddToCart(product)}
+      >
         <div className="flex px-3 py-2 justify-center">
           <HiOutlineShoppingBag
             stroke="currentColor"
