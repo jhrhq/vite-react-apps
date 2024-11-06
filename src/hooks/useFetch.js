@@ -23,14 +23,13 @@ export default function useFetch(url) {
         });
 
         if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
+          throw new Error(`${response.status}`);
         }
 
         const result = await response.json();
         setData(result);
       } catch (error) {
         if (error.name == "AbortError") return;
-
         setError(error.message);
       } finally {
         setLoading(false);

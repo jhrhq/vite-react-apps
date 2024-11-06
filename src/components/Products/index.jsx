@@ -1,3 +1,4 @@
+import ErrorComponent from "@/components/Products/ErrorComponent";
 import ProductActions from "@/components/Products/ProductActions";
 import ProductCard from "@/components/Products/ProductCard";
 import ProductSkeleton from "@/components/Products/ProductSkeleton";
@@ -33,7 +34,12 @@ export default function ProductBoard() {
     );
   }
 
-  if (error) return <ProductBody>Error: {error}</ProductBody>;
+  if (error)
+    return (
+      <ProductBody>
+        <ErrorComponent error={error} />
+      </ProductBody>
+    );
 
   return (
     <div>
