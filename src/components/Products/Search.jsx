@@ -28,7 +28,7 @@ export default function Search() {
 
         <input
           onChange={handleChange}
-          className="block w-full appearance-none bg-transparent text-base text-gray-700 placeholder:text-gray-400 focus:outline-none placeholder:text-sm sm:text-sm sm:leading-6"
+          className="block w-full appearance-none bg-transparent text-base rounded-md focus:ring-0 text-gray-700 placeholder:text-gray-400 focus:border-gray-300 placeholder:text-sm border-gray-300 sm:text-sm sm:leading-6"
           placeholder="Find anything..."
           aria-label="Search components"
           id="headlessui-combobox-input-:r5n:"
