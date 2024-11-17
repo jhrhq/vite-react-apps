@@ -1,9 +1,5 @@
 function App() {
-  return (
-    <>
-      <h1>Initialization</h1>
-    </>
-  );
+  return <h1 className="text-9xl">Initialization</h1>;
 }
 
 export default App;
