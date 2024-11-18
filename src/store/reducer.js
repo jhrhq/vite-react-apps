@@ -1,6 +1,8 @@
-import accountReducer from "@/store/accountReducer";
+import { quizzesApi } from "@/api/quizzes";
 import { combineReducers } from "redux";
 
-const reducer = combineReducers({ account: accountReducer });
+const reducer = combineReducers({
+  [quizzesApi.reducerPath]: quizzesApi.reducer,
+});
 
 export default reducer;

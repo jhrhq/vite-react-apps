@@ -4,6 +4,7 @@ import {
   useSelector as useAppSelector,
 } from "react-redux";
 
+import { quizzesApi } from "@/api/quizzes";
 import rootReducer from "@/store/reducer";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -21,7 +22,7 @@ const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
       immutableCheck: false,
-    }).concat([]),
+    }).concat([quizzesApi.middleware]),
 });
 const persister = persistStore(store);
 
