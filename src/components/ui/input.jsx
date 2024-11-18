@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { cn } from "@/lib/utils";
+import cn from "@/utility/cn-utility";
 import { forwardRef } from "react";
 
 const Input = forwardRef(({ className, type, ...props }, ref) => {

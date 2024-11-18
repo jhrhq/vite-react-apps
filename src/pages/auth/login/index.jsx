@@ -1,5 +1,6 @@
 import login from "@/assets/Saly-1.png";
 import logo from "@/assets/logo.svg";
+import Input from "@/components/ui/input";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -36,7 +37,7 @@ const Login = () => {
                 <label htmlFor="username" className="block mb-2">
                   Enter your username or email address
                 </label>
-                <input
+                <Input
                   type="text"
                   id="username"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300"
