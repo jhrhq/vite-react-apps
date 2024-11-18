@@ -2,10 +2,12 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import QuizCard from "@/components/QuizCard";
 import UserCard from "@/components/UserCard";
+import Dashboard from "@/pages/admin/dashboard";
 
 const Home = () => {
   return (
     <div className=" min-h-screen mx-auto py-3 container">
+      <Dashboard />
       <Header />
       <UserCard />
       <main className="bg-white p-6 rounded-md h-full">

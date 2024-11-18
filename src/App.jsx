@@ -1,5 +1,5 @@
 import { JWTProvider as AuthProvider } from "@/contexts/JWTContext";
-import Home from "@/pages/Home";
+import Home from "@/pages/home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([

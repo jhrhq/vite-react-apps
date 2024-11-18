@@ -3,7 +3,7 @@ import auth from "@/routes/auth";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-const Error = Loadable(lazy(() => import("@/pages/Error")));
+const Error = Loadable(lazy(() => import("@/pages/error")));
 
 const router = createBrowserRouter([
   auth,
