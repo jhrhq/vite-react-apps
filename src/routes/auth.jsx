@@ -2,19 +2,10 @@ import { lazy } from "react";
 
 import Loadable from "@/components/Loadable";
 import MinimalLayout from "@/layouts/MinimalLayout";
-import GuestGuard from "@/utils/guards/GuestGuard";
+import GuestGuard from "@/utility/guard/GuestGuard";
 
-const AuthLogin = Loadable(lazy(() => import("@/views/auth/Login")));
-const AuthForgotPassword = Loadable(
-  lazy(() => import("@/views/auth/ForgotPassword"))
-);
-const AuthCheckMail = Loadable(lazy(() => import("@/views/auth/CheckMail")));
-const AuthResetPassword = Loadable(
-  lazy(() => import("@/views/auth/ResetPassword"))
-);
-const AuthCodeVerification = Loadable(
-  lazy(() => import("@/views/auth/CodeVerification"))
-);
+const AuthLogin = Loadable(lazy(() => import("@/pages/auth/login")));
+const AuthRegister = Loadable(lazy(() => import("@/pages/auth/registration")));
 
 const AuthenticationRoutes = {
   element: (
@@ -28,20 +19,8 @@ const AuthenticationRoutes = {
       element: <AuthLogin />,
     },
     {
-      path: "/forgot-password",
-      element: <AuthForgotPassword />,
-    },
-    {
-      path: "/check-mail",
-      element: <AuthCheckMail />,
-    },
-    {
-      path: "/reset-password",
-      element: <AuthResetPassword />,
-    },
-    {
-      path: "/code-verification",
-      element: <AuthCodeVerification />,
+      path: "/register",
+      element: <AuthRegister />,
     },
   ],
 };

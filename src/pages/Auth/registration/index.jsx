@@ -1,14 +1,18 @@
+import bg from "@/assets/Saly-1.png";
+import logWhite from "@/assets/logo-white.svg";
+import logo from "@/assets/logo.svg";
+import { Link } from "react-router-dom";
 const Registration = () => {
   return (
-    <body className="bg-white text-gray-800 ">
+    <div className="bg-white text-gray-800 ">
       <div className="flex min-h-screen max-h-screen">
         {/* <!-- Left side --> */}
         <div className="hidden  lg:flex lg:w-1/2 bg-primary flex-col justify-between p-12  h-full fixed left-0 top-0">
           <div className="text-white">
-            <img src="./assets/logo-white.svg" className="h-8" />
+            <img src={logWhite} className="h-8" />
 
             <img
-              src="./assets/Saly-1.png"
+              src={bg}
               alt="Illustration"
               className="mx-auto 2xl:ml-0 max-h-64  max-w-lg"
             />
@@ -31,7 +35,7 @@ const Registration = () => {
           <div className="w-full max-w-lg ">
             <h2 className="text-3xl font-bold mb-3 flex gap-2 items-center">
               <span>Welcome to</span>
-              <img src="./assets/logo.svg" className="h-7" />
+              <img src={logo} className="h-7" />
             </h2>
             <h1 className="text-4xl font-bold mb-6">Sign Up</h1>
 
@@ -110,15 +114,15 @@ const Registration = () => {
             <div className="mt-2 text-gray-400">
               <p className="text-center">
                 Already have account ?{" "}
-                <a href="#" className="text-primary">
+                <Link to="/login" className="text-primary">
                   Sign In
-                </a>
+                </Link>
               </p>
             </div>
           </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 
