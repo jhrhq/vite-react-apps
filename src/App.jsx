@@ -1,10 +1,11 @@
 import { JWTProvider as AuthProvider } from "@/contexts/JWTContext";
+import Home from "@/pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <h1 className="text-9xl">hello world</h1>,
+    element: <Home />,
   },
 ]);
 
