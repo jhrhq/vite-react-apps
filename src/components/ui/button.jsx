@@ -1,5 +1,5 @@
 import cn from "@/utility/cn-utility";
-import { Slot } from "@/utility/slot";
+import Slot from "@/utility/slot";
 import { forwardRef } from "react";
 
 const Button = forwardRef(({ className, asChild = false, ...props }, ref) => {

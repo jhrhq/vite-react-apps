@@ -21,7 +21,7 @@ const Home = () => {
           <h3 className="text-2xl font-bold mb-6">Participate In Quizees</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {quizzes.data.map((quiz) => (
+            {quizzes?.data.map((quiz) => (
               <QuizCard
                 key={quiz.id}
                 quizId={quiz.id}

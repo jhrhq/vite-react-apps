@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
-import { Label } from "@/components/ui/label";
+import Label from "@/components/ui/label";
 import cn from "@/utility/cn-utility";
-import { Slot } from "@/utility/slot";
+import Slot from "@/utility/slot";
 import { createContext, forwardRef, useContext, useId } from "react";
 import { Controller, FormProvider, useFormContext } from "react-hook-form";
 
@@ -19,6 +19,7 @@ const FormField = ({ ...props }) => {
 };
 
 const FormItemContext = createContext({});
+
 const useFormField = () => {
   const fieldContext = useContext(FormFieldContext);
   const itemContext = useContext(FormItemContext);
@@ -91,7 +92,7 @@ const FormDescription = forwardRef(({ className, ...props }, ref) => {
     <p
       ref={ref}
       id={formDescriptionId}
-      className={cn("text-sm text-muted-foreground", className)}
+      className={cn("text-sm ", className)}
       {...props}
     />
   );
@@ -109,7 +110,7 @@ const FormMessage = forwardRef(({ className, children, ...props }, ref) => {
     <p
       ref={ref}
       id={formMessageId}
-      className={cn("text-sm font-medium text-destructive", className)}
+      className={cn("text-sm font-medium text-rose-600", className)}
       {...props}
     >
       {body}
