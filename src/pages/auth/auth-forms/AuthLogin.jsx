@@ -8,6 +8,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Input from "@/components/ui/input";
+import useAuth from "@/hooks/useAuth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -34,9 +35,10 @@ const LoginFormSchema = z.object({
 
   password: z
     .string()
-    .min(8, "Please choose at least  8 characters to create your password")
+    .min(4, "Password must be at least 4 characters")
     .max(255, "Consider using a short password")
     .trim(),
+  role: z.boolean().default(false).optional(),
 });
 
 const AuthLogin = () => {
@@ -45,8 +47,26 @@ const AuthLogin = () => {
     defaultValues,
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const { login } = useAuth();
+
+  const onSubmit = async (data) => {
+    try {
+      await login(data.username, data.password);
+    } catch (err) {
+      form.setError("username", {
+        type: "random",
+        message: err.response.data.message,
+      });
+      form.setError("password", {
+        type: "random",
+        message: err.response.data.message,
+      });
+
+      //   form.setError("root.random", {
+      //     type: "random",
+      //     message: err.response.data.message,
+      //   });
+    }
   };
   return (
     <Form {...form}>
@@ -81,17 +101,33 @@ const AuthLogin = () => {
             </FormItem>
           )}
         />
+        {form.formState.errors?.root?.random.message && (
+          <FormMessage className="-mt-4 mb-4">
+            {form.formState.errors?.root?.random.message}
+          </FormMessage>
+        )}
 
-        <div className="mb-6 flex gap-2 items-center">
-          <input
-            type="checkbox"
-            id="admin"
-            className="px-4 py-3 rounded-lg border border-gray-300"
-          />
-          <label htmlFor="admin" className="block ">
-            Login as Admin
-          </label>
-        </div>
+        <FormField
+          control={form.control}
+          name="role"
+          render={({ field }) => (
+            <FormItem className="mb-6 flex gap-2 items-center space-y-0">
+              <FormControl>
+                <input
+                  id="role"
+                  type="checkbox"
+                  className="px-4 py-3 rounded-lg border border-gray-300"
+                  {...field}
+                />
+              </FormControl>
+              <FormLabel htmlFor="role" className="block">
+                {" "}
+                Register as Admin
+              </FormLabel>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <Button type="submit" className="w-full">
           Sign in
         </Button>
