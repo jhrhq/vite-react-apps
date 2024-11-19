@@ -14,7 +14,8 @@ export default function QuizCard({
 }) {
   return (
     <Link
-      to="/result"
+      // to="/result"
+      to={`/quiz/${quizId}`}
       // to="./result.html"
       className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow max-h-[450px] relative group cursor-pointer"
     >

@@ -1,12 +1,11 @@
 import useAuth from "@/hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const GuestGuard = ({ children }) => {
   const { isLoggedIn } = useAuth();
-  const navigate = useNavigate();
 
   if (isLoggedIn) {
-    return navigate("/", { replace: true });
+    return <Navigate to="/" state={{ from: location }} replace />;
   }
 
   return children;

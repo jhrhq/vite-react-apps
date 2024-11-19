@@ -35,7 +35,7 @@ const LoginFormSchema = z.object({
 
   password: z
     .string()
-    .min(4, "Password must be at least 4 characters")
+    .min(8, "Password must be at least 8 characters")
     .max(255, "Consider using a short password")
     .trim(),
   role: z.boolean().default(false).optional(),

@@ -1,25 +1,42 @@
 import logo from "@/assets/logo.svg";
+import Button from "@/components/ui/button";
+import useAuth from "@/hooks/useAuth";
 import { NavLink } from "react-router-dom";
 const Header = () => {
+  const { isLoggedIn, logout } = useAuth();
+
   return (
     <header className="flex justify-between items-center mb-12">
       <img src={logo} className="h-7" />
-      <div>
-        <NavLink
-          to="/login"
-          className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
-          style={{ fontFamily: "Jaro" }}
-        >
-          Login
-        </NavLink>
 
-        <NavLink
-          to="/register"
-          className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
-          style={{ fontFamily: "Jaro" }}
-        >
-          Register
-        </NavLink>
+      <div>
+        {isLoggedIn ? (
+          <Button
+            onClick={logout}
+            className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
+            style={{ fontFamily: "Jaro" }}
+          >
+            Logout
+          </Button>
+        ) : (
+          <>
+            <NavLink
+              to="/login"
+              className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
+              style={{ fontFamily: "Jaro" }}
+            >
+              Login
+            </NavLink>
+
+            <NavLink
+              to="/register"
+              className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
+              style={{ fontFamily: "Jaro" }}
+            >
+              Register
+            </NavLink>
+          </>
+        )}
       </div>
     </header>
   );

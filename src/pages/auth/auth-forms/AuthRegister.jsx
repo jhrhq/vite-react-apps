@@ -39,7 +39,7 @@ const RegisterFormSchema = z
 
     password: z
       .string()
-      .min(4, "Password must be at least 4 characters")
+      .min(8, "Password must be at least 8 characters")
       .max(64, "Consider using a short password")
       .trim(),
     confirmPassword: z.string().min(1, "Please confirm your password").trim(),
