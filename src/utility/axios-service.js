@@ -35,19 +35,14 @@ axiosServices.interceptors.response.use(
       const refreshToken = window?.localStorage.getItem("refreshToken");
       if (refreshToken) {
         try {
-          const response = await axios.post(
-            `${import.meta.env.VITE_APP_API_URL}/auth/refresh`,
-            {},
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${refreshToken}`,
-              },
-            }
-          );
-          const { access } = response.data;
-          window?.localStorage.setItem("accessToken", access);
-          originalRequest.headers["Authorization"] = `Bearer ${access}`;
+          const response = await axiosPrimary.post(`/api/auth/refresh-token`, {
+            refreshToken,
+          });
+          const data = response.data?.data;
+          window?.localStorage.setItem("accessToken", data?.accessToken);
+          originalRequest.headers[
+            "Authorization"
+          ] = `Bearer ${data?.accessToken}`;
           return axiosServices(originalRequest);
         } catch (refreshError) {
           localStorage.removeItem("accessToken");

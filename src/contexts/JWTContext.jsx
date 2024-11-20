@@ -1,10 +1,10 @@
 import Loader from "@/components/Loader";
 import accountReducer from "@/store/accountReducer";
 import { LOGIN, LOGOUT } from "@/store/actions";
-import axiosServices from "@/utility/axios-service";
+import axiosServices, { axiosPrimary } from "@/utility/axios-service";
 import { getStorageValue } from "@/utility/utilities";
 import { jwtDecode } from "jwt-decode";
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useLayoutEffect, useReducer } from "react";
 
 const initialState = {
   isLoggedIn: false,
@@ -41,48 +41,47 @@ export const JWTProvider = ({ children }) => {
     getStorageValue
   );
 
-  // useLayoutEffect(() => {
-  //   const init = async () => {
-  //     try {
-  //       const serviceToken = window.localStorage.getItem("accessToken");
-  //       const refreshToken = window.localStorage.getItem("refreshToken");
-  //       if (serviceToken && verifyToken(serviceToken)) {
-  //         setSession(serviceToken, refreshToken);
-  //         const user = jwtDecode(serviceToken);
-  //         dispatch({
-  //           type: LOGIN,
-  //           payload: {
-  //             isLoggedIn: true,
-  //             user,
-  //           },
-  //         });
-  //       } else if (refreshToken && verifyToken(refreshToken)) {
-  //         const response = await axiosPrimary.post(
-  //           "/auth/refresh",
-  //           {},
-  //           {
-  //             headers: {
-  //               "Content-Type": "application/json",
-  //               Authorization: `Bearer ${refreshToken}`,
-  //             },
-  //           }
-  //         );
-  //         const { access } = response.data;
-  //         setSession(access, refreshToken);
-  //       } else {
-  //         dispatch({
-  //           type: LOGOUT,
-  //         });
-  //       }
-  //     } catch (err) {
-  //       console.error(err);
-  //       dispatch({
-  //         type: LOGOUT,
-  //       });
-  //     }
-  //   };
-  //   init();
-  // }, []);
+  useLayoutEffect(() => {
+    let ignore = false;
+
+    const init = async () => {
+      try {
+        const serviceToken = window.localStorage.getItem("accessToken");
+        const refreshToken = window.localStorage.getItem("refreshToken");
+        if (serviceToken && verifyToken(serviceToken)) {
+          setSession(serviceToken, refreshToken);
+          // const user = jwtDecode(serviceToken);
+          // dispatch({
+          //   type: LOGIN,
+          //   payload: {
+          //     isLoggedIn: true,
+          //     user,
+          //   },
+          // });
+        } else if (refreshToken && verifyToken(refreshToken)) {
+          const response = await axiosPrimary.post("/api/auth/refresh-token", {
+            refreshToken,
+          });
+          const data = response.data?.data;
+          setSession(data?.accessToken, data?.refreshToken);
+        } else {
+          dispatch({
+            type: LOGOUT,
+          });
+        }
+      } catch (err) {
+        console.error(err);
+        dispatch({
+          type: LOGOUT,
+        });
+      }
+    };
+    init();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   const login = async (email, password) => {
     const response = await axiosServices.post("/api/auth/login", {

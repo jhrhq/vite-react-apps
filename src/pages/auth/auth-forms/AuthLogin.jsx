@@ -61,11 +61,6 @@ const AuthLogin = () => {
         type: "random",
         message: err.response.data.message,
       });
-
-      //   form.setError("root.random", {
-      //     type: "random",
-      //     message: err.response.data.message,
-      //   });
     }
   };
   return (
@@ -101,11 +96,6 @@ const AuthLogin = () => {
             </FormItem>
           )}
         />
-        {form.formState.errors?.root?.random.message && (
-          <FormMessage className="-mt-4 mb-4">
-            {form.formState.errors?.root?.random.message}
-          </FormMessage>
-        )}
 
         <FormField
           control={form.control}
