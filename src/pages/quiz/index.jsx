@@ -1,20 +1,29 @@
-import { useGetQuizQuery } from "@/api/quiz";
+import { useGetQuestionsQuery } from "@/api/quizzes";
 import Loader from "@/components/Loader";
 import QuizDetailsCard from "@/pages/quiz/QuizDetailsCard";
 import QuizQuestion from "@/pages/quiz/Quizquestion";
+import { useDispatch } from "@/store";
+import { setQuestions } from "@/store/questionSlice";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const Quiz = () => {
   const { quizId } = useParams();
-  const { isLoading, data } = useGetQuizQuery(
-    quizId
-    //   {
-    //   pollingInterval: 3000,
-    //   skipPollingIfUnfocused: true,
-    // }
-  );
+  const dispatch = useDispatch();
+  // console.log(quizId);
+  const { isLoading, data } = useGetQuestionsQuery(quizId, {
+    // skip: !!quizId,
+    // pollingInterval: 5000,
+    skipPollingIfUnfocused: true,
+  });
 
-  console.log(data);
+  // Update the Redux state with questions once they are fetched
+  useEffect(() => {
+    if (data) {
+      dispatch(setQuestions(data?.questions)); // Save questions in the store
+    }
+  }, [data, dispatch]);
+
   if (isLoading) return <Loader />;
 
   return (
@@ -25,16 +34,11 @@ const Quiz = () => {
           <QuizDetailsCard
             title={data?.title}
             description={data?.description}
-            totalQuestions={data?.stats?.total_questions}
-            participation={data?.total_attempts}
-            thumbnail={data?.thumbnail}
           />
 
           {/* <!-- Right Column --> */}
-          {data.questions.length > 0 &&
-            data.questions.map((question) => (
-              <QuizQuestion key={question.id} {...question} />
-            ))}
+
+          <QuizQuestion />
         </div>
       </main>
     </div>

@@ -1,11 +1,15 @@
+import { useGetQuizAttemptsQuery } from "@/api/quizzes";
+import logoWhite from "@/assets/logo-white.svg";
+import { useParams } from "react-router-dom";
+
 const Result = () => {
+  const { quizId } = useParams();
+  const { data, isLoading } = useGetQuizAttemptsQuery(quizId);
+  console.log(data);
   return (
-    <body className="bg-background text-foreground min-h-screen">
+    <div className="bg-background text-foreground min-h-screen">
       <div className="flex min-h-screen overflow-hidden">
-        <img
-          src="./assets/logo-white.svg"
-          className="max-h-11 fixed left-6 top-6 z-50"
-        />
+        <img src={logoWhite} className="max-h-11 fixed left-6 top-6 z-50" />
         {/* <!-- Left side --> */}
         <div className="max-h-screen overflow-hidden hidden lg:flex lg:w-1/2 bg-primary flex-col justify-center p-12 relative">
           <div>
@@ -233,7 +237,7 @@ const Result = () => {
           </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 

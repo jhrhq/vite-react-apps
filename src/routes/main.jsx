@@ -30,7 +30,7 @@ const MainRoutes = {
       element: <QuizPage />,
     },
     {
-      path: "/result",
+      path: "/result/:quizId",
       element: <ResultPage />,
     },
   ],

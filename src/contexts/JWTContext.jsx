@@ -1,7 +1,7 @@
 import Loader from "@/components/Loader";
 import accountReducer from "@/store/accountReducer";
 import { LOGIN, LOGOUT } from "@/store/actions";
-import axiosServices, { axiosPrimary } from "@/utility/axios-service";
+import axiosServices from "@/utility/axios-service";
 import { getStorageValue } from "@/utility/utilities";
 import { jwtDecode } from "jwt-decode";
 import { createContext, useEffect, useLayoutEffect, useReducer } from "react";
@@ -42,8 +42,6 @@ export const JWTProvider = ({ children }) => {
   );
 
   useLayoutEffect(() => {
-    let ignore = false;
-
     const init = async () => {
       try {
         const serviceToken = window.localStorage.getItem("accessToken");
@@ -59,10 +57,11 @@ export const JWTProvider = ({ children }) => {
           //   },
           // });
         } else if (refreshToken && verifyToken(refreshToken)) {
-          const response = await axiosPrimary.post("/api/auth/refresh-token", {
+          const response = await axiosServices.post("/api/auth/refresh-token", {
             refreshToken,
           });
           const data = response.data?.data;
+
           setSession(data?.accessToken, data?.refreshToken);
         } else {
           dispatch({
@@ -71,16 +70,12 @@ export const JWTProvider = ({ children }) => {
         }
       } catch (err) {
         console.error(err);
-        dispatch({
-          type: LOGOUT,
-        });
+        // dispatch({
+        //   type: LOGOUT,
+        // });
       }
     };
     init();
-
-    return () => {
-      ignore = true;
-    };
   }, []);
 
   const login = async (email, password) => {
