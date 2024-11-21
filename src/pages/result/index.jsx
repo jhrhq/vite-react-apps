@@ -1,6 +1,34 @@
 import { useGetQuizAttemptsQuery } from "@/api/quizzes";
+import circle from "@/assets/icons/circular-progressbar.svg";
 import logoWhite from "@/assets/logo-white.svg";
+import { Gauge } from "@/components/ProgressCircle";
 import { useParams } from "react-router-dom";
+
+/**
+ * Counts the number of times a match occurs in an array of objects.
+ *
+ * @param {Array} data - The array of objects to search through.
+ * @param {Object} matchCriteria - The criteria to match in each object.
+ * @returns {number} - The number of objects that match the given criteria.
+ */
+function countMatches(data, matchCriteria) {
+  // Ensure data is an array and matchCriteria is an object
+  if (!Array.isArray(data) || typeof matchCriteria !== "object") {
+    throw new Error(
+      "Invalid input: data should be an array and matchCriteria should be an object."
+    );
+  }
+
+  return data.reduce((count, obj) => {
+    // Check if every key-value pair in matchCriteria matches in the current object
+    const isMatch = Object.keys(matchCriteria).every(
+      (key) => obj[key] === matchCriteria[key]
+    );
+
+    // If match, increment the count
+    return isMatch ? count + 1 : count;
+  }, 0);
+}
 
 const Result = () => {
   const { quizId } = useParams();
@@ -21,6 +49,7 @@ const Result = () => {
                   useContext.{" "}
                 </p>
               </div>
+              <Gauge value={90} circleColor="text-blue-500" size="large" />
 
               <div className="my-6 flex items-center  ">
                 <div className="w-1/2">
@@ -55,10 +84,7 @@ const Result = () => {
                     <p>Your Mark</p>
                   </div>
                   <div>
-                    <img
-                      src="./assets/icons/circular-progressbar.svg"
-                      className="h-20"
-                    />
+                    <img src={circle} className="h-20" />
                   </div>
                 </div>
               </div>
