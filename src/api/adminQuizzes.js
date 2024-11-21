@@ -13,16 +13,17 @@ export const adminQuizzesApi = createApi({
       //   },
     }),
 
-    submitQuiz: builder.mutation({
-      query: ({ answers, quizId }) => {
+    createQuiz: builder.mutation({
+      query: (data) => {
         return {
-          url: `/api/quizzes/${quizId}/attempt`,
+          url: `/api/admin/quizzes/`,
           method: "POST",
-          data: { answers },
+          data,
         };
       },
     }),
   }),
 });
 
-export const { useGetAdminQuizzesQuery } = adminQuizzesApi;
+export const { useGetAdminQuizzesQuery, useCreateQuizMutation } =
+  adminQuizzesApi;

@@ -1,3 +1,5 @@
+import { useCreateQuizMutation } from "@/api/adminQuizzes";
+import Button from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -8,8 +10,10 @@ import {
 } from "@/components/ui/form";
 import Input from "@/components/ui/input";
 import Textarea from "@/components/ui/textarea";
+import Spinner from "@/svg/Spinner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 
 const CreateQuizSchema = z.object({
@@ -40,17 +44,28 @@ const defaultValues = {
 };
 
 const CreateQuizForm = () => {
+  const [createQuiz, { isLoading }] = useCreateQuizMutation();
+  const navigate = useNavigate();
   const form = useForm({
     resolver: zodResolver(CreateQuizSchema),
     defaultValues,
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  async function handleCreateQuiz(data) {
+    try {
+      await createQuiz(data).unwrap();
+      navigate("/quiz-set-entry-page");
+    } catch (err) {
+      form.setError("root.random", {
+        type: "random",
+        message: err.response.data.message,
+      });
+    }
+  }
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(handleCreateQuiz)}>
         <div className="mb-4">
           <FormField
             control={form.control}
@@ -90,14 +105,18 @@ const CreateQuizForm = () => {
             )}
           />
         </div>
-
-        <button
-          //   href="./quiz_set_entry_page.html"
+        {!form.formState.errors?.root?.random.message && (
+          <FormMessage className="-mt-4 mb-4">
+            {form.formState.errors?.root?.random.message}
+          </FormMessage>
+        )}
+        <Button
+          disabled={isLoading}
           type="submit"
-          className="w-full block text-center bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          className="relative w-full block text-center bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-75"
         >
-          Next
-        </button>
+          {isLoading ? <Spinner /> : "Next"}
+        </Button>
       </form>
     </Form>
   );
