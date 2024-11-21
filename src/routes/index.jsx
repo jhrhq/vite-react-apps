@@ -1,4 +1,5 @@
 import Loadable from "@/components/Loadable";
+import adminRoutes from "@/routes/admin";
 import auth from "@/routes/auth";
 import mainRoutes from "@/routes/main";
 import PublicRoutes from "@/routes/public";
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
   PublicRoutes,
   auth,
   mainRoutes,
+  adminRoutes,
   {
     path: "*",
     element: <Error />,

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import cn from "@/utility/cn-utility";
 import { useState } from "react";
 
@@ -40,7 +41,8 @@ export const Counter = ({
 };
 
 export const Gauge = ({
-  value,
+  value = 0,
+  fullValue = 100,
   size = "small",
   showValue = true,
   circleColor = "text-[hsla(131,41%,46%,1)]",
@@ -48,7 +50,7 @@ export const Gauge = ({
   // "extraSmall" | "small" | "medium" | "large"
   const circumference = 332; //2 * Math.PI * 53; // 2 * pi * radius
   const valueInCircumference =
-    value < 0 ? 2 * circumference : (value / 100) * circumference;
+    value < 0 ? 2 * circumference : (value / fullValue) * circumference;
   const strokeDasharray = `${circumference} ${circumference}`;
   const initialOffset = circumference;
   const strokeDashoffset = initialOffset - valueInCircumference;
@@ -124,8 +126,7 @@ export const Gauge = ({
                 sizes[size].textSize
               )}
             >
-              <Counter valueTo={value < 0 ? 0 : value} /> %
-              {/* {value < 0 ? 0 : value} */}
+              <Counter valueTo={(value / fullValue) * 100} /> %{" "}
             </p>
           </div>
         ) : null}

@@ -8,11 +8,12 @@ import { Navigate } from "react-router-dom";
 const HomePage = Loadable(lazy(() => import("@/pages/home")));
 const QuizPage = Loadable(lazy(() => import("@/pages/quiz")));
 const ResultPage = Loadable(lazy(() => import("@/pages/result")));
+const LeaderBoard = Loadable(lazy(() => import("@/pages/leaderboard")));
 
 const MainRoutes = {
   path: "/",
   element: (
-    <AuthGuard>
+    <AuthGuard allowedRoles={["user"]}>
       <MainLayout />
     </AuthGuard>
   ),
@@ -32,6 +33,10 @@ const MainRoutes = {
     {
       path: "/result/:quizId",
       element: <ResultPage />,
+    },
+    {
+      path: "/leaderboard/:quizId",
+      element: <LeaderBoard />,
     },
   ],
 };
