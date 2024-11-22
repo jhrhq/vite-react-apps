@@ -17,6 +17,7 @@ import { setAdminCurrentQuestion } from "@/store/adminQuestionSlice";
 import Spinner from "@/svg/Spinner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import { z } from "zod";
 
@@ -105,10 +106,32 @@ const CreateQuestion = () => {
     };
 
     if (question) {
-      updateQuestion({ questionData, questionId: question.id });
-      dispatch(setAdminCurrentQuestion());
+      updateQuestion({
+        questionData,
+        questionId: question.id,
+      })
+        .unwrap()
+        .then(() => {
+          toast.success("Question updated successfully.");
+          dispatch(setAdminCurrentQuestion());
+          form.reset(defaultValues);
+        })
+        .catch((err) =>
+          form.setError("root.random", {
+            type: "random",
+            message: err.response.data.message,
+          })
+        );
     } else {
-      addQuestion({ questionData, quizId });
+      addQuestion({ questionData, quizId })
+        .unwrap()
+        .then(() => toast.success("Question created successfully."))
+        .catch((err) =>
+          form.setError("root.random", {
+            type: "random",
+            message: err.response.data.message,
+          })
+        );
     }
   };
 
@@ -191,6 +214,12 @@ const CreateQuestion = () => {
                 </div>
               );
             })}
+
+            {form.formState.errors?.root?.random.message && (
+              <FormMessage className="-mt-4 mb-4">
+                {form.formState.errors?.root?.random.message}
+              </FormMessage>
+            )}
           </div>
           <Button
             disabled={isLoading || updateQuestionLoading}

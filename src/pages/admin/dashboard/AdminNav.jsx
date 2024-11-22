@@ -1,4 +1,7 @@
+import useAuth from "@/hooks/useAuth";
+
 const AdminNav = () => {
+  const { logout } = useAuth();
   return (
     <nav className="flex-grow">
       <ul className="space-y-2">
@@ -40,7 +43,7 @@ const AdminNav = () => {
 
         <li>
           <a
-            href="#"
+            onClick={logout}
             className="block py-2 px-4 rounded-lg text-gray-100 hover:bg-gray-100 hover:text-primary"
           >
             Logout

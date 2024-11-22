@@ -4,6 +4,7 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 export const adminQuizzesApi = createApi({
   reducerPath: "adminQuizzesApi",
   tagTypes: ["adminQuizzes"],
+  keepUnusedDataFor: 30,
   baseQuery: axiosBaseQuery(),
   endpoints: (builder) => ({
     getAdminQuizzes: builder.query({
@@ -34,9 +35,9 @@ export const adminQuizzesApi = createApi({
     updateQuiz: builder.mutation({
       query: ({ quizId, ...rest }) => {
         return {
-          url: `/api/admin/quizzes/${quizId}/questions`,
+          url: `/api/admin/quizzes/${quizId}`,
           method: "PATCH",
-          data: { ...rest.questionData },
+          data: { ...rest },
         };
       },
       invalidatesTags: ["adminQuizzes"],
@@ -52,9 +53,9 @@ export const adminQuizzesApi = createApi({
       invalidatesTags: ["adminQuizzes"],
     }),
     removeQuestion: builder.mutation({
-      query: ({ quizId }) => {
+      query: (id) => {
         return {
-          url: `/api/admin/questions/${quizId}`,
+          url: `/api/admin/questions/${id}`,
           method: "DELETE",
           // data: { ...rest.questionData },
         };
@@ -62,9 +63,9 @@ export const adminQuizzesApi = createApi({
       invalidatesTags: ["adminQuizzes"],
     }),
     removeQuiz: builder.mutation({
-      query: ({ quizId }) => {
+      query: (id) => {
         return {
-          url: `/api/admin/questions/${quizId}`,
+          url: `/api/admin/quizzes/${id}`,
           method: "DELETE",
           // data: { ...rest.questionData },
         };

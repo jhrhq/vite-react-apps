@@ -1,13 +1,25 @@
+import { useRemoveQuestionMutation } from "@/api/adminQuizzes";
 import Button from "@/components/ui/button";
 import { useDispatch } from "@/store";
 import { setAdminCurrentQuestion } from "@/store/adminQuestionSlice";
+import toast from "react-hot-toast";
 
 const QuizEntryQuestion = ({ id, options, question, correctAnswer }) => {
   const dispatch = useDispatch();
+  const [deleteQuestion, { isLoading }] = useRemoveQuestionMutation();
 
   const handleEditQuestion = () => {
     dispatch(setAdminCurrentQuestion(id));
   };
+
+  async function handleDeleteQuestion(id) {
+    deleteQuestion(id)
+      .unwrap()
+      .then(() => toast.success("Quiz removed successfully."))
+      .catch((err) =>
+        toast.error(err?.response?.data.message || "Something went wrong")
+      );
+  }
 
   return (
     <div className="rounded-lg overflow-hidden shadow-sm mb-4">
@@ -30,7 +42,11 @@ const QuizEntryQuestion = ({ id, options, question, correctAnswer }) => {
         </div>
       </div>
       <div className="flex space-x-4 bg-primary/10 px-6 py-2">
-        <Button className="text-red-600 hover:text-red-800 font-medium py-0 mb-0  bg-transparent">
+        <Button
+          onClick={() => handleDeleteQuestion(id)}
+          disabled={isLoading}
+          className="text-red-600 hover:text-red-800 font-medium py-0 mb-0  bg-transparent"
+        >
           Delete
         </Button>
         <Button

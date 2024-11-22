@@ -5,7 +5,6 @@ import AdminLayout from "@/layouts/AdminLayout";
 import AuthGuard from "@/utility/guard/AuthGuard";
 import { Navigate } from "react-router-dom";
 
-const HomePage = Loadable(lazy(() => import("@/pages/home")));
 const Dashboard = Loadable(lazy(() => import("@/pages/admin/dashboard")));
 const QuizSetPage = Loadable(lazy(() => import("@/pages/admin/quizSetPage")));
 const QuizSetEntryPage = Loadable(
@@ -22,11 +21,7 @@ const AdminRoutes = {
   children: [
     {
       path: "/",
-      element: <Navigate to="/" />,
-    },
-    {
-      path: "/",
-      element: <HomePage to="/" />,
+      element: <Navigate to="/dashboard" />,
     },
     {
       path: "/dashboard",

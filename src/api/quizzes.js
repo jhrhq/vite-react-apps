@@ -4,6 +4,7 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 export const quizzesApi = createApi({
   reducerPath: "quizzesApi",
   tagTypes: ["Quizzes"],
+  keepUnusedDataFor: 30,
   baseQuery: axiosBaseQuery(),
   endpoints: (builder) => ({
     getQuizzes: builder.query({

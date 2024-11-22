@@ -13,6 +13,7 @@ import Textarea from "@/components/ui/textarea";
 import Spinner from "@/svg/Spinner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 
@@ -55,6 +56,7 @@ const CreateQuizForm = () => {
     try {
       const response = await createQuiz(data).unwrap();
       navigate(`/quiz-set-entry-page/${response?.data.id}`);
+      toast.success("Quiz created successfully.");
     } catch (err) {
       form.setError("root.random", {
         type: "random",
