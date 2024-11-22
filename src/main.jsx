@@ -1,4 +1,5 @@
 import App from "@/App";
+import CustomHotToast from "@/components/CutomToast/CustomToast";
 import { persister, store } from "@/store/index.js";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
@@ -11,6 +12,7 @@ createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persister}>
         <App />
+        <CustomHotToast />
       </PersistGate>
     </Provider>
   </StrictMode>

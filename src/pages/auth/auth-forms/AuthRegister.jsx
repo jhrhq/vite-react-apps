@@ -11,6 +11,7 @@ import Input from "@/components/ui/input";
 import { axiosPrimary } from "@/utility/axios-service";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 
@@ -82,6 +83,7 @@ export default function AuthRegister() {
       if (response.status == 201) {
         navigate("/login");
       }
+      toast.success("Registration Successful");
     } catch (err) {
       form.setError("root.random", {
         type: "random",
