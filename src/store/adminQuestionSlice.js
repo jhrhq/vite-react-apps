@@ -16,9 +16,9 @@ const adminQuestionSlice = createSlice({
       state.questions = action.payload; // Set the questions in the state
     },
     setAdminCurrentQuestion: (state, action) => {
-      state.question = state.questions.Questions.find(
-        (q) => q.id == action.payload
-      ); // Set the questions in the state
+      state.question = action.payload
+        ? state.questions.Questions.find((q) => q.id == action.payload)
+        : null; // Set the questions in the state
     },
     // setAnswer: (state, action) => {
     //   const { questionId, option } = action.payload;

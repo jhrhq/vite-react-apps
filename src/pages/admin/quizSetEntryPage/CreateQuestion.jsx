@@ -12,7 +12,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Input from "@/components/ui/input";
-import { useSelector } from "@/store";
+import { dispatch, useSelector } from "@/store";
+import { setAdminCurrentQuestion } from "@/store/adminQuestionSlice";
 import Spinner from "@/svg/Spinner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
@@ -49,7 +50,6 @@ const QuestionSchema = z
     ),
   })
   .superRefine((val, ctx) => {
-    console.log(val);
     if (!checkExactlyOneTrue(val.options)) {
       ctx.addIssue({
         message: "Select only one option for answer",
@@ -82,8 +82,6 @@ const CreateQuestion = () => {
       }
     : null;
 
-  console.log(question);
-
   const form = useForm({
     resolver: zodResolver(QuestionSchema),
     defaultValues,
@@ -108,6 +106,7 @@ const CreateQuestion = () => {
 
     if (question) {
       updateQuestion({ questionData, questionId: question.id });
+      dispatch(setAdminCurrentQuestion());
     } else {
       addQuestion({ questionData, quizId });
     }
@@ -161,6 +160,7 @@ const CreateQuestion = () => {
                             id={`options[${index}].isChecked`}
                             type="checkbox"
                             className="text-primary focus:ring-0 w-4 h-4"
+                            checked={field.value}
                             {...field}
                           />
                         </FormControl>
