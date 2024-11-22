@@ -1,3 +1,5 @@
+import { useAddQuestionMutation } from "@/api/adminQuizzes";
+import Button from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -7,8 +9,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Input from "@/components/ui/input";
+import Spinner from "@/svg/Spinner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import { z } from "zod";
 
 const checkExactlyOneTrue = (arr) => {
@@ -30,8 +34,8 @@ const QuestionSchema = z
       z.object({
         option: z
           .string()
-          .min(4, {
-            message: "Option  must be at least 4 characters.",
+          .min(2, {
+            message: "Option  must be at least 2 characters.",
           })
           .max(100, {
             message: "Option  must not be longer than 100 characters.",
@@ -61,10 +65,13 @@ const defaultValues = {
 };
 
 const CreateQuestion = () => {
+  const { quizId } = useParams();
   const form = useForm({
     resolver: zodResolver(QuestionSchema),
     defaultValues,
   });
+
+  const [addQuestion, { isLoading }] = useAddQuestionMutation();
 
   const { fields } = useFieldArray({
     control: form.control,
@@ -72,7 +79,13 @@ const CreateQuestion = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    const questionData = {
+      options: data.options.map((item) => item.option),
+      correctAnswer: data.options.find((item) => item.isChecked).option,
+      question: data.question,
+    };
+
+    addQuestion({ questionData, quizId });
   };
 
   return (
@@ -154,9 +167,12 @@ const CreateQuestion = () => {
               );
             })}
           </div>
-          <button className="w-full bg-primary text-white text-primary-foreground p-2 rounded-md hover:bg-primary/90 transition-colors">
-            Save Quiz
-          </button>
+          <Button
+            disabled={isLoading}
+            className="relative w-full bg-primary   !text-white text-primary-foreground p-2 rounded-md hover:bg-primary/90 transition-colors disabled:opacity-75"
+          >
+            {isLoading ? <Spinner /> : "Save Quiz"}
+          </Button>
         </form>
       </Form>
     </div>
