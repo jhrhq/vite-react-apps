@@ -37,7 +37,7 @@ const AdminRoutes = {
       element: <QuizSetPage />,
     },
     {
-      path: "/quiz-set-entry-page",
+      path: "/quiz-set-entry-page/:quizId",
       element: <QuizSetEntryPage />,
     },
   ],

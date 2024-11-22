@@ -53,8 +53,8 @@ const CreateQuizForm = () => {
 
   async function handleCreateQuiz(data) {
     try {
-      await createQuiz(data).unwrap();
-      navigate("/quiz-set-entry-page");
+      const response = await createQuiz(data).unwrap();
+      navigate(`/quiz-set-entry-page/${response?.data.id}`);
     } catch (err) {
       form.setError("root.random", {
         type: "random",

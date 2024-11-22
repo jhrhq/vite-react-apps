@@ -96,7 +96,6 @@ const AuthLogin = () => {
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="role"

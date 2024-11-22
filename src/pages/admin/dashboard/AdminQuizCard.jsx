@@ -1,18 +1,22 @@
 import HexagonSvg from "@/svg/HexagonSvg";
+import { Link } from "react-router-dom";
 
-const AdminQuizCard = () => {
+const AdminQuizCard = ({ id, title, description }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 group cursor-pointer">
+    <Link
+      to={`/quiz-set-entry-page/${id}`}
+      className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 group cursor-pointer"
+    >
       <div className="text-buzzr-purple mb-4 group-hover:scale-105 transition-all">
         <HexagonSvg />
       </div>
       <h3 className="font-semibold text-lg mb-2 group-hover:scale-105 transition-all">
-        JavaScript Basics Quiz
+        {title}
       </h3>
       <p className="text-gray-600 text-sm group-hover:scale-105 transition-all">
-        Test knowledge of core JavaScript
+        {description}
       </p>
-    </div>
+    </Link>
   );
 };
 
