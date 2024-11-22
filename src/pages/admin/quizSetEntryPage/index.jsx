@@ -1,18 +1,29 @@
 import { useGetAdminQuizzesQuery } from "@/api/adminQuizzes";
 import Loader from "@/components/Loader";
+import QuizEntryQuestion from "@/pages/admin/quizSetEntryPage/ QuizEntryQuestion";
 import BreadCrumb from "@/pages/admin/quizSetEntryPage/BreadCrumb";
 import CreateQuestion from "@/pages/admin/quizSetEntryPage/CreateQuestion";
+import { useDispatch } from "@/store";
+import { setAdminQuestions } from "@/store/adminQuestionSlice";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const QuizEntryPage = () => {
   const { quizId } = useParams();
+  const dispatch = useDispatch();
   const { data, isLoading } = useGetAdminQuizzesQuery(quizId, {
     // pollingInterval: 3000,
   });
 
-  if (isLoading) return <Loader />;
   const currentQuiz = data?.find((quiz) => quiz.id == quizId);
-  console.log(currentQuiz);
+
+  useEffect(() => {
+    if (data) {
+      dispatch(setAdminQuestions(currentQuiz)); // Save questions in the store
+    }
+  }, [currentQuiz, data, dispatch]);
+
+  if (isLoading) return <Loader />;
 
   return (
     <div className="bg-[#F5F3FF] min-h-screen flex">
@@ -35,7 +46,10 @@ const QuizEntryPage = () => {
             {/* <!-- Right Column --> */}
             <div className="px-4">
               {/* <!-- Question One --> */}
-              {/* <QuizEntryQuestion /> */}
+
+              {currentQuiz.Questions.map((quiz) => (
+                <QuizEntryQuestion key={quiz.id} {...quiz} />
+              ))}
             </div>
           </div>
         </div>

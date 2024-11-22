@@ -19,6 +19,11 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
+
+  // middleware: (mid) => [
+  //   ...mid(),
+  //   quizzesApi.middleware, adminQuizzesApi.middleware
+  // ],
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,

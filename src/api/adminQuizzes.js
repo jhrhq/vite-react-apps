@@ -8,9 +8,7 @@ export const adminQuizzesApi = createApi({
   endpoints: (builder) => ({
     getAdminQuizzes: builder.query({
       query: () => ({ url: "/api/admin/quizzes" }),
-      //   transformResponse: (res) => {
-      //     return res.data;
-      //   },
+      providesTags: ["adminQuizzes"],
     }),
 
     createQuiz: builder.mutation({

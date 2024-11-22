@@ -1,4 +1,7 @@
-import { useAddQuestionMutation } from "@/api/adminQuizzes";
+import {
+  useAddQuestionMutation,
+  useUpdateQuestionMutation,
+} from "@/api/adminQuizzes";
 import Button from "@/components/ui/button";
 import {
   Form,
@@ -9,6 +12,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Input from "@/components/ui/input";
+import { useSelector } from "@/store";
 import Spinner from "@/svg/Spinner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
@@ -45,6 +49,7 @@ const QuestionSchema = z
     ),
   })
   .superRefine((val, ctx) => {
+    console.log(val);
     if (!checkExactlyOneTrue(val.options)) {
       ctx.addIssue({
         message: "Select only one option for answer",
@@ -66,12 +71,28 @@ const defaultValues = {
 
 const CreateQuestion = () => {
   const { quizId } = useParams();
+  const { question } = useSelector((state) => state.adminQuestions);
+  const values = question
+    ? {
+        question: question.question || "",
+        options: question?.options.map((q) => ({
+          option: q,
+          isChecked: q == question.correctAnswer ? true : false,
+        })),
+      }
+    : null;
+
+  console.log(question);
+
   const form = useForm({
     resolver: zodResolver(QuestionSchema),
     defaultValues,
+    values,
   });
 
   const [addQuestion, { isLoading }] = useAddQuestionMutation();
+  const [updateQuestion, { isLoading: updateQuestionLoading }] =
+    useUpdateQuestionMutation();
 
   const { fields } = useFieldArray({
     control: form.control,
@@ -85,7 +106,11 @@ const CreateQuestion = () => {
       question: data.question,
     };
 
-    addQuestion({ questionData, quizId });
+    if (question) {
+      updateQuestion({ questionData, questionId: question.id });
+    } else {
+      addQuestion({ questionData, quizId });
+    }
   };
 
   return (
@@ -147,7 +172,7 @@ const CreateQuestion = () => {
                     control={form.control}
                     name={`options.${index}.option`}
                     render={({ field }) => (
-                      <FormItem className=" space-y-0">
+                      <FormItem className=" space-y-0 w-full">
                         <FormLabel className="sr-only">
                           Option {index + 1}
                         </FormLabel>
@@ -168,10 +193,10 @@ const CreateQuestion = () => {
             })}
           </div>
           <Button
-            disabled={isLoading}
+            disabled={isLoading || updateQuestionLoading}
             className="relative w-full bg-primary   !text-white text-primary-foreground p-2 rounded-md hover:bg-primary/90 transition-colors disabled:opacity-75"
           >
-            {isLoading ? <Spinner /> : "Save Quiz"}
+            {isLoading || updateQuestionLoading ? <Spinner /> : "Save Quiz"}
           </Button>
         </form>
       </Form>
