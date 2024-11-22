@@ -7,8 +7,7 @@ const AuthGuard = ({ allowedRoles, children }) => {
   const location = useLocation();
 
   if (!isLoggedIn) {
-    // return <Navigate to="/login" state={{ from: location }} replace />;
-    return <Navigate to="/login" />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   if (!allowedRoles.includes(user.role)) {

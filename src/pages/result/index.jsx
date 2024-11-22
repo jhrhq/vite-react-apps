@@ -5,37 +5,9 @@ import { Gauge } from "@/components/ProgressCircle";
 import ResultQuestionCard from "@/pages/result/ResultQuestionCard";
 import { Link, useParams } from "react-router-dom";
 
-let tttt = 0;
-/**
- * Counts the number of times a match occurs in an array of objects.
- *
- * @param {Array} data - The array of objects to search through.
- * @param {Object} matchCriteria - The criteria to match in each object.
- * @returns {number} - The number of objects that match the given criteria.
- */
-function countMatches(data, matchCriteria) {
-  // Ensure data is an array and matchCriteria is an object
-  if (!Array.isArray(data) || typeof matchCriteria !== "object") {
-    throw new Error(
-      "Invalid input: data should be an array and matchCriteria should be an object."
-    );
-  }
-
-  return data.reduce((count, obj) => {
-    // Check if every key-value pair in matchCriteria matches in the current object
-    const isMatch = Object.keys(matchCriteria).every(
-      (key) => obj[key] === matchCriteria[key]
-    );
-
-    // If match, increment the count
-    return isMatch ? count + 1 : count;
-  }, 0);
-}
-
 const Result = () => {
   const { quizId } = useParams();
   const { data, isLoading } = useGetQuizAttemptsQuery(quizId);
-  console.log(data);
   if (isLoading) return <Loader />;
   const correctAnswer = data?.attempts[0]?.correct_answers;
   const submittedAnswer = data?.attempts[0]?.submitted_answers;
@@ -65,11 +37,8 @@ const Result = () => {
           <div>
             <div className="text-white">
               <div>
-                <h2 className="text-4xl font-bold mb-2">React Hooks Quiz</h2>
-                <p>
-                  A quiz on React hooks like useState, useEffect, and
-                  useContext.{" "}
-                </p>
+                <h2 className="text-4xl font-bold mb-2">{data?.quiz.title}</h2>
+                <p>{data?.quiz.description}</p>
               </div>
 
               <div className="my-6 flex items-center  ">
@@ -131,7 +100,10 @@ const Result = () => {
           <div className="h-[calc(100vh-50px)] overflow-y-scroll ">
             <div className="px-4">
               {/* <!-- Question 3 --> */}
-              <ResultQuestionCard />
+
+              {submittedAnswer?.map((quiz) => (
+                <ResultQuestionCard key={quiz.question_id} {...quiz} />
+              ))}
             </div>
           </div>
         </div>

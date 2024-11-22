@@ -41,8 +41,6 @@ const QuizEntryPage = () => {
       );
   };
 
-  console.log(data);
-
   useEffect(() => {
     if (data) {
       dispatch(setAdminQuestions(currentQuiz)); // Save questions in the store

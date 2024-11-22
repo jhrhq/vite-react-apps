@@ -7,16 +7,18 @@ import {
   setAnswer,
   setShuffleOptions,
 } from "@/store/questionSlice";
-import { useParams } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useNavigate, useParams } from "react-router-dom";
 
 const QuizQuestion = () => {
   const dispatch = useDispatch();
   const { quizId } = useParams();
+  const navigate = useNavigate();
 
   const { questions, currentIndex, answers } = useSelector(
     (state) => state.questions
   );
-  const [mutate, { isLoading }] = useSubmitQuizMutation();
+  const [submitQuiz, { isLoading }] = useSubmitQuizMutation();
 
   const currentQuestion = questions[currentIndex];
   const selectedAnswer = answers[currentQuestion?.id];
@@ -36,7 +38,16 @@ const QuizQuestion = () => {
   };
 
   const handleSubmit = () => {
-    mutate({ answers, quizId });
+    submitQuiz({ answers, quizId })
+      .unwrap()
+      .then(() => {
+        navigate(`/result/${quizId}`);
+        toast.success("Question Submitted Successfully");
+      })
+      .catch((err) => {
+        navigate(`/result/${quizId}`);
+        toast.error(err?.data.message);
+      });
   };
 
   return (
@@ -78,9 +89,9 @@ const QuizQuestion = () => {
           {Object.entries(answers).length == questions.length &&
           currentIndex == questions.length - 1 ? (
             <Button
-              // href="./result.html"
               onClick={handleSubmit}
-              className="w-1/2 text-center ml-auto block bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-6 font-semibold my-8 disabled: disabled:cursor-not-allowed disabled:opacity-75"
+              disabled={isLoading}
+              className="w-1/2 text-center ml-auto block bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-6 font-semibold my-8  disabled:cursor-not-allowed disabled:opacity-75"
             >
               Submit
             </Button>

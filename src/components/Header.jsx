@@ -1,9 +1,9 @@
 import logo from "@/assets/logo.svg";
 import Button from "@/components/ui/button";
 import useAuth from "@/hooks/useAuth";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const Header = () => {
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, logout, user } = useAuth();
 
   return (
     <header className="flex justify-between items-center mb-12">
@@ -11,13 +11,25 @@ const Header = () => {
 
       <div>
         {isLoggedIn ? (
-          <Button
-            onClick={logout}
-            className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
-            style={{ fontFamily: "Jaro" }}
-          >
-            Logout
-          </Button>
+          <>
+            <Button
+              onClick={logout}
+              className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
+              style={{ fontFamily: "Jaro" }}
+            >
+              Logout
+            </Button>
+
+            {user.role == "admin" && (
+              <Button
+                asChild
+                className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
+                style={{ fontFamily: "Jaro" }}
+              >
+                <Link to="/dashboard">Dashboard</Link>
+              </Button>
+            )}
+          </>
         ) : (
           <>
             <NavLink
