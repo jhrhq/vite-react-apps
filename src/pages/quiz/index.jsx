@@ -10,12 +10,8 @@ import { useParams } from "react-router-dom";
 const Quiz = () => {
   const { quizId } = useParams();
   const dispatch = useDispatch();
-  // console.log(quizId);
-  const { isLoading, data } = useGetQuestionsQuery(quizId, {
-    // skip: !!quizId,
-    // pollingInterval: 5000,
-    skipPollingIfUnfocused: true,
-  });
+
+  const { isLoading, data } = useGetQuestionsQuery(quizId);
 
   // Update the Redux state with questions once they are fetched
   useEffect(() => {

@@ -28,8 +28,8 @@ const QuizEntryQuestion = ({ id, options, question, correctAnswer }) => {
           <h3 className="text-lg font-semibold">{question}</h3>
         </div>
         <div className="space-y-2">
-          {options?.map((option) => (
-            <label key={option} className="flex items-center space-x-3">
+          {options?.map((option, index) => (
+            <label key={index} className="flex items-center space-x-3">
               <input
                 type="radio"
                 name="answer1"

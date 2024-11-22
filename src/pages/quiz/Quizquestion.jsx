@@ -86,8 +86,7 @@ const QuizQuestion = () => {
             </Button>
           )}
 
-          {Object.entries(answers).length == questions.length &&
-          currentIndex == questions.length - 1 ? (
+          {currentIndex == questions.length - 1 ? (
             <Button
               onClick={handleSubmit}
               disabled={isLoading}
@@ -97,7 +96,6 @@ const QuizQuestion = () => {
             </Button>
           ) : (
             <Button
-              // href="./result.html"
               onClick={handleNext}
               disabled={currentIndex == questions.length - 1}
               className="w-1/2 text-center ml-auto block bg-primary text-white py-2 px-4 rounded-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-6 font-semibold my-8 disabled: disabled:cursor-not-allowed disabled:opacity-75"

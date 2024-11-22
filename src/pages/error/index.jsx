@@ -1,4 +1,9 @@
+import Button from "@/components/ui/button";
+import { useNavigate, useRouteError } from "react-router-dom";
+
 export default function Error() {
+  let error = useRouteError();
+  const navigate = useNavigate();
   return (
     <div className="flex items-center flex-col justify-center lg:flex-row py-28 px-6 md:px-24 md:py-20 lg:py-32 gap-16 lg:gap-28">
       <div className="w-full lg:w-1/2">
@@ -17,19 +22,21 @@ export default function Error() {
       </div>
       <div className="w-full lg:w-1/2">
         <h1 className="py-4 text-3xl lg:text-4xl font-extrabold text-gray-800 dark:text-white">
-          Looks like you've found the doorway to the great nothing
+          {error?.message || "Something went wrong"}
         </h1>
         <p className="py-4 text-base text-gray-800 dark:text-white">
           The content you’re looking for doesn’t exist. Either it was removed,
           or you mistyped the link.
         </p>
         <p className="py-2 text-base text-gray-800 dark:text-white">
-          Sorry about that! Please visit our hompage to get where you need to
-          go.
+          Sorry about that! {error?.message}
         </p>
-        <button className="w-full lg:w-auto my-4 rounded-md px-1 sm:px-16 py-5 bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50">
+        <Button
+          onClick={() => navigate(-1)}
+          className="w-full lg:w-auto my-4 rounded-md px-1 sm:px-16 py-5 bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50"
+        >
           Go back to Homepage
-        </button>
+        </Button>
       </div>
     </div>
   );

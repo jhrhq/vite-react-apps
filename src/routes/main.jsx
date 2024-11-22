@@ -9,7 +9,7 @@ const HomePage = Loadable(lazy(() => import("@/pages/home")));
 const QuizPage = Loadable(lazy(() => import("@/pages/quiz")));
 const ResultPage = Loadable(lazy(() => import("@/pages/result")));
 const LeaderBoard = Loadable(lazy(() => import("@/pages/leaderboard")));
-
+const Error = Loadable(lazy(() => import("@/pages/error")));
 const MainRoutes = {
   path: "/",
   element: (
@@ -17,6 +17,7 @@ const MainRoutes = {
       <MainLayout />
     </AuthGuard>
   ),
+  errorElement: <Error />,
   children: [
     {
       path: "/",

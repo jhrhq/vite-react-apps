@@ -10,14 +10,15 @@ const QuizSetPage = Loadable(lazy(() => import("@/pages/admin/quizSetPage")));
 const QuizSetEntryPage = Loadable(
   lazy(() => import("@/pages/admin/quizSetEntryPage"))
 );
-
+const Error = Loadable(lazy(() => import("@/pages/error")));
 const AdminRoutes = {
   path: "/",
   element: (
-    <AuthGuard allowedRoles={["admin"]}>
+    <AuthGuard allowedRoles={["admin", "user"]}>
       <AdminLayout />
     </AuthGuard>
   ),
+  errorElement: <Error />,
   children: [
     {
       path: "/",

@@ -12,6 +12,15 @@ const Header = () => {
       <div>
         {isLoggedIn ? (
           <>
+            {user.role == "admin" && (
+              <Button
+                asChild
+                className="px-4 py-2.5 mr-3 rounded bg-primary/5 text-primary hover:bg-primary hover:text-white transition-colors"
+                style={{ fontFamily: "Jaro" }}
+              >
+                <Link to="/dashboard">Dashboard</Link>
+              </Button>
+            )}
             <Button
               onClick={logout}
               className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
@@ -19,16 +28,6 @@ const Header = () => {
             >
               Logout
             </Button>
-
-            {user.role == "admin" && (
-              <Button
-                asChild
-                className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
-                style={{ fontFamily: "Jaro" }}
-              >
-                <Link to="/dashboard">Dashboard</Link>
-              </Button>
-            )}
           </>
         ) : (
           <>
