@@ -1,14 +1,17 @@
 import { useGetQuizAttemptsQuery } from "@/api/quizzes";
-import avater from "@/assets/avater.webp";
+import { default as avatar, default as avater } from "@/assets/avater.webp";
 import Loader from "@/components/Loader";
 import useAuth from "@/hooks/useAuth";
+import useCreateLeaderBoard from "@/hooks/useCreateLeaderBoard";
+import cn from "@/utility/cn-utility";
 import { useParams } from "react-router-dom";
 
 const Leaderboard = () => {
   const { user } = useAuth();
   const { quizId } = useParams();
   const { data, isLoading } = useGetQuizAttemptsQuery(quizId);
-  console.log(data);
+  const result = useCreateLeaderBoard(data);
+  const currentAttempts = result.find((item) => item.user.id == user.id);
 
   if (isLoading) return <Loader />;
 
@@ -25,20 +28,20 @@ const Leaderboard = () => {
                 className="w-20 h-20 rounded-full border-4 border-white mb-4 object-cover"
               />
               <h2 className="text-2xl font-bold">{user.full_name}</h2>
-              <p className="text-xl">20 Position</p>
+              <p className="text-xl">{currentAttempts.rank} Position</p>
             </div>
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
                 <p className="text-sm opacity-75">Mark</p>
-                <p className="text-2xl font-bold">1200</p>
+                <p className="text-2xl font-bold">{data.quiz.total_marks}</p>
               </div>
               <div className="text-center">
                 <p className="text-sm opacity-75">Correct</p>
-                <p className="text-2xl font-bold">08</p>
+                <p className="text-2xl font-bold">{currentAttempts.correct}</p>
               </div>
               <div className="text-center">
                 <p className="text-sm opacity-75">Wrong</p>
-                <p className="text-2xl font-bold">16</p>
+                <p className="text-2xl font-bold">{currentAttempts.wrong}</p>
               </div>
             </div>
           </div>
@@ -48,70 +51,30 @@ const Leaderboard = () => {
             <h1 className="text-2xl font-bold">Leaderboard</h1>
             <p className="mb-6">{data?.quiz?.title}</p>
             <ul className="space-y-4">
-              <li className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <img
-                    src="./assets/avater.webp"
-                    alt="SPD Smith"
-                    className="object-cover w-10 h-10 rounded-full mr-4"
-                  />
-                  <div>
-                    <h3 className="font-semibold">SPD Smith</h3>
-                    <p className="text-sm text-gray-500">1st</p>
+              {result?.map((item) => (
+                <li
+                  key={item?.user?.id}
+                  className={cn(
+                    "flex items-center justify-between p-1",
+                    item.currentUserRanked ? "border bg-primary/5" : ""
+                  )}
+                >
+                  <div className="flex items-center">
+                    <img
+                      src={avatar}
+                      alt={item.user.full_name}
+                      className="object-cover w-10 h-10 rounded-full mr-4"
+                    />
+                    <div>
+                      <h3 className="font-semibold">{item.user.full_name}</h3>
+                      <p className="text-sm text-gray-500">{item.rank}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center">
-                  <span className="mr-2">2,340</span>
-                </div>
-              </li>
-              <li className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <img
-                    src="./assets/avater.webp"
-                    alt="JE Root"
-                    className="object-cover w-10 h-10 rounded-full mr-4"
-                  />
-                  <div>
-                    <h3 className="font-semibold">JE Root</h3>
-                    <p className="text-sm text-gray-500">2nd</p>
+                  <div className="flex items-center">
+                    <span className="mr-2">{item.mark}</span>
                   </div>
-                </div>
-                <div className="flex items-center">
-                  <span className="mr-2">2,540</span>
-                </div>
-              </li>
-              <li className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <img
-                    src="./assets/avater.webp"
-                    alt="AN Cook"
-                    className="object-cover w-10 h-10 rounded-full mr-4"
-                  />
-                  <div>
-                    <h3 className="font-semibold">AN Cook</h3>
-                    <p className="text-sm text-gray-500">3rd</p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <span className="mr-2">1,911</span>
-                </div>
-              </li>
-              <li className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <img
-                    src="./assets/avater.webp"
-                    alt="KS Williamson"
-                    className="object-cover w-10 h-10 rounded-full mr-4"
-                  />
-                  <div>
-                    <h3 className="font-semibold">KS Williamson</h3>
-                    <p className="text-sm text-gray-500">4th</p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <span className="mr-2">1,851</span>
-                </div>
-              </li>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -2,15 +2,23 @@ import { useGetQuizAttemptsQuery } from "@/api/quizzes";
 import logoWhite from "@/assets/logo-white.svg";
 import Loader from "@/components/Loader";
 import { Gauge } from "@/components/ProgressCircle";
+import useAuth from "@/hooks/useAuth";
 import ResultQuestionCard from "@/pages/result/ResultQuestionCard";
 import { Link, useParams } from "react-router-dom";
 
 const Result = () => {
+  const { user } = useAuth();
   const { quizId } = useParams();
   const { data, isLoading } = useGetQuizAttemptsQuery(quizId);
+
   if (isLoading) return <Loader />;
-  const correctAnswer = data?.attempts[0]?.correct_answers;
-  const submittedAnswer = data?.attempts[0]?.submitted_answers;
+
+  const currentAttempts = data?.attempts.find(
+    (item) => item.user.id == user.id
+  );
+
+  const correctAnswer = currentAttempts?.correct_answers;
+  const submittedAnswer = currentAttempts?.submitted_answers;
 
   const totalMark = submittedAnswer?.reduce(
     (total, quiz) => {
