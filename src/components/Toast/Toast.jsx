@@ -24,9 +24,7 @@ function Toast({ variant, children, onDismiss }) {
       <div className={styles.iconContainer}>
         <ToastIcon size={24} />
       </div>
-      <p className={styles.content}>
-        {children || "16 photos have been uploaded"}
-      </p>
+      <p className={styles.content}>{children}</p>
       <button className={styles.closeButton} onClick={onDismiss}>
         <X size={24} />
         <VisuallyHidden>Dismiss message</VisuallyHidden>
