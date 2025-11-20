@@ -9,9 +9,15 @@ const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 
 function ToastPlayground() {
   const [toastOption, setToastOption] = React.useState("");
+  const [message, setMessage] = React.useState("");
   const [showToast, setShowToast] = React.useState(false);
+
   function handleSelectVariant(event) {
     setToastOption(event.target.value);
+  }
+
+  function handleMessage(e) {
+    setMessage(e.target.value);
   }
 
   function handleSubmit(e) {
@@ -29,8 +35,12 @@ function ToastPlayground() {
       <header>
         <img alt="Cute toast mascot" src="../../../assets/toast.png" />
         <h1>Toast Playground</h1>
-        {showToast && <Toast variant={toastOption} onDismiss={handleDismiss} />}
       </header>
+      {showToast && (
+        <Toast variant={toastOption} onDismiss={handleDismiss}>
+          {message}
+        </Toast>
+      )}
 
       <form onSubmit={handleSubmit}>
         <div className={styles.controlsWrapper}>
@@ -43,7 +53,11 @@ function ToastPlayground() {
               Message
             </label>
             <div className={styles.inputWrapper}>
-              <textarea id="message" className={styles.messageInput} />
+              <textarea
+                id="message"
+                className={styles.messageInput}
+                onChange={handleMessage}
+              />
             </div>
           </div>
 
