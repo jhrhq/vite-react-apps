@@ -29,7 +29,7 @@ function ToastPlayground() {
       <header>
         <img alt="Cute toast mascot" src="../../../assets/toast.png" />
         <h1>Toast Playground</h1>
-        {showToast && <Toast onDismiss={handleDismiss} />}
+        {showToast && <Toast variant={toastOption} onDismiss={handleDismiss} />}
       </header>
 
       <form onSubmit={handleSubmit}>
