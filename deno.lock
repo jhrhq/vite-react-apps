@@ -9,6 +9,7 @@
     "npm:eslint-plugin-react-refresh@~0.4.24": "0.4.24_eslint@9.39.1",
     "npm:eslint@^9.39.1": "9.39.1",
     "npm:globals@^16.5.0": "16.5.0",
+    "npm:lucide-react@0.554": "0.554.0_react@19.2.0",
     "npm:react-dom@^19.2.0": "19.2.0_react@19.2.0",
     "npm:react@^19.2.0": "19.2.0",
     "npm:vite@^7.2.4": "7.2.4_picomatch@4.0.3"
@@ -945,6 +946,12 @@
         "yallist"
       ]
     },
+    "lucide-react@0.554.0_react@19.2.0": {
+      "integrity": "sha512-St+z29uthEJVx0Is7ellNkgTEhaeSoA42I7JjOCBCrc5X6LYMGSv0P/2uS5HDLTExP5tpiqRD2PyUEOS6s9UXA==",
+      "dependencies": [
+        "react"
+      ]
+    },
     "minimatch@3.1.2": {
       "integrity": "sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==",
       "dependencies": [
@@ -1175,6 +1182,7 @@
         "npm:eslint-plugin-react-refresh@~0.4.24",
         "npm:eslint@^9.39.1",
         "npm:globals@^16.5.0",
+        "npm:lucide-react@0.554",
         "npm:react-dom@^19.2.0",
         "npm:react@^19.2.0",
         "npm:vite@^7.2.4"
