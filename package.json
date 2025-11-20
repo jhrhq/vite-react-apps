@@ -1,29 +1,27 @@
 {
-  "name": "toast-component",
-  "version": "0.1.0",
+  "name": "project-toast",
   "private": true,
-  "author": "Josh Comeau <me@joshwcomeau.com>",
-  "dependencies": {
-    "eslint": "^8.49.0",
-    "eslint-config-react-app": "^7.0.1",
-    "new-component": "5.0.2",
-    "parcel": "2.12.0",
-    "parcel-reporter-static-files-copy": "1.5.2",
-    "prettier": "2.6.2",
-    "process": "0.11.10",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-feather": "2.0.10",
-    "rimraf": "^5.0.1"
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "predev": "rimraf .parcel-cache dist",
-    "dev": "parcel public/index.html",
-    "build": "parcel build public/index.html",
-    "new-component": "new-component"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
-  "staticFiles": {
-    "staticPath": "assets"
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^7.2.4"
   }
 }
