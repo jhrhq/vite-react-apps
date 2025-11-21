@@ -8,9 +8,8 @@ import {
   X,
 } from "lucide-react";
 
-import VisuallyHidden from "../VisuallyHidden";
-
 import { ToastContext } from "../ToastProvider/ToastProvider";
+import VisuallyHidden from "../VisuallyHidden/VisuallyHidden";
 import styles from "./Toast.module.css";
 
 const ICONS_BY_VARIANT = {
@@ -25,7 +24,7 @@ function Toast({ id, variant, children }) {
 
   const ToastIcon = ICONS_BY_VARIANT[variant];
 
-  function closeToast(toastId) {
+  function closeToast() {
     toastDismiss(id);
   }
 
@@ -34,10 +33,17 @@ function Toast({ id, variant, children }) {
       <div className={styles.iconContainer}>
         <ToastIcon size={24} />
       </div>
-      <p className={styles.content}>{children}</p>
-      <button className={styles.closeButton} onClick={closeToast}>
+      <p className={styles.content}>
+        <VisuallyHidden>{variant} - </VisuallyHidden>
+        {children}
+      </p>
+      <button
+        className={styles.closeButton}
+        onClick={closeToast}
+        aria-label="Dismiss Message"
+        aria-live="off"
+      >
         <X size={24} />
-        <VisuallyHidden>Dismiss message</VisuallyHidden>
       </button>
     </div>
   );
