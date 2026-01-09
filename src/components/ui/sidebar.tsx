@@ -538,6 +538,76 @@ function SidebarMenuButton({
   );
 }
 
+const sidebarBrandLogoVariants = cva(
+  "ring-sidebar-ring data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground gap-3 rounded-md p-2 text-left text-sm transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 data-active:font-medium peer/sidebar-brand-logo w-full items-center overflow-hidden outline-hidden disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "",
+        outline: "bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))]",
+      },
+      size: {
+        default: "h-8 text-sm",
+        sm: "h-7 text-xs",
+        lg: "h-12 text-sm group-data-[collapsible=icon]:p-0!",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+);
+
+function SidebarBrandLogo({
+  asChild = false,
+  isActive = false,
+  variant = "default",
+  size = "default",
+  tooltip,
+  className,
+  ...props
+}: React.ComponentProps<"div"> & {
+  asChild?: boolean;
+  isActive?: boolean;
+  tooltip?: string | React.ComponentProps<typeof TooltipContent>;
+} & VariantProps<typeof sidebarMenuButtonVariants>) {
+  const Comp = Slot.Root;
+  const { isMobile, state } = useSidebar();
+
+  const button = (
+    <Comp
+      data-slot="sidebar-logo"
+      data-sidebar="sidebar-brand-logo"
+      data-size={size}
+      data-active={isActive}
+      className={cn(sidebarBrandLogoVariants({ variant, size }), className)}
+      {...props}
+    />
+  );
+
+  if (!tooltip) {
+    return button;
+  }
+
+  if (typeof tooltip === "string") {
+    tooltip = {
+      children: tooltip,
+    };
+  }
+
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>{button}</TooltipTrigger>
+      <TooltipContent
+        side="right"
+        align="center"
+        hidden={state !== "collapsed" || isMobile}
+        {...tooltip}
+      />
+    </Tooltip>
+  );
+}
 function SidebarMenuAction({
   className,
   asChild = false,
@@ -690,6 +760,7 @@ export {
   SidebarMenuAction,
   SidebarMenuBadge,
   SidebarMenuButton,
+  SidebarBrandLogo,
   SidebarMenuItem,
   SidebarMenuSkeleton,
   SidebarMenuSub,
