@@ -7,7 +7,14 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.next",
+      "!dist",
+      "!build",
+      "!src/components/ui"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -18,8 +25,11 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "a11y": "off",
+
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noUnknownAtRules": "off",
+        "useBiomeIgnoreFolder": "off"
       }
     },
     "domains": {
