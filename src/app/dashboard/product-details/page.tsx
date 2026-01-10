@@ -1,10 +1,24 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: false positive */
 "use client";
-import { CircleCheck, Star, StarHalf } from "lucide-react";
 import Image from "next/image";
+import {
+  FaChevronRight,
+  FaLocationDot,
+  FaPaperclip,
+  FaPen,
+  FaTrash,
+} from "react-icons/fa6";
+import ProductTab from "@/app/dashboard/product-details/product-tab";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -12,8 +26,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Separator } from "@/components/ui/separator";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 
+/* 
 type StockStatusCode = "IN_STOCK" | "OUT_OF_STOCK";
 
 interface StockInfo {
@@ -66,9 +83,9 @@ interface ProductInfoProps {
     label: string;
     value: string;
   }>;
-}
+} */
 
-const MAX_STARS = 5;
+const _MAX_STARS = 5;
 
 const PRODUCT_DETAILS = {
   name: "Sony WH-1000XM4 Headphones",
@@ -180,99 +197,126 @@ interface ProductDetail1Props {
 
 export default function ProductDetailPage({ className }: ProductDetail1Props) {
   return (
-    <section className={cn("py-32", className)}>
-      <div className="container">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+    <>
+      <header className="flex w-full z-50 h-16 sticky top-0 bg-background shrink-0 items-center gap-2 border-b ">
+        <div className="flex items-center gap-2 px-3 w-full">
+          <SidebarTrigger />
           <div>
-            <ProductImages images={PRODUCT_DETAILS.images} />
+            <Separator orientation="vertical" className="mr-2 h-4" />
           </div>
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-start justify-between gap-4">
-                <div className="flex-1">
-                  <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
-                    {PRODUCT_DETAILS.name}
-                  </h1>
-                  <div className="mt-3 flex flex-wrap items-center gap-4">
-                    <Reviews
-                      rate={PRODUCT_DETAILS.reviews.rate}
-                      totalReviewers={PRODUCT_DETAILS.reviews.totalReviewers}
-                    />
-                    <Badge variant="secondary">
-                      <CircleCheck />
-                      In Stock
-                    </Badge>
-                  </div>
-                </div>
-                <Price {...PRODUCT_DETAILS.price} />
-              </div>
-
-              <p className="text-muted-foreground">
-                {PRODUCT_DETAILS.description}
+          <div className="flex justify-between flex-1">
+            <div className="flex items-center gap-2">
+              <p className="text-v5 text-sm">Inventory</p>{" "}
+              <FaChevronRight className="text-v3" />
+              <p className="font-medium text-sm text-v9">
+                Sony WH-1000XM4 Headphones
               </p>
             </div>
-
-            <Button size="lg" className="w-full">
-              Buy Now
-            </Button>
-
-            <ProductInfo
-              info={[
-                {
-                  label: "Material",
-                  value: "100% Premium Denim",
-                },
-                {
-                  label: "Style",
-                  value: "Puffer Jacket",
-                },
-                {
-                  label: "Season",
-                  value: "All Season",
-                },
-                {
-                  label: "Care",
-                  value: "Machine Washable",
-                },
-                {
-                  label: "Origin",
-                  value: "Made in Italy",
-                },
-                {
-                  label: "Fit",
-                  value: "Regular Fit",
-                },
-              ]}
-            />
+            <div className="flex items-center gap-2">
+              <Button variant="outline" className="text-v7 h-11 font-medium">
+                <FaPen /> Edit
+              </Button>
+              <Button variant="outline" className="font-medium h-11">
+                <FaPaperclip />
+                Add Attachment
+              </Button>
+              <Button variant="destructive" className="font-medium h-11">
+                <FaTrash /> Delete
+              </Button>
+            </div>
           </div>
         </div>
+      </header>
+      <div className="flex flex-1 flex-col gap-4 p-6 overflow-y-auto bg-[#F8FAFC]">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">
+            {PRODUCT_DETAILS.name}
+          </h1>
+          <div className="inline-flex gap-2">
+            <Badge
+              variant="default-lighter-rounded"
+              className="font-medium text-xs"
+            >
+              Electronics
+            </Badge>
+            <Badge variant="green-light-rounded">Active Warranty</Badge>
+          </div>
+        </div>
+        <section className={cn("py-32", className)}>
+          <div className="container">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
+              <Card>
+                <CardContent>
+                  <ProductImages images={PRODUCT_DETAILS.images} />
+                </CardContent>
+              </Card>
+              <ProductInfo />
+            </div>
+            <ProductTab />
+          </div>
+        </section>
       </div>
-    </section>
+    </>
   );
 }
 
-const ProductInfo = ({ info }: ProductInfoProps) => {
-  if (!info) return;
-
+function ProductInfo() {
   return (
-    <div>
-      <h2 className="mb-4 text-lg font-semibold">Product Details</h2>
-      <dl>
-        {info.map((item, index) => (
-          <div
-            key={`product-detail-1-info-${index}`}
-            className="flex items-center justify-between border-b py-3 last:border-b-0"
-          >
-            <dt className="text-sm font-medium text-muted-foreground">
-              {item.label}
-            </dt>
-            <dd className="text-sm font-medium">{item.value}</dd>
+    <Card className="space-y-4">
+      <CardHeader>
+        <CardTitle className="text-lg font-semibold text-v9 tracking-tight">
+          Key Details
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-2">
+        <div className="flex flex-col gap-2">
+          <p className="font-medium text-sm">Location</p>
+          <div className="flex gap-2 items-center">
+            <FaLocationDot className="text-primary" />
+            <span className="text-v9 text-base">Living Room</span>
           </div>
-        ))}
-      </dl>
-    </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="font-medium text-sm">Lavels</p>
+          <div className="flex gap-2 items-center">
+            <Badge variant="default-lighter-rounded">Electronics</Badge>
+            <Badge variant="purple-lighter-rounded">Audio</Badge>
+            <Badge variant="orange-light-rounded">Electronics</Badge>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="font-medium text-sm">Quantity</p>
+          <div className="flex gap-2 items-center">
+            <span className="text-v9 text-base">1</span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="font-medium text-sm">Purchase Price</p>
+          <div className="flex gap-2 items-center">
+            <span className="text-v9 font-semibold text-lg">$349.99</span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="font-medium text-sm">Warranty</p>
+          <div className="flex gap-2 items-center">
+            <Badge variant="green-light-rounded">
+              Active until March 15, 2026
+            </Badge>
+          </div>
+        </div>
+      </CardContent>
+      <CardFooter className="flex flex-col gap-2  text-left items-baseline">
+        <p className="font-medium text-sm">Notes</p>
+        <div className="flex gap-2 items-center">
+          <span className="text-sm text-v6">
+            Purchased from Best Buy with extended warranty. Includes carrying
+            case, charging cable, and audio cable. Serial number: 1234567890.{" "}
+          </span>
+        </div>
+      </CardFooter>
+    </Card>
   );
-};
+}
 
 const ProductImages = ({ images }: ProductImagesProps) => {
   return (
@@ -310,87 +354,5 @@ const ProductImages = ({ images }: ProductImagesProps) => {
         <CarouselNext className="right-4" />
       </div>
     </Carousel>
-  );
-};
-
-const Reviews = ({ rate, totalReviewers }: ReviewsProps) => {
-  const renderStars = () => {
-    const fullStars = Math.floor(rate);
-    const hasHalfStar = rate % 1 >= 0.5;
-    const emptyStars = MAX_STARS - fullStars - (hasHalfStar ? 1 : 0);
-
-    const stars = [];
-
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(
-        <Star
-          key={`product-detail-1-star-full-${i}`}
-          className="size-4 fill-yellow-500 stroke-yellow-500"
-        />,
-      );
-    }
-
-    if (hasHalfStar) {
-      stars.push(
-        <div key="product-detail-1-half-star" className="relative size-4">
-          <StarHalf className="absolute top-0 right-0 size-full fill-yellow-500 stroke-yellow-500" />
-          <StarHalf className="absolute top-0 left-0 size-full -scale-x-100 fill-black/15 stroke-black/15 dark:invert" />
-        </div>,
-      );
-    }
-
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(
-        <Star
-          key={`product-detail-1-star-empty-${i}`}
-          className="size-4 fill-black/15 stroke-black/15 dark:invert"
-        />,
-      );
-    }
-
-    return stars;
-  };
-
-  return (
-    <div className="flex items-center gap-2">
-      <div className="flex items-center gap-1">{renderStars()}</div>
-      {totalReviewers && (
-        <p className="text-base leading-none font-medium whitespace-nowrap text-muted-foreground">
-          {totalReviewers} reviews
-        </p>
-      )}
-    </div>
-  );
-};
-
-const Price = ({ regular, sale, currency }: PriceProps) => {
-  if (!regular || !currency) return;
-
-  const formatCurrency = (
-    value: number,
-    currency: string = "USD",
-    locale: string = "en-US",
-  ) => {
-    return new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency,
-    }).format(value);
-  };
-
-  return (
-    <div className="flex items-center gap-2">
-      {sale && (
-        <span className="text-right text-2xl font-bold text-primary">
-          {formatCurrency(sale, currency)}
-        </span>
-      )}
-      <span
-        className={`text-right text-2xl font-bold ${
-          sale ? "text-muted-foreground line-through" : "text-foreground"
-        }`}
-      >
-        {formatCurrency(regular, currency)}
-      </span>
-    </div>
   );
 };
