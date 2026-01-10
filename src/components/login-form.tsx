@@ -60,8 +60,10 @@ export default function SignIn({
               </div>
 
               <div className="text-center">
-                <p className="font-semibold text-2xl">Organize Everything</p>
-                <p>
+                <p className="font-semibold text-2xl text-v9">
+                  Organize Everything
+                </p>
+                <p className="text-v6">
                   Keep track of your belongings, warranties, and important
                   documents all in one secure place.
                 </p>
@@ -76,10 +78,8 @@ export default function SignIn({
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center gap-1">
                 <Logo className="mb-2" />
-                <h1 className="text-2xl font-bold text-[#0F172A]">
-                  Home Inventory
-                </h1>
-                <span className="text-sm text-[#64748B]">
+                <h1 className="text-2xl font-bold text-v9">Home Inventory</h1>
+                <span className="text-sm text-v5">
                   Track and organize your things
                 </span>
               </div>
@@ -87,7 +87,7 @@ export default function SignIn({
                 <Card className="p-0">
                   <CardContent className="p-6 md:p-8 space-y-6">
                     <div className="flex flex-col gap-2 ">
-                      <p className="text-[#0F172A] font-semibold text-xl text-balance">
+                      <p className="text-v9 font-semibold text-xl text-balance">
                         Sign in to your account
                       </p>
                     </div>
@@ -100,14 +100,14 @@ export default function SignIn({
                           >
                             Username
                           </FieldLabel>
-                          <InputGroup className="border border-[#CBD5E1] h-12.5">
+                          <InputGroup className="h-12.5">
                             <InputGroupInput
                               id="username"
                               type="username"
                               placeholder="Enter you username"
                             />
                             <InputGroupAddon align="inline-end">
-                              <FaUser className="size-3.5 text-[#94A3B8]" />
+                              <FaUser className="size-3.5 text-v4" />
                             </InputGroupAddon>
                           </InputGroup>
                         </Field>
@@ -119,7 +119,7 @@ export default function SignIn({
                             Password
                           </FieldLabel>
 
-                          <InputGroup className="border border-[#CBD5E1] h-12.5">
+                          <InputGroup className="h-12.5">
                             <InputGroupInput
                               id="password"
                               type={showPassword ? "text" : "password"}
@@ -127,7 +127,7 @@ export default function SignIn({
                             />
                             <InputGroupAddon align="inline-end">
                               <Button
-                                className="m-0 p-0 size-auto text-[#94A3B8]"
+                                className="m-0 p-0 size-auto text-v4"
                                 variant="ghost"
                                 type="button"
                                 onClick={togglePassword}
@@ -143,7 +143,7 @@ export default function SignIn({
                             <Checkbox id="rememberMe" className="" />
                             <Label
                               htmlFor="rememberMe"
-                              className="text-[#334155] font-normal text-sm"
+                              className="font-normal text-sm"
                             >
                               {" "}
                               Remember Me
@@ -159,11 +159,11 @@ export default function SignIn({
                         </div>
                         <Field>
                           <Button type="submit">
-                            Sign in <FaArrowRight />
+                            Create One <FaArrowRight />
                           </Button>
                         </Field>
 
-                        <FieldDescription className="text-center text-sm text-[#475569]">
+                        <FieldDescription className="text-center text-sm text-v6">
                           Don&apos;t have an account?{" "}
                           <a
                             href="#"
@@ -176,7 +176,7 @@ export default function SignIn({
                     </form>
                   </CardContent>
                 </Card>
-                <FieldDescription className="text-center font-normal text-xs flex flex-col gap-2">
+                <FieldDescription className="text-center font-normal text-v5 text-xs flex flex-col gap-2">
                   <span>Version 1.2.4</span>
                   <span>
                     <a href="#"> Help Center</a> •{" "}

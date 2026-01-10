@@ -22,15 +22,10 @@ export function NavProjects({
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton
-              asChild
-              className="hover:cursor-pointer hover:text-primary h-12 text-[#334155]"
-            >
+            <SidebarMenuButton asChild>
               <a href={item.url}>
                 <item.icon />
-                <span className="hover:font-medium text-[#334155] font-normal">
-                  {item.name}
-                </span>
+                <span>{item.name}</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

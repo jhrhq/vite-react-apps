@@ -18,18 +18,13 @@ export function NavMain({
   }[];
 }) {
   return (
-    <SidebarGroup className="border-b border-[#E2E8F0]">
+    <SidebarGroup className="border-b border-v2">
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.title}>
-            <SidebarMenuButton
-              className="hover:cursor-pointer hover:text-primary h-12 text-[#334155]"
-              tooltip={item.title}
-            >
-              {item.icon && <item.icon className="text-[18px]" />}
-              <span className="hover:font-medium text-[#334155] font-normal">
-                {item.title}
-              </span>
+            <SidebarMenuButton className="text-v7" tooltip={item.title}>
+              {item.icon && <item.icon className="text-lg" />}
+              <span className="text-v7 ">{item.title}</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         ))}

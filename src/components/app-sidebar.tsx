@@ -59,7 +59,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader className="border-b border-[#E2E8F0] group-data-[state=expanded]:p-4">
+      <SidebarHeader className="border-b border-v2 group-data-[state=expanded]:p-4">
         <AppSidebarHeader />
       </SidebarHeader>
 
@@ -71,7 +71,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter className="group-data-[state=expanded]:p-4">
         <NavUser user={data.user} />
       </SidebarFooter>
-
       <SidebarRail />
     </Sidebar>
   );

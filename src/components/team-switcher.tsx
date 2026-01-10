@@ -1,35 +1,7 @@
 "use client";
 
 import Logo, { LogoIconSidebar } from "@/components/svg/logo";
-import {
-  SidebarBrandLogo,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar";
-
-export function TeamSwitcher() {
-  return (
-    <SidebarMenu className=" group-data-[collapsible=icon]:p-0">
-      <SidebarMenuItem>
-        <SidebarBrandLogo
-          size="lg"
-          className="data-[state=open]:bg-primary data-[state=open]:text-sidebar-accent-foreground bg-primary-foreground gap-3 h-auto w-full flex items-center justify-center group-data-[collapsible=icon]:p-0"
-        >
-          <div>
-            <Logo className="" />
-            <div className="grid text-left text-sm leading-tight ">
-              <span className=" font-bold text-[18px] mb-3">
-                Home Inventory
-              </span>
-              <span className="truncate text-xs">Manage your items</span>
-            </div>
-          </div>
-        </SidebarBrandLogo>
-      </SidebarMenuItem>
-    </SidebarMenu>
-  );
-}
+import { SidebarHeader } from "@/components/ui/sidebar";
 
 export function AppSidebarHeader() {
   return (
@@ -50,10 +22,8 @@ export function AppSidebarHeader() {
 
         {/* Text (hidden when collapsed) */}
         <div className="flex flex-col leading-tight group-data-[state=collapsed]:hidden">
-          <span className="text-sm font-semibold text-slate-900">
-            Home Inventory
-          </span>
-          <span className="text-xs text-slate-500">Manage your items</span>
+          <span className="text-sm font-semibold text-v9">Home Inventory</span>
+          <span className="text-xs text-v5">Manage your items</span>
         </div>
       </div>
     </SidebarHeader>

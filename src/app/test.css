@@ -1,0 +1,88 @@
+:root {
+  /* ───────────────────────── */
+  /* Gray / Slate */
+  /* ───────────────────────── */
+  --color-gray-900: oklch(20.8% 0.042 265.755); /* #0F172A */
+  --color-gray-700: oklch(27.9% 0.041 260.031); /* #334155 */
+  --color-gray-600: oklch(36.9% 0.044 257.323); /* #475569 */
+  --color-gray-500: oklch(44.6% 0.043 257.242); /* #64748B */
+  --color-gray-400: oklch(64.8% 0.04 258.018); /* #94A3B8 */
+  --color-gray-300: oklch(82.9% 0.028 257.987); /* #CBD5E1 */
+  --color-gray-200: oklch(89.9% 0.018 258.004); /* #E2E8F0 */
+
+  /* ───────────────────────── */
+  /* Red (Destructive) */
+  /* ───────────────────────── */
+  --color-red-500: oklch(62.7% 0.215 27.325); /* #EF4444 */
+  --color-red-200: oklch(86.2% 0.09 25.201); /* #FECACA */
+  --color-red-50: oklch(96.3% 0.02 25.104); /* #FEF2F2 */
+
+  /* ───────────────────────── */
+  /* Primary (Blue) */
+  /* ───────────────────────── */
+  --primary: oklch(61.7% 0.19 255.058);
+  --color-primary-200: oklch(84.8% 0.08 255.103); /* #BFDBFE */
+  --color-primary-50: oklch(97.1% 0.02 255.002); /* #EFF6FF */
+
+  /* ───────────────────────── */
+  /* Teal */
+  /* ───────────────────────── */
+  --color-teal-600: oklch(52.1% 0.12 185.114); /* #0D9488 */
+  --color-teal-100: oklch(92.1% 0.06 185.003); /* #CCFBF1 */
+
+  /* ───────────────────────── */
+  /* Purple */
+  /* ───────────────────────── */
+  --color-purple-700: oklch(45.1% 0.19 299.921); /* #7E22CE */
+  --color-purple-100: oklch(93.1% 0.05 300.012); /* #F3E8FF */
+
+  /* ───────────────────────── */
+  /* Orange */
+  /* ───────────────────────── */
+  --color-orange-700: oklch(52.0% 0.18 45.123); /* #C2410C */
+  --color-orange-500: oklch(66.7% 0.2 54.998); /* #F97316 */
+  --color-orange-100: oklch(92.8% 0.07 64.902); /* #FFEDD5 */
+
+  /* ───────────────────────── */
+  /* Green */
+  /* ───────────────────────── */
+  --color-green-700: oklch(50.3% 0.13 145.201); /* #15803D */
+  --color-green-100: oklch(92.1% 0.07 145.01); /* #DCFCE7 */
+
+  /* ───────────────────────── */
+  /* Yellow */
+  /* ───────────────────────── */
+
+  --color-yellow-700: oklch(52.3% 0.13 85.044); /* #A16207 */
+  --color-yellow-100: oklch(95.2% 0.08 99.902); /* #FEF9C3 */
+}
+
+/* 
+Utility,Source (v3 Slate),OKLCH Value (v4)
+cool-gray-900,Slate 900, #0f172a
+// cool-gray-700,Slate 700, #334155(regular text, outline button text )
+cool-gray-600,Slate 600, #475569
+cool-gray-500,Slate 500, #64748b
+cool-gray-400,Slate 400, #94A3B8
+gray-300, #CBD5E1 border
+coll-gray-200,Slate 200, #e2e8f0(card border)
+coll-red-500, Red, 500, #ef4444(text color, bg color)
+cool-light-red-200, #FECACA(button border)
+lightest-red-50,#FEF2F2(button bg
+lightest-primary-50, #EFF6FF(button bg)
+lightest-primary-200, #BFDBFE(button border)
+regular-primary-500, #3B82F6,
+light-teal-100, #CCFBF1,
+regular-teal-600, #0D9488
+light-purple-100,#F3E8FF,
+regular-purple-700, #7E22CE
+light-orange-100, #FFEDD5,
+orange-500, #F97316
+regular-orange-700, #C2410C,
+light-green-100, #DCFCE7,
+light-green-700, #15803D,
+yellow-700,#A16207
+yellow-100, #FEF9C3
+)
+
+light-bg- #F8FAFC */
