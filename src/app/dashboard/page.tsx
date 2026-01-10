@@ -2,6 +2,8 @@ import { FaDownload, FaMagnifyingGlass, FaPlus } from "react-icons/fa6";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ComponentExample } from "@/components/component-example";
 import DashboardSecondaryHeader from "@/components/dashboard-secondary-header";
+import { DataTableDemo } from "@/components/inventory-table/data-table";
+import DataTableFooter from "@/components/inventory-table/table-footer";
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
 import {
@@ -72,6 +74,7 @@ export default function Page() {
         </header>
         <DashboardSecondaryHeader />
         <div className="flex flex-1 flex-col gap-4 p-4 overflow-y-auto bg-[#F8FAFC]">
+          <DataTableDemo />
           <ComponentExample />
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             <div className="bg-muted/50 aspect-video rounded-xl" />
@@ -80,6 +83,7 @@ export default function Page() {
           </div>
           <div className="bg-muted/50 min-h-screen flex-1 rounded-xl md:min-h-min" />
         </div>
+        <DataTableFooter />
       </SidebarInset>
     </SidebarProvider>
   );
