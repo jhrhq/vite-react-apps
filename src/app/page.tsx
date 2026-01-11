@@ -1,10 +1,16 @@
-import SignIn from "@/components/login-form";
+import { SignCover, SignIn } from "@/components/login-form";
 
 export default function LoginPage() {
   return (
     <div className=" flex min-h-svh flex-col items-center justify-center ">
       <div className="w-full ">
-        <SignIn />
+        <div className="h-full w-full">
+          <div className="h-dvh lg:grid lg:grid-cols-6">
+            <SignCover />
+            {/* Right column */}
+            <SignIn />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,7 @@
-"use client";
-
 import type { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
-import type { Payment } from "@/components/inventory-table/data";
+import type { VariantProps } from "class-variance-authority";
+import { ArrowUpDown, MoreVertical } from "lucide-react";
+import { Badge, type badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -14,69 +13,145 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+type BadgeVariant = VariantProps<typeof badgeVariants>["variant"];
+
+type Label =
+  | "power tools"
+  | "warranty"
+  | "electronics"
+  | "appliances"
+  | "outdoor"
+  | "seasonal"
+  | "high value";
+
+export type Payment = {
+  id: string;
+  labels: Label[];
+  items: string;
+  location: string;
+  quantity: number;
+  update: string;
+};
+
+const labelBadgeVariants: Record<Label, BadgeVariant> = {
+  "power tools": "default-lighter",
+  warranty: "green-lighter",
+  electronics: "purple-lighter",
+  appliances: "orange-lighter",
+  outdoor: "teal-lighter",
+  seasonal: "yellow-lighter",
+  "high value": "destructive",
+};
+
 export const columns: ColumnDef<Payment>[] = [
   {
     id: "select",
     header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
+      <span className="px-4 py-4 inline-flex items-center justify-center">
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+        />
+      </span>
     ),
     cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
+      <span className="py-8 px-4 inline-flex items-center justify-center">
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+      </span>
     ),
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("status")}</div>
-    ),
-  },
-  {
-    accessorKey: "email",
+    accessorKey: "items",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Email
+          Item
           <ArrowUpDown />
         </Button>
       );
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+    cell: ({ row }) => (
+      <div className="flex items-center">
+        {/* 48x48px Image */}
+        <div
+          // src={row.img}
+          // alt={row.customer}
+          className="size-12 rounded-xl border object-cover shrink-0 bg-primary-lighter"
+        />
+        <div className="ml-4 flex flex-col min-w-0">
+          <span className="text-base font-medium text-v9 wrap-break-word leading-tight">
+            {row.getValue("items")}
+          </span>
+          <span className="text-sm text-v5 truncate">Model: DCD771C2</span>
+        </div>
+      </div>
+    ),
   },
   {
-    accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
+    accessorKey: "location",
+    header: "Location",
+    cell: ({ row }) => (
+      <div className="text-v6 text-sm">
+        {row.getValue("location")} <span className="text-v4">"{">"}"</span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: "labels",
+    header: "Labels",
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"));
+      const labels = row.getValue<Label[]>("labels");
 
-      // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
-
-      return <div className="text-right font-medium">{formatted}</div>;
+      return (
+        <div className="capitalize inline-flex gap-2">
+          {labels.map((label) => (
+            <Badge key={label} variant={labelBadgeVariants[label]}>
+              {label}
+            </Badge>
+          ))}
+        </div>
+      );
     },
   },
   {
+    accessorKey: "quantity",
+    header: () => <div className="text-right">Quantity</div>,
+    cell: ({ row }) => {
+      const quantity = parseFloat(row.getValue("quantity"));
+
+      // Format the quantity as a dollar quantity
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(quantity);
+
+      return <div className="text-sm font-medium text-v9">{formatted}</div>;
+    },
+  },
+  {
+    accessorKey: "update",
+    header: "Update",
+    cell: ({ row }) => (
+      <div className="text-v6 text-sm">{row.getValue("update")}</div>
+    ),
+  },
+  {
     id: "actions",
-    enableHiding: false,
+    // enableHiding: false,
+    header: "Actions",
     cell: ({ row }) => {
       const payment = row.original;
 
@@ -85,7 +160,7 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="h-8 w-8 p-0">
               <span className="sr-only">Open menu</span>
-              <MoreHorizontal />
+              <MoreVertical className="text-v4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

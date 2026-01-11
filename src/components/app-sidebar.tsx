@@ -59,7 +59,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader className="border-b border-v2 group-data-[state=expanded]:p-4">
+      <SidebarHeader className="border-b border-v2 py-3 group-data-[state=expanded]:py-3">
         <AppSidebarHeader />
       </SidebarHeader>
 

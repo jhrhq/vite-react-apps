@@ -22,7 +22,7 @@ export function AppSidebarHeader() {
 
         {/* Text (hidden when collapsed) */}
         <div className="flex flex-col leading-tight group-data-[state=collapsed]:hidden">
-          <span className="text-sm font-semibold text-v9">Home Inventory</span>
+          <span className="text-lg font-bold text-v9">Home Inventory</span>
           <span className="text-xs text-v5">Manage your items</span>
         </div>
       </div>

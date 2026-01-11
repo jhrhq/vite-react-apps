@@ -37,17 +37,17 @@ const badgeVariants = cva(
           "bg-purple-lighter text-purple-light py-1 px-3 rounded-full",
 
         // ORANGE
-        "orange-light": "bg-orange-light text-orange-dark",
+        "orange-lighter": "bg-orange-light text-orange-dark",
         "orange-light-rounded":
           "bg-orange-light text-orange-dark py-1 px-3 rounded-full",
 
         // GREEN
-        "green-light": "bg-green-light text-green-dark",
+        "green-lighter": "bg-green-light text-green-dark",
         "green-light-rounded":
           "bg-green-light text-green-dark py-1 px-3 rounded-full",
 
         // YELLOW
-        "yellow-light": "bg-yellow-light text-yellow-dark",
+        "yellow-lighter": "bg-yellow-light text-yellow-dark",
         "yellow-light-rounded":
           "bg-yellow-light text-yellow-dark py-1 px-3 rounded-full",
       },
