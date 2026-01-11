@@ -220,7 +220,10 @@ export default function ProductDetailPage({ className }: ProductDetail1Props) {
                 <FaPaperclip />
                 Add Attachment
               </Button>
-              <Button variant="destructive" className="font-medium h-11">
+              <Button
+                variant="destructive-outline"
+                className="font-medium h-11"
+              >
                 <FaTrash /> Delete
               </Button>
             </div>

@@ -10,6 +10,7 @@ const Configuration: UserConfig = {
       "always",
       [
         "feat",
+        "wip",
         "fix",
         "chore",
         "docs",
