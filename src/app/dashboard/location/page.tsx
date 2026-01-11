@@ -118,7 +118,7 @@ export default function LocationPage({ className }: ProductDetail1Props) {
       <div className="flex  ">
         <SecondarySidebar />
         <section className={cn("bg-[#F8FAFC] flex-1 p-4", className)}>
-          <div className="container">
+          <div className="container space-y-6">
             <Card>
               <CardContent className="space-y-4">
                 {/* Bookshelf card */}
@@ -185,10 +185,89 @@ export default function LocationPage({ className }: ProductDetail1Props) {
                 </div>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardContent className="space-y-4">
+                <div className="flex justify-between">
+                  <p className="font-semibold text-xl text-v9">
+                    Items in this Location
+                  </p>
+                  <p className="text-primary text-sm font-meidum flex gap-1">
+                    View All
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <Card className="p-4">
+                    <CardContent className="p-0">
+                      <div className="flex justify-between flex-1 gap-4">
+                        <div className="flex gap-4">
+                          <div className="size-12 bg-teal-lighter rounded-2xl flex items-center justify-center ">
+                            <FaBook className="text-teal-light h-6 w-5" />
+                          </div>
+                          <div className="flex flex-col gap-0.5">
+                            <p className="font-medium text-sm text-v9">
+                              Vintage Camera Collection{" "}
+                            </p>
+                            <p className=" text-xs text-v5 ">
+                              Electronics • Added 2 weeks ago
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-1">
+                          <span className="text-sm font-semibold text-v9 text-right">
+                            $180
+                          </span>
+                          <Badge
+                            variant="green-light-rounded"
+                            className="py-0.5 px-2"
+                          >
+                            Good
+                          </Badge>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card className="p-4">
+                    <CardContent className="p-0">
+                      <div className="flex justify-between flex-1 gap-4">
+                        <div className="flex gap-4">
+                          <div className="size-12 bg-teal-lighter rounded-2xl flex items-center justify-center ">
+                            <FaBook className="text-teal-light h-6 w-5" />
+                          </div>
+                          <div className="flex flex-col gap-0.5">
+                            <p className="font-medium text-sm text-v9">
+                              Vintage Camera Collection{" "}
+                            </p>
+                            <p className=" text-xs text-v5 ">
+                              Electronics • Added 2 weeks ago
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-1">
+                          <span className="text-sm font-semibold text-v9 text-right">
+                            $180
+                          </span>
+                          <Badge
+                            variant="green-light-rounded"
+                            className="py-0.5 px-2"
+                          >
+                            Good
+                          </Badge>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+                <Separator />
+                <Button className="font-medium text-sm w-full h-10 text-primary bg-transparent hover:bg-primary-lightest rounded-none py-2.5">
+                  {" "}
+                  <FaPlus /> Add Item to this Location{" "}
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </div>
-      <MailPreview />
     </>
   );
 }
@@ -247,18 +326,6 @@ function SecondarySidebar() {
           </Badge>
         </div>
       </div>
-    </div>
-  );
-}
-
-function MailPreview() {
-  return (
-    <div className="flex h-full flex-col">
-      <div className="border-b p-4">
-        <div className="text-lg font-semibold">{"selectedMail.subject"}</div>
-        <div className="text-sm text-muted-foreground">From:</div>
-      </div>
-      <div className="p-4 text-sm whitespace-pre-wrap">{`${"selectedMail.teaser"}\n\nThis is a sample message body for the selected email.\nIt demonstrates the preview area on the right side.`}</div>
     </div>
   );
 }
