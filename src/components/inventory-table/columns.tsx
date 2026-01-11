@@ -103,9 +103,11 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "location",
     header: "Location",
-    cell: ({ row }) => (
+    cell: () => (
       <div className="text-v6 text-sm">
-        {row.getValue("location")} <span className="text-v4">"{">"}"</span>
+        Garage
+        {/* {row.getValue("location")}  */}
+        <span className="text-v4">&gt;</span> ToolCabinet
       </div>
     ),
   },

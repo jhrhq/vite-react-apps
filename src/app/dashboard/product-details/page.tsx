@@ -1,6 +1,7 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: false positive */
 "use client";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import {
   FaChevronRight,
   FaLocationDot,
@@ -8,7 +9,7 @@ import {
   FaPen,
   FaTrash,
 } from "react-icons/fa6";
-import ProductTab from "@/app/dashboard/product-details/product-tab";
+import ProductTab from "@/components/product-tab";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -28,7 +29,6 @@ import {
 } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
 
 /* 
 type StockStatusCode = "IN_STOCK" | "OUT_OF_STOCK";
@@ -191,61 +191,17 @@ const PRODUCT_DETAILS = {
   ],
 };
 
-interface ProductDetail1Props {
+/* interface ProductDetail1Props {
   className?: string;
-}
+} */
 
-export default function ProductDetailPage({ className }: ProductDetail1Props) {
+export default function ProductDetailPage() {
   return (
     <>
-      <header className="flex w-full z-50 h-16 sticky top-0 bg-background shrink-0 items-center gap-2 border-b ">
-        <div className="flex items-center gap-2 px-3 w-full">
-          <SidebarTrigger />
-          <div>
-            <Separator orientation="vertical" className="mr-2 h-4" />
-          </div>
-          <div className="flex justify-between flex-1">
-            <div className="flex items-center gap-2">
-              <p className="text-v5 text-sm">Inventory</p>{" "}
-              <FaChevronRight className="text-v3" />
-              <p className="font-medium text-sm text-v9">
-                Sony WH-1000XM4 Headphones
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="outline" className="text-v7 h-11 font-medium">
-                <FaPen /> Edit
-              </Button>
-              <Button variant="outline" className="font-medium h-11">
-                <FaPaperclip />
-                Add Attachment
-              </Button>
-              <Button
-                variant="destructive-outline"
-                className="font-medium h-11"
-              >
-                <FaTrash /> Delete
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-      <div className="flex flex-1 flex-col gap-4 p-6 overflow-y-auto bg-[#F8FAFC]">
-        <div className="flex flex-col gap-2">
-          <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">
-            {PRODUCT_DETAILS.name}
-          </h1>
-          <div className="inline-flex gap-2">
-            <Badge
-              variant="default-lighter-rounded"
-              className="font-medium text-xs"
-            >
-              Electronics
-            </Badge>
-            <Badge variant="green-light-rounded">Active Warranty</Badge>
-          </div>
-        </div>
-        <section className={cn("py-32", className)}>
+      <ProductHeader />
+      <div className="flex flex-1 flex-col gap-6 overflow-y-auto bg-[#F8FAFC] px-6">
+        <ProductDetailHeader />
+        <section>
           <div className="container">
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
               <Card>
@@ -263,6 +219,69 @@ export default function ProductDetailPage({ className }: ProductDetail1Props) {
   );
 }
 
+function ProductHeader() {
+  return (
+    <header className="flex w-full z-50 h-16 sticky top-0 bg-background shrink-0 items-center gap-2 border-b ">
+      <div className="flex items-center gap-2 px-3 w-full">
+        <SidebarTrigger />
+        <div>
+          <Separator orientation="vertical" className="mr-2 h-4" />
+        </div>
+        <div className="flex justify-between flex-1">
+          <ProductPagination />
+          <ProductAction />
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function ProductPagination() {
+  return (
+    <div className="flex items-center gap-2">
+      <p className="text-v5 text-sm">Inventory</p>{" "}
+      <FaChevronRight className="text-v3" />
+      <p className="font-medium text-sm text-v9">Sony WH-1000XM4 Headphones</p>
+    </div>
+  );
+}
+
+function ProductAction() {
+  return (
+    <div className="flex items-center gap-2">
+      <Button variant="outline" className="text-v7 h-11 font-medium">
+        <FaPen /> Edit
+      </Button>
+      <Button variant="outline" className="font-medium h-11">
+        <FaPaperclip />
+        Add Attachment
+      </Button>
+      <Button variant="destructive-outline" className="font-medium h-11">
+        <FaTrash /> Delete
+      </Button>
+    </div>
+  );
+}
+
+function ProductDetailHeader() {
+  return (
+    <div className="flex flex-col gap-2 mt-6">
+      <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">
+        {PRODUCT_DETAILS.name}
+      </h1>
+      <div className="inline-flex gap-2">
+        <Badge
+          variant="default-lighter-rounded"
+          className="font-medium text-xs"
+        >
+          Electronics
+        </Badge>
+        <Badge variant="green-light-rounded">Active Warranty</Badge>
+      </div>
+    </div>
+  );
+}
+
 function ProductInfo() {
   return (
     <Card className="space-y-4">
@@ -271,53 +290,64 @@ function ProductInfo() {
           Key Details
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-2">
-        <div className="flex flex-col gap-2">
-          <p className="font-medium text-sm">Location</p>
-          <div className="flex gap-2 items-center">
-            <FaLocationDot className="text-primary" />
-            <span className="text-v9 text-base">Living Room</span>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="font-medium text-sm">Lavels</p>
-          <div className="flex gap-2 items-center">
-            <Badge variant="default-lighter-rounded">Electronics</Badge>
-            <Badge variant="purple-lighter-rounded">Audio</Badge>
-            <Badge variant="orange-light-rounded">Electronics</Badge>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="font-medium text-sm">Quantity</p>
-          <div className="flex gap-2 items-center">
-            <span className="text-v9 text-base">1</span>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="font-medium text-sm">Purchase Price</p>
-          <div className="flex gap-2 items-center">
-            <span className="text-v9 font-semibold text-lg">$349.99</span>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="font-medium text-sm">Warranty</p>
-          <div className="flex gap-2 items-center">
+      <CardContent className="space-y-4">
+        <KeyDetailsRow
+          label="Location"
+          value={
+            <>
+              <FaLocationDot className="text-primary" />
+              <span className="text-v9 text-base">Living Room</span>
+            </>
+          }
+        />
+        <KeyDetailsRow
+          label="Lavels"
+          value={
+            <>
+              <Badge variant="default-lighter-rounded">Electronics</Badge>
+              <Badge variant="purple-lighter-rounded">Audio</Badge>
+              <Badge variant="orange-light-rounded">Electronics</Badge>
+            </>
+          }
+        />
+        <KeyDetailsRow
+          label="Quantity"
+          value={<span className="text-v9 text-base">1</span>}
+        />
+        <KeyDetailsRow
+          label="Purchase Price"
+          value={<span className="text-v9 font-semibold text-lg">$349.99</span>}
+        />
+        <KeyDetailsRow
+          label="Warranty"
+          value={
             <Badge variant="green-light-rounded">
               Active until March 15, 2026
             </Badge>
-          </div>
-        </div>
+          }
+        />
       </CardContent>
-      <CardFooter className="flex flex-col gap-2  text-left items-baseline">
-        <p className="font-medium text-sm">Notes</p>
-        <div className="flex gap-2 items-center">
-          <span className="text-sm text-v6">
-            Purchased from Best Buy with extended warranty. Includes carrying
-            case, charging cable, and audio cable. Serial number: 1234567890.{" "}
-          </span>
-        </div>
+      <CardFooter>
+        <KeyDetailsRow
+          label="Notes"
+          value={
+            <span className="text-sm text-v6">
+              Purchased from Best Buy with extended warranty. Includes carrying
+              case, charging cable, and audio cable. Serial number: 1234567890.{" "}
+            </span>
+          }
+        />
       </CardFooter>
     </Card>
+  );
+}
+
+function KeyDetailsRow({ label, value }: { label: string; value: ReactNode }) {
+  return (
+    <div className="flex flex-col gap-2">
+      <p className="font-medium text-sm">{label}</p>
+      <div className="flex gap-2 items-center">{value}</div>
+    </div>
   );
 }
 
