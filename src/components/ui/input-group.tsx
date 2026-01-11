@@ -1,6 +1,5 @@
 /** biome-ignore-all lint/a11y/useSemanticElements: false positive */
 /** biome-ignore-all lint/a11y/useKeyWithClickEvents: false positive */
-"use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
 import type * as React from "react";

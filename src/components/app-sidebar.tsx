@@ -1,5 +1,4 @@
 /** biome-ignore-all lint/suspicious/noShadowRestrictedNames: false positive */
-"use client";
 
 import type * as React from "react";
 import { FaChartLine, FaGear, FaLocationDot, FaTags } from "react-icons/fa6";

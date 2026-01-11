@@ -1,5 +1,3 @@
-"use client";
-
 import Logo, { LogoIconSidebar } from "@/components/svg/logo";
 import { SidebarHeader } from "@/components/ui/sidebar";
 

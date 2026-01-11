@@ -1,6 +1,5 @@
 /** biome-ignore-all lint/correctness/useExhaustiveDependencies: false positive */
 /** biome-ignore-all lint/suspicious/noDocumentCookie: false positive */
-"use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";

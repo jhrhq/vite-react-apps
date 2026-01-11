@@ -1,5 +1,4 @@
 /** biome-ignore-all lint/a11y/useSemanticElements: false positive */
-"use client";
 
 import useEmblaCarousel, {
   type UseEmblaCarouselType,

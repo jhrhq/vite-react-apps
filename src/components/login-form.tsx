@@ -1,6 +1,5 @@
 /** biome-ignore-all lint/a11y/useValidAnchor: false positive */
-"use client";
-import Image from "next/image";
+
 import * as React from "react";
 import { FaArrowRight, FaEye, FaEyeSlash, FaUser } from "react-icons/fa6";
 import Logo from "@/components/svg/logo";
@@ -50,8 +49,8 @@ export function SignCover({
             {/* Bottom-right blur */}
             <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-primary/30 blur-3xl" />
 
-            <Image
-              src="/home-inventory.jpg"
+            <img
+              src={`${import.meta.env.BASE_URL}img/home-inventory.jpg`}
               alt="Image"
               height={500}
               width={500}

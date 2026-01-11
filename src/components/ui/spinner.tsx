@@ -1,6 +1,4 @@
-/** biome-ignore-all lint/a11y/useSemanticElements: false positive */
 import { Loader2Icon } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
 function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
@@ -14,4 +12,12 @@ function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
   );
 }
 
-export { Spinner };
+function FullPageSpinner() {
+  return (
+    <div className="flex h-svh items-center justify-between gap-4">
+      <Spinner />
+    </div>
+  );
+}
+
+export { Spinner, FullPageSpinner };
