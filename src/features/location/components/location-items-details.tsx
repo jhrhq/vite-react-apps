@@ -6,38 +6,56 @@ import {
   FaPlus,
   FaTrash,
 } from "react-icons/fa6";
+import type { LocationDetailResponse } from "@/@types/location";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-export function LocationItemDetails() {
+export function LocationItemDetails({
+  data,
+}: {
+  data: LocationDetailResponse;
+}) {
   return (
     <Card>
       <CardContent className="space-y-4">
         {/* Bookshelf card */}
         <div className="flex justify-between flex-1">
-          <LocationItemDetailsHeder />
+          <LocationItemDetailsHeder data={data} />
           <LocationItemDetailsActions />
         </div>
-        <LocationItemDetailsDescription />
+        <LocationItemDetailsDescription data={data} />
         <div className="border-t pt-4 flex items-center justify-between gap-4">
-          <LocationItemDetailRow label="ITEMS" quantity={"2"} />
-          <LocationItemDetailRow label="TOTAL VALUE" quantity={"$245"} />
-          <LocationItemDetailRow label="CREATED" date={"Jan 15, 2024 "} />
+          <LocationItemDetailRow
+            label="ITEMS"
+            quantity={data.stats.itemCount}
+          />
+          <LocationItemDetailRow
+            label="TOTAL VALUE"
+            quantity={data.stats.totalValue}
+          />
+          <LocationItemDetailRow
+            label="CREATED"
+            date={data.stats.createdDate}
+          />
         </div>
       </CardContent>
     </Card>
   );
 }
 
-export function LocationItemDetailsHeder() {
+export function LocationItemDetailsHeder({
+  data,
+}: {
+  data: LocationDetailResponse;
+}) {
   return (
     <div className="flex gap-4">
       <div className="size-14 bg-teal-lighter rounded-2xl flex items-center justify-center">
         <FaBook className="text-teal-light h-6 w-5" />
       </div>
       <div className="flex flex-col gap-1">
-        <p className="font-semibold text-2xl text-v9">Bookshelf</p>
+        <p className="font-semibold text-2xl text-v9">{data.name}</p>
         <LocationItemDetailBreadCrumb />
       </div>
     </div>
@@ -55,14 +73,15 @@ export function LocationItemDetailBreadCrumb() {
   );
 }
 
-export function LocationItemDetailsDescription() {
+export function LocationItemDetailsDescription({
+  data,
+}: {
+  data: LocationDetailResponse;
+}) {
   return (
     <div className="space-y-1">
       <p className="font-semibold tex-sm text-v5">DESCRIPTION</p>
-      <p className="text-sm">
-        White wooden bookshelf in the living room containing books, decorations,
-        and collectibles. Located next to the window.
-      </p>
+      <p className="text-sm">{data.description}</p>
     </div>
   );
 }

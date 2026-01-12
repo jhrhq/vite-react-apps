@@ -15,6 +15,7 @@ export default function InventoryDetailsPage() {
   const { params } = useParams();
   const { data, isLoading, isFetching, isError, error, refetch } =
     useInventoryProduct(params || "1");
+
   if (isLoading || isFetching) {
     return <InventoryDetailViewSkeleton />;
   }

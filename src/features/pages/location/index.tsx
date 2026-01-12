@@ -4,70 +4,26 @@ import { LocationMainHeader } from "@/features/location/components/location-head
 import { LocationItemDetails } from "@/features/location/components/location-items-details";
 import { LocationItemsLists } from "@/features/location/components/location-lists";
 import { LocationSecondarySidebar } from "@/features/location/components/location-sidebar";
+import { LocationSkeleton } from "@/features/location/components/location-skeleton";
+import { useLocation } from "@/features/location/hooks/use-location";
+import { ErrorPage } from "@/features/pages/Error";
 import { cn } from "@/lib/utils";
-
-/* 
-type StockStatusCode = "IN_STOCK" | "OUT_OF_STOCK";
-
-interface StockInfo {
-  stockStatusCode?: StockStatusCode;
-  stockQuantity?: number;
-}
-
-type option = {
-  id: string;
-  label: string;
-  stockInfo: StockInfo;
-  color?: string;
-  value: string;
-};
-
-interface Hinges {
-  label: string;
-  id: string;
-  name: string;
-  options?: option[];
-  min?: number;
-  max?: number;
-}
-
-interface ProductImagesProps {
-  images: Array<{
-    srcset: string;
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-    sizes: string;
-  }>;
-}
-
-interface ReviewsProps {
-  rate: number;
-  totalReviewers: string;
-}
-
-interface PriceProps {
-  regular: number;
-  sale?: number;
-  currency: string;
-  text?: string;
-}
-
-interface ProductInfoProps {
-  info?: Array<{
-    label: string;
-    value: string;
-  }>;
-} */
-
-const _MAX_STARS = 5;
 
 interface ProductDetail1Props {
   className?: string;
 }
 
 export default function LocationPage({ className }: ProductDetail1Props) {
+  const { data, isLoading, isFetching, isError, error, refetch } =
+    useLocation("bookshelf-1");
+
+  if (isLoading || isFetching) {
+    return <LocationSkeleton />;
+  }
+
+  if (isError || !data) {
+    return <ErrorPage message={error?.message} reset={refetch} />;
+  }
   return (
     <>
       <LocationMainHeader />
@@ -75,8 +31,8 @@ export default function LocationPage({ className }: ProductDetail1Props) {
         <LocationSecondarySidebar />
         <section className={cn("bg-[#F8FAFC] flex-1 p-4", className)}>
           <div className="container space-y-6">
-            <LocationItemDetails />
-            <LocationItemsLists />
+            <LocationItemDetails data={data} />
+            <LocationItemsLists data={data} />
           </div>
         </section>
       </div>
