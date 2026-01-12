@@ -1,10 +1,5 @@
 # Home Inventory
 
-## Features (short)
-- Add and manage items, categories and locations
-- Track purchase date, value and warranties
-- Search and filter items
-- TypeScript-based backend / frontend
 
 ## Quick start — how to run
 Prerequisites:
@@ -28,7 +23,7 @@ Prerequisites:
     ```bash
     /dashoard
     /dashboard/inventory
-    /location
+    /dashboard/location
     ```
 
 
@@ -39,9 +34,34 @@ Replace with the repo's actual tree if you want — I can fetch it for you.
 ├── .github/
 ├── src/
 │   ├── @type.ts
-│   ├── components.ts
-│   ├── features/
-|   |── pages
+    ├── api
+│   ├── App.tsx
+│   ├── assets
+│   ├── components
+│   │   └── ui
+│   ├── features
+│   │   ├── auth
+│   │   │   ├── components
+│   │   │   │   └── login-form.tsx
+│   │   │   └── hooks
+│   │   ├── inventory
+│   │   │   ├── components
+│   │   │   └── hooks
+│   │   ├── inventory-details
+│   │   │   ├── components
+│   │   │   └── hooks
+│   │   ├── location
+│   │   │   ├── components
+│   │   │   └── hooks
+│   │   └── pages
+│   │       ├── dashboard
+│   │       │   ├── index.tsx
+│   │       ├── Error
+│   │       │   ├── index.tsx
+│   │       ├── inventory-details
+│   │       │   └── index.tsx
+│   │       └── location
+│   │           └── index.tsx
 │   ├── routes/
 │   ├── hooks/
 │   └── utils/
@@ -50,6 +70,5 @@ Replace with the repo's actual tree if you want — I can fetch it for you.
 ├── tsconfig.json
 ├── .env.example
 ├── README.md
-└── tests/
 ```
 
