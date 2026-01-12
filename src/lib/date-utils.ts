@@ -13,3 +13,12 @@ export function formatRelativeTime(date: string | Date | undefined): string {
     return "Invalid date";
   }
 }
+
+export function formattedDate(dateParam: string) {
+  const date = new Date(dateParam);
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}

@@ -1,7 +1,7 @@
 import { createBrowserRouter, type RouteObject } from "react-router";
 import Dashboard from "@/features/pages/dashboard";
 import DashboardLayout from "@/features/pages/dashboard/layout";
-import RouteNotMatched from "@/features/pages/Error";
+import RouteNotMatched from "@/features/pages/Error/url-not-matched";
 import InventoryDetailsPage from "@/features/pages/inventory-details";
 import LocationPage from "@/features/pages/location";
 import { ProtectedLayout } from "@/routes/protected-routes";

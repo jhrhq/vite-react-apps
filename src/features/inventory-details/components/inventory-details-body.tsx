@@ -1,9 +1,11 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <false positive> */
 
+import type { VariantProps } from "class-variance-authority";
 import type { ReactNode } from "react";
 import { FaLocationDot } from "react-icons/fa6";
+import type { InventoryProductDetail, Label, Level } from "@/@types/details";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Badge } from "@/components/ui/badge";
+import { Badge, type badgeVariants } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -18,27 +20,47 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { formattedDate } from "@/lib/date-utils";
 
-export function InventoryDetailsTitleBar() {
+type BadgeVariant = VariantProps<typeof badgeVariants>["variant"];
+
+export const labelBadgeVariants: Record<Label, BadgeVariant> = {
+  "power tools": "default-lighter-rounded",
+  warranty: "green-lighter-rounded",
+  electronics: "purple-lighter-rounded",
+  appliances: "orange-lighter-rounded",
+  outdoor: "teal-lighter-rounded",
+  seasonal: "yellow-lighter-rounded",
+  "high value": "destructive-lighter-rounded",
+  "active warranty": "green-lighter-rounded",
+};
+export const levelBadgeVariants: Record<Level, BadgeVariant> = {
+  electronics: "default-lighter-rounded",
+  audio: "purple-lighter-rounded",
+  premium: "orange-lighter-rounded",
+};
+
+type InventoryDetailProps = {
+  data: InventoryProductDetail;
+};
+export function InventoryDetailsTitleBar({ data }: InventoryDetailProps) {
   return (
     <div className="flex flex-col gap-2 mt-6">
       <h1 className="text-2xl font-bold tracking-tight lg:text-3xl">
-        Sony WH-1000XM4 Headphones{" "}
+        {data.name}{" "}
       </h1>
       <div className="inline-flex gap-2">
-        <Badge
-          variant="default-lighter-rounded"
-          className="font-medium text-xs"
-        >
-          Electronics
-        </Badge>
-        <Badge variant="green-light-rounded">Active Warranty</Badge>
+        {data.labels.map((label) => (
+          <Badge key={label} variant={labelBadgeVariants[label]}>
+            {label}
+          </Badge>
+        ))}
       </div>
     </div>
   );
 }
 
-export function InventoryDetailsInfo() {
+export function InventoryDetailsInfo({ data }: InventoryDetailProps) {
   return (
     <Card className="space-y-4">
       <CardHeader>
@@ -52,33 +74,33 @@ export function InventoryDetailsInfo() {
           value={
             <>
               <FaLocationDot className="text-primary" />
-              <span className="text-v9 text-base">Living Room</span>
+              <span className="text-v9 text-base">{data.location}</span>
             </>
           }
         />
         <InventoryKeyDetailsRow
           label="Lavels"
-          value={
-            <>
-              <Badge variant="default-lighter-rounded">Electronics</Badge>
-              <Badge variant="purple-lighter-rounded">Audio</Badge>
-              <Badge variant="orange-light-rounded">Electronics</Badge>
-            </>
-          }
+          value={data.levels.map((level) => (
+            <Badge key={level} variant={levelBadgeVariants[level]}>
+              {level}
+            </Badge>
+          ))}
         />
         <InventoryKeyDetailsRow
           label="Quantity"
-          value={<span className="text-v9 text-base">1</span>}
+          value={<span className="text-v9 text-base">{data.quantity}</span>}
         />
         <InventoryKeyDetailsRow
           label="Purchase Price"
-          value={<span className="text-v9 font-semibold text-lg">$349.99</span>}
+          value={
+            <span className="text-v9 font-semibold text-lg">${data.price}</span>
+          }
         />
         <InventoryKeyDetailsRow
           label="Warranty"
           value={
-            <Badge variant="green-light-rounded">
-              Active until March 15, 2026
+            <Badge variant="green-lighter-rounded">
+              Active until {formattedDate(data.updatedAt)}
             </Badge>
           }
         />
@@ -86,12 +108,7 @@ export function InventoryDetailsInfo() {
       <CardFooter>
         <InventoryKeyDetailsRow
           label="Notes"
-          value={
-            <span className="text-sm text-v6">
-              Purchased from Best Buy with extended warranty. Includes carrying
-              case, charging cable, and audio cable. Serial number: 1234567890.{" "}
-            </span>
-          }
+          value={<span className="text-sm text-v6">{data.notes}</span>}
         />
       </CardFooter>
     </Card>
@@ -113,17 +130,7 @@ export function InventoryKeyDetailsRow({
   );
 }
 
-interface InventoryImagesProps {
-  images: Array<{
-    srcset: string;
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-    sizes: string;
-  }>;
-}
-export const InventoryDetailsImages = ({ images }: InventoryImagesProps) => {
+export const InventoryDetailsImages = ({ data }: InventoryDetailProps) => {
   return (
     <Carousel
       opts={{
@@ -135,19 +142,15 @@ export const InventoryDetailsImages = ({ images }: InventoryImagesProps) => {
       }}
     >
       <CarouselContent className="gap-4 md:m-0 md:grid md:grid-cols-3 xl:gap-5">
-        {images.map((img, index) => (
+        {data.images.map((img, index) => (
           <CarouselItem
             className="first:col-span-3 md:p-0"
             key={`inventory-detail-1-image-${index}`}
           >
             <AspectRatio ratio={1} className="overflow-hidden rounded-lg">
               <img
-                // srcSet={img.srcset}
-                src={img.src}
-                alt={img.alt}
-                width={img.width}
-                height={img.height}
-                sizes={img.sizes}
+                src={img}
+                alt={"produect tests"}
                 className="block size-full object-cover object-center"
               />
             </AspectRatio>

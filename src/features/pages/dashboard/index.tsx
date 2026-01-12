@@ -7,9 +7,11 @@ import { InventoryDataTable } from "@/features/inventory/components/inventory-ta
 import { InventoryProductTableSkeleton } from "@/features/inventory/components/inventory-table/inventory-table-skeleton";
 import DataTableFooter from "@/features/inventory/components/inventory-table/table-footer";
 import { useInventoryProducts } from "@/features/inventory/hooks/use-inventory-products";
+import { ErrorPage } from "@/features/pages/Error";
 
 export default function Dashboard() {
-  const { data, isLoading, isFetching } = useInventoryProducts();
+  const { data, isLoading, isFetching, isError, refetch, error } =
+    useInventoryProducts();
 
   if (isLoading || isFetching) {
     return (
@@ -23,6 +25,10 @@ export default function Dashboard() {
       </>
     );
   }
+  if (isError || !data) {
+    return <ErrorPage message={error?.message} reset={refetch} />;
+  }
+
   return (
     <>
       <InventoryHeader />

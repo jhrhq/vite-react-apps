@@ -12,7 +12,7 @@ const badgeVariants = cva(
         default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
         "default-lighter": "bg-primary-lighter text-primary",
         "default-lighter-rounded":
-          "bg-primary-lighter text-primary py-1 px-3 rounded-full",
+          "bg-primary-lightest text-primary py-1 px-3 rounded-full",
         secondary:
           "bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80",
         destructive:
@@ -38,17 +38,17 @@ const badgeVariants = cva(
 
         // ORANGE
         "orange-lighter": "bg-orange-light text-orange-dark",
-        "orange-light-rounded":
+        "orange-lighter-rounded":
           "bg-orange-light text-orange-dark py-1 px-3 rounded-full",
 
         // GREEN
         "green-lighter": "bg-green-light text-green-dark",
-        "green-light-rounded":
+        "green-lighter-rounded":
           "bg-green-light text-green-dark py-1 px-3 rounded-full",
 
         // YELLOW
         "yellow-lighter": "bg-yellow-light text-yellow-dark",
-        "yellow-light-rounded":
+        "yellow-lighter-rounded":
           "bg-yellow-light text-yellow-dark py-1 px-3 rounded-full",
       },
     },

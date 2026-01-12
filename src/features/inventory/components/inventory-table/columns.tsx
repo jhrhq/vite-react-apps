@@ -1,7 +1,8 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import type { VariantProps } from "class-variance-authority";
 import { ArrowUpDown, MoreVertical } from "lucide-react";
-import type { InventoryProduct } from "@/api/mock-dashboard-data";
+import type { Label } from "@/@types/details";
+import type { InventoryProduct } from "@/@types/inventory";
 import { Badge, type badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -17,16 +18,7 @@ import { formatRelativeTime } from "@/lib/date-utils";
 
 type BadgeVariant = VariantProps<typeof badgeVariants>["variant"];
 
-type Label =
-  | "power tools"
-  | "warranty"
-  | "electronics"
-  | "appliances"
-  | "outdoor"
-  | "seasonal"
-  | "high value";
-
-const labelBadgeVariants: Record<Label, BadgeVariant> = {
+export const labelBadgeVariants: Record<Label, BadgeVariant> = {
   "power tools": "default-lighter",
   warranty: "green-lighter",
   electronics: "purple-lighter",

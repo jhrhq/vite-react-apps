@@ -1,7 +1,8 @@
 "use cliet";
+import type { InventoryProductDetail } from "@/@types/details";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-function ProductTab() {
+function ProductTab({ data }: { data: InventoryProductDetail }) {
   return (
     <div className="w-full bg-white rounded-xl border overflow-hidden mt-4">
       <Tabs
@@ -25,10 +26,10 @@ function ProductTab() {
                 Product Information
               </h3>
               <div className="space-y-3">
-                <DataRow label="Brand" value="Sony" />
-                <DataRow label="Model" value="WH-1000XM4" />
-                <DataRow label="Color" value="Black" />
-                <DataRow label="Condition" value="Excellent" />
+                <DataRow label="Brand" value={data.brand} />
+                <DataRow label="Model" value={data.model} />
+                <DataRow label="Color" value={data.color} />
+                <DataRow label="Condition" value={data.condition} />
               </div>
             </div>
 
@@ -37,8 +38,8 @@ function ProductTab() {
                 Additional Details
               </h3>
               <div className="space-y-3">
-                <DataRow label="Serial Number" value="1234567890" />
-                <DataRow label="Purchased From" value="Best Buy" />
+                <DataRow label="Serial Number" value={data.serialNumber} />
+                <DataRow label="Purchased From" value={data.purchasedFrom} />
                 <DataRow label="Last Updated" value="Today, 2:30 PM" />
               </div>
             </div>
