@@ -20,6 +20,9 @@ Prerequisites:
    pnpm
    ```
 3. File routes 
+   ```bash
+   Just Click on the Sign In to go to dashbaord
+   ```
     ```bash
     /dashoard
     /dashboard/inventory
@@ -27,7 +30,7 @@ Prerequisites:
     ```
 
 
-## File tree (example / placeholder)
+## File tree
 Replace with the repo's actual tree if you want — I can fetch it for you.
 ```text
 .
