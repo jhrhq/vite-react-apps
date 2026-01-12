@@ -1,4 +1,4 @@
-import { SignCover, SignIn } from "@/components/login-form";
+import { SignCover, SignIn } from "@/features/auth/components/login-form";
 
 export default function LoginPage() {
   return (
