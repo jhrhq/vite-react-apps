@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { FaArrowRight, FaEye, FaEyeSlash, FaUser } from "react-icons/fa6";
+import { Link } from "react-router";
 import Logo from "@/components/svg/logo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -181,8 +182,10 @@ function SignInForm() {
           </a>
         </div>
         <Field>
-          <Button type="submit">
-            Create One <FaArrowRight />
+          <Button type="submit" asChild>
+            <Link to="/dashboard">
+              Sign in <FaArrowRight />
+            </Link>
           </Button>
         </Field>
 

@@ -1,22 +1,55 @@
+# Home Inventory
 
-## Getting Started
+## Features (short)
+- Add and manage items, categories and locations
+- Track purchase date, value and warranties
+- Search and filter items
+- TypeScript-based backend / frontend
 
-First, run the development server:
+## Quick start — how to run
+Prerequisites:
+- Node.js (>= 16 recommended)
+- npm or yarn
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the repo
+   ```bash
+   git clone https://github.com/jhrhq/home-inventory.git
+   cd home-inventory
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   yarn
+   pnpm
+   ```
+3. File routes 
+    ```bash
+    /dashoard
+    /dashboard/inventory
+    /location
+    ```
+
+
+## File tree (example / placeholder)
+Replace with the repo's actual tree if you want — I can fetch it for you.
+```text
+.
+├── .github/
+├── src/
+│   ├── @type.ts
+│   ├── components.ts
+│   ├── features/
+|   |── pages
+│   ├── routes/
+│   ├── hooks/
+│   └── utils/
+├── public/
+├── package.json
+├── tsconfig.json
+├── .env.example
+├── README.md
+└── tests/
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-
-
-## Learn More
-
 

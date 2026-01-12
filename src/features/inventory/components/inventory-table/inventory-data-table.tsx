@@ -9,7 +9,7 @@ import {
   type VisibilityState,
 } from "@tanstack/react-table";
 import * as React from "react";
-import type { InventoryProduct } from "@/api/mock-dashboard-data";
+import type { InventoryProduct } from "@/@types/inventory";
 import ReusableDataTable from "@/components/reusable-data-table";
 import { columns } from "@/features/inventory/components/inventory-table/columns";
 
