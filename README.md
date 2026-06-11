@@ -1,5 +1,4 @@
 
-
 # 📦 Home Inventory Management System (Figma to React)
 
 A frontend job assignment focused on converting a static Figma design into a clean, responsive web interface using **React** and **Tailwind CSS**. 
@@ -20,15 +19,15 @@ The main goal of this project was pixel-perfect translation, clean code structur
 
 ### 1. Login / Onboarding View
 The initial entry screen featuring a clean split-panel design with an onboarding illustration on the left and the account credentials card on the right.
-![Login View](img/localhost_5173_.png)
+![Login View](public/img/localhost_5173_.png)
 
 ### 2. Main Inventory Table
 An organized tabular view that lists household assets. Displays product names, specific models, multi-level location routes, and status tags.
-![Dashboard View](img/localhost_5173_ (1).png)
+![Dashboard View](public/img/localhost_5173_(1).png)
 
 ### 3. Product Details Page
 A dedicated asset workspace displaying complete mock metadata—such as warranty dates, serial numbers, notes, and a thumbnail-supported image presentation block.
-![Details View](img/localhost_5173_ (2).png)
+![Details View](public/img/localhost_5173_(2).png)
 
 ---
 
@@ -48,17 +47,14 @@ A dedicated asset workspace displaying complete mock metadata—such as warranty
    git clone [https://github.com/yourusername/home-inventory.git](https://github.com/yourusername/home-inventory.git)
    cd home-inventory
 
-```
 
 2. **Install the node packages:**
-```
-npm install
+  ```
+  npm install
 
 ```
-
 
 3. **Start the local dev server:**
-```
-npm run dev
-
-```
+  ```
+  npm run dev
+  ```
