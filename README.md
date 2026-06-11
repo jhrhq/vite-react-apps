@@ -1,6 +1,5 @@
 
 
-```markdown
 # 📦 Home Inventory Management System (Figma to React)
 
 A frontend job assignment focused on converting a static Figma design into a clean, responsive web interface using **React** and **Tailwind CSS**. 
@@ -45,21 +44,21 @@ A dedicated asset workspace displaying complete mock metadata—such as warranty
 ## 🚀 How to Run the Project Locally
 
 1. **Clone the project:**
-   ```bash
+   ```
    git clone [https://github.com/yourusername/home-inventory.git](https://github.com/yourusername/home-inventory.git)
    cd home-inventory
 
 ```
 
 2. **Install the node packages:**
-```bash
+```
 npm install
 
 ```
 
 
 3. **Start the local dev server:**
-```bash
+```
 npm run dev
 
 ```
