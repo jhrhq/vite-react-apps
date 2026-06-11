@@ -135,6 +135,7 @@ function SignInForm() {
               id="username"
               type="username"
               placeholder="Enter you username"
+              value='user'
             />
             <InputGroupAddon align="inline-end">
               <FaUser className="size-3.5 text-v4" />
@@ -151,6 +152,7 @@ function SignInForm() {
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
+              value={1234}
             />
             <InputGroupAddon align="inline-end">
               <Button

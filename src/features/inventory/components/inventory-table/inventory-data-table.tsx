@@ -12,6 +12,7 @@ import * as React from "react";
 import type { InventoryProduct } from "@/@types/inventory";
 import ReusableDataTable from "@/components/reusable-data-table";
 import { columns } from "@/features/inventory/components/inventory-table/columns";
+import ReusableDataTableClickableRow from "@/components/reusable-data-table-clickable-row";
 
 export function InventoryDataTable({
   data = [],
@@ -48,7 +49,7 @@ export function InventoryDataTable({
   return (
     <div className="w-full mt-28.75">
       <div className=" border rounded-md shadow-sm">
-        <ReusableDataTable columns={columns} table={table} />
+        <ReusableDataTableClickableRow columns={columns} table={table} />
       </div>
     </div>
   );

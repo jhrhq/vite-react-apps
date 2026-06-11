@@ -155,12 +155,12 @@ export const InventoryDetailsImages = ({ data }: InventoryDetailProps) => {
         {data.images.map((img, index) => (
           <CarouselItem
             className="first:col-span-3 md:p-0"
-            key={`inventory-detail-1-image-${index}`}
+            key={`inventory-detail-${index}-image-${index}`}
           >
             <AspectRatio ratio={1} className="overflow-hidden rounded-lg">
               <img
                 src={img}
-                alt={"produect tests"}
+                alt={`${data.name}-${index+1}`}
                 className="block size-full object-cover object-center"
               />
             </AspectRatio>

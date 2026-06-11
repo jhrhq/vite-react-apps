@@ -18,6 +18,10 @@ const mainRoutes: RouteObject = {
           element: <Dashboard />,
         },
         {
+          path: "/dashboard/inventory/:id",
+          element: <InventoryDetailsPage />,
+        },
+        {
           path: "/dashboard/inventory",
           element: <InventoryDetailsPage />,
         },

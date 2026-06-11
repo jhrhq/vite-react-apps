@@ -12,13 +12,14 @@ import { useInventoryProduct } from "@/features/inventory-details/hooks/use-inve
 import { ErrorPage } from "@/features/pages/Error";
 
 export default function InventoryDetailsPage() {
-  const { params } = useParams();
+  const { id } = useParams();
   const { data, isLoading, isFetching, isError, error, refetch } =
-    useInventoryProduct(params || "1");
+    useInventoryProduct(id || "1");
 
   if (isLoading || isFetching) {
     return <InventoryDetailViewSkeleton />;
   }
+  
   if (isError || !data) {
     return <ErrorPage message={error?.message} reset={refetch} />;
   }
