@@ -1,4 +1,3 @@
-// src/features/products/components/details/inventory-error-page.tsx
 
 import {
   AlertCircle,
@@ -61,7 +60,7 @@ export function ErrorPage({ message, reset }: InventoryErrorPageProps) {
             </Button>
 
             <a
-              href="/inventory"
+              href="/dashboard"
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-white border border-slate-200 text-slate-600 font-semibold rounded-lg hover:bg-slate-50 transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
