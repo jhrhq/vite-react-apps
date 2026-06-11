@@ -126,7 +126,7 @@ export const columns: ColumnDef<InventoryProduct>[] = [
       return (
         <div className="capitalize inline-flex gap-2">
           {labels.map((label) => (
-            <Badge key={label} variant={labelBadgeVariants[label]}>
+            <Badge key={label} variant={labelBadgeVariants[label] || "default-lighter"}>
               {label}
             </Badge>
           ))}

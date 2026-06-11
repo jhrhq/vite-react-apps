@@ -39,7 +39,7 @@ export const labelBadgeVariants: Record<
   appliances: "orange-lighter-rounded",
   outdoor: "teal-lighter-rounded",
   seasonal: "yellow-lighter-rounded",
-  "high value": "destructive-lighter-rounded",
+  "high value": "destructive",
   "active warranty": "green-lighter-rounded",
 };
 export const levelBadgeVariants: Record<
@@ -62,7 +62,7 @@ export function InventoryDetailsTitleBar({ data }: InventoryDetailProps) {
       </h1>
       <div className="inline-flex gap-2">
         {data.labels.map((label) => (
-          <Badge key={label} variant={labelBadgeVariants[label]}>
+          <Badge key={label} variant={labelBadgeVariants[label] || "default-lighter"}>
             {label}
           </Badge>
         ))}
