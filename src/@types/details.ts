@@ -1,52 +1,36 @@
-// src/features/products/types/details.ts
-import { z } from "zod";
+export type InventoryProductDetailLabel =
+  | "power tools"
+  | "warranty"
+  | "electronics"
+  | "appliances"
+  | "outdoor"
+  | "seasonal"
+  | "high value"
+  | "active warranty";
 
-// 1. Define the literal values in a const array for Zod
-export const LABEL_VALUES = [
-  "power tools",
-  "warranty",
-  "electronics",
-  "appliances",
-  "outdoor",
-  "seasonal",
-  "high value",
-  "active warranty",
-] as const;
-export const LEVELS_VALUES = ["electronics", "audio", "premium"] as const;
+export type InventoryProductDetailLevels = "electronics" | "audio" | "premium";
 
-// 2. Create the Zod schema from those values
-export const LabelSchema = z.enum(LABEL_VALUES);
-export const LevelSchema = z.enum(LEVELS_VALUES);
-
-// 3. Derive the TypeScript type from the Zod schema
-export type Label = z.infer<typeof LabelSchema>;
-export type Level = z.infer<typeof LevelSchema>;
-
-export const InventoryProductDetailSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  brand: z.string(),
-  model: z.string(),
-  color: z.string(),
-  condition: z.enum(["New", "Excellent", "Good", "Fair"]),
-  subLocation: z.string().optional(),
-  price: z.number(),
-  quantity: z.number(),
-  location: z.string(),
-  serialNumber: z.string(),
-  purchasedFrom: z.string(),
-  warranty: z.string(),
-  purchaseDate: z.string(),
-  category: z.string(),
-  dimensions: z.string(),
-  weight: z.string(),
-  labels: z.array(LabelSchema),
-  notes: z.string(),
-  levels: z.array(LevelSchema),
-  images: z.array(z.string()),
-  updatedAt: z.string(),
-});
-
-export type InventoryProductDetail = z.infer<
-  typeof InventoryProductDetailSchema
->;
+export type InventoryProductDetail = {
+  id: string;
+  name: string;
+  brand: string;
+  model: string;
+  color: string;
+  condition: "New" | "Excellent" | "Good" | "Fair";
+  price: number;
+  quantity: number;
+  location: string;
+  serialNumber: string;
+  purchasedFrom: string;
+  warranty: string;
+  purchaseDate: string;
+  category: string;
+  dimensions: string;
+  weight: string;
+  labels: InventoryProductDetailLabel[];
+  notes: string;
+  levels: InventoryProductDetailLevels[];
+  images: string[];
+  updatedAt: string;
+  subLocation?: string | undefined;
+};

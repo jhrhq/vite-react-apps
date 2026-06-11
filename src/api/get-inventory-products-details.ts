@@ -1,14 +1,11 @@
-import {
-  type InventoryProductDetail,
-  InventoryProductDetailSchema,
-} from "@/@types/details";
+import type { InventoryProductDetail } from "@/@types/details";
 
 export const getInventoryProductById = async (
   id: string,
 ): Promise<InventoryProductDetail> => {
   await new Promise((resolve) => setTimeout(resolve, 100));
 
-  const mockData = {
+  return {
     id,
     name: "Sony WH-1000XM4 Headphones",
     brand: "Sony",
@@ -38,6 +35,4 @@ export const getInventoryProductById = async (
     updatedAt: "2026-01-12T14:30:00Z",
     attachmentsCount: 3,
   };
-
-  return InventoryProductDetailSchema.parse(mockData);
 };

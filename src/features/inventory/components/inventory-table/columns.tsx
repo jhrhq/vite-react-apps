@@ -1,8 +1,11 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import type { VariantProps } from "class-variance-authority";
 import { ArrowUpDown, MoreVertical } from "lucide-react";
-import type { Label } from "@/@types/details";
-import type { InventoryProduct } from "@/@types/inventory";
+import type { InventoryProductDetailLabel } from "@/@types/details";
+import type {
+  InventoryProduct,
+  InventoryProductLocation,
+} from "@/@types/inventory";
 import { Badge, type badgeVariants } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -18,7 +21,10 @@ import { formatRelativeTime } from "@/lib/date-utils";
 
 type BadgeVariant = VariantProps<typeof badgeVariants>["variant"];
 
-export const labelBadgeVariants: Record<Label, BadgeVariant> = {
+export const labelBadgeVariants: Record<
+  InventoryProductDetailLabel,
+  BadgeVariant
+> = {
   "power tools": "default-lighter",
   warranty: "green-lighter",
   electronics: "purple-lighter",
@@ -26,6 +32,7 @@ export const labelBadgeVariants: Record<Label, BadgeVariant> = {
   outdoor: "teal-lighter",
   seasonal: "yellow-lighter",
   "high value": "destructive",
+  "active warranty": "green-lighter",
 };
 
 export const columns: ColumnDef<InventoryProduct>[] = [
@@ -75,7 +82,12 @@ export const columns: ColumnDef<InventoryProduct>[] = [
           // src={row.img}
           // alt={row.customer}
           className="size-12 rounded-xl border object-cover shrink-0 bg-primary-lighter"
-        />
+        >
+          <img
+            src={row.original.imageUrl}
+            className="object-cover w-full h-full"
+          />
+        </div>
         <div className="ml-4 flex flex-col min-w-0">
           <span className="text-base font-medium text-v9 wrap-break-word leading-tight">
             {row.getValue("name")}
@@ -89,7 +101,7 @@ export const columns: ColumnDef<InventoryProduct>[] = [
     accessorKey: "location",
     header: "Location",
     cell: ({ row }) => {
-      const value = row.getValue("location");
+      const value = row.getValue("location") as InventoryProductLocation;
 
       return (
         <div className="text-v6 text-sm">
@@ -109,7 +121,7 @@ export const columns: ColumnDef<InventoryProduct>[] = [
     accessorKey: "labels",
     header: "Labels",
     cell: ({ row }) => {
-      const labels = row.getValue<Label[]>("labels");
+      const labels = row.getValue<InventoryProductDetailLabel[]>("labels");
 
       return (
         <div className="capitalize inline-flex gap-2">

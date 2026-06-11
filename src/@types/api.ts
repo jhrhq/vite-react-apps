@@ -1,5 +1,3 @@
-// src/lib/error.ts
-
 export type ErrorPayload =
   | {
       field?: string;

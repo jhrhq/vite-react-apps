@@ -1,7 +1,7 @@
 import type {
   InventoryPaginatedResponse,
   InventoryProduct,
-} from "@/api/mock-dashboard-data";
+} from "@/@types/inventory";
 import { mockInventoryProducts } from "@/mocks/data/inventory-products";
 
 /**

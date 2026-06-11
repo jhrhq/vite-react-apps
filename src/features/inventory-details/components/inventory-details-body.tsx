@@ -3,7 +3,11 @@
 import type { VariantProps } from "class-variance-authority";
 import type { ReactNode } from "react";
 import { FaLocationDot } from "react-icons/fa6";
-import type { InventoryProductDetail, Label, Level } from "@/@types/details";
+import type {
+  InventoryProductDetail,
+  InventoryProductDetailLabel,
+  InventoryProductDetailLevels,
+} from "@/@types/details";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge, type badgeVariants } from "@/components/ui/badge";
 import {
@@ -24,7 +28,10 @@ import { formattedDate } from "@/lib/date-utils";
 
 type BadgeVariant = VariantProps<typeof badgeVariants>["variant"];
 
-export const labelBadgeVariants: Record<Label, BadgeVariant> = {
+export const labelBadgeVariants: Record<
+  InventoryProductDetailLabel,
+  BadgeVariant
+> = {
   "power tools": "default-lighter-rounded",
   warranty: "green-lighter-rounded",
   electronics: "purple-lighter-rounded",
@@ -34,7 +41,10 @@ export const labelBadgeVariants: Record<Label, BadgeVariant> = {
   "high value": "destructive-lighter-rounded",
   "active warranty": "green-lighter-rounded",
 };
-export const levelBadgeVariants: Record<Level, BadgeVariant> = {
+export const levelBadgeVariants: Record<
+  InventoryProductDetailLevels,
+  BadgeVariant
+> = {
   electronics: "default-lighter-rounded",
   audio: "purple-lighter-rounded",
   premium: "orange-lighter-rounded",
