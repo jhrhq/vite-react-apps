@@ -25,6 +25,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { formattedDate } from "@/lib/date-utils";
+import React from "react";
 
 type BadgeVariant = VariantProps<typeof badgeVariants>["variant"];
 
@@ -141,20 +142,45 @@ export function InventoryKeyDetailsRow({
 }
 
 export const InventoryDetailsImages = ({ data }: InventoryDetailProps) => {
+  const [api, setApi] = React.useState<any>();
+  const [current, setCurrent] = React.useState(0);
+
+
+  React.useEffect(() => {
+    if(!api) return ;
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap())
+    })
+
+  }, [api])
+
+  const handleThumbnailClick = (index: number) =>{
+    if(api) {
+      api.scrollTo(index)
+    }
+  }
+
+
   return (
+    <div className="w-full max-w-2xl mx-auto p-4 bg-white rounded-2xl border border-zinc-100 shadow-sm">
+
     <Carousel
-      opts={{
-        breakpoints: {
-          "(min-width: 768px)": {
-            active: false,
-          },
-        },
-      }}
+      // opts={{
+      //   breakpoints: {
+      //     "(min-width: 768px)": {
+      //       active: false,
+      //     },
+      //   },
+      // }}
+      setApi={setApi}
     >
-      <CarouselContent className="gap-4 md:m-0 md:grid md:grid-cols-3 xl:gap-5">
+      <CarouselContent className="gap-4 md:m-0">
         {data.images.map((img, index) => (
           <CarouselItem
-            className="first:col-span-3 md:p-0"
+            className="md:p-0"
             key={`inventory-detail-${index}-image-${index}`}
           >
             <AspectRatio ratio={1} className="overflow-hidden rounded-lg">
@@ -172,5 +198,26 @@ export const InventoryDetailsImages = ({ data }: InventoryDetailProps) => {
         <CarouselNext className="right-4" />
       </div>
     </Carousel>
+ {/* Grid of Thumbnails underneath */}
+      <div className="grid grid-cols-3 gap-3 mt-3 px-1">
+        {data.images.map((image, index) => (
+          <button
+            key={index}
+            onClick={() => handleThumbnailClick(index)}
+            className={`relative aspect-4/3 overflow-hidden rounded-xl bg-zinc-100 transition-all duration-200 ${
+              current === index 
+                ? "ring-2 ring-zinc-900 ring-offset-2 opacity-100" 
+                : "opacity-75 hover:opacity-100"
+            }`}
+          >
+            <img
+              src={image}
+              alt={`Thumbnail ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
   );
 };
