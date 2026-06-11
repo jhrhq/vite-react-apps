@@ -165,7 +165,7 @@ export const InventoryDetailsImages = ({ data }: InventoryDetailProps) => {
 
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4 bg-white rounded-2xl border border-zinc-100 shadow-sm">
+    <div className="w-full max-w-2xl mx-auto ">
 
     <Carousel
       // opts={{
