@@ -6,7 +6,7 @@ import { HiMiniChevronDown } from "react-icons/hi2";
 function SortOption({ title, value, onChangeOption }) {
   return (
     <a
-      className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
+      className="hover:cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
       role="menuitem"
       tabIndex="-1"
       type="button"
@@ -42,7 +42,7 @@ export default function Sort() {
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-400 hover:text-gray-500 focus:text-gray-700 transition-all"
+          className="inline-flex cursor-pointer w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-400 hover:text-gray-500 focus:text-gray-700 transition-all"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"

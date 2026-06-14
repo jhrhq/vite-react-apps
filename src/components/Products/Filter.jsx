@@ -30,7 +30,7 @@ export default function Filter() {
         <div>
           <button
             type="button"
-            className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-400 hover:text-gray-500 focus:text-gray-700"
+            className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-400 hover:text-gray-500 focus:text-gray-700 hover:cursor-pointer"
             id="filter-button"
             aria-expanded="false"
             aria-haspopup="true"
@@ -44,7 +44,7 @@ export default function Filter() {
         {/*<!-- Filter options ->*/}
         {open && (
           <div
-            className="  absolute z-10 mt-2 left-5 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden"
+            className="  absolute z-10 mt-2 left-5 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 hover:cursor-pointer focus:outline-hidden"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="filter-button"
