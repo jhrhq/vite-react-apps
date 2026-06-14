@@ -38,7 +38,7 @@ export default function Sidebar() {
           <img src={logo} className="mx-auto h-10 text-center" />
         </div>
       </div>
-      <button className="mb-8 w-full rounded-md bg-green-500 py-2 text-white">
+      <button className="mb-8 w-full rounded-md bg-green-500 py-2 text-white cursor-not-allowed" disabled>
         + New Project
       </button>
       <nav>

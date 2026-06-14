@@ -56,7 +56,7 @@ export default function ProjectBoard() {
 
       <div className="mx-auto max-w-7xl p-6">
         <div className="mb-6 flex items-center justify-between">
-          <h2 className=" font-bold prose-2xl">Projectify</h2>
+          <h2 className="font-bold prose-2xl">Projectify</h2>
           <div className="flex space-x-2">
             <button
               onClick={handleOpenModalClick}

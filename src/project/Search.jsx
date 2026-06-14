@@ -12,7 +12,7 @@ export default function Search() {
       onChange={handleSearch}
       type="text"
       placeholder="Search here"
-      className="w-full max-w-xl rounded-full bg-gray-700 px-4 py-2 text-white focus:outline-none"
+      className="w-full max-w-xl rounded-full bg-gray-700 px-4 py-2 text-white focus:outline-hidden"
     />
   );
 }

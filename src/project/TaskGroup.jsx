@@ -40,7 +40,7 @@ export default function TaskGroup({
     <div className="mb-4 w-full px-2 sm:w-1/2 md:w-1/4">
       <div
         className={cn(
-          "rounded-lg  p-4",
+          "rounded-lg p-4",
           categoryColors[taskCategoryId] ?? "bg-indigo-500"
         )}
       >
@@ -55,9 +55,9 @@ export default function TaskGroup({
             className="cursor-pointer disabled:cursor-not-allowed"
           >
             {sortTask ? (
-              <TbSortDescending className=" size-[1.125rem] fill-none" />
+              <TbSortDescending className=" size-4.5 fill-none" />
             ) : (
-              <TbSortAscending className=" size-[1.125rem] fill-none" />
+              <TbSortAscending className=" size-4.5 fill-none" />
             )}
           </button>
         </div>
