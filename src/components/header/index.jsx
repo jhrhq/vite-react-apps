@@ -47,7 +47,7 @@ export default function Header() {
                   <img
                     src="https://tailwindui.com/img/flags/flag-canada.svg"
                     alt=""
-                    className="block h-auto w-5 flex-shrink-0"
+                    className="block h-auto w-5 shrink-0"
                   />
                   <span className="ml-3 block text-sm font-medium">CAD</span>
                   <span className="sr-only">, change currency</span>

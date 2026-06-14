@@ -44,7 +44,7 @@ export default function Filter() {
         {/*<!-- Filter options ->*/}
         {open && (
           <div
-            className="  absolute z-10 mt-2 left-5 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            className="  absolute z-10 mt-2 left-5 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="filter-button"

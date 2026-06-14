@@ -7,7 +7,7 @@ export default function ImageGrid() {
       >
         <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
           <div className="flex items-center space-x-6 lg:space-x-8">
-            <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+            <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
               <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
                 <img
                   src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -23,7 +23,7 @@ export default function ImageGrid() {
                 />
               </div>
             </div>
-            <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+            <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
               <div className="h-64 w-44 overflow-hidden rounded-lg">
                 <img
                   src="https://images.unsplash.com/photo-1507680434567-5739c80be1ac?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -46,7 +46,7 @@ export default function ImageGrid() {
                 />
               </div>
             </div>
-            <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+            <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
               <div className="h-64 w-44 overflow-hidden rounded-lg">
                 <img
                   src="https://images.unsplash.com/photo-1505022610485-0249ba5b3675?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

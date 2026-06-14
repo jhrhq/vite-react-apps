@@ -20,7 +20,7 @@ export default function Search() {
   return (
     <>
       {/*<!-- Search ->*/}
-      <div className="flex flex-1 items-center px-3.5 py-2 text-gray-400 group hover:ring-1 hover:ring-gray-300 focus-within:!ring-2 ring-inset focus-within:!ring-teal-500 rounded-md">
+      <div className="flex flex-1 items-center px-3.5 py-2 text-gray-400 group hover:ring-1 hover:ring-gray-300 focus-within:ring-2! ring-inset focus-within:ring-teal-500! rounded-md">
         <HiOutlineSearch
           className="mr-2 h-5 w-5 stroke-slate-400"
           fill="none"

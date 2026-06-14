@@ -7,7 +7,7 @@ export default function Cart() {
     <div className="flow-root">
       <a href="#" className="group -m-2 flex items-center p-2">
         <HiOutlineShoppingBag
-          className="size-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+          className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
           fill="none"
         />
 
