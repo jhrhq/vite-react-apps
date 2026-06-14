@@ -52,7 +52,7 @@ const QuizQuestion = () => {
 
   return (
     <div className="lg:col-span-2 bg-white">
-      <div className="bg-white p-6 !pb-2 rounded-md">
+      <div className="bg-white p-6 pb-2! rounded-md">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-2xl font-semibold">
             {currentQuestion?.question}
@@ -80,7 +80,7 @@ const QuizQuestion = () => {
             <Button
               // href="./result.html"
               onClick={handleBack}
-              className="w-1/2 text-center ml-auto block bg-primary text-white py-2 px-4 rounded-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-6 font-semibold my-8"
+              className="w-1/2 text-center ml-auto block bg-primary text-white py-2 px-4 rounded-md hover:bg-indigo-800 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-6 font-semibold my-8"
             >
               Back
             </Button>
@@ -90,7 +90,7 @@ const QuizQuestion = () => {
             <Button
               onClick={handleSubmit}
               disabled={isLoading}
-              className="w-1/2 text-center ml-auto block bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-6 font-semibold my-8  disabled:cursor-not-allowed disabled:opacity-75"
+              className="w-1/2 text-center ml-auto block bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-6 font-semibold my-8  disabled:cursor-not-allowed disabled:opacity-75"
             >
               Submit
             </Button>
@@ -98,7 +98,7 @@ const QuizQuestion = () => {
             <Button
               onClick={handleNext}
               disabled={currentIndex == questions.length - 1}
-              className="w-1/2 text-center ml-auto block bg-primary text-white py-2 px-4 rounded-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-6 font-semibold my-8 disabled: disabled:cursor-not-allowed disabled:opacity-75"
+              className="w-1/2 text-center ml-auto block bg-primary text-white py-2 px-4 rounded-md hover:bg-indigo-800 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary mb-6 font-semibold my-8 disabled: disabled:cursor-not-allowed disabled:opacity-75"
             >
               Next
             </Button>

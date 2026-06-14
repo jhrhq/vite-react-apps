@@ -6,7 +6,7 @@ const Textarea = forwardRef(({ className, ...props }, ref) => {
   return (
     <textarea
       className={cn(
-        "px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-buzzr-purple focus:border-buzzr-purple",
+        "px-3 py-2 border border-gray-300 rounded-md shadow-xs focus:outline-hidden focus:ring-buzzr-purple focus:border-buzzr-purple",
 
         className
       )}

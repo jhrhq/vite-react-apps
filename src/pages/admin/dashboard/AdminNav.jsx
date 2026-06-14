@@ -3,7 +3,7 @@ import useAuth from "@/hooks/useAuth";
 const AdminNav = () => {
   const { logout } = useAuth();
   return (
-    <nav className="flex-grow">
+    <nav className="grow">
       <ul className="space-y-2">
         <li>
           <a

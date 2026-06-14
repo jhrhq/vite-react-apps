@@ -51,7 +51,7 @@ const QuizEntryPage = () => {
 
   return (
     <div className="bg-[#F5F3FF] min-h-screen flex">
-      <main className="md:flex-grow px-4 sm:px-6 lg:px-8 py-8">
+      <main className="md:grow px-4 sm:px-6 lg:px-8 py-8">
         <div>
           <BreadCrumb />
 
@@ -66,7 +66,7 @@ const QuizEntryPage = () => {
                   disabled={
                     currentQuiz?.Questions.length == 0 || publishLoading
                   }
-                  className=" mb-0 px-2 py-1 rounded"
+                  className=" mb-0 px-2 py-1 rounded-sm"
                   onClick={handlePublishQuiz}
                 >
                   {currentQuiz?.status == "draft" ? "Publish" : "Draft"}

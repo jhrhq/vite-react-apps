@@ -10,8 +10,8 @@ const ResultQuestionCard = ({ question_id, answer }) => {
   const answerStatus = currentQuestion?.correctAnswer == answer;
 
   return (
-    <div className="rounded-lg overflow-hidden shadow-sm mb-4">
-      <div className="bg-white p-6 !pb-2">
+    <div className="rounded-lg overflow-hidden shadow-xs mb-4">
+      <div className="bg-white p-6 pb-2!">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold">{currentQuestion?.question}</h3>
         </div>

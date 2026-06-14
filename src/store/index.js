@@ -7,34 +7,35 @@ import {
 import { adminQuizzesApi } from "@/api/adminQuizzes";
 import { quizzesApi } from "@/api/quizzes";
 import rootReducer from "@/store/reducer";
-import { persistReducer, persistStore } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { rememberReducer, rememberEnhancer } from 'redux-remember';
 
-const persistConfig = {
-  key: "root",
-  storage,
-};
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const rememberedKeys = []
+
 
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rememberReducer(rootReducer),
 
-  // middleware: (mid) => [
-  //   ...mid(),
-  //   quizzesApi.middleware, adminQuizzesApi.middleware
-  // ],
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
       immutableCheck: false,
     }).concat([quizzesApi.middleware, adminQuizzesApi.middleware]),
+
+  enhancers: (getDefaultEnhancers) =>
+    getDefaultEnhancers().concat(rememberEnhancer(
+      window.localStorage,
+      rememberedKeys,
+      {
+        persistWholeStore: true
+      }
+    )),
 });
-const persister = persistStore(store);
+
 
 const { dispatch } = store;
 
 const useDispatch = () => useAppDispatch();
 const useSelector = useAppSelector;
 
-export { dispatch, persister, store, useDispatch, useSelector };
+export { dispatch, store, useDispatch, useSelector };

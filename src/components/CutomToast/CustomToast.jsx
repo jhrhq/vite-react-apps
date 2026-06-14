@@ -33,7 +33,7 @@ const CustomHotToast = () => {
               {t.type !== "loading" && (
                 <div className="flex items-center justify-center border-l border-gray-200">
                   <button
-                    className="flex w-full items-center justify-center border border-transparent p-1  hover:text-error  focus:outline-none "
+                    className="flex w-full items-center justify-center border border-transparent p-1  hover:text-error  focus:outline-hidden "
                     onClick={() => toast.dismiss(t.id)}
                   >
                     <LuX className="size-4 stroke-1" />

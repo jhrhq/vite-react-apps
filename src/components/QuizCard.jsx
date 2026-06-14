@@ -39,7 +39,7 @@ export default function QuizCard({
       <img
         src={thumbnail}
         alt="JavaScript Hoisting"
-        className="w-full h-full object-cover rounded mb-4"
+        className="w-full h-full object-cover rounded-sm mb-4"
       />
     </Link>
   );

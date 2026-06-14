@@ -5,7 +5,7 @@ const AdminQuizCard = ({ id, title, description }) => {
   return (
     <Link
       to={`/quiz-set-entry-page/${id}`}
-      className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 group cursor-pointer"
+      className="bg-white p-6 rounded-lg shadow-xs border border-gray-200 group cursor-pointer"
     >
       <div className="text-buzzr-purple mb-4 group-hover:scale-105 transition-all">
         <HexagonSvg />

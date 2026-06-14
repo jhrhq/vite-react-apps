@@ -15,7 +15,7 @@ const Header = () => {
             {user.role == "admin" && (
               <Button
                 asChild
-                className="px-4 py-2.5 mr-3 rounded bg-primary/5 text-primary hover:bg-primary hover:text-white transition-colors"
+                className="px-4 py-2.5 mr-3 rounded-sm bg-primary/5 text-primary hover:bg-primary hover:text-white transition-colors"
                 style={{ fontFamily: "Jaro" }}
               >
                 <Link to="/dashboard">Dashboard</Link>
@@ -23,7 +23,7 @@ const Header = () => {
             )}
             <Button
               onClick={logout}
-              className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
+              className="px-4 py-2 rounded-sm hover:bg-primary hover:text-white transition-colors"
               style={{ fontFamily: "Jaro" }}
             >
               Logout
@@ -33,7 +33,7 @@ const Header = () => {
           <>
             <NavLink
               to="/login"
-              className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
+              className="px-4 py-2 rounded-sm hover:bg-primary hover:text-white transition-colors"
               style={{ fontFamily: "Jaro" }}
             >
               Login
@@ -41,7 +41,7 @@ const Header = () => {
 
             <NavLink
               to="/register"
-              className="px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors"
+              className="px-4 py-2 rounded-sm hover:bg-primary hover:text-white transition-colors"
               style={{ fontFamily: "Jaro" }}
             >
               Register

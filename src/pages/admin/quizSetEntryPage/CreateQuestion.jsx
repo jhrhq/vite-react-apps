@@ -171,7 +171,7 @@ const CreateQuestion = () => {
               return (
                 <div
                   key={item.id}
-                  className="flex items-center space-x-2 px-4 py-1 rounded-md group focus-within:ring focus-within:ring-primary/80 bg-white"
+                  className="flex items-center space-x-2 px-4 py-1 rounded-md group focus-within:ring-3 focus-within:ring-primary/80 bg-white"
                 >
                   <FormField
                     control={form.control}
@@ -203,7 +203,7 @@ const CreateQuestion = () => {
                           <Input
                             placeholder="Option 1"
                             type="text"
-                            className="w-full p-2 bg-transparent rounded-md text-foreground outline-none border-input focus:ring-0"
+                            className="w-full p-2 bg-transparent rounded-md text-foreground outline-hidden border-input focus:ring-0"
                             {...field}
                           />
                         </FormControl>
@@ -223,7 +223,7 @@ const CreateQuestion = () => {
           </div>
           <Button
             disabled={isLoading || updateQuestionLoading}
-            className="relative w-full bg-primary   !text-white text-primary-foreground p-2 rounded-md hover:bg-primary/90 transition-colors disabled:opacity-75"
+            className="relative w-full bg-primary   text-white! text-primary-foreground p-2 rounded-md hover:bg-primary/90 transition-colors disabled:opacity-75"
           >
             {isLoading || updateQuestionLoading ? <Spinner /> : "Save Quiz"}
           </Button>

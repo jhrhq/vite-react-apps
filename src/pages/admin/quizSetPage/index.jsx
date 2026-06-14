@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const QuizSetPage = () => {
   return (
-    <main className="md:flex-grow px-4 sm:px-6 lg:px-8 py-8">
+    <main className="md:grow px-4 sm:px-6 lg:px-8 py-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* <!-- Left Column --> */}
         <div>

@@ -115,7 +115,7 @@ const CreateQuizForm = () => {
         <Button
           disabled={isLoading}
           type="submit"
-          className="relative w-full block text-center bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-75"
+          className="relative w-full block text-center bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-75"
         >
           {isLoading ? <Spinner /> : "Next"}
         </Button>
