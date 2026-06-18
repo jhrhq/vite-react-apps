@@ -1,5 +1,5 @@
+import { Button } from "@home-inventory/components/ui/button";
 import { FaArrowDownWideShort, FaPlus } from "react-icons/fa6";
-import { Button } from "@/components/ui/button";
 
 function InventorySecondaryHeader() {
   return (

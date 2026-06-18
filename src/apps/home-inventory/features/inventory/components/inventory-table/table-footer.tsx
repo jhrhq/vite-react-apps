@@ -6,7 +6,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
+} from "@home-inventory/components/ui/pagination";
 
 function DataTableFooter() {
   return (

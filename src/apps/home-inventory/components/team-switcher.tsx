@@ -1,5 +1,5 @@
-import Logo, { LogoIconSidebar } from "@/components/svg/logo";
-import { SidebarHeader } from "@/components/ui/sidebar";
+import Logo, { LogoIconSidebar } from "@home-inventory/components/svg/logo";
+import { SidebarHeader } from "@home-inventory/components/ui/sidebar";
 
 export function AppSidebarHeader() {
   return (

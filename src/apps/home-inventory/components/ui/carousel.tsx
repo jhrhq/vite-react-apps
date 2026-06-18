@@ -1,12 +1,12 @@
 /** biome-ignore-all lint/a11y/useSemanticElements: false positive */
 
+import { Button } from "@home-inventory/components/ui/button";
+import { cn } from "@home-inventory/lib/utils";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import * as React from "react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -231,11 +231,11 @@ function CarouselNext({
 }
 
 export {
-  type CarouselApi,
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
   CarouselNext,
+  CarouselPrevious,
   useCarousel,
+  type CarouselApi,
 };

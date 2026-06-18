@@ -1,10 +1,10 @@
-import type { IconType } from "react-icons/lib";
 import {
   SidebarGroup,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+} from "@home-inventory/components/ui/sidebar";
+import type { IconType } from "react-icons/lib";
 
 export function NavProjects({
   projects,

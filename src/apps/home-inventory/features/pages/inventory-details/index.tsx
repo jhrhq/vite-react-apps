@@ -1,15 +1,15 @@
-import { useParams } from "react-router";
-import ProductTab from "@/components/product-tab";
-import { Card, CardContent } from "@/components/ui/card";
+import ProductTab from "@home-inventory/components/product-tab";
+import { Card, CardContent } from "@home-inventory/components/ui/card";
 import {
   InventoryDetailsImages,
   InventoryDetailsInfo,
   InventoryDetailsTitleBar,
-} from "@/features/inventory-details/components/inventory-details-body";
-import { InventoryDetailsHeader } from "@/features/inventory-details/components/inventory-details-header";
-import { InventoryDetailViewSkeleton } from "@/features/inventory-details/components/inventory-skeleton";
-import { useInventoryProduct } from "@/features/inventory-details/hooks/use-inventory-product";
-import { ErrorPage } from "@/features/pages/Error";
+} from "@home-inventory/features/inventory-details/components/inventory-details-body";
+import { InventoryDetailsHeader } from "@home-inventory/features/inventory-details/components/inventory-details-header";
+import { InventoryDetailViewSkeleton } from "@home-inventory/features/inventory-details/components/inventory-skeleton";
+import { useInventoryProduct } from "@home-inventory/features/inventory-details/hooks/use-inventory-product";
+import { ErrorPage } from "@home-inventory/features/pages/Error";
+import { useParams } from "react-router";
 
 export default function InventoryDetailsPage() {
   const { id } = useParams();
@@ -19,7 +19,7 @@ export default function InventoryDetailsPage() {
   if (isLoading || isFetching) {
     return <InventoryDetailViewSkeleton />;
   }
-  
+
   if (isError || !data) {
     return <ErrorPage message={error?.message} reset={refetch} />;
   }

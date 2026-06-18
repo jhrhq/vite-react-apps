@@ -1,13 +1,13 @@
-import { FaDownload, FaMagnifyingGlass, FaPlus } from "react-icons/fa6";
-import { Button } from "@/components/ui/button";
-import { Field } from "@/components/ui/field";
+import { Button } from "@home-inventory/components/ui/button";
+import { Field } from "@home-inventory/components/ui/field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group";
-import { Separator } from "@/components/ui/separator";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+} from "@home-inventory/components/ui/input-group";
+import { Separator } from "@home-inventory/components/ui/separator";
+import { SidebarTrigger } from "@home-inventory/components/ui/sidebar";
+import { FaDownload, FaMagnifyingGlass, FaPlus } from "react-icons/fa6";
 
 export function InventoryHeader() {
   return (

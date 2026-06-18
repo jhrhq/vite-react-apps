@@ -1,6 +1,11 @@
 "use cliet";
-import type { InventoryProductDetail } from "@/@types/details";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import type { InventoryProductDetail } from "@home-inventory/@types/details";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@home-inventory/components/ui/tabs";
 
 function ProductTab({ data }: { data: InventoryProductDetail }) {
   return (

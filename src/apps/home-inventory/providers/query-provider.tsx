@@ -1,6 +1,6 @@
+import { queryClient } from "@home-inventory/api/query-client";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { queryClient } from "@/api/query-client";
 
 export default function TanStackQueryProviders({
   children,

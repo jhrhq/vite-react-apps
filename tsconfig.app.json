@@ -21,7 +21,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@game-hub/*": ["./src/apps/game-hub/*"]
+      "@game-hub/*": ["./src/apps/game-hub/*"],
+      "@home-inventory/*": ["./src/apps/home-inventory/*"]
     },
 
     /* Linting */

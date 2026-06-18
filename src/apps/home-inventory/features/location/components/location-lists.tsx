@@ -1,9 +1,9 @@
+import type { LocationDetailResponse } from "@home-inventory/@types/location";
+import { Badge } from "@home-inventory/components/ui/badge";
+import { Button } from "@home-inventory/components/ui/button";
+import { Card, CardContent } from "@home-inventory/components/ui/card";
+import { Separator } from "@home-inventory/components/ui/separator";
 import { FaBook, FaPlus } from "react-icons/fa6";
-import type { LocationDetailResponse } from "@/@types/location";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 
 export function LocationItemsLists({ data }: { data: LocationDetailResponse }) {
   return (

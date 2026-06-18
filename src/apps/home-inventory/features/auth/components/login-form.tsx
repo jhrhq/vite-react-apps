@@ -1,25 +1,26 @@
 /** biome-ignore-all lint/a11y/useValidAnchor: false positive */
 
-import * as React from "react";
-import { FaArrowRight, FaEye, FaEyeSlash, FaUser } from "react-icons/fa6";
-import { Link } from "react-router";
-import Logo from "@/components/svg/logo";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
+import InventoryImage from "@home-inventory/assets/home-inventory.jpg";
+import Logo from "@home-inventory/components/svg/logo";
+import { Button } from "@home-inventory/components/ui/button";
+import { Card, CardContent } from "@home-inventory/components/ui/card";
+import { Checkbox } from "@home-inventory/components/ui/checkbox";
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/components/ui/field";
+} from "@home-inventory/components/ui/field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group";
-import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/utils";
+} from "@home-inventory/components/ui/input-group";
+import { Label } from "@home-inventory/components/ui/label";
+import { cn } from "@home-inventory/lib/utils";
+import * as React from "react";
+import { FaArrowRight, FaEye, FaEyeSlash, FaUser } from "react-icons/fa6";
+import { Link } from "react-router";
 
 /* TODO
 
@@ -51,11 +52,11 @@ export function SignCover({
             <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-primary/30 blur-3xl" />
 
             <img
-              src={`${import.meta.env.BASE_URL}img/home-inventory.jpg`}
+              src={InventoryImage}
               alt="Image"
               height={500}
               width={500}
-              className="relative z-10 w-full max-w-md object-contain dark:hidden"
+              className="relative z-10 w-full max-w-md object-contain "
             />
           </div>
 
@@ -135,7 +136,7 @@ function SignInForm() {
               id="username"
               type="username"
               placeholder="Enter you username"
-              value='user'
+              value="user"
             />
             <InputGroupAddon align="inline-end">
               <FaUser className="size-3.5 text-v4" />

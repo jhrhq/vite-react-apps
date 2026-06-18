@@ -1,16 +1,16 @@
 import {
-  type ColumnDef,
-  flexRender,
-  type Table as TanstackTable,
-} from "@tanstack/react-table";
-import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@home-inventory/components/ui/table";
+import {
+  type ColumnDef,
+  flexRender,
+  type Table as TanstackTable,
+} from "@tanstack/react-table";
 import { useNavigate } from "react-router";
 
 interface ReusableTableProps<TData, TValue> {
@@ -49,7 +49,9 @@ export default function ReusableDataTableClickableRow<TData, TValue>({
             <TableRow
               key={row.id}
               data-state={row.getIsSelected() && "selected"}
-              onClick={()=> navigate(`/dashboard/inventory/${row.original.id}`)}
+              onClick={() =>
+                navigate(`/dashboard/inventory/${row.original.id}`)
+              }
               className="p-4 space-x-6 hover:cursor-pointer"
             >
               {row.getVisibleCells().map((cell) => (
@@ -70,4 +72,3 @@ export default function ReusableDataTableClickableRow<TData, TValue>({
     </Table>
   );
 }
-

@@ -1,7 +1,7 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: false  */
 
+import { Skeleton } from "@home-inventory/components/ui/skeleton";
 import { Sidebar } from "lucide-react";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export function InventoryDetailViewSkeleton() {
   return (

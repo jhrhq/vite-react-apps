@@ -1,10 +1,10 @@
+import Dashboard from "@home-inventory/features/pages/dashboard";
+import DashboardLayout from "@home-inventory/features/pages/dashboard/layout";
+import RouteNotMatched from "@home-inventory/features/pages/Error/url-not-matched";
+import InventoryDetailsPage from "@home-inventory/features/pages/inventory-details";
+import LocationPage from "@home-inventory/features/pages/location";
+import { ProtectedLayout } from "@home-inventory/routes/protected-routes";
 import { createBrowserRouter, type RouteObject } from "react-router";
-import Dashboard from "@/features/pages/dashboard";
-import DashboardLayout from "@/features/pages/dashboard/layout";
-import RouteNotMatched from "@/features/pages/Error/url-not-matched";
-import InventoryDetailsPage from "@/features/pages/inventory-details";
-import LocationPage from "@/features/pages/location";
-import { ProtectedLayout } from "@/routes/protected-routes";
 import LoginPage from "../App";
 
 const mainRoutes: RouteObject = {

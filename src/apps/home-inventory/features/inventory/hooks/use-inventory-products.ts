@@ -1,5 +1,5 @@
+import { fetchInventoryProductsMock } from "@home-inventory/api/mock-inventor-products-api";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { fetchInventoryProductsMock } from "@/api/mock-inventor-products-api";
 
 export const productKeys = {
   all: ["products"] as const,

@@ -1,5 +1,5 @@
+import type { LocationDetailResponse } from "@home-inventory/@types/location";
 import { useQuery } from "@tanstack/react-query";
-import type { LocationDetailResponse } from "@/@types/location";
 
 const getLocationDetail = async (
   id: string,

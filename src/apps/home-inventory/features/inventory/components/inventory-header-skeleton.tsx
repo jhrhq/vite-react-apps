@@ -1,7 +1,7 @@
 // src/features/products/components/product-header-skeleton.tsx
 
+import { Skeleton } from "@home-inventory/components/ui/skeleton";
 import { Search, Sidebar } from "lucide-react";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export function InventoryHeaderSkeleton() {
   return (

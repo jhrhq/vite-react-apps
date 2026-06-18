@@ -1,3 +1,6 @@
+import type { InventoryProduct } from "@home-inventory/@types/inventory";
+import ReusableDataTableClickableRow from "@home-inventory/components/reusable-data-table-clickable-row";
+import { columns } from "@home-inventory/features/inventory/components/inventory-table/columns";
 import {
   type ColumnFiltersState,
   getCoreRowModel,
@@ -9,10 +12,6 @@ import {
   type VisibilityState,
 } from "@tanstack/react-table";
 import * as React from "react";
-import type { InventoryProduct } from "@/@types/inventory";
-import ReusableDataTable from "@/components/reusable-data-table";
-import { columns } from "@/features/inventory/components/inventory-table/columns";
-import ReusableDataTableClickableRow from "@/components/reusable-data-table-clickable-row";
 
 export function InventoryDataTable({
   data = [],

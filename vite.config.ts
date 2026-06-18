@@ -11,6 +11,7 @@ export default defineConfig({
       // 2. Define your alias and map it to the physical directory
       "@": path.resolve(__dirname, "./src"),
       "@game-hub": path.resolve(__dirname, "./src/apps/game-hub"),
+      "@home-inventory": path.resolve(__dirname, "./src/apps/home-inventory"),
     },
   },
 });

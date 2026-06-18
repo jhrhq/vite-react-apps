@@ -1,13 +1,13 @@
-import DataTableFooterSkeleton from "@/features/inventory/components/data-table-footer-skeleton";
-import { InventoryHeader } from "@/features/inventory/components/inventory-header";
-import { InventoryHeaderSkeleton } from "@/features/inventory/components/inventory-header-skeleton";
-import InventorySecondaryHeader from "@/features/inventory/components/inventory-secondary-header";
-import { ProductFiltersSkeleton } from "@/features/inventory/components/inventory-secondary-header-skeleton";
-import { InventoryDataTable } from "@/features/inventory/components/inventory-table/inventory-data-table";
-import { InventoryProductTableSkeleton } from "@/features/inventory/components/inventory-table/inventory-table-skeleton";
-import DataTableFooter from "@/features/inventory/components/inventory-table/table-footer";
-import { useInventoryProducts } from "@/features/inventory/hooks/use-inventory-products";
-import { ErrorPage } from "@/features/pages/Error";
+import DataTableFooterSkeleton from "@home-inventory/features/inventory/components/data-table-footer-skeleton";
+import { InventoryHeader } from "@home-inventory/features/inventory/components/inventory-header";
+import { InventoryHeaderSkeleton } from "@home-inventory/features/inventory/components/inventory-header-skeleton";
+import InventorySecondaryHeader from "@home-inventory/features/inventory/components/inventory-secondary-header";
+import { ProductFiltersSkeleton } from "@home-inventory/features/inventory/components/inventory-secondary-header-skeleton";
+import { InventoryDataTable } from "@home-inventory/features/inventory/components/inventory-table/inventory-data-table";
+import { InventoryProductTableSkeleton } from "@home-inventory/features/inventory/components/inventory-table/inventory-table-skeleton";
+import DataTableFooter from "@home-inventory/features/inventory/components/inventory-table/table-footer";
+import { useInventoryProducts } from "@home-inventory/features/inventory/hooks/use-inventory-products";
+import { ErrorPage } from "@home-inventory/features/pages/Error";
 
 export default function Dashboard() {
   const { data, isLoading, isFetching, isError, refetch, error } =

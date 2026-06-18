@@ -1,13 +1,13 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: false positive */
 
-import { LocationMainHeader } from "@/features/location/components/location-header";
-import { LocationItemDetails } from "@/features/location/components/location-items-details";
-import { LocationItemsLists } from "@/features/location/components/location-lists";
-import { LocationSecondarySidebar } from "@/features/location/components/location-sidebar";
-import { LocationSkeleton } from "@/features/location/components/location-skeleton";
-import { useLocation } from "@/features/location/hooks/use-location";
-import { ErrorPage } from "@/features/pages/Error";
-import { cn } from "@/lib/utils";
+import { LocationMainHeader } from "@home-inventory/features/location/components/location-header";
+import { LocationItemDetails } from "@home-inventory/features/location/components/location-items-details";
+import { LocationItemsLists } from "@home-inventory/features/location/components/location-lists";
+import { LocationSecondarySidebar } from "@home-inventory/features/location/components/location-sidebar";
+import { LocationSkeleton } from "@home-inventory/features/location/components/location-skeleton";
+import { useLocation } from "@home-inventory/features/location/hooks/use-location";
+import { ErrorPage } from "@home-inventory/features/pages/Error";
+import { cn } from "@home-inventory/lib/utils";
 
 interface ProductDetail1Props {
   className?: string;

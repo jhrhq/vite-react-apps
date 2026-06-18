@@ -4,6 +4,8 @@ import ExpenseTracker from "./apps/expense-tracker";
 function App() {
   return (
     <>
+      {/* <HomeInventory /> */}
+      {/* <GerichRestaurant /> */}
       {/* <GameHub /> */}
       <ExpenseTracker />
       <EventCalenderApp />

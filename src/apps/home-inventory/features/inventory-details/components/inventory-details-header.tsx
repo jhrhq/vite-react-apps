@@ -1,8 +1,8 @@
+import type { InventoryProductDetail } from "@home-inventory/@types/details";
+import { Button } from "@home-inventory/components/ui/button";
+import { Separator } from "@home-inventory/components/ui/separator";
+import { SidebarTrigger } from "@home-inventory/components/ui/sidebar";
 import { FaChevronRight, FaPaperclip, FaPen, FaTrash } from "react-icons/fa6";
-import type { InventoryProductDetail } from "@/@types/details";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 
 type InventoryDetailProps = {
   data: InventoryProductDetail;

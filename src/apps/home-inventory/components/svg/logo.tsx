@@ -1,6 +1,6 @@
+import { cn } from "@home-inventory/lib/utils";
 import type * as React from "react";
 import { FaBoxesStacked } from "react-icons/fa6";
-import { cn } from "@/lib/utils";
 
 type IconProps = React.SVGProps<SVGSVGElement>;
 

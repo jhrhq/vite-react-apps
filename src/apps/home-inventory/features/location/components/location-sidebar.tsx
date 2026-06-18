@@ -1,3 +1,12 @@
+import { Badge } from "@home-inventory/components/ui/badge";
+import { Button } from "@home-inventory/components/ui/button";
+import { Field } from "@home-inventory/components/ui/field";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@home-inventory/components/ui/input-group";
+import { cn } from "@home-inventory/lib/utils";
 import type { ReactNode } from "react";
 import {
   FaChevronRight,
@@ -6,15 +15,6 @@ import {
   FaPlus,
   FaWindowRestore,
 } from "react-icons/fa6";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Field } from "@/components/ui/field";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
-import { cn } from "@/lib/utils";
 export function LocationSecondarySidebar() {
   return (
     <div className="bg-white h-screen max-w-[384px] w-full border-r">

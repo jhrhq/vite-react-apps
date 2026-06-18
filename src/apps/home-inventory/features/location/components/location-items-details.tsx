@@ -1,3 +1,7 @@
+import type { LocationDetailResponse } from "@home-inventory/@types/location";
+import { Button } from "@home-inventory/components/ui/button";
+import { Card, CardContent } from "@home-inventory/components/ui/card";
+import { cn } from "@home-inventory/lib/utils";
 import {
   FaBook,
   FaChevronRight,
@@ -6,10 +10,6 @@ import {
   FaPlus,
   FaTrash,
 } from "react-icons/fa6";
-import type { LocationDetailResponse } from "@/@types/location";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 export function LocationItemDetails({
   data,

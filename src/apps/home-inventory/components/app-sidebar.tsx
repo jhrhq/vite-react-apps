@@ -1,19 +1,19 @@
 /** biome-ignore-all lint/suspicious/noShadowRestrictedNames: false positive */
 
-import type * as React from "react";
-import { FaChartLine, FaGear, FaLocationDot, FaTags } from "react-icons/fa6";
-import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { LogoIconSidebar } from "@/components/svg/logo";
-import { AppSidebarHeader } from "@/components/team-switcher";
+import { NavMain } from "@home-inventory/components/nav-main";
+import { NavProjects } from "@home-inventory/components/nav-projects";
+import { NavUser } from "@home-inventory/components/nav-user";
+import { LogoIconSidebar } from "@home-inventory/components/svg/logo";
+import { AppSidebarHeader } from "@home-inventory/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar";
+} from "@home-inventory/components/ui/sidebar";
+import type * as React from "react";
+import { FaChartLine, FaGear, FaLocationDot, FaTags } from "react-icons/fa6";
 
 // This is sample data.
 const data = {

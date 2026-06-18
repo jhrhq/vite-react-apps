@@ -1,5 +1,5 @@
+import { getInventoryProductById } from "@home-inventory/api/get-inventory-products-details";
 import { useQuery } from "@tanstack/react-query";
-import { getInventoryProductById } from "@/api/get-inventory-products-details";
 
 export const inventoryKeys = {
   detail: (id: string) => ["inventory", "detail", id] as const,

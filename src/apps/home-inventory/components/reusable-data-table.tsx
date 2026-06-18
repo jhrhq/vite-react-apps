@@ -1,16 +1,16 @@
 import {
-  type ColumnDef,
-  flexRender,
-  type Table as TanstackTable,
-} from "@tanstack/react-table";
-import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@home-inventory/components/ui/table";
+import {
+  type ColumnDef,
+  flexRender,
+  type Table as TanstackTable,
+} from "@tanstack/react-table";
 
 interface ReusableTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

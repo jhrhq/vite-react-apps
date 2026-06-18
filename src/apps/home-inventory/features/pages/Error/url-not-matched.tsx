@@ -1,5 +1,5 @@
+import { Button } from "@home-inventory/components/ui/button";
 import { useNavigate } from "react-router";
-import { Button } from "@/components/ui/button";
 
 const RouteNotMatched = () => {
   // const error = useRouteError();

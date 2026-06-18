@@ -1,31 +1,31 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <false positive> */
 
-import type { VariantProps } from "class-variance-authority";
-import type { ReactNode } from "react";
-import { FaLocationDot } from "react-icons/fa6";
 import type {
   InventoryProductDetail,
   InventoryProductDetailLabel,
   InventoryProductDetailLevels,
-} from "@/@types/details";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Badge, type badgeVariants } from "@/components/ui/badge";
+} from "@home-inventory/@types/details";
+import { AspectRatio } from "@home-inventory/components/ui/aspect-ratio";
+import { Badge, type badgeVariants } from "@home-inventory/components/ui/badge";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@home-inventory/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { formattedDate } from "@/lib/date-utils";
+} from "@home-inventory/components/ui/carousel";
+import { formattedDate } from "@home-inventory/lib/date-utils";
+import type { VariantProps } from "class-variance-authority";
+import type { ReactNode } from "react";
 import React from "react";
+import { FaLocationDot } from "react-icons/fa6";
 
 type BadgeVariant = VariantProps<typeof badgeVariants>["variant"];
 
@@ -62,7 +62,10 @@ export function InventoryDetailsTitleBar({ data }: InventoryDetailProps) {
       </h1>
       <div className="inline-flex gap-2">
         {data.labels.map((label) => (
-          <Badge key={label} variant={labelBadgeVariants[label] || "default-lighter"}>
+          <Badge
+            key={label}
+            variant={labelBadgeVariants[label] || "default-lighter"}
+          >
             {label}
           </Badge>
         ))}
@@ -145,68 +148,64 @@ export const InventoryDetailsImages = ({ data }: InventoryDetailProps) => {
   const [api, setApi] = React.useState<any>();
   const [current, setCurrent] = React.useState(0);
 
-
   React.useEffect(() => {
-    if(!api) return ;
+    if (!api) return;
 
     setCurrent(api.selectedScrollSnap());
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap())
-    })
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
-  }, [api])
-
-  const handleThumbnailClick = (index: number) =>{
-    if(api) {
-      api.scrollTo(index)
+  const handleThumbnailClick = (index: number) => {
+    if (api) {
+      api.scrollTo(index);
     }
-  }
-
+  };
 
   return (
     <div className="w-full max-w-2xl mx-auto ">
-
-    <Carousel
-      // opts={{
-      //   breakpoints: {
-      //     "(min-width: 768px)": {
-      //       active: false,
-      //     },
-      //   },
-      // }}
-      setApi={setApi}
-    >
-      <CarouselContent className="gap-4 md:m-0">
-        {data.images.map((img, index) => (
-          <CarouselItem
-            className="md:p-0"
-            key={`inventory-detail-${index}-image-${index}`}
-          >
-            <AspectRatio ratio={1} className="overflow-hidden rounded-lg">
-              <img
-                src={img}
-                alt={`${data.name}-${index+1}`}
-                className="block size-full object-cover object-center"
-              />
-            </AspectRatio>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <div className="md:hidden">
-        <CarouselPrevious className="left-4" />
-        <CarouselNext className="right-4" />
-      </div>
-    </Carousel>
- {/* Grid of Thumbnails underneath */}
+      <Carousel
+        // opts={{
+        //   breakpoints: {
+        //     "(min-width: 768px)": {
+        //       active: false,
+        //     },
+        //   },
+        // }}
+        setApi={setApi}
+      >
+        <CarouselContent className="gap-4 md:m-0">
+          {data.images.map((img, index) => (
+            <CarouselItem
+              className="md:p-0"
+              key={`inventory-detail-${index}-image-${index}`}
+            >
+              <AspectRatio ratio={1} className="overflow-hidden rounded-lg">
+                <img
+                  src={img}
+                  alt={`${data.name}-${index + 1}`}
+                  className="block size-full object-cover object-center"
+                />
+              </AspectRatio>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="md:hidden">
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
+        </div>
+      </Carousel>
+      {/* Grid of Thumbnails underneath */}
       <div className="grid grid-cols-3 gap-3 mt-3 px-1">
         {data.images.map((image, index) => (
           <button
             key={index}
             onClick={() => handleThumbnailClick(index)}
             className={`relative aspect-4/3 overflow-hidden rounded-xl bg-zinc-100 transition-all duration-200 ${
-              current === index 
-                ? "ring-2 ring-zinc-900 ring-offset-2 opacity-100" 
+              current === index
+                ? "ring-2 ring-zinc-900 ring-offset-2 opacity-100"
                 : "opacity-75 hover:opacity-100"
             }`}
           >

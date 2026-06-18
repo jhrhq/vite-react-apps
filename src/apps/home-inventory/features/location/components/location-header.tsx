@@ -1,7 +1,7 @@
+import { Button } from "@home-inventory/components/ui/button";
+import { Separator } from "@home-inventory/components/ui/separator";
+import { SidebarTrigger } from "@home-inventory/components/ui/sidebar";
 import { FaBell, FaCircleQuestion } from "react-icons/fa6";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export function LocationMainHeader() {
   return (

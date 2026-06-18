@@ -1,5 +1,4 @@
-import type { InventoryProductDetail } from "@/@types/details";
-
+import type { InventoryProductDetail } from "@home-inventory/@types/details";
 
 export interface InventoryProduct {
   id: string;
@@ -35,7 +34,7 @@ export const mockInventoryProducts: Record<string, InventoryProduct> = {
     model: "DCD771C2",
     color: "Yellow/Black",
     condition: "Good",
-    price: 159.00,
+    price: 159.0,
     quantity: 1,
     location: "Garage",
     subLocation: "Tool Cabinet",
@@ -48,14 +47,15 @@ export const mockInventoryProducts: Record<string, InventoryProduct> = {
     warranty: "Expired (3-Year limited ended Aug 2026)",
     labels: ["power tools", "warranty"],
     levels: ["garage", "powertools", "maintenance"],
-    notes: "Chuck has some minor cosmetic scratching but functions smoothly. Includes two 20V batteries and charger.",
+    notes:
+      "Chuck has some minor cosmetic scratching but functions smoothly. Includes two 20V batteries and charger.",
     images: [
       "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581147036324-c17ac41dfa6c?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1534224039826-c7a0dea0e66a?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1534224039826-c7a0dea0e66a?w=800&auto=format&fit=crop&q=80",
     ],
     updatedAt: "2024-03-10T10:00:00Z",
-    attachmentsCount: 3
+    attachmentsCount: 3,
   },
   "2": {
     id: "2",
@@ -77,14 +77,15 @@ export const mockInventoryProducts: Record<string, InventoryProduct> = {
     warranty: "Expired November 2024",
     labels: ["electronics", "warranty"],
     levels: ["living room", "display", "entertainment"],
-    notes: "Wall mount spacers are attached to the rear. Crisp display, no dead pixels. Connected to home Wi-Fi natively.",
+    notes:
+      "Wall mount spacers are attached to the rear. Crisp display, no dead pixels. Connected to home Wi-Fi natively.",
     images: [
       "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1552533880-12f56d490817?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1601944179066-297add59bc7b?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1601944179066-297add59bc7b?w=800&auto=format&fit=crop&q=80",
     ],
     updatedAt: "2024-03-05T08:30:00Z",
-    attachmentsCount: 3
+    attachmentsCount: 3,
   },
   "3": {
     id: "3",
@@ -93,7 +94,7 @@ export const mockInventoryProducts: Record<string, InventoryProduct> = {
     model: "2021 M1 Max",
     color: "Space Gray",
     condition: "Excellent",
-    price: 2499.00,
+    price: 2499.0,
     quantity: 1,
     location: "Home Office",
     subLocation: "Desk",
@@ -106,14 +107,15 @@ export const mockInventoryProducts: Record<string, InventoryProduct> = {
     dimensions: "14.01 x 9.77 x 0.66 inches",
     weight: "4.80 pounds",
     warranty: "Expired January 2025 (AppleCare+)",
-    notes: "32GB Unified Memory, 1TB SSD configuration. Mainly kept docked in clamshell mode. Battery cycle count: 142.",
+    notes:
+      "32GB Unified Memory, 1TB SSD configuration. Mainly kept docked in clamshell mode. Battery cycle count: 142.",
     images: [
       "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&auto=format&fit=crop&q=80",
     ],
     updatedAt: "2024-03-07T14:20:00Z",
-    attachmentsCount: 3
+    attachmentsCount: 3,
   },
   "4": {
     id: "4",
@@ -135,14 +137,15 @@ export const mockInventoryProducts: Record<string, InventoryProduct> = {
     warranty: "Active until December 01, 2026",
     labels: ["appliances", "kitchen"],
     levels: ["kitchen", "pantry", "cookware"],
-    notes: "Includes extra sealing ring (red for sweets, clear for savory). Inner stainless steel pot is dishwasher clean.",
+    notes:
+      "Includes extra sealing ring (red for sweets, clear for savory). Inner stainless steel pot is dishwasher clean.",
     images: [
       "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&auto=format&fit=crop&q=80",
     ],
     updatedAt: "2024-03-11T16:45:00Z",
-    attachmentsCount: 3
+    attachmentsCount: 3,
   },
   "5": {
     id: "5",
@@ -164,15 +167,16 @@ export const mockInventoryProducts: Record<string, InventoryProduct> = {
     warranty: "Active until March 15, 2026",
     labels: ["electronics", "audio"],
     levels: ["office", "audio", "premium"],
-    notes: "Industry-leading noise canceling with Dual Noise Sensor technology. Hard carrying case and airplane adapter included.",
+    notes:
+      "Industry-leading noise canceling with Dual Noise Sensor technology. Hard carrying case and airplane adapter included.",
     images: [
       "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=800&auto=format&fit=crop&q=80",
     ],
     updatedAt: "2024-03-12T09:15:00Z",
-    attachmentsCount: 3
-  }
+    attachmentsCount: 3,
+  },
 };
 
 export const getInventoryProductById = async (
@@ -180,5 +184,5 @@ export const getInventoryProductById = async (
 ): Promise<InventoryProductDetail> => {
   await new Promise((resolve) => setTimeout(resolve, 100));
 
-  return mockInventoryProducts[id]
+  return mockInventoryProducts[id];
 };

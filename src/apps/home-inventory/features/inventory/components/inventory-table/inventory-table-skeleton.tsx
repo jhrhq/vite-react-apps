@@ -1,5 +1,5 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: false  */
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@home-inventory/components/ui/skeleton";
 import {
   Table,
   TableBody,
@@ -7,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@home-inventory/components/ui/table";
 
 export function InventoryProductTableSkeleton() {
   // Create an array of 6 items to represent a "full" page

@@ -1,5 +1,5 @@
+import { Skeleton } from "@home-inventory/components/ui/skeleton";
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
-import { Skeleton } from "@/components/ui/skeleton";
 
 function DataTableFooterSkeleton() {
   return (

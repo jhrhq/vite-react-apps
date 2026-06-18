@@ -1,28 +1,28 @@
 /** biome-ignore-all lint/correctness/useExhaustiveDependencies: false positive */
 /** biome-ignore-all lint/suspicious/noDocumentCookie: false positive */
 
-import { cva, type VariantProps } from "class-variance-authority";
-import { PanelLeftIcon } from "lucide-react";
-import { Slot } from "radix-ui";
-import * as React from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "@home-inventory/components/ui/button";
+import { Input } from "@home-inventory/components/ui/input";
+import { Separator } from "@home-inventory/components/ui/separator";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@/components/ui/sheet";
-import { Skeleton } from "@/components/ui/skeleton";
+} from "@home-inventory/components/ui/sheet";
+import { Skeleton } from "@home-inventory/components/ui/skeleton";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { cn } from "@/lib/utils";
+} from "@home-inventory/components/ui/tooltip";
+import { useIsMobile } from "@home-inventory/hooks/use-mobile";
+import { cn } from "@home-inventory/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
+import { PanelLeftIcon } from "lucide-react";
+import { Slot } from "radix-ui";
+import * as React from "react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -746,6 +746,7 @@ function SidebarMenuSubButton({
 
 export {
   Sidebar,
+  SidebarBrandLogo,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
@@ -759,7 +760,6 @@ export {
   SidebarMenuAction,
   SidebarMenuBadge,
   SidebarMenuButton,
-  SidebarBrandLogo,
   SidebarMenuItem,
   SidebarMenuSkeleton,
   SidebarMenuSub,

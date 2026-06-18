@@ -1,4 +1,4 @@
-
+import { Button } from "@home-inventory/components/ui/button";
 import {
   AlertCircle,
   ArrowLeft,
@@ -6,7 +6,6 @@ import {
   Search,
   Sidebar,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 interface InventoryErrorPageProps {
   message?: string;

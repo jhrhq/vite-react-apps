@@ -1,12 +1,12 @@
-import type { IconType } from "react-icons/lib";
-import { NavLink, useLocation } from "react-router";
 import {
   SidebarGroup,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
+} from "@home-inventory/components/ui/sidebar";
+import { cn } from "@home-inventory/lib/utils";
+import type { IconType } from "react-icons/lib";
+import { NavLink, useLocation } from "react-router";
 
 export function NavMain({
   items,

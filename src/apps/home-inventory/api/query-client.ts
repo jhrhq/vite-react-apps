@@ -1,8 +1,8 @@
 // src/api/query-client.ts
 
+import type { AppError } from "@home-inventory/@types/api";
 import { MutationCache, QueryCache, QueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import type { AppError } from "@/@types/api";
 
 // src/types/api.ts
 // src/lib/error.ts

@@ -1,8 +1,8 @@
 import type {
   InventoryPaginatedResponse,
   InventoryProduct,
-} from "@/@types/inventory";
-import { mockInventoryProducts } from "@/mocks/data/inventory-products";
+} from "@home-inventory/@types/inventory";
+import { mockInventoryProducts } from "@home-inventory/mocks/data/inventory-products";
 
 /**
  * Simulates a production server request with latency and pagination

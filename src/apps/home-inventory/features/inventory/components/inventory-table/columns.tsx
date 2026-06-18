@@ -1,14 +1,11 @@
-import type { ColumnDef } from "@tanstack/react-table";
-import type { VariantProps } from "class-variance-authority";
-import { ArrowUpDown, MoreVertical } from "lucide-react";
-import type { InventoryProductDetailLabel } from "@/@types/details";
+import type { InventoryProductDetailLabel } from "@home-inventory/@types/details";
 import type {
   InventoryProduct,
   InventoryProductLocation,
-} from "@/@types/inventory";
-import { Badge, type badgeVariants } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+} from "@home-inventory/@types/inventory";
+import { Badge, type badgeVariants } from "@home-inventory/components/ui/badge";
+import { Button } from "@home-inventory/components/ui/button";
+import { Checkbox } from "@home-inventory/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,8 +13,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { formatRelativeTime } from "@/lib/date-utils";
+} from "@home-inventory/components/ui/dropdown-menu";
+import { formatRelativeTime } from "@home-inventory/lib/date-utils";
+import type { ColumnDef } from "@tanstack/react-table";
+import type { VariantProps } from "class-variance-authority";
+import { ArrowUpDown, MoreVertical } from "lucide-react";
 
 type BadgeVariant = VariantProps<typeof badgeVariants>["variant"];
 
@@ -126,7 +126,10 @@ export const columns: ColumnDef<InventoryProduct>[] = [
       return (
         <div className="capitalize inline-flex gap-2">
           {labels.map((label) => (
-            <Badge key={label} variant={labelBadgeVariants[label] || "default-lighter"}>
+            <Badge
+              key={label}
+              variant={labelBadgeVariants[label] || "default-lighter"}
+            >
               {label}
             </Badge>
           ))}
