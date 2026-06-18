@@ -1,0 +1,184 @@
+import { useContext, useState } from "react";
+import { toast } from "react-toastify";
+import { TaskContext } from "../providers/TaskProvider";
+
+function emptyInputErrorMessage(task) {
+  let inputs = [];
+  Object.entries(task).forEach(([key, value]) => {
+    if (!value) {
+      if (key == "taskName") {
+        inputs.push("Task Name");
+      } else if (key == "dueDate") {
+        inputs.push("Due Date");
+      } else {
+        inputs.push(key.charAt(0).toUpperCase() + key.slice(1));
+      }
+    }
+  });
+  return toast.error(`${inputs.join(", ")} can not be empty!`);
+}
+
+export default function CreateTaskModal({ updateToTask, onClose }) {
+  const { state, dispatch } = useContext(TaskContext);
+
+  // console.log(task);
+  const [task, setTask] = useState(
+    updateToTask ?? {
+      id: crypto.randomUUID(),
+      taskName: "",
+      description: "",
+      dueDate: "",
+      category: "",
+    }
+  );
+
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+
+    setTask({ ...task, [name]: value });
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!Object.values(task).every(Boolean)) {
+      return emptyInputErrorMessage(task);
+    } else {
+      const selectedCategoryOption = state.tasksCategories.categories.find(
+        (category) => category.id === task.category
+      );
+
+      if (!selectedCategoryOption) return;
+
+      if (updateToTask) {
+        dispatch({
+          type: "UPDATE_TASK",
+          payload: {
+            ...task,
+            category: selectedCategoryOption.name,
+            categoryId: selectedCategoryOption.id,
+          },
+        });
+        toast.done("Task updated successfully!");
+      } else {
+        dispatch({
+          type: "ADD_TASK",
+          payload: {
+            ...task,
+            category: selectedCategoryOption.name,
+            categoryId: selectedCategoryOption.id,
+          },
+        });
+        toast.success("Task added successfully!");
+      }
+    }
+
+    onClose();
+  }
+  return (
+    <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-xs">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px]  p-4 max-h-[90vh] ">
+        <div className="w-full max-w-md rounded-lg bg-gray-800 shadow-xl">
+          <div className="p-6">
+            <h2 className="mb-6 text-2xl font-bold text-green-400">
+              Create Task
+            </h2>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label
+                  htmlFor="taskName"
+                  className="mb-1 block text-sm font-medium text-gray-300"
+                >
+                  Task Name
+                </label>
+                <input
+                  type="text"
+                  id="taskName"
+                  name="taskName"
+                  // required
+                  value={task.taskName}
+                  onChange={handleChange}
+                  className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-xs focus:border-green-500 focus:outline-hidden focus:ring-2 focus:ring-green-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="description"
+                  className="mb-1 block text-sm font-medium text-gray-300"
+                >
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  name="description"
+                  // required
+                  value={task.description}
+                  onChange={handleChange}
+                  rows="3"
+                  className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-xs focus:border-green-500 focus:outline-hidden focus:ring-2 focus:ring-green-500"
+                ></textarea>
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="dueDate"
+                  className="mb-1 block text-sm font-medium text-gray-300"
+                >
+                  Due Date
+                </label>
+                <input
+                  type="date"
+                  id="dueDate"
+                  name="dueDate"
+                  // required
+                  value={task.dueDate}
+                  onChange={handleChange}
+                  className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-xs focus:border-green-500 focus:outline-hidden focus:ring-2 focus:ring-green-500"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="category"
+                  className="mb-1 block text-sm font-medium text-gray-300"
+                >
+                  Category
+                </label>
+                <select
+                  id="category"
+                  name="category"
+                  // required
+                  value={task.category}
+                  onChange={handleChange}
+                  className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-xs focus:border-green-500 focus:outline-hidden focus:ring-2 focus:ring-green-500"
+                >
+                  <option value="">Select Category</option>
+                  {state.tasksCategories.categories.map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="flex justify-end space-x-3">
+                <button
+                  onClick={onClose}
+                  type="button"
+                  className="rounded-md border border-gray-600 px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 focus:outline-hidden focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-xs hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                  Create Task
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

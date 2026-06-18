@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary: #28194b;
+
+  @keyframes gauge_fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes gauge_fill {
+    from {
+      stroke-dashoffset: 332;
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes animation {
+    gauge_fade-in: gauge_fadeIn 1s ease forwards;
+    gauge_fill: gauge_fill 4s ease forwards;
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility container {
+  @apply px-4;
+}
+
+@layer components {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #88888825;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  body {
+    font-family: "Jaldi", sans-serif;
+  }
+  td {
+    @apply p-0;
+  }
+
+  ::backdrop {
+    @apply bg-gray-900/60;
+  }
+  dialog[open] {
+    opacity: 1;
+  }
+  dialog {
+    opacity: 0;
+    transition: all 0.3s allow-discrete;
+  }
+
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+    }
+  }
+}
