@@ -190,47 +190,46 @@ const IncomeExpenseBoard = () => {
           onCloseClick={handleCloseModal}
         />
       )}
-      <main className="relative mx-auto mt-10 w-full max-w-7xl">
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="p-6 py-8 bg-[#F9FAFB] border rounded-md">
-            <h2 className="text-3xl font-semibold leading-7 text-gray-800 text-center">
-              Expense Tracker
-            </h2>
-            <ExpenseTrackerForm
-              activeTab={activeTab}
-              options={options}
-              formState={formState}
-              isEdit={isEditTransaction}
-              onSaveFormState={handleFormState}
-              onSelectTab={handleSelectTab}
-              onSave={handleTransaction}
-            />
-          </div>
-          <div className="lg:col-span-2">
-            <TotalBalanceStat
-              totalBalance={{
-                type: "balance",
-                name: "Balance",
-                amount: totalIncome.amount - totalExpense.amount,
-              }}
-              totalIncome={totalIncome}
-              totalExpense={totalExpense}
-            />
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
-              {transactions.map((transaction) => (
-                <IncomeExpenseLists
-                  key={transaction.type}
-                  onEdit={handleEditTransaction}
-                  onDeleteClick={handleShowModal}
-                  onSort={handleSort}
-                  transactions={transaction}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
+     <main className="relative mx-auto mt-10 w-full max-w-7xl">
+  <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="p-6 py-8 bg-[#F9FAFB] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md transition-colors duration-200">
+      <h2 className="text-3xl font-semibold leading-7 text-gray-800 dark:text-gray-100 text-center">
+        Expense Tracker
+      </h2>
+      <ExpenseTrackerForm
+        activeTab={activeTab}
+        options={options}
+        formState={formState}
+        isEdit={isEditTransaction}
+        onSaveFormState={handleFormState}
+        onSelectTab={handleSelectTab}
+        onSave={handleTransaction}
+      />
+    </div>
+    <div className="lg:col-span-2">
+      <TotalBalanceStat
+        totalBalance={{
+          type: "balance",
+          name: "Balance",
+          amount: totalIncome.amount - totalExpense.amount,
+        }}
+        totalIncome={totalIncome}
+        totalExpense={totalExpense}
+      />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
+        {transactions.map((transaction) => (
+          <IncomeExpenseLists
+            key={transaction.type}
+            onEdit={handleEditTransaction}
+            onDeleteClick={handleShowModal}
+            onSort={handleSort}
+            transactions={transaction}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</main>
     </>
   );
 };

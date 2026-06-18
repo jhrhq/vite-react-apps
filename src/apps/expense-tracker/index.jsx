@@ -1,7 +1,8 @@
 import IncomeExpenseBoard from "./Expense/IncomeExpenseBoard";
 import Header from "./Header";
+import './index.css';
 
-function App() {
+function ExpenseTracker() {
   return (
     <>
       <Header />
@@ -10,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default ExpenseTracker;

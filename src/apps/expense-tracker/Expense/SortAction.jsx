@@ -7,7 +7,7 @@ export default function SortAction({ type, isSort, onSorClick, onSort }) {
         <button
           onClick={onSorClick}
           type="button"
-          className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white dark:bg-gray-800 px-2 py-1 text-sm font-semibold text-gray-900 dark:text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
           id="menu-button2"
           aria-expanded="true"
           aria-haspopup="true"
@@ -17,7 +17,7 @@ export default function SortAction({ type, isSort, onSorClick, onSort }) {
       </div>
       {isSort && (
         <div
-          className="absolute z-10 mt-2 left-5 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute z-10 mt-2 left-5 w-56 origin-top-right rounded-md bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 dark:ring-gray-700 focus:outline-none"
           role="menu2"
           aria-orientation="vertical"
           aria-labelledby="menu-button2"
@@ -27,7 +27,7 @@ export default function SortAction({ type, isSort, onSorClick, onSort }) {
             <a
               onClick={() => onSort(type, "lowToHigh")}
               href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
+              className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
               role="menuitem"
               tabIndex="-1"
               id="menu-item-0"
@@ -37,7 +37,7 @@ export default function SortAction({ type, isSort, onSorClick, onSort }) {
             <a
               onClick={() => onSort(type, "highToLow")}
               href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
+              className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all"
               role="menuitem"
               tabIndex="-1"
               id="menu-item-0"
