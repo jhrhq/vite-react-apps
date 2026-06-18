@@ -1,6 +1,6 @@
 import { HStack, Text } from "@chakra-ui/react";
-import ColorModeSwitch from "./color-mode-switch";
-import SearchInput from "./search-input";
+import ColorModeSwitch from "@game-hub/components/color-mode-switch";
+import SearchInput from "@game-hub/components/search-input";
 interface Props {
   onSearch: (searchText: string) => void;
 }

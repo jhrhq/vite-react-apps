@@ -1,5 +1,5 @@
-import { GameQuery } from "../components/App";
-import useData from "./use-data";
+import { type GameQuery } from "@game-hub/components/App";
+import useData from "@game-hub/hook/use-data";
 
 export interface Platform {
   id: number;
@@ -27,7 +27,7 @@ const useGames = (gameQuery: GameQuery) =>
         search: gameQuery.searchText,
       },
     },
-    [gameQuery]
+    [gameQuery],
   );
 
 export default useGames;

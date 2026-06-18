@@ -1,6 +1,6 @@
-import { AxiosRequestConfig, CanceledError } from "axios";
+import apiClient from "@game-hub/services/api-client";
+import { CanceledError, type AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
 
 export interface FetchResponse<T> {
   count: number;
@@ -10,7 +10,7 @@ export interface FetchResponse<T> {
 const useData = <T>(
   endpoint: string,
   requestConfig?: AxiosRequestConfig,
-  deps?: any[]
+  deps?: any[],
 ) => {
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState("");
@@ -38,7 +38,7 @@ const useData = <T>(
 
       return () => controller.abort();
     },
-    deps ? [...deps] : []
+    deps ? [...deps] : [],
   );
 
   return { data, error, isLoading };

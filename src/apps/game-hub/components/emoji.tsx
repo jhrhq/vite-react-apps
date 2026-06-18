@@ -1,11 +1,15 @@
-import { Image, ImageProps } from "@chakra-ui/react";
-import bullsEye from "../assets/bulls-eye.jpeg";
-import meh from "../assets/meh.jpeg";
-import thumbsUp from "../assets/thumbs-up.jpeg";
+import { Image } from "@chakra-ui/react";
+import bullsEye from "@game-hub/assets/bulls-eye.jpeg";
+import meh from "@game-hub/assets/meh.jpeg";
+import thumbsUp from "@game-hub/assets/thumbs-up.jpeg";
+import type { ComponentProps } from "react";
 
 interface Props {
   rating: number;
 }
+
+type ImageProps = ComponentProps<typeof Image>;
+
 const Emoji = ({ rating }: Props) => {
   if (rating > 3) return null;
   const emojiMap: { [key: number]: ImageProps } = {

@@ -1,4 +1,4 @@
-import placeholder from "../assets/placeholder-image.jpeg";
+import placeholder from "@game-hub/assets/placeholder-image.jpeg";
 const getCroppedImageUrl = (url: string) => {
   if (!url) return placeholder;
   const target = "media/";

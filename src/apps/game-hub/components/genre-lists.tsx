@@ -1,5 +1,5 @@
-import { List, Button, Image, HStack, Spinner } from "@chakra-ui/react"
-import useGenres, { Genre } from "../hook/use-genres"
+import { Button, HStack, Image, List, Spinner } from "@chakra-ui/react";
+import useGenres, { type Genre } from "@game-hub/hook/use-genres";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
@@ -7,10 +7,10 @@ interface Props {
 }
 
 const GenreLists = ({ selectedGenre, onSelectGenre }: Props) => {
-  const { data, isLoading, error } = useGenres()
+  const { data, isLoading, error } = useGenres();
 
-  if (error) return null
-  if (isLoading) return <Spinner />
+  if (error) return null;
+  if (isLoading) return <Spinner />;
 
   return (
     <List.Root variant="plain">
@@ -34,7 +34,7 @@ const GenreLists = ({ selectedGenre, onSelectGenre }: Props) => {
         </List.Item>
       ))}
     </List.Root>
-  )
-}
+  );
+};
 
-export default GenreLists
+export default GenreLists;

@@ -10,6 +10,7 @@ export default defineConfig({
     alias: {
       // 2. Define your alias and map it to the physical directory
       "@": path.resolve(__dirname, "./src"),
+      "@game-hub": path.resolve(__dirname, "./src/apps/game-hub"),
     },
   },
 });

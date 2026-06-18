@@ -1,8 +1,8 @@
-import { HStack, Switch, Text } from "@chakra-ui/react"
-import { useColorMode } from "@/components/ui/color-mode"
+import { HStack, Switch, Text } from "@chakra-ui/react";
+import { useColorMode } from "@game-hub/components/ui/color-mode";
 
 const ColorModeSwitch = () => {
-  const { toggleColorMode, colorMode } = useColorMode()
+  const { toggleColorMode, colorMode } = useColorMode();
 
   return (
     <HStack>
@@ -16,10 +16,10 @@ const ColorModeSwitch = () => {
           <Switch.Thumb />
         </Switch.Control>
       </Switch.Root>
-      
+
       <Text whiteSpace="nowrap">Dark Mode</Text>
     </HStack>
-  )
-}
+  );
+};
 
-export default ColorModeSwitch
+export default ColorModeSwitch;

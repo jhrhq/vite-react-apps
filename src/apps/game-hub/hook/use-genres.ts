@@ -1,4 +1,4 @@
-import useData from "./use-data";
+import useData from "@game-hub/hook/use-data";
 
 export interface Genre {
   id: number;

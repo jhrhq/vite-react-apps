@@ -20,7 +20,8 @@
     // path alias
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@game-hub/*": ["./src/apps/game-hub/*"]
     },
 
     /* Linting */
