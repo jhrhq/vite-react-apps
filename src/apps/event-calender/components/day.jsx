@@ -1,10 +1,12 @@
 import dayjs from "dayjs";
-import React, { useContext, useEffect, useState } from "react";
-import GlobalContext from "../context/global-context";
+import { useContext, useEffect, useState } from "react";
+import GlobalContext from "../context/Global-context";
 
 const Day = ({ day, rowIdx }) => {
+
   const {
     setDaySelected,
+    showEventModal,
     setShowEventModal,
     filteredEvents,
     setSelectedEvent,
@@ -25,6 +27,8 @@ const Day = ({ day, rowIdx }) => {
       ? "bg-blue-600 text-white rounded-full w-7"
       : "";
   }
+
+
 
   return (
     <div className="border border-gray-200 flex flex-col">

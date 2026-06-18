@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
-import GlobalContext from "../context/global-context";
+import GlobalContext from "../context/Global-context";
 import { getMonth } from "../utils";
 
 const SmallCalender = () => {
@@ -51,12 +52,12 @@ const SmallCalender = () => {
         <div>
           <button onClick={handlePrevMonth}>
             <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-              chevron_left
+              <ChevronLeft />
             </span>
           </button>
           <button onClick={handleNextMonth}>
             <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-              chevron_right
+              <ChevronRight />
             </span>
           </button>
         </div>

@@ -6,14 +6,9 @@
     "module": "esnext",
     "types": ["vite/client"],
     "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": false,
 
-    // path alias
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "@/*": ["./src/*"]
-      }
-    },
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -22,11 +17,18 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    // path alias
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"], // Added JS/JSX here
+  "exclude": ["node_modules"] // Removed JS/JSX from here
 }
