@@ -1,6 +1,6 @@
-import login from "@/assets/Saly-1.png";
-import logo from "@/assets/logo.svg";
-import AuthLogin from "@/pages/auth/auth-forms/AuthLogin";
+import login from "@quizzes/assets/Saly-1.png";
+import logo from "@quizzes/assets/logo.svg";
+import AuthLogin from "@quizzes/pages/auth/auth-forms/AuthLogin";
 import { Link } from "react-router-dom";
 
 const Login = () => {

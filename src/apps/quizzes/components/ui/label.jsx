@@ -1,4 +1,4 @@
-import cn from "@/utility/cn-utility";
+import cn from "@quizzes/utility/cn-utility";
 import { forwardRef } from "react";
 
 const Label = forwardRef(({ className, children, ...props }, ref) => (

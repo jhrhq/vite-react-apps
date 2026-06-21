@@ -1,12 +1,12 @@
-import { useSubmitQuizMutation } from "@/api/quizzes";
-import Button from "@/components/ui/button";
-import { useDispatch, useSelector } from "@/store";
+import { useSubmitQuizMutation } from "@quizzes/api/quizzes";
+import Button from "@quizzes/components/ui/button";
+import { useDispatch, useSelector } from "@quizzes/store";
 import {
   nextQuestion,
   previousQuestion,
   setAnswer,
   setShuffleOptions,
-} from "@/store/questionSlice";
+} from "@quizzes/store/questionSlice";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 

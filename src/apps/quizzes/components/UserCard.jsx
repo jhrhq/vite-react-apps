@@ -1,5 +1,5 @@
-import userAvatar from "@/assets/avater.webp";
-import useAuth from "@/hooks/useAuth";
+import userAvatar from "@quizzes/assets/avater.webp";
+import useAuth from "@quizzes/hooks/useAuth";
 
 export default function UserCard() {
   const { user } = useAuth();

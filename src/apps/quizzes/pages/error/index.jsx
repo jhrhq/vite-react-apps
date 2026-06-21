@@ -1,4 +1,4 @@
-import Button from "@/components/ui/button";
+import Button from "@quizzes/components/ui/button";
 import { useNavigate, useRouteError } from "react-router-dom";
 
 export default function Error() {

@@ -1,6 +1,6 @@
-import logo from "@/assets/logo.svg";
-import Button from "@/components/ui/button";
-import useAuth from "@/hooks/useAuth";
+import logo from "@quizzes/assets/logo.svg";
+import Button from "@quizzes/components/ui/button";
+import useAuth from "@quizzes/hooks/useAuth";
 import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   const { isLoggedIn, logout, user } = useAuth();

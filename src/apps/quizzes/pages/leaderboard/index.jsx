@@ -1,9 +1,9 @@
-import { useGetQuizAttemptsQuery } from "@/api/quizzes";
-import { default as avatar, default as avater } from "@/assets/avater.webp";
-import Loader from "@/components/Loader";
-import useAuth from "@/hooks/useAuth";
-import useCreateLeaderBoard from "@/hooks/useCreateLeaderBoard";
-import cn from "@/utility/cn-utility";
+import { useGetQuizAttemptsQuery } from "@quizzes/api/quizzes";
+import { default as avatar, default as avater } from "@quizzes/assets/avater.webp";
+import Loader from "@quizzes/components/Loader";
+import useAuth from "@quizzes/hooks/useAuth";
+import useCreateLeaderBoard from "@quizzes/hooks/useCreateLeaderBoard";
+import cn from "@quizzes/utility/cn-utility";
 import { useParams } from "react-router-dom";
 
 const Leaderboard = () => {

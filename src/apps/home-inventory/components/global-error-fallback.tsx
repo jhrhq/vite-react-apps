@@ -37,7 +37,7 @@ export function GlobalErrorFallback({
           </button>
 
           <a
-            onClick={() => (window.location.href = "/")}
+            onClick={() => (window.location.href = "")}
             className="flex items-center justify-center gap-2 w-full py-3 bg-white text-slate-600 border border-slate-200 rounded-xl font-semibold hover:bg-slate-50 transition-all"
           >
             <Home className="w-4 h-4" />

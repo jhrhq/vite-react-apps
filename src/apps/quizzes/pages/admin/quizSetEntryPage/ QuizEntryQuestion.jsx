@@ -1,7 +1,7 @@
-import { useRemoveQuestionMutation } from "@/api/adminQuizzes";
-import Button from "@/components/ui/button";
-import { useDispatch } from "@/store";
-import { setAdminCurrentQuestion } from "@/store/adminQuestionSlice";
+import { useRemoveQuestionMutation } from "@quizzes/api/adminQuizzes";
+import Button from "@quizzes/components/ui/button";
+import { useDispatch } from "@quizzes/store";
+import { setAdminCurrentQuestion } from "@quizzes/store/adminQuestionSlice";
 import toast from "react-hot-toast";
 
 const QuizEntryQuestion = ({ id, options, question, correctAnswer }) => {

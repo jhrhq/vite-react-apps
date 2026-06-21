@@ -1,8 +1,8 @@
-import Loadable from "@/components/Loadable";
-import MinimalLayout from "@/layouts/MinimalLayout";
+import Loadable from "@quizzes/components/Loadable";
+import MinimalLayout from "@quizzes/layouts/MinimalLayout";
 import { lazy } from "react";
 
-const Home = Loadable(lazy(() => import("@/pages/home")));
+const Home = Loadable(lazy(() => import("@quizzes/pages/home")));
 
 const PublicRoutes = {
   element: <MinimalLayout />,

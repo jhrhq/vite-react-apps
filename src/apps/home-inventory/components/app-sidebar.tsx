@@ -28,13 +28,13 @@ const data = {
       title: "Inventory",
       url: "#",
       icon: LogoIconSidebar,
-      path: "/dashboard",
+      path: "/inventory/products",
     },
     {
       title: "Locations",
       url: "#",
       icon: FaLocationDot,
-      path: "/dashboard/location",
+      path: "/inventory/location",
     },
     {
       title: "Labels",

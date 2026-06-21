@@ -1,9 +1,9 @@
-import { useGetQuizAttemptsQuery } from "@/api/quizzes";
-import logoWhite from "@/assets/logo-white.svg";
-import Loader from "@/components/Loader";
-import { Gauge } from "@/components/ProgressCircle";
-import useAuth from "@/hooks/useAuth";
-import ResultQuestionCard from "@/pages/result/ResultQuestionCard";
+import { useGetQuizAttemptsQuery } from "@quizzes/api/quizzes";
+import logoWhite from "@quizzes/assets/logo-white.svg";
+import Loader from "@quizzes/components/Loader";
+import { Gauge } from "@quizzes/components/ProgressCircle";
+import useAuth from "@quizzes/hooks/useAuth";
+import ResultQuestionCard from "@quizzes/pages/result/ResultQuestionCard";
 import { Link, useParams } from "react-router-dom";
 
 const Result = () => {

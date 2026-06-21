@@ -1,12 +1,12 @@
 import { lazy } from "react";
 
-import Loadable from "@/components/Loadable";
-import MinimalLayout from "@/layouts/MinimalLayout";
-import GuestGuard from "@/utility/guard/GuestGuard";
+import Loadable from "@quizzes/components/Loadable";
+import MinimalLayout from "@quizzes/layouts/MinimalLayout";
+import GuestGuard from "@quizzes/utility/guard/GuestGuard";
 
-const AuthLogin = Loadable(lazy(() => import("@/pages/auth/login")));
-const AuthRegister = Loadable(lazy(() => import("@/pages/auth/registration")));
-const Error = Loadable(lazy(() => import("@/pages/error")));
+const AuthLogin = Loadable(lazy(() => import("@quizzes/pages/auth/login")));
+const AuthRegister = Loadable(lazy(() => import("@quizzes/pages/auth/registration")));
+const Error = Loadable(lazy(() => import("@quizzes/pages/error")));
 const AuthenticationRoutes = {
   element: (
     <GuestGuard>

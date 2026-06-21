@@ -4,9 +4,9 @@ import {
   useSelector as useAppSelector,
 } from "react-redux";
 
-import { adminQuizzesApi } from "@/api/adminQuizzes";
-import { quizzesApi } from "@/api/quizzes";
-import rootReducer from "@/store/reducer";
+import { adminQuizzesApi } from "@quizzes/api/adminQuizzes";
+import { quizzesApi } from "@quizzes/api/quizzes";
+import rootReducer from "@quizzes/store/reducer";
 import { rememberReducer, rememberEnhancer } from 'redux-remember';
 
 

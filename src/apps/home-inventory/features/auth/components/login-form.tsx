@@ -1,5 +1,9 @@
 /** biome-ignore-all lint/a11y/useValidAnchor: false positive */
 
+import {
+  MOCK_VALID_CREDENTIALS,
+  useAuth,
+} from "@/apps/home-inventory/providers/auth-provider";
 import InventoryImage from "@home-inventory/assets/home-inventory.jpg";
 import Logo from "@home-inventory/components/svg/logo";
 import { Button } from "@home-inventory/components/ui/button";
@@ -20,7 +24,7 @@ import { Label } from "@home-inventory/components/ui/label";
 import { cn } from "@home-inventory/lib/utils";
 import * as React from "react";
 import { FaArrowRight, FaEye, FaEyeSlash, FaUser } from "react-icons/fa6";
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 /* TODO
 
@@ -120,12 +124,27 @@ export function SignIn({ className, ...props }: React.ComponentProps<"div">) {
 
 function SignInForm() {
   const [showPassword, setShowPassword] = React.useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   function togglePassword() {
     setShowPassword(!showPassword);
   }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      await login(
+        MOCK_VALID_CREDENTIALS.email,
+        MOCK_VALID_CREDENTIALS.password,
+      );
+      navigate("", { replace: true }); // relative — see earlier fix
+    } catch {
+      return null;
+    }
+  }
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <FieldGroup className="gap-5">
         <Field className="gap-2">
           <FieldLabel htmlFor="username" className="text-sm font-medium">
@@ -136,7 +155,7 @@ function SignInForm() {
               id="username"
               type="username"
               placeholder="Enter you username"
-              value="user"
+              defaultValue={MOCK_VALID_CREDENTIALS.email}
             />
             <InputGroupAddon align="inline-end">
               <FaUser className="size-3.5 text-v4" />
@@ -153,7 +172,7 @@ function SignInForm() {
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
-              value={1234}
+              defaultValue={MOCK_VALID_CREDENTIALS.password}
             />
             <InputGroupAddon align="inline-end">
               <Button
@@ -185,10 +204,8 @@ function SignInForm() {
           </a>
         </div>
         <Field>
-          <Button type="submit" asChild>
-            <Link to="/dashboard">
-              Sign in <FaArrowRight />
-            </Link>
+          <Button type="submit">
+            Sign in <FaArrowRight />
           </Button>
         </Field>
 

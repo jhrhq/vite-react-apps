@@ -1,4 +1,4 @@
-// import bg from "@/assets/backgrounds/2.jpg";
+// import bg from "@quizzes/assets/backgrounds/2.jpg";
 import { Link } from "react-router-dom";
 
 export default function QuizCard({

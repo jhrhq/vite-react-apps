@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "@/store/actions";
+import { LOGIN, LOGOUT } from "@quizzes/store/actions";
 
 const initialState = {
   isLoggedIn: false,

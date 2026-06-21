@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* // src/context/auth-context.tsx
 import * as React from "react";
 import { api } from "@/api/api-client";
@@ -38,7 +39,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try {
         // Senior Move: Verify the token by fetching the user profile immediately
         // This ensures the token in localStorage isn't expired/invalid
-        await api.get("/auth/me");
+        await api.get("auth/me");
         setIsAuthenticated(true);
       } catch (error) {
         // If /me fails, the interceptor might have already handled logout,
@@ -78,3 +79,74 @@ export const useAuth = () => {
   return context;
 };
  */
+
+import { createContext, useContext, useEffect, useState } from "react";
+
+const AuthContext = createContext(null);
+
+const STORAGE_KEY = "home-inventory:session";
+const MOCK_DELAY_MS = 400;
+export const MOCK_VALID_CREDENTIALS = {
+  email: "demo@example.com",
+  password: "password123",
+};
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(undefined); // undefined = checking, null = logged out
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      setUser(raw ? JSON.parse(raw) : null);
+    } catch {
+      setUser(null);
+    }
+  }, []);
+
+  async function login(email, password) {
+    // TODO: replace with a real request
+    await new Promise((resolve) => setTimeout(resolve, MOCK_DELAY_MS));
+
+    const isValid =
+      email === MOCK_VALID_CREDENTIALS.email &&
+      password === MOCK_VALID_CREDENTIALS.password;
+
+    if (!isValid) {
+      throw new Error("Invalid email or password");
+    }
+
+    const session = {
+      email,
+      name: "Demo User",
+      loggedInAt: new Date().toISOString(),
+    };
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+    setUser(session);
+    return session;
+  }
+
+  async function logout() {
+    // TODO: replace with a real request if the server needs to invalidate a session
+    localStorage.removeItem(STORAGE_KEY);
+    setUser(null);
+  }
+
+  const value = {
+    user,
+    isAuthenticated: Boolean(user),
+    isChecking: user === undefined,
+    login,
+    logout,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+export function useAuth() {
+  const ctx = useContext(AuthContext);
+  if (!ctx) {
+    throw new Error("useAuth must be used within this app's <AuthProvider>");
+  }
+  return ctx;
+}

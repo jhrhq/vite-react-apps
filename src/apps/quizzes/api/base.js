@@ -1,4 +1,4 @@
-import axiosServices from "@/utility/axios-service";
+import axiosServices from "@quizzes/utility/axios-service";
 import { isAxiosError } from "axios";
 
 // initialize an empty api service that we'll inject endpoints into later as needed

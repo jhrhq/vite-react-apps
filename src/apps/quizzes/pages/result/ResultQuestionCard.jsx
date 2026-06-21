@@ -1,5 +1,5 @@
-import { useSelector } from "@/store";
-import cn from "@/utility/cn-utility";
+import { useSelector } from "@quizzes/store";
+import cn from "@quizzes/utility/cn-utility";
 
 const ResultQuestionCard = ({ question_id, answer }) => {
   const { questions } = useSelector((state) => state.questions);

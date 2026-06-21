@@ -1,7 +1,7 @@
-import bg from "@/assets/Saly-1.png";
-import logWhite from "@/assets/logo-white.svg";
-import logo from "@/assets/logo.svg";
-import AuthRegister from "@/pages/auth/auth-forms/AuthRegister";
+import bg from "@quizzes/assets/Saly-1.png";
+import logWhite from "@quizzes/assets/logo-white.svg";
+import logo from "@quizzes/assets/logo.svg";
+import AuthRegister from "@quizzes/pages/auth/auth-forms/AuthRegister";
 import { Link } from "react-router-dom";
 const Registration = () => {
   return (

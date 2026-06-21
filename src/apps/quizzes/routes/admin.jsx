@@ -1,16 +1,16 @@
 import { lazy } from "react";
 
-import Loadable from "@/components/Loadable";
-import AdminLayout from "@/layouts/AdminLayout";
-import AuthGuard from "@/utility/guard/AuthGuard";
+import Loadable from "@quizzes/components/Loadable";
+import AdminLayout from "@quizzes/layouts/AdminLayout";
+import AuthGuard from "@quizzes/utility/guard/AuthGuard";
 import { Navigate } from "react-router-dom";
 
-const Dashboard = Loadable(lazy(() => import("@/pages/admin/dashboard")));
-const QuizSetPage = Loadable(lazy(() => import("@/pages/admin/quizSetPage")));
+const Dashboard = Loadable(lazy(() => import("@quizzes/pages/admin/dashboard")));
+const QuizSetPage = Loadable(lazy(() => import("@quizzes/pages/admin/quizSetPage")));
 const QuizSetEntryPage = Loadable(
-  lazy(() => import("@/pages/admin/quizSetEntryPage"))
+  lazy(() => import("@quizzes/pages/admin/quizSetEntryPage"))
 );
-const Error = Loadable(lazy(() => import("@/pages/error")));
+const Error = Loadable(lazy(() => import("@quizzes/pages/error")));
 const AdminRoutes = {
   path: "/",
   element: (

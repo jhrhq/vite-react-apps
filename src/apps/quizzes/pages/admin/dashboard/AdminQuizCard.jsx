@@ -1,4 +1,4 @@
-import HexagonSvg from "@/svg/HexagonSvg";
+import HexagonSvg from "@quizzes/svg/HexagonSvg";
 import { Link } from "react-router-dom";
 
 const AdminQuizCard = ({ id, title, description }) => {

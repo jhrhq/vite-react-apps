@@ -4,6 +4,7 @@ import fetchWithErrors from "../helpers/fetch-with-errors";
 import IssueItem from "./issue-item";
 
 export default function IssuesList({ labels, status }) {
+  
   const issuesQuery = useQuery({
     queryKey: ["issues", { labels, status }],
     queryFn: () => {

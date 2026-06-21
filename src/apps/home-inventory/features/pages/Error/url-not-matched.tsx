@@ -18,7 +18,7 @@ const RouteNotMatched = () => {
         </p>
         <span className="flex gap-4">
           <Button
-            onClick={() => navigate("/")}
+            onClick={() => navigate("")}
             variant={"default"}
             className="gap-1 transition-all hover:gap-2"
           >

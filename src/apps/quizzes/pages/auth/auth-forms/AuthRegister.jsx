@@ -1,4 +1,4 @@
-import Button from "@/components/ui/button";
+import Button from "@quizzes/components/ui/button";
 import {
   Form,
   FormControl,
@@ -6,9 +6,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import Input from "@/components/ui/input";
-import { axiosPrimary } from "@/utility/axios-service";
+} from "@quizzes/components/ui/form";
+import Input from "@quizzes/components/ui/input";
+import { axiosPrimary } from "@quizzes/utility/axios-service";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";

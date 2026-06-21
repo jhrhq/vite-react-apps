@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
-import Label from "@/components/ui/label";
-import cn from "@/utility/cn-utility";
-import Slot from "@/utility/slot";
+import Label from "@quizzes/components/ui/label";
+import cn from "@quizzes/utility/cn-utility";
+import Slot from "@quizzes/utility/slot";
 import { createContext, forwardRef, useContext, useId } from "react";
 import { Controller, FormProvider, useFormContext } from "react-hook-form";
 

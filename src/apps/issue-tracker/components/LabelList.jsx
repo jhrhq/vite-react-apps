@@ -10,7 +10,7 @@ export default function LabelList({ selected, toggles }) {
         <p>Loading...</p>
       ) : (
         <ul className="">
-          {labelsQuery.data.map((label) => (
+          {labelsQuery.data?.map((label) => (
             <li key={label.id}>
               <button
                 className={`label ${

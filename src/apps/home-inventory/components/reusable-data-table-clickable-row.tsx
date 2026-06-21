@@ -49,9 +49,7 @@ export default function ReusableDataTableClickableRow<TData, TValue>({
             <TableRow
               key={row.id}
               data-state={row.getIsSelected() && "selected"}
-              onClick={() =>
-                navigate(`/dashboard/inventory/${row.original.id}`)
-              }
+              onClick={() => navigate(`${row.original.id}`)}
               className="p-4 space-x-6 hover:cursor-pointer"
             >
               {row.getVisibleCells().map((cell) => (

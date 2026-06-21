@@ -1,4 +1,4 @@
-import useAuth from "@/hooks/useAuth";
+import useAuth from "@quizzes/hooks/useAuth";
 
 const AdminNav = () => {
   const { logout } = useAuth();

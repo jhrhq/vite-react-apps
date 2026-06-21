@@ -1,4 +1,4 @@
-import cn from "@/utility/cn-utility";
+import cn from "@quizzes/utility/cn-utility";
 
 const Spinner = ({ className }) => {
   return (

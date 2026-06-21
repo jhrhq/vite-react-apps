@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import AuthContext from "@/contexts/JWTContext";
+import AuthContext from "@quizzes/contexts/JWTContext";
 
 const useAuth = () => {
   const context = useContext(AuthContext);

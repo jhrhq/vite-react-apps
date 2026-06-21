@@ -1,9 +1,9 @@
-import { useGetQuestionsQuery } from "@/api/quizzes";
-import Loader from "@/components/Loader";
-import QuizDetailsCard from "@/pages/quiz/QuizDetailsCard";
-import QuizQuestion from "@/pages/quiz/Quizquestion";
-import { useDispatch } from "@/store";
-import { setQuestions } from "@/store/questionSlice";
+import { useGetQuestionsQuery } from "@quizzes/api/quizzes";
+import Loader from "@quizzes/components/Loader";
+import QuizDetailsCard from "@quizzes/pages/quiz/QuizDetailsCard";
+import QuizQuestion from "@quizzes/pages/quiz/Quizquestion";
+import { useDispatch } from "@quizzes/store";
+import { setQuestions } from "@quizzes/store/questionSlice";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 

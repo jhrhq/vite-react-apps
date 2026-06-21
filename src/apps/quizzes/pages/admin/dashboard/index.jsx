@@ -1,7 +1,7 @@
-import { useGetAdminQuizzesQuery } from "@/api/adminQuizzes";
-import Loader from "@/components/Loader";
-import AdminQuizCard from "@/pages/admin/dashboard/AdminQuizCard";
-import CreateQuiz from "@/pages/admin/dashboard/CreateQuiz";
+import { useGetAdminQuizzesQuery } from "@quizzes/api/adminQuizzes";
+import Loader from "@quizzes/components/Loader";
+import AdminQuizCard from "@quizzes/pages/admin/dashboard/AdminQuizCard";
+import CreateQuiz from "@quizzes/pages/admin/dashboard/CreateQuiz";
 
 const Dashboard = () => {
   const { data, isLoading } = useGetAdminQuizzesQuery({

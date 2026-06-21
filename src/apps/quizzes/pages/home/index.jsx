@@ -1,10 +1,10 @@
-import { useGetQuizzesQuery } from "@/api/quizzes";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Loader from "@/components/Loader";
-import QuizCard from "@/components/QuizCard";
-import UserCard from "@/components/UserCard";
-import useAuth from "@/hooks/useAuth";
+import { useGetQuizzesQuery } from "@quizzes/api/quizzes";
+import Footer from "@quizzes/components/Footer";
+import Header from "@quizzes/components/Header";
+import Loader from "@quizzes/components/Loader";
+import QuizCard from "@quizzes/components/QuizCard";
+import UserCard from "@quizzes/components/UserCard";
+import useAuth from "@quizzes/hooks/useAuth";
 
 const Home = () => {
   const { isLoggedIn } = useAuth();

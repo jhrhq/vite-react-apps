@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Footer from "@quizzes/components/Footer";
+import Header from "@quizzes/components/Header";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {

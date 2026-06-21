@@ -1,8 +1,8 @@
-import Loader from "@/components/Loader";
-import accountReducer from "@/store/accountReducer";
-import { LOGIN, LOGOUT } from "@/store/actions";
-import axiosServices from "@/utility/axios-service";
-import { getStorageValue } from "@/utility/utilities";
+import Loader from "@quizzes/components/Loader";
+import accountReducer from "@quizzes/store/accountReducer";
+import { LOGIN, LOGOUT } from "@quizzes/store/actions";
+import axiosServices from "@quizzes/utility/axios-service";
+import { getStorageValue } from "@quizzes/utility/utilities";
 import { jwtDecode } from "jwt-decode";
 import { createContext, useEffect, useLayoutEffect, useReducer } from "react";
 

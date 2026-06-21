@@ -1,5 +1,5 @@
 // slices/questionsSlice.js
-import { quizzesApi } from "@/api/quizzes";
+import { quizzesApi } from "@quizzes/api/quizzes";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const shuffleArray = (array) => {

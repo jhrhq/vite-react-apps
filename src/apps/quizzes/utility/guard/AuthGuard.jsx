@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import Button from "@/components/ui/button";
-import useAuth from "@/hooks/useAuth";
+import Button from "@quizzes/components/ui/button";
+import useAuth from "@quizzes/hooks/useAuth";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const AuthGuard = ({ allowedRoles, children }) => {

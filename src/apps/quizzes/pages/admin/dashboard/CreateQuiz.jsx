@@ -1,4 +1,4 @@
-import PlusSvg from "@/svg/PlusSvg";
+import PlusSvg from "@quizzes/svg/PlusSvg";
 import { Link } from "react-router-dom";
 
 const CreateQuiz = () => {

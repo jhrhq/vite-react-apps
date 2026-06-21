@@ -1,8 +1,8 @@
 import {
   useAddQuestionMutation,
   useUpdateQuestionMutation,
-} from "@/api/adminQuizzes";
-import Button from "@/components/ui/button";
+} from "@quizzes/api/adminQuizzes";
+import Button from "@quizzes/components/ui/button";
 import {
   Form,
   FormControl,
@@ -10,11 +10,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import Input from "@/components/ui/input";
-import { dispatch, useSelector } from "@/store";
-import { setAdminCurrentQuestion } from "@/store/adminQuestionSlice";
-import Spinner from "@/svg/Spinner";
+} from "@quizzes/components/ui/form";
+import Input from "@quizzes/components/ui/input";
+import { dispatch, useSelector } from "@quizzes/store";
+import { setAdminCurrentQuestion } from "@quizzes/store/adminQuestionSlice";
+import Spinner from "@quizzes/svg/Spinner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
 import toast from "react-hot-toast";

@@ -1,9 +1,9 @@
-import logoWhite from "@/assets/logo-white.svg";
-import AdminNav from "@/pages/admin/dashboard/AdminNav";
+import logoWhite from "@quizzes/assets/logo-white.svg";
+import AdminNav from "@quizzes/pages/admin/dashboard/AdminNav";
 import { Outlet } from "react-router-dom";
 
-import avatar from "@/assets/avater.webp";
-import useAuth from "@/hooks/useAuth";
+import avatar from "@quizzes/assets/avater.webp";
+import useAuth from "@quizzes/hooks/useAuth";
 
 const AdminLayout = () => {
   const { user } = useAuth();

@@ -1,12 +1,12 @@
-import Loadable from "@/components/Loadable";
-import adminRoutes from "@/routes/admin";
-import auth from "@/routes/auth";
-import mainRoutes from "@/routes/main";
-import PublicRoutes from "@/routes/public";
+import Loadable from "@quizzes/components/Loadable";
+import adminRoutes from "@quizzes/routes/admin";
+import auth from "@quizzes/routes/auth";
+import mainRoutes from "@quizzes/routes/main";
+import PublicRoutes from "@quizzes/routes/public";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-const Error = Loadable(lazy(() => import("@/pages/error")));
+const Error = Loadable(lazy(() => import("@quizzes/pages/error")));
 
 const router = createBrowserRouter([
   PublicRoutes,

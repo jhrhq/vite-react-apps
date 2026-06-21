@@ -1,5 +1,5 @@
 // slices/questionsSlice.js
-import { adminQuizzesApi } from "@/api/adminQuizzes";
+import { adminQuizzesApi } from "@quizzes/api/adminQuizzes";
 import { createSlice } from "@reduxjs/toolkit";
 
 // Define the initial state for the question navigation

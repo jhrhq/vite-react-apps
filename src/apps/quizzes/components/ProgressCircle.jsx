@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import cn from "@/utility/cn-utility";
+import cn from "@quizzes/utility/cn-utility";
 import { useState } from "react";
 
 import { useEffect, useRef } from "react";

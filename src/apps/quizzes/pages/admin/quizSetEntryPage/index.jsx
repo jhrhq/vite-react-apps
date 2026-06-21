@@ -1,14 +1,14 @@
 import {
   useGetAdminQuizzesQuery,
   useUpdateQuizMutation,
-} from "@/api/adminQuizzes";
-import Loader from "@/components/Loader";
-import Button from "@/components/ui/button";
-import QuizEntryQuestion from "@/pages/admin/quizSetEntryPage/ QuizEntryQuestion";
-import BreadCrumb from "@/pages/admin/quizSetEntryPage/BreadCrumb";
-import CreateQuestion from "@/pages/admin/quizSetEntryPage/CreateQuestion";
-import { useDispatch } from "@/store";
-import { setAdminQuestions } from "@/store/adminQuestionSlice";
+} from "@quizzes/api/adminQuizzes";
+import Loader from "@quizzes/components/Loader";
+import Button from "@quizzes/components/ui/button";
+import QuizEntryQuestion from "@quizzes/pages/admin/quizSetEntryPage/ QuizEntryQuestion";
+import BreadCrumb from "@quizzes/pages/admin/quizSetEntryPage/BreadCrumb";
+import CreateQuestion from "@quizzes/pages/admin/quizSetEntryPage/CreateQuestion";
+import { useDispatch } from "@quizzes/store";
+import { setAdminQuestions } from "@quizzes/store/adminQuestionSlice";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";

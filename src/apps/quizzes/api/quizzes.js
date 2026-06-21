@@ -1,4 +1,4 @@
-import axiosBaseQuery from "@/api/base";
+import axiosBaseQuery from "@quizzes/api/base";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
 export const quizzesApi = createApi({

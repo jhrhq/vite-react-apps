@@ -1,5 +1,5 @@
-import CreateQuizForm from "@/pages/admin/quizSetPage/CreateQuizForm";
-import BackArrow from "@/svg/BackArrow";
+import CreateQuizForm from "@quizzes/pages/admin/quizSetPage/CreateQuizForm";
+import BackArrow from "@quizzes/svg/BackArrow";
 import { Link } from "react-router-dom";
 
 const QuizSetPage = () => {
