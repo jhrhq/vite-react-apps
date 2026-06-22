@@ -1,0 +1,10 @@
+.header-shape {
+  width: 835.51px;
+  background-image: url("../../Resources/abstractBG.svg");
+}
+
+.header-btn {
+  padding: 18.5px 104.5px;
+  border: 3px solid #fafcfe;
+  border-radius: 4px;
+}

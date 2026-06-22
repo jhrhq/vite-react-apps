@@ -1,0 +1,47 @@
+.navbar-height {
+  height: 100px;
+}
+
+.navbar-btn {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #09002a;
+}
+
+.navbar-btn ul li {
+  margin-bottom: 4px;
+}
+
+.navbar-btn ul li:hover {
+  width: 50px;
+  height: 4px;
+  background: #f050be;
+  border-radius: 34px;
+}
+
+.margin-right {
+  margin-right: 24px;
+}
+
+.margin-right-icon {
+  margin-right: 50px;
+}
+
+.arrow-container {
+  width: 33px;
+  height: 33px;
+  background: linear-gradient(180deg, #ff8af7 0%, #f72df2 99.52%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  width: 15px;
+  height: 21px;
+}
