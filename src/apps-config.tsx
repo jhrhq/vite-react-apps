@@ -20,6 +20,12 @@ export const APPS_REGISTRY: AppItem[] = [
     desc: "A quizz application with authentication included",
     element: lazy(() => import("./apps/quizzes")),
   },
+  {
+    id: "issue-tracker",
+    name: "Issue Tracker",
+    desc: "A quizz application with authentication included",
+    element: lazy(() => import("./apps/issue-tracker")),
+  },
 
   {
     id: "analytics",
@@ -69,4 +75,10 @@ export const APPS_REGISTRY: AppItem[] = [
     desc: "A very simple react vite application",
     element: lazy(() => import("./apps/modern-ui-ux-gpt3")),
   },
+  // {
+  //   id: "portfolio",
+  //   name: "Portfolio",
+  //   desc: "A very simple react vite application",
+  //   element: lazy(() => import("./apps/portfolio")),
+  // },
 ];

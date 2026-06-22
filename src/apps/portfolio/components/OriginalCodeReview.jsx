@@ -1,5 +1,4 @@
-import PropTypes from "prop-types";
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 // Single List Item
 const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
@@ -13,12 +12,6 @@ const WrappedSingleListItem = ({ index, isSelected, onClickHandler, text }) => {
   );
 };
 
-WrappedSingleListItem.propTypes = {
-  index: PropTypes.number,
-  isSelected: PropTypes.bool,
-  onClickHandler: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
-};
 
 const SingleListItem = memo(WrappedSingleListItem);
 
@@ -48,17 +41,6 @@ const WrappedListComponent = ({ items }) => {
   );
 };
 
-WrappedListComponent.propTypes = {
-  items: PropTypes.array(
-    PropTypes.shapeOf({
-      text: PropTypes.string.isRequired,
-    })
-  ),
-};
-
-WrappedListComponent.defaultProps = {
-  items: null,
-};
 
 const List = memo(WrappedListComponent);
 

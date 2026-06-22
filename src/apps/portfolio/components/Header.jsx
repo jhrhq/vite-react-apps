@@ -1,4 +1,3 @@
-import React from "react";
 
 const Header = () => {
 
@@ -14,7 +13,7 @@ const Header = () => {
             <h1 className="text-5xl font-bold">
               Hi
               <br />
-              I'm Johir Haque Dipok
+              I'm Johir Haque
             </h1>
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda

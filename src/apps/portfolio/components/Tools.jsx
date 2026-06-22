@@ -1,4 +1,3 @@
-import React from "react";
 
 const Tools = () => {
   return (
@@ -9,7 +8,7 @@ const Tools = () => {
           some of the Tools I've been working with.
         </p>
       </div>
-      <div className="text-base-content xl:rounded-box grid max-w-screen-xl gap-4 bg-opacity-60 xl:pb-0">
+      <div className="text-base-content xl:rounded-box grid max-w-7xl gap-4 bg-opacity-60 xl:pb-0">
         <div className="grid w-full lg:grid-flow-row grid-cols-1 md:grid-cols-2  lg:grid-cols-3 items-center gap-4 md:gap-6 lg:gap-8 px-10 pt-1 pb-10 xl:px-4">
           {/* card 1 */}
           <div>
