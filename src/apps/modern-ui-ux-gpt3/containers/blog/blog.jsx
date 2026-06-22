@@ -1,5 +1,4 @@
-import React from "react";
-import { Article } from "../../components";
+import { Article } from "../../components/index.jsx";
 import "./blog.css";
 import { blog01, blog02, blog03, blog04, blog05 } from "./import.jsx";
 

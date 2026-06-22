@@ -63,4 +63,10 @@ export const APPS_REGISTRY: AppItem[] = [
     desc: "A very simple react vite application",
     element: lazy(() => import("./apps/product-list")),
   },
+  {
+    id: "modern-ui-ux",
+    name: "Modern UI UX",
+    desc: "A very simple react vite application",
+    element: lazy(() => import("./apps/modern-ui-ux-gpt3")),
+  },
 ];
