@@ -137,25 +137,3 @@ The "Modern UI UX" is a modern UI/UX application that celebrates futuristic tech
 ---
 
 ![Modern UI UX](./src/assets/modern-ui-ux.png)
-
-# Issue Tracker: Agile Defect Resolution
-
-[Live Website](will be added later)
-
-The "Issue Tracker" is a modern UI/UX application that celebrates priority pipeline tracking and task assignment flows. Crafted with ReactJS, this responsive web application promises a delightful user experience, marrying visual allure with culinary discovery.
-
-## Key Highlights:
-
-1. _ReactJS Brilliance_: Leveraging the power of ReactJS, Issue Tracker ensures a dynamic, responsive and efficient user interface.
-
----
-
-# Portfolio: Engineering Project Showcase
-
-[Live Website](will be added later)
-
-The "Portfolio" is a modern UI/UX application that celebrates professional experience hubs and project timeline showcases. Crafted with ReactJS, this responsive web application promises a delightful user experience, marrying visual allure with culinary discovery.
-
-## Key Highlights:
-
-1. _ReactJS Brilliance_: Leveraging the power of ReactJS, Portfolio ensures a dynamic, responsive and efficient user interface.
