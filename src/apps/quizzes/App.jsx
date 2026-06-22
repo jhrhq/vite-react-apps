@@ -1,11 +1,10 @@
 import { JWTProvider as AuthProvider } from "@quizzes/contexts/JWTContext";
-import router from "@quizzes/routes";
-import { RouterProvider } from "react-router-dom";
+import QuizzesRouter from "@quizzes/routes";
 
 function App() {
   return (
     <AuthProvider>
-      <RouterProvider router={router} />
+      <QuizzesRouter />
     </AuthProvider>
   );
 }

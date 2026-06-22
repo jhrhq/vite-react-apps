@@ -9,7 +9,7 @@ export interface AppItem {
 
 export const APPS_REGISTRY: AppItem[] = [
   {
-    id: "Game Hub",
+    id: "Game-Hub",
     name: "GameHub",
     desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
     element: lazy(() => import("./apps/game-hub")),
@@ -34,15 +34,21 @@ export const APPS_REGISTRY: AppItem[] = [
     element: lazy(() => import("./apps/home-inventory")),
   },
   {
-    id: "event calender",
+    id: "event-calender",
     name: "Event Calender",
     desc: "A google inspired simple event calender app with react vite and tailwindcss",
     element: lazy(() => import("./apps/event-calender")),
   },
   {
-    id: "expense tracker",
+    id: "expense-tracker",
     name: "Expense Tracker",
     desc: "A very simple react vite application",
     element: lazy(() => import("./apps/expense-tracker")),
+  },
+  {
+    id: "real-state",
+    name: "Real State",
+    desc: "A very simple react vite application",
+    element: lazy(() => import("./apps/real-estate")),
   },
 ];
