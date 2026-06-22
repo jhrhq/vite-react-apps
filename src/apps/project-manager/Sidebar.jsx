@@ -22,7 +22,7 @@ const menuIcons = {
 function Menu({ title }) {
   return (
     <li>
-      <a href="#" className="flex items-center">
+      <a href="#" className="flex items-center text-white">
         {menuIcons[title]}
         {title}
       </a>

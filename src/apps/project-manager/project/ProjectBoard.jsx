@@ -60,7 +60,7 @@ export default function ProjectBoard() {
           <div className="flex space-x-2">
             <button
               onClick={handleOpenModalClick}
-              className="flex items-center rounded-md bg-gray-700 px-4 py-2 text-white"
+              className="flex items-center rounded-md bg-gray-700 px-4 py-2 text-white hover:cursor-pointer"
             >
               <TbSquareRoundedPlus className="size-6 mr-2 fill-none" />
               Add
