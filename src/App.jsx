@@ -12,6 +12,7 @@ import Complex from "./components/populartags/complex";
 import PopularTags from "./components/populartags/popular-tags";
 import ServiceProvider from "./components/servie-provider/service-proivder";
 import SupportSection from "./components/support-section/support-section";
+
 function App() {
   return (
     <>
@@ -20,7 +21,6 @@ function App() {
         <CodePractice />
         <Navbar />
         <Header />
-
         <PopularTags />
         <Complex />
         <ServiceProvider />
