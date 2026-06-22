@@ -1,5 +1,5 @@
-import { useOutsideClick } from "@/hooks";
-import { actionTypes, useProduct } from "@/providers/ProductProvider";
+import { useOutsideClick } from "@product-list/hooks";
+import { actionTypes, useProduct } from "@product-list/providers/ProductProvider";
 import { useRef, useState } from "react";
 import { HiMiniChevronDown } from "react-icons/hi2";
 

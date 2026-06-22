@@ -1,5 +1,5 @@
-import Heading from "@/components/Hero/Heading";
-import ImageGrid from "@/components/Hero/ImageGrid";
+import Heading from "@product-list/components/Hero/Heading";
+import ImageGrid from "@product-list/components/Hero/ImageGrid";
 
 export default function Hero() {
   return (

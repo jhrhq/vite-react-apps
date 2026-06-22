@@ -1,4 +1,4 @@
-import cn from "@/utilities/cn-utility";
+import cn from "@product-list/utilities/cn-utility";
 
 export default function Label({ className, children, ...rest }) {
   return (

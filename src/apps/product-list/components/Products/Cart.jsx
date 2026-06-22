@@ -1,4 +1,4 @@
-import { useProduct } from "@/providers/ProductProvider";
+import { useProduct } from "@product-list/providers/ProductProvider";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 export default function Cart() {

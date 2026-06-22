@@ -1,6 +1,6 @@
-import { useFetch } from "@/hooks";
-import { productSort } from "@/utilities/product-sort-utility";
-import { searchFilter } from "@/utilities/produt-search-utility";
+import { useFetch } from "@product-list/hooks";
+import { productSort } from "@product-list/utilities/product-sort-utility";
+import { searchFilter } from "@product-list/utilities/produt-search-utility";
 import { createContext, useContext, useReducer } from "react";
 
 // Action types

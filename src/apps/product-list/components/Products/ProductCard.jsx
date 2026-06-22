@@ -1,6 +1,6 @@
-import Button from "@/components/ui/button";
-import { actionTypes, useProduct } from "@/providers/ProductProvider";
-import truncateText from "@/utilities/truncate-text-utility";
+import Button from "@product-list/components/ui/button";
+import { actionTypes, useProduct } from "@product-list/providers/ProductProvider";
+import truncateText from "@product-list/utilities/truncate-text-utility";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 export default function ProductCard({ product }) {

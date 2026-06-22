@@ -13,6 +13,7 @@ export default defineConfig({
       "@game-hub": path.resolve(__dirname, "./src/apps/game-hub"),
       "@home-inventory": path.resolve(__dirname, "./src/apps/home-inventory"),
       "@quizzes": path.resolve(__dirname, "./src/apps/quizzes"),
+      "@product-list": path.resolve(__dirname, "./src/apps/product-list"),
     },
   },
 });

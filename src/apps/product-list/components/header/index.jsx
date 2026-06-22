@@ -1,7 +1,7 @@
-import Logo from "@/assets/logo.svg";
-import AuthMenu from "@/components/header/AuthMenu";
-import FlyoutMenu from "@/components/header/FlyoutMenu";
-import TopBanner from "@/components/header/TopBanner";
+import Logo from "@product-list/assets/logo.svg";
+import AuthMenu from "@product-list/components/header/AuthMenu";
+import FlyoutMenu from "@product-list/components/header/FlyoutMenu";
+import TopBanner from "@product-list/components/header/TopBanner";
 import { HiOutlineBars3 } from "react-icons/hi2";
 
 export default function Header() {

@@ -1,9 +1,9 @@
-import ErrorComponent from "@/components/Products/ErrorComponent";
-import ProductActions from "@/components/Products/ProductActions";
-import ProductCard from "@/components/Products/ProductCard";
-import ProductLoading from "@/components/Products/ProductLoading";
-import SectionHeading from "@/components/SectionHeading";
-import { useProduct } from "@/providers/ProductProvider";
+import ErrorComponent from "@product-list/components/Products/ErrorComponent";
+import ProductActions from "@product-list/components/Products/ProductActions";
+import ProductCard from "@product-list/components/Products/ProductCard";
+import ProductLoading from "@product-list/components/Products/ProductLoading";
+import SectionHeading from "@product-list/components/SectionHeading";
+import { useProduct } from "@product-list/providers/ProductProvider";
 
 const ProductBody = ({ children }) => {
   return (

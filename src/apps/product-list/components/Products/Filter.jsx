@@ -1,7 +1,7 @@
-import Label from "@/components/ui/Label";
-import Radio from "@/components/ui/Radio";
-import { useFetch, useOutsideClick } from "@/hooks";
-import { actionTypes, useProduct } from "@/providers/ProductProvider";
+import Label from "@product-list/components/ui/Label";
+import Radio from "@product-list/components/ui/Radio";
+import { useFetch, useOutsideClick } from "@product-list/hooks";
+import { actionTypes, useProduct } from "@product-list/providers/ProductProvider";
 import { useRef, useState } from "react";
 import { HiMiniChevronDown } from "react-icons/hi2";
 

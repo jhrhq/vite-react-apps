@@ -1,5 +1,5 @@
-import { useDebounce } from "@/hooks";
-import { actionTypes, useProduct } from "@/providers/ProductProvider";
+import { useDebounce } from "@product-list/hooks";
+import { actionTypes, useProduct } from "@product-list/providers/ProductProvider";
 import { HiOutlineSearch } from "react-icons/hi";
 
 export default function Search() {

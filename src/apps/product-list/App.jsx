@@ -1,6 +1,6 @@
-import Layout from "@/components/Layout";
-import ProductBoard from "@/components/Products";
-import ProductProvider from "@/providers/ProductProvider";
+import Layout from "@product-list/components/Layout";
+import ProductBoard from "@product-list/components/Products";
+import ProductProvider from "@product-list/providers/ProductProvider";
 
 function App() {
   return (

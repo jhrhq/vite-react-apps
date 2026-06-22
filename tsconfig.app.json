@@ -23,7 +23,8 @@
       "@/*": ["./src/*"],
       "@game-hub/*": ["./src/apps/game-hub/*"],
       "@home-inventory/*": ["./src/apps/home-inventory/*"],
-      "@quizzes/*": ["./src/apps/quizzes/*"]
+      "@quizzes/*": ["./src/apps/quizzes/*"],
+      "@product-list/*": ["./src/apps/product-list//*"]
     },
 
     /* Linting */

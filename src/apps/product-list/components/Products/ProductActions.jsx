@@ -1,7 +1,7 @@
-import Cart from "@/components/Products/Cart";
-import Filter from "@/components/Products/Filter";
-import Search from "@/components/Products/Search";
-import Sort from "@/components/Products/Sort";
+import Cart from "@product-list/components/Products/Cart";
+import Filter from "@product-list/components/Products/Filter";
+import Search from "@product-list/components/Products/Search";
+import Sort from "@product-list/components/Products/Sort";
 
 export default function ProductActions() {
   return (

@@ -1,4 +1,4 @@
-import cn from "@/utilities/cn-utility";
+import cn from "@product-list/utilities/cn-utility";
 import { forwardRef } from "react";
 
 // eslint-disable-next-line react/display-name
