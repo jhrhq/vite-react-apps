@@ -3,7 +3,7 @@ import Logo from "./assets/image/favicon.svg";
 const Header = () => {
   return (
     <nav>
-      <div className="flex max-w-7xl items-center bg-[#F9FAFB] dark:bg-gray-800 w-full justify-between py-1 mt-2 border border-gray-200 dark:border-gray-700 px-4 rounded-md mx-auto transition-colors duration-200">
+      <div className="flex max-w-7xl items-center bg-[#F9FAFB] dark:bg-gray-800 w-full justify-between py-1 border border-gray-200 dark:border-gray-700 px-4 rounded-md mx-auto transition-colors duration-200">
         <div>
           <img src={Logo} className="h-14" />
         </div>

@@ -9,29 +9,16 @@ export interface AppItem {
 
 export const APPS_REGISTRY: AppItem[] = [
   {
-    id: "Game-Hub",
+    id: "project-manager",
+    name: "Project Manger",
+    desc: "A very simple react vite application",
+    element: lazy(() => import("./apps/project-manager")),
+  },
+  {
+    id: "game-hub",
     name: "GameHub",
     desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
     element: lazy(() => import("./apps/game-hub")),
-  },
-  {
-    id: "quizzes",
-    name: "Quizzes",
-    desc: "A quizz application with authentication included",
-    element: lazy(() => import("./apps/quizzes")),
-  },
-  {
-    id: "issue-tracker",
-    name: "Issue Tracker",
-    desc: "A quizz application with authentication included",
-    element: lazy(() => import("./apps/issue-tracker")),
-  },
-
-  {
-    id: "analytics",
-    name: "Analytics Suite",
-    desc: "This restaurant landing page showcases a contemporary design developed using React, emphasizing reusable functional components and a well-organized file and folder structure. It emphasizes mastery of fundamental CSS properties such as flex for flexible layout design. Responsive design is ensured with meticulously implemented media queries, optimizing display across all devices.",
-    element: lazy(() => import("./apps/gerich-restaurant")),
   },
   {
     id: "inventory",
@@ -46,6 +33,13 @@ export const APPS_REGISTRY: AppItem[] = [
     element: lazy(() => import("./apps/event-calender")),
   },
   {
+    id: "quizzes",
+    name: "Quizzes",
+    desc: "A quizz application with authentication included",
+    element: lazy(() => import("./apps/quizzes")),
+  },
+
+  {
     id: "expense-tracker",
     name: "Expense Tracker",
     desc: "A very simple react vite application",
@@ -58,16 +52,16 @@ export const APPS_REGISTRY: AppItem[] = [
     element: lazy(() => import("./apps/real-estate")),
   },
   {
-    id: "project-manager",
-    name: "Project Manger",
-    desc: "A very simple react vite application",
-    element: lazy(() => import("./apps/project-manager")),
-  },
-  {
     id: "product-list",
     name: "Product List",
     desc: "A very simple react vite application",
     element: lazy(() => import("./apps/product-list")),
+  },
+  {
+    id: "gericht-restaurant",
+    name: "Gericht Restaurant",
+    desc: "This restaurant landing page showcases a contemporary design developed using React, emphasizing reusable functional components and a well-organized file and folder structure. It emphasizes mastery of fundamental CSS properties such as flex for flexible layout design. Responsive design is ensured with meticulously implemented media queries, optimizing display across all devices.",
+    element: lazy(() => import("./apps/gerich-restaurant")),
   },
   {
     id: "modern-ui-ux",
@@ -75,6 +69,12 @@ export const APPS_REGISTRY: AppItem[] = [
     desc: "A very simple react vite application",
     element: lazy(() => import("./apps/modern-ui-ux-gpt3")),
   },
+  // {
+  //   id: "issue-tracker",
+  //   name: "Issue Tracker",
+  //   desc: "A quizz application with authentication included",
+  //   element: lazy(() => import("./apps/issue-tracker")),
+  // },
   // {
   //   id: "portfolio",
   //   name: "Portfolio",

@@ -6,7 +6,7 @@ export default function RootLayout(): React.JSX.Element {
   const isHome = location.pathname === "/";
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+    <>
       {/* Global Header Navigation bar */}
       {/* <header className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 shadow-sm">
         <div className="flex items-center gap-3">
@@ -27,9 +27,7 @@ export default function RootLayout(): React.JSX.Element {
       </header> */}
 
       {/* App Workspace Injection Viewport */}
-      <main className="mx-auto">
-        <Outlet />
-      </main>
-    </div>
+      <Outlet />
+    </>
   );
 }
