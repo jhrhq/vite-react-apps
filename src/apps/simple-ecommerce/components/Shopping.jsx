@@ -1,4 +1,8 @@
-[
+import { useState } from "react";
+import Cart from "./Cart";
+import Product from "./Product";
+
+const LAPTOPS = [
   {
     "id": "5b9ccdf94f015251607be343",
     "name": "Essential 14 ",
@@ -140,3 +144,74 @@
     "quantity": 0
   }
 ]
+
+
+const Shopping = () => {
+  const [laptops, setLaptops] = useState(LAPTOPS);
+  const [cart, setCart] = useState([]);
+  const [randomProduct, setRandomProduct] = useState("");
+
+ const handleAddToCart = (selectedProduct) => {
+  setCart((prevCart) => {
+    const exists = prevCart.find((product) => product.id === selectedProduct.id);
+
+    if (!exists) {
+      const newItem = { ...selectedProduct, quantity: 1 };
+      return [...prevCart, newItem];
+    } else {
+      return prevCart.map((product) => {
+        if (product.id === selectedProduct.id) {
+          return { ...product, quantity: product.quantity + 1 };
+        }
+        return product; 
+      });
+    }
+  });
+};
+
+  const handleEmptyCart = () => {
+    setCart([]);
+    setRandomProduct("");
+  };
+
+  return (
+    <div className="container mx-auto px-4 py-8 md:py-12 max-w-7xl">
+      <header className="mb-10 text-center md:text-left">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 tracking-tight">
+          Laptop Store
+        </h1>
+        <p className="text-gray-500 mt-2">Find the perfect laptop for your needs</p>
+      </header>
+
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 flex-1">
+          {laptops.length > 0 ? (
+            laptops.map((laptop) => (
+              <Product
+                cart={cart ?? []}
+                key={laptop.id}
+                laptop={laptop}
+                handleAddToCart={handleAddToCart}
+              />
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-500 py-10">Loading products...</p>
+          )}
+        </div>
+
+        {/* Cart Sidebar */}
+        <div className="w-full lg:w-96 lg:sticky lg:top-8 self-start">
+          <Cart
+            cart={cart}
+            handleEmptyCart={handleEmptyCart}
+            randomProduct={randomProduct}
+            setRandomProduct={setRandomProduct}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Shopping;

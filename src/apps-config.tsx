@@ -118,12 +118,19 @@ export const APPS_REGISTRY: AppItem[] = [
     element: lazy(() => import("./apps/friend-project")),
   },
   {
-    id: "task-manager",
+    id: "mini-task-manager",
     name: "Mini Task Manager",
     desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
-    img: "../src/assets/game-hub.png",
+    img: "../src/assets/mini-task-manager.png",
 
     element: lazy(() => import("./apps/mini-task-management")),
+  },
+  {
+    id: "simple-ecommerce",
+    name: "Simple Ecommerce",
+    desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
+    img: "../src/assets/simple-ecommerce.png",
+    element: lazy(() => import("./apps/simple-ecommerce")),
   },
   // {
   //   id: "issue-tracker",
