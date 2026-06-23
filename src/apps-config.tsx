@@ -93,6 +93,13 @@ export const APPS_REGISTRY: AppItem[] = [
     img: "../src/assets/project-manager.png",
     element: lazy(() => import("./apps/ema-john")),
   },
+  {
+    id: "friend-project",
+    name: "Friend Project",
+    desc: "A very simple react vite application",
+    img: "../src/assets/friends-project.png",
+    element: lazy(() => import("./apps/friend-project")),
+  },
   // {
   //   id: "issue-tracker",
   //   name: "Issue Tracker",
