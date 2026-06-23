@@ -10,6 +10,15 @@ export interface AppItem {
 
 export const APPS_REGISTRY: AppItem[] = [
   {
+    id: "project-manager",
+    name: "Project Manager",
+    desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
+    img: "../src/assets/project-manager.png",
+
+    element: lazy(() => import("./apps/project-manager")),
+  },
+
+  {
     id: "game-hub",
     name: "GameHub",
     desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
@@ -99,6 +108,14 @@ export const APPS_REGISTRY: AppItem[] = [
     desc: "A very simple react vite application",
     img: "../src/assets/friends-project.png",
     element: lazy(() => import("./apps/friend-project")),
+  },
+  {
+    id: "task-manager",
+    name: "Mini Task Manager",
+    desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
+    img: "../src/assets/game-hub.png",
+
+    element: lazy(() => import("./apps/mini-task-management")),
   },
   // {
   //   id: "issue-tracker",
