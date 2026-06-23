@@ -1,19 +1,25 @@
-import React from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-const CustomLink = ({ className, children, to, ...props }) => {
-  let resolved = useResolvedPath(to);
-  let match = useMatch({ path: resolved.pathname, end: true });
+const CustomLink = ({ children, to, ...props }) => {
+  const resolved = useResolvedPath(to);
+
+  const match = useMatch({
+    path: resolved.pathname,
+    end: true,
+  });
+
   return (
-    <>
-      <Link
-        className={match ? "nav-link active" : "nav-link"}
-        to={to}
-        {...props}
-      >
-        {children}
-      </Link>
-    </>
+    <Link
+      to={to}
+      className={`transition-colors ${
+        match
+          ? "font-medium text-blue-500"
+          : "text-white hover:text-blue-400"
+      }`}
+      {...props}
+    >
+      {children}
+    </Link>
   );
 };
 

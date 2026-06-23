@@ -1,40 +1,46 @@
-import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import CustomLink from "../CustomLink/CustomLink";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <Navbar bg="dark" variant="dark" expand="sm">
-      <Container>
-        <Link to="/home" className="navbar-brand">
-          <span className="fs-4 fw-bold">Monitor</span> Review
-        </Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            {/* <Link to="/" className="nav-link ">
-              Home
-            </Link> */}
-            <CustomLink to="/" className="nav-link">
-              Home
-            </CustomLink>
-            <CustomLink to="/reviews" className="nav-link">
-              Reviews
-            </CustomLink>
-            <CustomLink to="/dashboard" className="nav-link">
-              Dashboard
-            </CustomLink>
-            <CustomLink to="/blogs" className="nav-link">
-              Blogs
-            </CustomLink>
-            <CustomLink to="/about" className="nav-link">
-              About
-            </CustomLink>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav className="bg-gray-900 text-white">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between py-4">
+          <Link to="home" className="text-lg">
+            <span className="text-2xl font-bold">Monitor</span> Review
+          </Link>
+
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="sm:hidden"
+            aria-label="Toggle navigation"
+          >
+            ☰
+          </button>
+
+          <div className="hidden sm:flex sm:items-center sm:ml-auto gap-4">
+            <CustomLink to="/read-review/">Home</CustomLink>
+            <CustomLink to="/read-review/reviews">Reviews</CustomLink>
+            <CustomLink to="/read-review/dashboard">Dashboard</CustomLink>
+            <CustomLink to="/read-review/blogs">Blogs</CustomLink>
+            <CustomLink to="/read-review/about">About</CustomLink>
+          </div>
+        </div>
+
+        {isOpen && (
+          <div className="flex flex-col gap-2 pb-4 sm:hidden">
+            <CustomLink to="/">Home</CustomLink>
+            <CustomLink to="/reviews">Reviews</CustomLink>
+            <CustomLink to="/dashboard">Dashboard</CustomLink>
+            <CustomLink to="/blogs">Blogs</CustomLink>
+            <CustomLink to="/about">About</CustomLink>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 

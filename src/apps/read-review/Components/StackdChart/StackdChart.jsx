@@ -1,53 +1,62 @@
-import React from "react";
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import chartData from "../../assets/chartData.json?url";
 import useReview from "../hooks/useReview";
 
-export default function StackdChart() {
-  const [reviews] = useReview("chartData.json");
-  return (
-    <AreaChart
-      width={500}
-      height={400}
-      data={reviews}
-      margin={{
-        top: 10,
-        right: 30,
-        left: 0,
-        bottom: 0,
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="month" />
-      <YAxis />
-      <Tooltip />
-      <Area
-        type="monotone"
-        dataKey="investmetn"
-        stackId="1"
-        stroke="#8884d8"
-        fill="#8884d8"
-      />
-      <Area
-        type="monotone"
-        dataKey="sell"
-        stackId="1"
-        stroke="#82ca9d"
-        fill="#82ca9d"
-      />
-      <Area
-        type="monotone"
-        dataKey="revenue"
-        stackId="1"
-        stroke="#ffc658"
-        fill="#ffc658"
-      />
-    </AreaChart>
+const StackdChart = () => {
+  const [reviews] = useReview(chartData);
+
+  const maxTotal = Math.max(
+    ...reviews.map(
+      (item) => item.investment + item.sell + item.revenue
+    ),
+    1
   );
-}
+
+  return (
+    <div className="rounded-lg border p-4">
+      <h2 className="mb-6 text-center text-xl font-semibold">
+        Stacked Overview
+      </h2>
+
+      <div className="space-y-4">
+        {reviews.map((item) => {
+          const investmentWidth =
+            (item.investment / maxTotal) * 100;
+
+          const sellWidth =
+            (item.sell / maxTotal) * 100;
+
+          const revenueWidth =
+            (item.revenue / maxTotal) * 100;
+
+          return (
+            <div key={item.month}>
+              <p className="mb-1 font-medium">{item.month}</p>
+
+              <div className="flex h-8 overflow-hidden rounded bg-gray-200">
+                <div
+                  className="bg-blue-500"
+                  style={{ width: `${investmentWidth}%` }}
+                  title={`Investment: ${item.investment}`}
+                />
+
+                <div
+                  className="bg-green-500"
+                  style={{ width: `${sellWidth}%` }}
+                  title={`Sell: ${item.sell}`}
+                />
+
+                <div
+                  className="bg-yellow-500"
+                  style={{ width: `${revenueWidth}%` }}
+                  title={`Revenue: ${item.revenue}`}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default StackdChart;
