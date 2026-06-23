@@ -10,13 +10,6 @@ export interface AppItem {
 
 export const APPS_REGISTRY: AppItem[] = [
   {
-    id: "project-manager",
-    name: "Project Manger",
-    desc: "A very simple react vite application",
-    img: "../src/assets/project-manager.png",
-    element: lazy(() => import("./apps/project-manager")),
-  },
-  {
     id: "game-hub",
     name: "GameHub",
     desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
@@ -85,6 +78,13 @@ export const APPS_REGISTRY: AppItem[] = [
     img: "../src/assets/modern-ui-ux.png",
 
     element: lazy(() => import("./apps/modern-ui-ux-gpt3")),
+  },
+  {
+    id: "infenito",
+    name: "Infenito",
+    desc: "A very simple react vite application",
+    img: "../src/assets/infenito.png",
+    element: lazy(() => import("./apps/infenito")),
   },
   {
     id: "ema-john",

@@ -1,26 +1,27 @@
-import React from "react";
-
-const Feature = ({ svg, featureTitle, underline, children }) => {
+export default function Feature({
+  svg,
+  featureTitle,
+  children,
+}) {
   return (
-    <div>
-      {svg && (
-        <div className="mb-4">
-          <img src={svg} alt="" />
-        </div>
-      )}
-
-      <div className="pb-5">
-        {featureTitle && (
-          <p
-            className={`text-midnight text-lg font-semibold relative after:absolute after:content-[''] after:left-0 after:top-8 after:w-28 after:h-1 ${underline}`}
-          >
-            {featureTitle}
-          </p>
-        )}
+    <div className="group rounded-3xl border border-zinc-800 bg-zinc-900 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/30">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-500/10">
+        <img
+          src={svg}
+          alt={featureTitle}
+          className="h-8 w-8"
+        />
       </div>
-      {children && <p className="mt-5">{children}</p>}
+
+      <h3 className="mt-6 text-xl font-semibold text-white">
+        {featureTitle}
+      </h3>
+
+      <div className="mt-3 h-1 w-12 rounded-full bg-linear-to-r from-violet-500 to-cyan-500" />
+
+      <p className="mt-5 leading-7 text-zinc-400">
+        {children}
+      </p>
     </div>
   );
-};
-
-export default Feature;
+}

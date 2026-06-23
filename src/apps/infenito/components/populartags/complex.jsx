@@ -1,271 +1,100 @@
-import React from "react";
-import "./complex.css";
+import {
+  Code2,
+  Lightbulb,
+  PenTool,
+  Rocket,
+} from "lucide-react";
 
-const Complex = () => {
+const steps = [
+  {
+    icon: Lightbulb,
+    title: "Discovery",
+    description:
+      "We understand your business goals, audience, and technical requirements.",
+  },
+  {
+    icon: PenTool,
+    title: "Design",
+    description:
+      "Our designers create intuitive interfaces and memorable experiences.",
+  },
+  {
+    icon: Code2,
+    title: "Development",
+    description:
+      "Engineers build scalable products using modern technologies.",
+  },
+  {
+    icon: Rocket,
+    title: "Launch & Scale",
+    description:
+      "We deploy, optimize, and continuously improve your product.",
+  },
+];
+
+export default function Complex() {
   return (
-    <>
-      {/* <!-- of #instructions_container --> */}
-      <div id="timeline_container">
-        <header>
-          <figure>
-            <img src="https://placeimg.com/480/480/poeple/sepia" alt="" />
-          </figure>
-        </header>
-        <ul>
-          <li className="life_event active">
-            <div className="event_icn icon-address"></div>
-            <div className="event_content">
-              <h2>The journey begins</h2>
-              <p>
-                At 6:32am, a healthy baby boy is born in Buenos Aires,
-                Argentina.
-              </p>
-            </div>
-            <div className="event_date">25/07/1982</div>
-          </li>
-          <li className="life_event">
-            <div className="event_icn icon-address"></div>
-            <div className="event_content">
-              <h2>Learning to code</h2>
-              <p>
-                Got my first PC for my 13<sup>th</sup> birthday.
-              </p>
-            </div>
-            <div className="event_date">25/07/1995</div>
-          </li>
-          <li className="education_event">
-            <div className="event_icn icon-graduation-cap"></div>
-            <div className="event_content">
-              <h2>Markup and little wheels</h2>
-              <p>
-                Joined the science className in Ohel Shem High school, with
-                emphasis on Computer Science and Robotics. There I built the
-                school's first site in HTML and a little robot that extinguishes
-                a small candle.
-              </p>
-            </div>
-            <div className="event_date">01/09/1997</div>
-          </li>
-          <li className="work_event">
-            <div className="event_icn icon-briefcase"></div>
-            <div className="event_content">
-              <h2>10-4</h2>
-              <p>
-                Recruited to the IDF (Israeli Defense Force). There I learned
-                how to command a tank and a platoon's medical department.
-              </p>
-            </div>
-            <div className="event_date">07/2000 - 07/2003</div>
-          </li>
-          <li className="work_event">
-            <div className="event_icn icon-briefcase"></div>
-            <div className="event_content">
-              <h2>Nature Creation</h2>
-              <p>
-                Retail marketing intern of Nature Creation®, Chicago USA. <br />
-                in charge of sales.
-              </p>
-            </div>
-            <div className="event_date">09/2004 - 02/2005</div>
-          </li>
-          <li className="life_event">
-            <div className="event_icn icon-address"></div>
-            <div className="event_content">
-              <h2>See the world</h2>
-              <p>
-                Bought a good pair of hiking shoes and decided to travel through
-                South America. Met my future wife on a beautiful beach in
-                north-east Brasil.
-              </p>
-            </div>
-            <div className="event_date">02/2005 - 09/2005</div>
-          </li>
-          <li className="work_event">
-            <div className="event_icn icon-briefcase"></div>
-            <div className="event_content">
-              <h2>Partner Comunications</h2>
-              <p>
-                Data department team manager at Partner Comunications, Israel.
-                Responsible for a team of 20 people, VIP client liaison,
-                Software Q&A.
-              </p>
-            </div>
-            <div className="event_date">09/2005 - 08/2008</div>
-          </li>
-          <li className="education_event">
-            <div className="event_icn icon-graduation-cap"></div>
-            <div className="event_content">
-              <h2>Higher learning</h2>
-              <p>
-                Communication and administration studies at the Open University
-                of Isreal.
-              </p>
-            </div>
-            <div className="event_date">09/2005 - 07/2008</div>
-          </li>
-          <li className="life_event">
-            <div className="event_icn icon-address"></div>
-            <div className="event_content">
-              <h2>See the world #2</h2>
-              <p>
-                The 'traveling bug' is rooted deep in me. Traveled through India
-                and Nepal.
-              </p>
-            </div>
-            <div className="event_date">08/2008 - 12/2008</div>
-          </li>
-          <li className="life_event">
-            <div className="event_icn icon-address"></div>
-            <div className="event_content">
-              <h2>Home is where the heart is</h2>
-              <p>
-                Gathered some nerve and decided to move to Brasil for romantic
-                related reasons.
-              </p>
-            </div>
-            <div className="event_date">28/12/2008</div>
-          </li>
-          <li className="education_event">
-            <div className="event_icn icon-graduation-cap"></div>
-            <div className="event_content">
-              <h2>Web mastery</h2>
-              <p>
-                Web master course with emphasis on development at WebBH, Belo
-                Horizonte, MG, Brasil.
-              </p>
-            </div>
-            <div className="event_date">05/2009-02/2011</div>
-          </li>
-          <li className="work_event">
-            <div className="event_icn icon-briefcase"></div>
-            <div className="event_content">
-              <h2>Oliver art bar</h2>
-              <p>
-                Founded and managed the Oliver Art Bar, in Belo Horizonte, MG,
-                Brasil, where I was responsible over a team of 8 and a lot of
-                beer.
-              </p>
-            </div>
-            <div className="event_date">07/2009 - 01/2011</div>
-          </li>
-          <li className="work_event">
-            <div className="event_icn icon-briefcase"></div>
-            <div className="event_content">
-              <h2>Freelance Developer</h2>
-              <p>
-                Got my first paying web job. Developing templates for
-                Revolutions, Israel.
-              </p>
-            </div>
-            <div className="event_date">08/2009</div>
-          </li>
-          <li className="life_event">
-            <div className="event_icn icon-address"></div>
-            <div className="event_content">
-              <h2>Love is all you need.</h2>
-              <p>Married the love of my life.</p>
-            </div>
-            <div className="event_date">28/05/2010</div>
-          </li>
-          <li className="work_event">
-            <div className="event_icn icon-briefcase"></div>
-            <div className="event_content">
-              <h2>Front end developer</h2>
-              <p>
-                Joined Domínio Público Comunicação. An advertising agency in
-                Belo Horizonte, MG, Brasil.
-              </p>
-            </div>
-            <div className="event_date">04/2011 - Today</div>
-          </li>
+    <section className="py-28">
+      <div className="mx-auto max-w-6xl">
+        <div className="max-w-3xl">
+          <div className="inline-flex rounded-full border border-violet-500/20 bg-violet-500/10 px-4 py-2 text-sm font-medium text-violet-300">
+            Our Process
+          </div>
 
-          <li className="user_event">
-            <div className="event_icn icon-user"></div>
-            <div className="event_content">
-              <h2>Virtual Identities</h2>
-              <ul>
-                <li>
-                  <a
-                    href="https://www.facebook.com/slatiner"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://br.linkedin.com/pub/nicolas-slatiner/45/610/385/en"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://be.net/slatiner/frame"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Behance
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://codepen.io/slatiner"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Codepen
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="event_date"></div>
-          </li>
-          <li className="user_event">
-            <div className="event_icn icon-user"></div>
-            <div className="event_content">
-              <h2>Additional information</h2>
-              <ul>
-                <li>Civil status: Married</li>
-                <li>Nationalities: Argentinian, Israel</li>
-                <li>Residency: Brazilian</li>
-                <li>Languages: English, Portuguese, Spanish, Hebrew</li>
-              </ul>
-            </div>
-            <div className="event_date"></div>
-          </li>
-          <li className="user_event">
-            <div className="event_icn icon-user"></div>
-            <div className="event_content">
-              <h2>Contact Information</h2>
-              <ul>
-                <li>Phone: +55 31 8816-5008</li>
-                <li>Address: R.Espanha, 571, Sabará - MG, 34590-340, Brazil</li>
-                <li>
-                  E-mail:{" "}
-                  <a
-                    href="mailto:nslatiner@gmail.com"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    nslatiner@gmail.com
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="event_date"></div>
-          </li>
-        </ul>
+          <h2 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl">
+            From idea to launch,
+            we handle every step.
+          </h2>
+
+          <p className="mt-5 text-lg text-zinc-400">
+            A streamlined workflow that keeps projects moving
+            quickly while maintaining quality.
+          </p>
+        </div>
+
+        <div className="relative mt-20">
+          {/* timeline line */}
+          <div className="absolute left-6 top-0 hidden h-full w-px bg-zinc-800 lg:block" />
+
+          <div className="space-y-10">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+
+              return (
+                <div
+                  key={step.title}
+                  className="group relative flex gap-6"
+                >
+                  <div className="hidden lg:flex">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900">
+                      <Icon
+                        size={22}
+                        className="text-violet-400"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex-1 rounded-3xl border border-zinc-800 bg-zinc-900 p-8 transition-all duration-300 hover:border-violet-500/30">
+                    <div className="flex items-center gap-4">
+                      <span className="text-sm font-medium text-violet-400">
+                        Step {index + 1}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-3 text-2xl font-semibold text-white">
+                      {step.title}
+                    </h3>
+
+                    <p className="mt-4 leading-7 text-zinc-400">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-      {/* <!-- of #timeline_container --> */}
-
-      <div id="info_container">i</div>
-      {/* <!-- of #info_container --> */}
-    </>
+    </section>
   );
-};
-
-export default Complex;
+}

@@ -1,21 +1,27 @@
-import React from "react";
-import SectionHeader from "../reusable-components/section-header";
 
-const ServiceProvider = () => {
+export default function ServiceProvider() {
   return (
-    <div>
-      <div className="text-center">
-        <div className="flex items-center justify-center mb-8">
-          <SectionHeader
-            underline={"after:-top-3.5 after:left-32 text-center "}
-          >
-            Services we provide
-          </SectionHeader>
+    <section className="py-28">
+      <div className="mx-auto max-w-3xl text-center">
+        <div className="flex justify-center">
+          <div className="inline-flex rounded-full border border-violet-500/20 bg-violet-500/10 px-4 py-2 text-sm font-medium text-violet-300">
+            Our Services
+          </div>
         </div>
-        <p>We serve the users in different categories with latest tools</p>
-      </div>
-    </div>
-  );
-};
 
-export default ServiceProvider;
+        <h2 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-5xl">
+          Services crafted for
+          <span className="block bg-linear-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+            modern businesses
+          </span>
+        </h2>
+
+        <p className="mt-6 text-lg leading-8 text-zinc-400">
+          We help startups and enterprises build exceptional digital
+          products using cutting-edge technologies and scalable
+          development practices.
+        </p>
+      </div>
+    </section>
+  );
+}
