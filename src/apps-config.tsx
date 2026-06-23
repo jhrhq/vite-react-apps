@@ -17,6 +17,14 @@ export const APPS_REGISTRY: AppItem[] = [
 
     element: lazy(() => import("./apps/project-manager")),
   },
+  {
+    id: "project-toast",
+    name: "Project Toast",
+    desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
+    img: "../src/assets/project-toast.png",
+
+    element: lazy(() => import("./apps/project-toast")),
+  },
 
   {
     id: "game-hub",

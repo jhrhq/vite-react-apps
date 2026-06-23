@@ -11,11 +11,3 @@ In this project, we'll dive deep into the implementation of a single common UI c
 This project is created with [Vite](https://vite.dev/). It's intended to be run locally, on your computer, using Deno and NPM.
 
 Here are the terminal commands you'll need to run:
-
-```bash
-# Install dependencies:
-deno install
-
-# Run a development server:
-deno run dev
-```

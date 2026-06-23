@@ -6,6 +6,8 @@ import { ToastContext } from "../ToastProvider/ToastProvider";
 import ToastShelf from "../ToastShelf/ToastShelf";
 import styles from "./ToastPlayground.module.css";
 
+import toastImage from "../../assets/toast.png";
+
 const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 
 function ToastPlayground() {
@@ -30,7 +32,7 @@ function ToastPlayground() {
   return (
     <div className={styles.wrapper}>
       <header>
-        <img alt="Cute toast mascot" src="../../../assets/toast.png" />
+        <img alt="Cute toast mascot" src={toastImage} />
         <h1>Toast Playground</h1>
       </header>
       <ToastShelf />
@@ -49,7 +51,7 @@ function ToastPlayground() {
               <textarea
                 id="message"
                 required
-                className={styles.messageInput}
+                className="block w-full h-16 border"
                 value={message}
                 onChange={handleMessage}
               />
