@@ -10,11 +10,17 @@ export interface AppItem {
 
 export const APPS_REGISTRY: AppItem[] = [
   {
+    id: "read-review",
+    name: "Read Review",
+    desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
+    img: "../src/assets/project-manager.png",
+    element: lazy(() => import("./apps/read-review")),
+  },
+  {
     id: "project-manager",
     name: "Project Manager",
     desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
     img: "../src/assets/project-manager.png",
-
     element: lazy(() => import("./apps/project-manager")),
   },
   {
@@ -131,6 +137,13 @@ export const APPS_REGISTRY: AppItem[] = [
     desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
     img: "../src/assets/simple-ecommerce.png",
     element: lazy(() => import("./apps/simple-ecommerce")),
+  },
+  {
+    id: "school",
+    name: "School",
+    desc: "GameHub is a video game discovery web app that helps you find new and interesting games to play. With GameHub, you can search for games by platform, genre, and more.",
+    img: "../src/assets/school.png",
+    element: lazy(() => import("./apps/school")),
   },
   // {
   //   id: "issue-tracker",
