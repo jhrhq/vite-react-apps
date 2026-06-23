@@ -86,6 +86,13 @@ export const APPS_REGISTRY: AppItem[] = [
 
     element: lazy(() => import("./apps/modern-ui-ux-gpt3")),
   },
+  {
+    id: "ema-john",
+    name: "Ema John",
+    desc: "A very simple ecommerce",
+    img: "../src/assets/project-manager.png",
+    element: lazy(() => import("./apps/ema-john")),
+  },
   // {
   //   id: "issue-tracker",
   //   name: "Issue Tracker",

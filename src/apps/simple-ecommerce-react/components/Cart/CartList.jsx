@@ -1,6 +1,4 @@
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { Trash2 } from "lucide-react";
 import "./CartList.css";
 
 const CartList = ({ product }) => {
@@ -14,7 +12,7 @@ const CartList = ({ product }) => {
       </div>
       <div className="trash">
         <button>
-          <FontAwesomeIcon icon={faTrash} aria-hidden="true" />
+          <Trash2 />
         </button>
       </div>
     </div>

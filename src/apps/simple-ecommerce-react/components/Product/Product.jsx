@@ -1,6 +1,4 @@
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { ShoppingCart } from "lucide-react";
 import "./Product.css";
 const Product = ({ laptop, handleAddToCart }) => {
   const { name, cpu, images, company, price } = laptop;
@@ -13,7 +11,7 @@ const Product = ({ laptop, handleAddToCart }) => {
       <p>Price : ${price}</p>
       <button onClick={() => handleAddToCart(laptop)}>
         Add to Cart
-        <FontAwesomeIcon icon={faCartShopping} aria-hidden="true" />
+        <ShoppingCart />
       </button>
     </div>
   );

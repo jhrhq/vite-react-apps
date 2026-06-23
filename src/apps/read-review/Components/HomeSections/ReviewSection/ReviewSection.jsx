@@ -1,6 +1,4 @@
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { Star } from "lucide-react";
 import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -23,7 +21,7 @@ const ReviewSection = () => {
       <div className="mt-5 mb-3 text-center">
         <Link className="btn btn-secondary" to="/reviews">
           <span className="me-1">More Reviews</span>
-          <FontAwesomeIcon className="text-warning" icon={faStar} />
+          <Star className="bg-orange-300" />
         </Link>
       </div>
     </Row>

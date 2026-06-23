@@ -1,6 +1,4 @@
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { Star } from "lucide-react";
 import { Card, Col } from "react-bootstrap";
 const ReviewCard = () => {
   return (
@@ -10,8 +8,8 @@ const ReviewCard = () => {
           <Card.Title>Michel Stu</Card.Title>
           <Card.Text>
             Added
-            <FontAwesomeIcon className="text-warning" icon={faStar} />
-            <FontAwesomeIcon className="text-warning" icon={faStar} />
+            <Star className="bg-orange-300" />
+            <Star className="bg-orange-300" />
             review from his user experience
           </Card.Text>
         </Card.Body>

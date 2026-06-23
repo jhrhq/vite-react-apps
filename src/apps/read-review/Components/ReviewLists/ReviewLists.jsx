@@ -1,6 +1,4 @@
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { Star } from "lucide-react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -29,11 +27,7 @@ const ReviewLists = ({ review }) => {
                 <small className="text-muted">User Rated the Product</small>
                 {/* printing the start icon depending on the user ratings */}
                 {[...Array(rating)].map((_, index) => (
-                  <FontAwesomeIcon
-                    icon={faStar}
-                    className="text-warning"
-                    key={index}
-                  />
+                  <Star key={index} className="text-yellow-400" />
                 ))}
                 <small className="text-muted">Star</small>
               </Card.Text>
