@@ -1,11 +1,11 @@
-import { type ComponentType, lazy } from "react";
+import { type ComponentType } from "react";
 
 export interface AppItem {
   id: string;
   name: string;
   desc: string;
   img: string;
-  element: ComponentType<any>;
+  element: ComponentType<object>;
 }
 
 export const APPS_REGISTRY: AppItem[] = [
