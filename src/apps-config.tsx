@@ -113,7 +113,7 @@ export const APPS_REGISTRY: AppItem[] = [
     id: "ema-john",
     name: "Ema John",
     desc: "A very simple ecommerce",
-    img: "../src/assets/project-manager.png",
+    img: "../src/assets/ema-john.png",
     element: lazy(() => import("./apps/ema-john")),
   },
   {

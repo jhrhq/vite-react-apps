@@ -26,13 +26,13 @@ export default function Home(): React.JSX.Element {
             Built on <span className="font-medium text-neutral-900">Vite</span>,{" "}
             <span className="font-medium text-neutral-900">Tailwind</span>, and{" "}
             <span className="font-medium text-neutral-900">React Router</span>.
-            A clean, single-workspace collection showcasing 10 standalone
-            frontend projects under a unified dashboard.
+            A clean, single-workspace collection showcasing{" "}
+            {APPS_REGISTRY.length} standalone frontend projects under a unified
+            dashboard.
           </p>
         </div>
       </section>
 
-      {/* Responsive 12 App Grid Layer */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {APPS_REGISTRY.map((app: AppItem) => (
           <Link
