@@ -1,33 +1,39 @@
-import Element from "react-scroll/modules/components/Element";
-import "./App.css";
 import Featured from "./featured/Featured";
 import Footer from "./header_footer/Footer";
 import Header from "./header_footer/Header";
 import Highlights from "./highlights/Highlihts";
 import Location from "./location/Location";
 import Pricing from "./pricing/Pricing";
+
 import "./resources/styles.css";
 import VenueInfo from "./venue_info/VenueInfo";
+
 function App() {
   return (
-    <div className="App">
-        <Header /> 
-      <Element name="eventStarts">
+    <div>
+      <Header />
+
+       <section id="eventStarts">
         <Featured />
-      </Element>
-      <Element name="venueinfo">
+      </section>
+
+      <section id="venueinfo">
         <VenueInfo />
-      </Element>
-      <Element name="highlights">
+      </section>
+
+      <section id="highlights">
         <Highlights />
-      </Element>
-      <Element name="pricing">
+      </section>
+
+      <section id="pricing">
         <Pricing />
-      </Element>
-      <Element name="location">
+      </section>
+
+      <section id="location">
         <Location />
-      </Element>
-        <Footer />
+      </section>
+
+      <Footer /> 
     </div>
   );
 }
