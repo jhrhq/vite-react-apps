@@ -1,4 +1,4 @@
-import { type ComponentType } from "react";
+import { lazy, type ComponentType } from "react";
 
 export interface AppItem {
   id: string;
